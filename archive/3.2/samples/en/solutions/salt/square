@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Liliana Saidon, Dir. Centro Babbage de Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>http://www.centrobabbage.com</web>
+</author>
+<comments/>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Liliana Saidon, Dir. Centro Babbage de Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>http://www.centrobabbage.com</web>
+</author>
+<comments/>
+</envelope>
+<text>Cut this empty milk box with a plane parallel to its shortest edge so that the section is a square.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Milkbox</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.875 0.125 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.12500000000000006 0.875 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.875 -0.1249999999999999 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.875 0.125 3.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.12500000000000017 -0.875 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.12500000000000006 0.875 3.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>-0.875 -0.1249999999999999 3.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.12500000000000017 -0.875 3.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.45011922040704117 -0.3233626371232026 -0.48483954629873105 0.6765795641886667</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition>
+<type>parallelToLine</type>
+<coords>0.875 0.125 3.0</coords>
+<coords>0.12500000000000006 0.875 3.0</coords>
+</condition>
+<condition/>
+<condition>
+<type>square</type>
+<figureName>Milkbox</figureName>
+</condition>
+</answer>
+</problem>
+<log>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Milkbox</figureName>
+<p1Label>E</p1Label>
+<p2Label>F</p2Label>
+<variableName>edge</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Milkbox</figureName>
+<distance>edge/2</distance>
+<p0Label>E</p0Label>
+<p1Label>H</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Milkbox</figureName>
+<distance>edge</distance>
+<p0Label>I</p0Label>
+<p1Label>A</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Milkbox</figureName>
+<p0Label>J</p0Label>
+<p1Label>F</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Milkbox</figureName>
+<p0Label>I</p0Label>
+<p1Label>J</p1Label>
+<p2Label>K</p2Label>
+<figure1Name>Figure1</figure1Name>
+<figure2Name>Figure2</figure2Name>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>J,I,K</value>
+<figureName>Figure1</figureName>
+</action>
+</log>
+</solution>

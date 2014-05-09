@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema é parte do repositório do Geometria.</comments>
+</envelope>
+<text>Um barra cuja seção transversal mais larga passa através do interior desta estrutura é tal que sua base está sobre as arestas AD e BC. A estrutura tem o formato de uma pirâmide regular. Encontre o ponto onde a barra toca a aresta ED.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Estrutura</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.010000000000000016 -0.50622788017519</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.01 -0.50622788017519</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 0.010000000000000139 -0.50622788017519</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.010000000000000016 1.126765281680262</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 -0.99 -0.50622788017519</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.4569342975720599 -0.4040725401005427 -0.48813003491643037 0.6242319272926595</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>0.0 -0.5258983848622455 0.25164688375083377</coords>
+</answer>
+</problem>

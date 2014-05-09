@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://geocentral.net"
+            xmlns="http://geocentral.net"
+            elementFormDefault="qualified">
+
+<!-- Geometria 3.0 tool bar schema -->
+
+<xs:complexType name="toolBarButtonType">
+<xs:all>
+<xs:element name="action" type="xs:string"/>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="toolBarType">
+<xs:sequence>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="toolBarButton" type="toolBarButtonType" minOccurs="0"
+			maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="toolBarsType">
+<xs:sequence>
+<xs:element name="toolBar" type="toolBarType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:element name="toolBars" type="toolBarsType"/>
+
+</xs:schema>

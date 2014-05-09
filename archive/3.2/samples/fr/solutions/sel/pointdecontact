@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Cette solution fait partie du répertoire original de Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Ce problème fait partie du répertoire original de Geometria.</comments>
+</envelope>
+<text>Ce solide est formé par l&#39;assemblage de deux pyramides régulières identiques. Déterminer la position du point de contact entre la sphère inscrite et la face ABD.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Hexaèdre</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.9999999999999999 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.49999999999999983 0.8660254037844386 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5000000000000004 -0.8660254037844386 0.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 0.0 1.632993161855452</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 -1.632993161855452</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.3984733955005549 -0.48033796315630073 -0.614331648435468 0.48279500821743815</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>0.22857142857142873 0.3958973274443148 0.13997084244475302</coords>
+</answer>
+</problem>
+<log>
+<action>
+<className>GCutAction</className>
+<figureName>Hexaèdre</figureName>
+<p0Label>C</p0Label>
+<p1Label>D</p1Label>
+<p2Label>E</p2Label>
+<figure1Name>Figure1</figure1Name>
+<figure2Name>Figure2</figure2Name>
+</action>
+<action>
+<className>GDrawLineAction</className>
+<figureName>Figure2</figureName>
+<p1Label>C</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GDivideLineAction</className>
+<figureName>Figure2</figureName>
+<numerator>2</numerator>
+<denominator>1</denominator>
+<p1Label>C</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<p0Label>G</p0Label>
+<p1Label>D</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>H</value>
+<figureName>Figure2</figureName>
+</action>
+</log>
+</solution>

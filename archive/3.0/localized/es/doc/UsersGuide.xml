@@ -1,0 +1,4124 @@
+<?xml-stylesheet type="text/xsl" href="fo.xsl" encoding="UTF-8"?>
+
+<book id="GeometriaUsersGuide" lang="es">
+
+<title>Geometria 3.0</title>
+<subtitle>Guía de Uso</subtitle>
+
+<chapter id="General">
+<title>General</title>
+
+<!-- Help page start -->
+
+<sect1 id="Overview">
+<title>Panorámica</title>
+
+<para>
+<emphasis>Geometria</emphasis>
+ofrece una interfaz gráfica para crear y resolver problemas en geometría en 3D.
+</para>
+
+<para>
+En cualquier momento, al tratar un problema con Geometria, se puede pasar de ser quien lo
+<emphasis>crea</emphasis>
+(tomando el rol docente) a ser quien lo
+<emphasis>resuelve</emphasis>
+(desde el rol de estudiante).
+</para>
+
+<para>
+Tanto el problema como la solución se denominan
+<emphasis>documentos</emphasis>.
+Y se almacenan en archivos.
+Al trabajar con Geometria, se ingresa a un proceso como este: 
+</para>
+
+<itemizedlist>
+
+<listitem>
+Puestos a crear un problema, lo completamos con una
+<link linkend="Answer">respuesta</link>
+y
+<link linkend="SaveProblem">guardamos</link>
+el problema en un archivo. 
+</listitem>
+
+<listitem>
+Quien fuera a resolverlo
+<link linkend="OpenProblem">abre</link>
+el archivo del problema y
+crea una
+<link linkend="CreateSolution">solución</link>
+del problema.
+</listitem>
+
+<listitem>
+La solución consiste en un número de acciones. Las acciones se asientan en un
+<link linkend="SolutionLog">reporte</link>.
+</listitem>
+
+<listitem>
+Quien resuelve, procura una
+<link linkend="Answer">respuesta</link>
+del problema. Su respuesta se considera correcta si se ajusta a la que anticipó quien lo creó.
+Una respuesta correcta involucra el
+<link linkend="SolutionLog">reporte de la solución</link>.
+Quien resuelve
+<link linkend="SaveSolution">guarda</link>
+la solución en un archivo.
+</listitem>
+
+<listitem>
+La solución puede ser recuperada y
+<link linkend="SolutionLog">reproducida</link>
+al
+<link linkend="OpenSolution">abrir</link>
+el archivo, siguiendo el recorrido de acciones de resolución. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+ÖjO: Geometria no realiza un análisis semántico del problema para determinar si es correcta
+efectivamente la respuesta de quien la anotó. Puede ser incorrecta o incluso desatinada.
+El problema puede no tener sentido tampoco. Puede plantear:
+</para>
+
+<para>
+<emphasis>
+Indicar el punto más alto de América del Sur
+</emphasis>
+</para>
+
+<para>
+y esperar como respuesta:
+</para>
+
+<para>
+<emphasis>
+Punto Z en el boceto MiPirAmide.
+</emphasis>
+</para>
+
+<para>
+En tanto quien creara el problema y su solución, lo considerara correcto, así lo asumirá Geometria.
+Sin embargo, es poco probable que este problema sea muy tomado en cuenta por quienes lo encaren.
+</para>
+
+<para>
+Cada documento contiene el planteo del problema, una
+<link linkend="Envelope">carátula</link>,
+número de figuras y un número, en el anotador, de
+<link linkend="Notepad">registros</link>.
+Las figuras se limitan a poliedros convexos. Las figuras se pueden medir, retrazar, transformar,
+<link linkend="RotateFigure">rotar</link>,
+<link linkend="ViewModes">exponerse</link>
+transparentes u opacas.
+</para>
+
+<para>
+Las medidas y trazados se pueden realizar sólo sobre el área de una figura.
+Las acciones en el interior de la figura son posibles al
+<link linkend="CutFigure">cortar</link>
+la figura con un plano adecuado
+</para>
+
+<para>
+Los rótulos y las
+<link linkend="Variables">variables</link>
+ofrecen una abstracción adecuada para tratar coordenadas numéricas y medidas.
+Las
+<link linkend="Variables">variables</link>
+se usan en los
+<link linkend="Calculator">cálculos</link>
+y aparecen mencionadas en los bocetos. Rótulos y variables aparecen también en la
+<link linkend="Answer">respuesta</link>
+del problema.
+</para>
+
+<para>
+La
+<link linkend="Answer">respuesta</link>
+no es necesariamente numérica. De hecho, algunos de los más interesantes problemas
+no se responden con un número. El problema puede preguntar por cierto punto, segmento,
+trayecto o plano a construirse. Por ejemplo:
+</para>
+
+<para>
+<emphasis>
+Hallar un plano paralelo a la diagonal del cubo que lo corta de modo que duplique el volumen de la pirámide.
+</emphasis>
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Calculadora</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Anotador</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Variables">
+<title>Variables</title>
+
+<sect2 id="CreatingAVariable">
+<title>Crear una Variable</title>
+
+<para>
+Una
+<emphasis>variable</emphasis>
+puede crearse como un resultado de una medición o un cálculo. Una variable recién creada,
+tiene un nombre y una definición. Por ejemplo, la variable miDistancia en el ejemplo
+que aparece a continuación, se define como la distancia entre los puntos P y W
+en la figura MiCubo: 
+</para>
+
+<programlisting>
+miDistancia = |PW| : MiCubo
+</programlisting>
+
+<para>
+En otro ejemplo, la variable miArea es el resultado del cálculo sobre las variables
+previamente definidas miVolumen y miDistancia:
+</para>
+
+<programlisting>
+miArea = 2 * miVolumen / miDistancia
+</programlisting>
+
+<para>
+Las variables recién creadas se registran automáticamente, junto a sus definiciones, en el
+<link linkend="Notepad">anotador</link>.
+</para>
+
+<para>
+Los nombres de variables pueden contener exclusivamente caracteres alfanuméricos,
+exceptuando los acentuados o especiales de algún tipo.
+Tampoco pueden incluir espacios.
+</para>
+
+<para>
+Son sensibles a las mayúsculas. Así,
+<emphasis>miArea</emphasis>
+y
+<emphasis>MiArea</emphasis>
+se refieren a dos variables distintas.
+</para>
+
+<para>
+<emphasis>PI</emphasis>
+queda reservado para la correspondiente constante y no puede usarse para variables
+recién creadas. Sin embargo, puede emplearse en
+<link linkend="Calculator">cálculos</link>.
+</para>
+
+</sect2>
+
+<sect2 id="ValueOfAVariable">
+<title>Valor de una Variable</title>
+
+<para>
+Cada variable tiene un valor numérico. Sin embargo, en la mayoría de los casos,
+este valor permanece transparente para los usuarios. Los usuarios pueden crear
+y resolver problemas con Geometria sin siquiera enterarse de los valores subyacentes
+de las variables que se hubieran definido.
+Para ver el valor numérico de una variable, basta anotarla en la
+<link linkend="Calculator">calculadora</link>
+con un clic sobre el botón
+<emphasis>Calcula</emphasis>
+Debido a errores de redondeo y precisión, los valores numéricos pueden variar ligeramente durante el proceso de creación y resolución del problema.
+</para>
+
+<para>
+El valor de una variable puede cambiar como resultado de ciertas acciones sobre los bocetos.
+Si, en el ejemplo previo, MiCubo es
+<link linkend="ScaleFigure">escalado</link>
+por el factor 3, el valor de miDistancia se multiplicará implícitamente por 3.
+Los valores de cualquier variable que dependiera de miDistancia, tal como miArea,
+se actualizarán automáticamente también.
+</para>
+
+<para>
+Sin embargo, el valor numérico de la
+<link linkend="Answer">respuesta</link>
+no se verá afectado por acciones realizadas sobre las figuras.
+Si, en el ejemplo previo, al crear el problema se anota miDistancia
+como la respuesta al problema
+<emphasis>antes</emphasis>
+de escalar la figura, el valor de la respuesta
+no cambiará, aunque miDistancia contenga un nuevo valor en todos los cálculos
+subsiguientes. Esta advertencia se aplica a todos los tipos de respuesta. 
+</para>
+
+<para>
+Por lo tanto, al crearse el problema se debería considerar (re)ingresar la respuesta
+antes de poner el problema a disposición de quienes lo resolverán.
+</para>
+
+</sect2>
+
+<sect2 id="PinnedVariable">
+<title>Variable Desplomada</title>
+
+<para>
+Después de ciertas acciones, la definición de una variable puede resultar obsoleta.
+Por ejemplo, si el punto P o el punto W se
+<link linkend="EraseElements">borra</link>,
+la definición de la variable previa miDistancia resultará obsoleta.
+Del mismo modo que su la figura MiCubo fuera
+<link linkend="RemoveFigure">borrada</link>.
+Tal variable se denomina <emphasis>desplomada</emphasis>. 
+</para>
+
+<para>
+Una variable desplomada ya no depende de su definición original
+y su valor ya no se actualizará. Por ejemplo, al
+<link linkend="EraseElements">borrar</link>
+el punto P en la figura MiCubo se desplomará la variable miDistancia.
+Si MiCubo se escalara posteriormente como ya describimos, el valor de miDistancia
+ya no permanecería ni igual ni estable.
+</para>
+
+<para>
+Si la acción que desploma una variable se
+<link linkend="UndoActions">deshace</link>,
+la definición de la variable se restaura y vuelve a ser susceptible de actualizaciones.
+</para>
+
+</sect2>
+
+<sect2 id="LifetimeOfAVariable">
+<title>Lapso de una Variable</title>
+
+<para>
+Una vez definida una variable, se la puede usar en
+<link linkend="Calculator">cálculos</link>
+y referirse a ella en acciones, como medir, trazar y transformar figuras.
+Una variable también puede usarse en la
+<link linkend="Answer">respuesta</link>
+a un problema. Una variable desplomada puede usarse aún en cálculos y referencias.
+</para>
+
+<para>
+Una variable existe mientras esté registrada en el
+<link linkend="Notepad">anotador</link>.
+Limpiar el
+<link linkend="Notepad">anotador</link>
+es el único modo de eliminar una variable. Lo que requiere precaución
+porque esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Cuando un documento, como un problema o una solución, se guarda,
+todas las variables registradas en el
+<link linkend="Notepad">anotador</link>
+se guardan también. 
+</para>
+
+</sect2>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Notepad">Anotador</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Calculadora</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Guardar un Problema</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Guardar una Solución</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Calculator">
+<title>Calculadora</title>
+
+<sect2 id="Expressions">
+<title>Expresiones</title>
+
+<para>
+Los cálculos operan sobre expresiones válidas. Las expresiones pueden contener números,
+<link linkend="Variables">variables</link>,
+la constante
+<emphasis>PI</emphasis>,
+operadores, funciones y paréntesis. 
+</para>
+
+</sect2>
+
+<sect2 id="Assignment">
+<title>Asignación</title>
+
+<para>
+La calculadora opera en el contexto del documento activo abierto.
+</para>
+
+<para>
+Para calcular una expresión miExpresiOn y asignar el resultado a
+una nueva variable miVariable, se debe anotar:
+</para>
+
+<programlisting>
+miVariable = miExpressiOn
+</programlisting>
+
+<para>
+y un clic sobre
+<emphasis>Calcula</emphasis>.
+El nombre de la variable debe ser único en el contexto del documento activo abierto.
+Se añadirá un nuevo registro al
+<link linkend="Notepad">anotador</link>.
+La variable recién creada puede ser empleada en los posteriores cálculos
+y subsecuentes referencias. 
+</para>
+
+<para>
+Si no hubiera un documento abierto, el resultado numérico de los cálculos
+se expondrá sin que se cree una nueva variable.
+</para>
+
+</sect2>
+
+<sect2 id="Operators">
+<title>Operadores</title>
+
+<para>
+Se admiten los siguientes operadores:
+</para>
+
+<itemizedlist>	
+
+<listitem>
++ (suma)
+</listitem>
+
+<listitem>
+- (negativo, resta)
+</listitem>
+
+<listitem>
+* (producto)
+</listitem>
+
+<listitem>
+/ (división)
+</listitem>
+
+<listitem>
+^ (operador de potencia)
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="Functions">
+<title>Funciones</title>
+
+<para>
+Se admiten las siguientes funciones:
+</para>
+
+<itemizedlist>
+
+<listitem>
+sqrt (raíz cuadrada)
+</listitem>
+
+<listitem>
+sin
+</listitem>
+
+<listitem>
+cos
+</listitem>
+
+<listitem>
+tan
+</listitem>
+
+<listitem>
+asin (arcoseno)
+</listitem>
+
+<listitem>
+acos (arcocoseno) 
+</listitem>
+
+<listitem>
+atan (arcotangente)
+</listitem>
+
+</itemizedlist>
+
+<para>
+Los argumentos de las funciones se ingresan entre paréntesis.
+</para>
+
+</sect2>
+
+<sect2 id="Examples">
+<title>Ejemplos</title>
+
+<para>
+Calcular la arista de un cubo cuyo volumen es miVolumen: 
+</para>
+
+
+<programlisting>
+miArista = miVolumen ^ (1 / 3)
+</programlisting>
+
+<para>
+Calcular el lado adyacente al ángulo miAngulo en un triángulo rectángulo
+cuya hipotenusa es miHipotenusa:
+</para>
+
+<programlisting>
+miArista = miHipotenusa * cos(miAngulo)
+</programlisting>
+
+</sect2>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Anotador</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Notepad">
+<title>Anotador</title>
+
+<para>
+Cada vez que se crea una nueva
+<link linkend="CreatingAVariable">variable</link>
+como resultado de una medición o un
+<link linkend="Calculator">cálculo</link>,
+se añade un registro al anotador, automáticamente. Cada registro consiste
+del nombre de una única variable y, posiblemente, una definición.
+Los registros de medición pueden contener también el nombre de la figura
+en que la medición se obró. Por ejemplo, el siguiente registro: 
+</para>
+
+<programlisting>
+miDistancia = |AB| : MiCubo
+</programlisting>
+
+<para>
+es el resultado de medir la distancia entre los puntos A y B en una figura
+llamado MiCubo. La distancia fue asignada a la variable miDistancia. El registro:
+</para>
+
+<programlisting>
+miAngulo = &lt;PLX
+</programlisting>
+
+<para>
+es el resultado de medir un ángulo. La figura nombrada no se expone ya que el
+documento activo contiene una única figura. El registro:
+</para>
+
+<programlisting>
+miVolumen = volumen : Figura1
+</programlisting>
+
+<para>
+es el resultado de medir el volumen de una figura llamada Figura1.
+El siguiente registro fue añadido después del
+<link linkend="Calculator">cálculo</link>:
+</para>
+
+<programlisting>
+h = 2 * miVolumen / miArea
+</programlisting>
+
+<para>
+Si una variable queda
+<link linkend="PinnedVariable">desplomada</link>,
+su definición ya no se expone en el anotador. Por ejemplo, si el punto X se
+<link linkend="EraseElements">borra</link>,
+la variable miAngulo será arrancada de su definición
+y el segundo ejemplo previo pasará a leerse: 
+</para>
+
+<programlisting>
+miAngulo
+</programlisting>
+
+<para>
+Los registros del anotador los detenta el documento activo, sea un problema o una solución.
+Cuando el documento se guarda en un archivo, los registros del mismo modo,
+quedan guardados en ese archivo.
+</para>
+
+<para>
+Si el documento activo se
+<link linkend="CloseDocument">cierra</link>,
+el anotador quedará librado de sus registros. Si otro documento se abre,
+los registros de su anotador serán expuestos en su lugar. 
+</para>
+
+<para>
+Para borrar todos los registros del anotador, basta elegir
+<emphasis>Borra Anotador</emphasis>
+del menú
+<emphasis>Edita</emphasis>
+Esto requiere recaudos porque esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Para deseleccionar los registros del anotador, basta un clic derecho y elegir
+<emphasis>Limpia Selección</emphasis>
+del menú desplegado.
+</para>
+
+<para>
+Ver también: 
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Calculadora</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="UndoActions">
+<title>Deshacer Acciones</title>
+
+<para>
+Se deshace la última acción realizada en una figura o documento,
+al seleccionar
+<emphasis>Deshace</emphasis>
+en el menú
+<emphasis>Edita</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas.
+En una solución, la acción también será borrada del
+<link linkend="SolutionLog">reporte de solución</link>.
+Las acciones se deshacen en orden inverso al que fueron realizadas. 
+</para>
+
+<para>
+Para ver una breve descripción de la acción a deshacerse, basta pasar sobre el botón:
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject> .
+
+</para>
+
+<para>
+Toda acción de la que se hubiera indicado se 
+<emphasis>Deshace</emphasis>,
+puede señalarse que se
+<emphasis>Rehace</emphasis>.
+</para>
+
+<para>
+Algunas de las acciones no pueden deshacerse. Una advertencia aparece en tal caso,
+señalado que dicha irreversible acción acaecerá.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RedoActions">Rehacer acciones</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Reporte de solución</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RedoActions">
+<title>Rehacer Acciones</title>
+
+<para>
+Para rehacer la última acción descartada en una figura o documento, vía
+<emphasis>Dehace</emphasis>,
+basta seleccionar
+<emphasis>Rehace</emphasis>
+del menú
+<emphasis>Edita</emphasis>
+o ir con un clic al botón
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramients. En una solución, la acción se añadirá al
+<link linkend="SolutionLog">reporte de solución</link>.
+Las acciones se rehacen en orden inverso al que se estableció en cada
+Deshace.
+</para>
+
+<para>
+Para ver una brece descripción de la acción que se podría rehacer,
+basta pasar por encima del botón:
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject> .
+
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Deshacer acciones</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Reporte de solución</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="KnownLimitations">
+<title>Reconocimiento de Limitaciones</title>
+
+<sect2 id="InordinateSizeOrShape">
+<title>Forma o Medida Excesivas</title>
+
+<para>
+La aplicación puede comportarse erráticamente si los bocetos contienen excesivos elementos
+o son de formato extraño o dimensiones desmesuradas. Se aconseja, para mantener
+los bocetos seguros y estables:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Evitar tanto los valores demasiado grandes (más de 100) como los diminutos
+(por debajo de 0.01) para las razones de
+<link linkend="ScaleFigure">escala</link>
+o los factores.
+</listitem>
+
+<listitem>
+Al crear un prisma o una pirámide recurriendo a la
+<link linkend="FigureGallery">galería de figuras</link>,
+mantener el número de lados bajo un límite razonable (por debajo de 100).
+Al diseñar, Geometria no puede manejar más sólidos que los poliedros convexos.
+Sin embargo, los prismas y pirámides
+<link linkend="ToggleTransparency">opacos</link>
+con un gran número de lados se verán como cilindros y conos respectivamente.
+Lamentablemente, las acciones sobre tales figuras pueden ser lentas e imprecisas.
+La aplicación puede devenir inestable y dejar de responder a las acciones de operación.
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="PreviousVersionsOfGeometria">
+<title>Versiones Previas de Geometria</title>
+
+<para>
+Los problemas, soluciones y figuras creadas con versiones de Geometria previas a la
+3.0 ya no se respaldan. Sin embargo, se planifica que las versiones
+futuras de Geometria resulten retrospectivamente compatibles con la 3.0.
+</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Documents">
+<title>Documentos</title>
+
+<sect1 id="Envelope">
+<title>Carátula</title>
+
+<para>
+La carátula de un documento, sea un problema o una solución, consiste del nombre,
+email dirección y página web de quien detenta su autoría y algunos comentarios.
+Todos los campos son opcionales.
+</para>
+
+<para>
+Para editar la carátula, basta seleccionar
+<emphasis>Carátula</emphasis>
+del menú
+<emphasis>Edita</emphasis>
+o un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Envelope.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. Una caja de diálogo emergerá. Se deben completar
+los campos y clic en
+<emphasis>OK</emphasis>.
+
+</para>
+
+<para>
+Los cambios en la carátula se pueden
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también: 
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Answer">
+<title>Respuesta</title>
+
+<para>
+Un problema no se puede resolver hasta que quien lo creara brinde su respuesta.
+La respuesta de quien resuelve se considera correcta si coincide con la
+que quien creara el problema hubiera previsto (ver
+<link linkend="Overview">Revisión</link>
+por más detalles). 
+</para>
+
+<sect2 id="CreatorsAnswer">
+<title>Respuesta Creada</title>
+
+<para>
+Para definir la respuesta al problema activo abierto, basta seleccionar
+<emphasis>Respuesta</emphasis>
+del menú
+<emphasis>Edita</emphasis>.
+y pasar a determinar el Tipo de respuesta, de entre los ofrecidos:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Número
+</listitem>
+
+<listitem>
+Conjunto de Puntos
+</listitem>
+
+<listitem>
+Plano Fijo, o
+</listitem>
+
+<listitem>
+Condición para el Plano
+</listitem>
+
+</itemizedlist>
+
+<para>
+Oportunamente, pasar a la pestaña
+<emphasis>Valor</emphasis>.
+</para>
+
+</sect2>
+
+<sect2 id="AnswerTypes">
+<title>Tipos de Respuesta</title>
+
+<sect3 id="ANumber">
+<title>Número</title>
+
+<para>
+Anotar lo que sea válido como
+<link linkend="Expressions">expresión</link>.
+Clic
+<emphasis>OK</emphasis>.
+Para reducir el proceso de ingreso de datos, conviene
+tener seleccionado de antemano, un
+<link linkend="Notepad">registro</link>
+del anotador.
+</para>
+
+</sect3>
+
+<sect3 id="PointSet">
+<title>Conjunto de Puntos</title>
+
+<para>
+El término
+<emphasis>Conjunto de puntos</emphasis>
+refiere a un único punto, puntos extremos de un segmento (2 puntos)
+o un recorrido (2 o más puntos)
+</para>
+
+<para>
+Anotar uno o más rótulos separados por comas y clic
+<emphasis>OK</emphasis>.
+Para minimizar la entrada, tener los puntos
+<link linkend="SelectElements">seleccionados</link>
+previamente, en la figura elegida.
+</para>
+
+</sect3>
+
+<sect3 id="FixedPlane">
+<title>Plano Fijo</title>
+
+<para>
+Referir al plano por tres rótulos separados por comas y clic
+<emphasis>OK</emphasis>.
+Para minimizar la entrada, deben preverse algunos elementos de referencia,
+como 3 puntos, un punto y un segmento, o una cara
+<link linkend="SelectElements">seleccionada</link>
+con anticipación en la figura elegida. 
+</para>
+
+</sect3>
+
+<sect3 id="ConditionPlane">
+<title>Plano Condicional</title>
+
+<para>
+A diferencia de un Plano Fijo, que es un plano que ocupa una posición fija
+en el espacio, un
+<emphasis>plano condicional</emphasis>
+debe satisfacer un número de condiciones. Generalmente, un plano condicional no es único. 
+</para>
+
+<para>
+Hay tres grupos de condiciones. Se debe elegir una condición en al menos
+uno de los grupos y clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+El primer grupo contiene las siguientes condiciones:
+</para>
+
+<itemizedlist>
+
+<listitem>
+El plano contiene un punto dado
+</listitem>
+
+<listitem>
+El plano contiene la recta dada
+</listitem>
+
+<listitem>
+El plano no contiene un punto dado
+</listitem>
+
+<listitem>
+El plano no contiene una recta dada
+</listitem>
+
+<listitem>
+El plano no contiene vértices de una figura seleccionada
+</listitem>
+
+<listitem>
+El plano no contiene aristas de una figura seleccionada
+</listitem>
+
+<listitem>
+El plano es paralelo a una recta dada
+</listitem>
+
+<listitem>
+El plano es paralelo a un plano dado
+</listitem>
+
+<listitem>
+El plano es perpendicular a una recta dada
+</listitem>
+
+<listitem>
+El plano es perpendicular a un plano dado
+</listitem>
+
+</itemizedlist>
+
+<para>
+Con rótulos separados por comas se hace referencia a determinado punto,
+a una recta o a un plano. Para reducir el ingreso, conviene tener los elementos
+<link linkend="SelectElements">seleccionados</link>
+de antemano, en la figura elegida.
+</para>
+
+<para>
+El segundo grupo refiere a la siguiente condición:
+</para>
+
+<itemizedlist>
+
+<listitem>
+El plano divide el volumen de la figura elegida según la razón dada
+</listitem>
+
+</itemizedlist>
+
+<para>
+Se debe anotar una
+<link linkend="Expressions">expresión</link>
+válida que será interpretada como el numerador de una razón cuyo denominador es 1.
+Por ejemplo, a + 1 significa que el volumen será cortado según una razón a + 1 : 1.
+Conviene tener elegido de antemano, un
+<link linkend="Notepad">registro</link>
+del anotador que será copiado automáticamente a la caja de entrada.
+</para>
+
+<para>
+El tercer grupo refiere al modo en que el plano corta a la figura.
+La sección puede tomar la forma de una figura como:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Triángulo Isósceles
+</listitem>
+
+<listitem>
+Triángulo Rectángulo
+</listitem>
+
+<listitem>
+Triángulo Equilátero (regular)
+</listitem>
+
+<listitem>
+Paralelogramo
+</listitem>
+
+<listitem>
+Rombo
+</listitem>
+
+<listitem>
+Rectángulo
+</listitem>
+
+<listitem>
+Cuadrado
+</listitem>
+
+</itemizedlist>
+
+<para>
+La definición de la respuesta se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Es importante observar, sin embargo, como regla, que quien crea el problema anota
+la respuesta simbólicamente, Geometria almacena todas las respuestas numéricamente.
+Una vez anotada, la respuesta no quedará afectada por las subsecuentes acciones
+sobre las figuras. Por lo tanto es una buena idea (re)ingresar la respuesta
+como última acción antes de guardar el problema y dejarlo disponible a los usuarios. 
+</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="SolversAnswer">
+<title>Respuesta en Resolución</title>
+
+<para>
+Quien resuelve completa la solución ofreciendo una respuesta correcta.
+Vale recordar, nuevamente, que la respuesta de quien resuelve se considera
+correcta cuando coincide con la de quien creara el problema.
+</para>
+
+<para>
+Se debe tener la solución
+<link linkend="OpenSolution">abierta</link>.
+Tras seleccionar
+<emphasis>Respuesta</emphasis>
+del menú
+<emphasis>Edita</emphasis>,
+se ingresa una
+<link linkend="Expressions">expresión</link>
+válida o, en tanto sea lo pertinente, rótulos separados por comas.
+Conviene tener seleccionados de antemano, para reducir el ingreso, un
+<link linkend="Notepad">registro</link>
+del anotador y/o algunos
+<link linkend="SelectElements">elementos</link>
+de la figura elegida, como por ejemplo puntos, segmentos o una cara. Clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Una evaluación de la respuesta (correcta o incorrecta) emergerá.
+</para>
+
+<para>
+Si la respuesta es correcta, sellará el
+<link linkend="SolutionLog">reporte</link>
+de solución. A menos que se pase a
+<link linkend="UndoActions">deshacer</link>
+la respuesta, no serán posibles acciones posteriores. Es conveniente
+<link linkend="SaveSolution">guardar</link>
+la resolución en un archivo. La solución guardada podrá ser posteriormente
+recuperada y
+<link linkend="SolutionLog">reproducida</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">Panorámica</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Anotador</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Seleccionar</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="CreateProblem">
+<title>Crear Problema</title>
+
+<para>
+Se puede crear un problema ya sea seleccionando
+<emphasis>Nuevo Documento-&gt;Nuevo Problema</emphasis>
+del menú
+<emphasis>Documento</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/NewProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Cuando hay modificaciones no guardadas en el documento activo, se despliega una caja
+de diálogo preguntando si el documento activo debiera guardarse antes de cerrar. 
+</para>
+
+<para>
+Clic
+<emphasis>Sí</emphasis>
+pasa a guardar el documento activo. 
+</para>
+
+<para>
+Clic
+<emphasis>No</emphasis>
+cierra el documento activo sin guardarlo. Vale recordar que
+todas las modificaciones no guardadas del documento activo, se perderán.
+</para>
+
+<para>
+Un clic en
+<emphasis>Cancela</emphasis>
+descartará la caja de diálogo sin tomar acción alguna.
+</para>
+
+<para>
+Una vez concluida, esta acción no se puede
+<link linkend="UndoActions">deshacer</link>. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Abrir un Problema</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Guardar un Problema</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Cerrar un Documento</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenProblem">
+<title>Abrir un Problema</title>
+
+<para>
+Se puede abrir un problema desde un archivo sea seleccionando
+<emphasis>Abre Documento-&gt;Abre Problema</emphasis>
+en el menú
+<emphasis>Documentos</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/OpenProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Cuando hay modificaciones no guardadas en el documento activo, se trate
+de un problema o una solución, una caja de diálogo se desplegará preguntando
+si el documento activo debiera guardarse antes de cerrarse.
+</para>
+
+<para>
+Con un clic en
+<emphasis>Sí</emphasis>
+se guarda el documento activo.
+</para>
+
+<para>
+Clic
+<emphasis>No</emphasis>
+para cerrar el documento activo sin guardar. Considerar que
+todas las modificaciones no guardadas al documento activo se perderán. 
+</para>
+
+<para>
+Un clic en
+<emphasis>Cancela</emphasis>
+descartará la caja de diálogo sin tomar acción alguna.
+</para>
+
+<para>
+Una vez concluida, esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Crear Problema</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Guardar Problema</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Cerrar Documento</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveProblem">
+<title>Guardar Problema</title>
+
+<para>
+Guardar el problema activo abierto a un archivo sea seleccionando
+<emphasis>Guarda Documento</emphasis>
+del menú
+<emphasis>Documento</emphasis>
+o con clic en botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/SaveDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Para guardar el problema bajo un nombre diferente, basta con seleccionar
+<emphasis>Guarda Documento Como</emphasis>
+del menú
+<emphasis>Documento</emphasis>.
+</para>
+
+<para>
+Esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Si esta es una revisión final del problema, se puede considerar
+<link linkend="Notepad">borrar</link>
+todos los cálculos y mediciones de trabajo del anotador.
+Los registros no se expondrán desde el anotador a quien resuelve el problema.
+Sin embargo, a menos que sean borrados, aún estarán presentes en el archivo. 
+</para>
+
+<para>
+Deben tomarse recaudos dado que la acción de limpiar el anotador no se puede
+<link linkend="UndoActions">deshacer</link>.
+
+</para>
+
+<para>
+Una revisión final del problema debiera también incluir una
+<link linkend="Answer">respuesta</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Crear Problema</link>
+</listitem>
+<listitem>
+<link linkend="OpenProblem">Abrir Problema</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Cerrar Documento</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Respuesta</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CreateSolution">
+<title>Crear Solución</title>
+
+<para>
+Se puede crear una solución para el problema activo abierto, sea seleccionando
+<emphasis>Nuevo Documento-&gt;Nueva Solución</emphasis>
+del menú
+<emphasis>Documento</emphasis>
+o con un clic en el botón 
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/NewSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas.
+</para>
+
+<para>
+Si el problema que se desea resolver no está abierto, es preciso
+<link linkend="OpenProblem">abrirlo</link>
+primero.
+</para>
+
+<para>
+Cuando hay modificaciones no guardadas en el problema activo, una caja de diálogo
+se desplegará preguntando si el problema activo debiera guardarse antes de cerrarlo. 
+</para>
+
+<para>
+Con un clic en
+<emphasis>Sí</emphasis>
+se guarda el problema activo. Observar que se estará resolviendo la versión
+del problema que se ha guardado recientemente.
+</para>
+
+<para>
+Clic
+<emphasis>No</emphasis>
+para cerrar el problema activo sin guardarlo. Vale recordar que todas
+las modificaciones no guardadas del problema activo se perderán y se estará resolviendo
+la última versión guardada del problema.
+</para>
+
+<para>
+Un clic en
+<emphasis>Cancela</emphasis>
+descartará la caja de diálogo sin tomar acción alguna.
+</para>
+
+<para>
+Una vez concluida, esta acción no se puede
+<link linkend="UndoActions">deshacer</link>. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Abrir un Problema</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Abrir una Solución</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Guardar una Solución</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Cerrar un Documento</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenSolution">
+<title>Abrir una Solución</title>
+
+<para>
+Se puede abrir una solución desde un archivo sea seleccionando
+<emphasis>Abre Documento-&gt;Abre Solución</emphasis>->
+del menú
+<emphasis>Documento</emphasis>
+o con clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/OpenSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Cuando hay modificaciones no guardadas en el documento activo, sea que se trate
+de una solución o un problema, una caja de diálogo se desplegará preguntando
+si el documento activo debiera guardarse antes de cerrarse.
+</para>
+
+<para>
+Con un clic en
+<emphasis>Sí</emphasis>
+se guarda el problema activo.
+</para>
+
+<para>
+Con un clic en
+<emphasis>No</emphasis>
+se pasa a cerrar el documento activo sin guardarlo.
+Vale recordar que se perderán todas las modificaciones no guardadas del documento activo.
+</para>
+
+<para>
+Un clic en
+<emphasis>Cancela</emphasis>
+descartará la caja de diálogo sin tomar acción alguna.
+</para>
+
+<para>
+Una vez concluida, esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Crear Solución</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Guardar una Solución</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Cerrar Documento</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveSolution">
+<title>Guardar una Solución</title>
+
+<para>
+Se puede guardar la solución activa abierta a un archivo sea seleccionando
+<emphasis>Guarda Documento</emphasis>
+del menú
+<emphasis>Documento</emphasis>
+o con clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/SaveDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Para guardar la solución bajo un nombre diferente, se debe seleccionar
+<emphasis>Guarda Documento Como</emphasis>
+del menú
+<emphasis>Documento</emphasis>.
+</para>
+
+<para>
+Esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Si esta es una revisión final de la solución, no debe olvidarse concluirla
+con la que se considere correcta como
+<link linkend="Answer">respuesta</link>. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Crear una Solución</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Abrir una Solución</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Cerrar un Documento</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Respuesta</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloseDocument">
+<title>Cerrar un Documento</title>
+
+<para>
+Se puede cerrar el documento activo abierto, tanto un problema como una solución, sea seleccionando
+<emphasis>Cierra Documento</emphasis>
+del menú
+<emphasis>Documento</emphasis>
+o con clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/CloseDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Cuando hay modificaciones no guardadas en el documento activo, sea que
+se trate de una solución o un problema, una caja de diálogo se desplegará preguntando
+si el documento activo debiera guardarse antes de cerrarse. 
+</para>
+
+<para>
+Con un clic en
+<emphasis>Sí</emphasis>
+se guarda el documento activo.
+</para>
+
+<para>
+Con un clic en
+<emphasis>No</emphasis>
+se cierra el documento activo sin guardarlo.
+</para>
+
+<para>
+Un clic en
+<emphasis>Cancela</emphasis>
+descartará la caja de diálogo sin tomar acción alguna.
+</para>
+
+<para>
+Una vez concluida, esta acción no se puede 
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Los
+<link linkend="Notepad">registros</link>
+del anotador y las figuras pertenecen al documento activo abierto.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Crear un Problema</link>
+</listitem>
+<listitem>
+<link linkend="OpenProblem">Abrir un Problema</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Guardar un Problema</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SolutionLog">
+<title>Reporte de Solución</title>
+
+<para>
+A medida que quien resuelve avanza hacia la solución, sus acciones se asientan
+en el reporte de solución. Una solución
+<link linkend="SaveSolution">guardada</link>
+se puede posteriormente abrir y reproducir. 
+</para>
+
+<para>
+Para empezar a reproducir la solución, basta con un clic en el botón 
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogPlay.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Para reproducir el siguiente paso, clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogNext.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Para saltar para adelante o para atrás, basta seleccionar
+un registro arbitrario en el reporte.
+</para>
+
+<para>
+Para borrar todos los registros del reporte, basta con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogClear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+. Se deben tomar recaudos porque esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Para borrar todos los registros del reporte que prosiguen tras el señalado,
+basta con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogCut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+. Se deben tomar recaudos porque esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Para detener la reproducción de la solución, clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogStop.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Mientras la solución se reproduce, queda congelada. Para modificar la solución,
+primero se debe detener la reproducción.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">Panorámica</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Guardar Documento</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Abrir Solución</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Figures">
+<title>Figuras</title>
+
+<sect1 id="FigureGallery">
+<title>Galería de Figuras</title>
+
+<para>
+La galería de figuras contiene prismas regulares, pirámides regulares
+y los cinco sólidos platónicos, a saber, el tetraedro, cubo, octaedro,
+dodecaedro e icosaedro.
+</para>
+
+<para>
+Para crear un prisma, basta seleccionar un ítem del menú
+<emphasis>Figura-&gt;Galería-&gt;Prisma</emphasis>.
+</para>
+
+<para>
+Para crear una pirámide, basta seleccionar un ítem del menú
+<emphasis>Figura-&gt;Galería-&gt;Pirámide</emphasis>.
+</para>
+
+<para>
+Para crear un sólido platónico, basta seleccionar un ítem del menú
+<emphasis>Figura-&gt;Galería-&gt;Sólido Platónico</emphasis>.
+</para>
+
+<para>
+La figura resultará el documento abierto activo. Si no hay documento abierto,
+se puede querer
+<link linkend="CreateProblem">crear un problema</link>
+primero. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Abrir Figura</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenFigure">
+<title>Abrir Figura</title>
+
+<para>
+Se puede abrir una figura desde un archivo, sea seleccionando
+<emphasis>Abre Figura</emphasis>
+del menú
+<emphasis>Figura</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/OpenFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+La figura se sumará a los documentos actualmente abiertos. Si no hay documento
+abierto, se puede querer
+<link linkend="CreateProblem">crear un problema</link>
+primero. 
+</para>
+
+<para>
+Una
+<link linkend="FigureGallery">galería</link>
+de figuras está disponible para su selección, incluyendo prismas, pirámides
+y sólidos platónicos. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="FigureGallery">Galería de Figuras</link>
+</listitem>
+<listitem>
+<link linkend="SaveFigure">Guardar Figura</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloneFigure">
+<title>Reproducir Figura</title>
+
+<para>
+Se puede reproducir una figura, sea seleccionando
+<emphasis>Reproduce Figura</emphasis>
+del menú
+<emphasis>Figura</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/CloneFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>Guardar Figura
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveFigure">
+<title>Guardar Figura</title>
+
+<para>
+Se puede guardar una figura a un archivo, sea seleccionando
+<emphasis>Guarda Figura</emphasis>
+desde el menú
+<emphasis>Figura</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/SaveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Abrir Figura</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RemoveFigure">
+<title>Borrar Figura</title>
+
+<para>
+Se puede borrar una figura del documento activo, sea seleccionando
+<emphasis>Borra Figura</emphasis>
+en el menú
+<emphasis>Figura</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/RemoveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Si se borra una figura de la que se hubiesen tomado medidas,
+esto provocaría que alguna variable pudiera quedar
+<link linkend="PinnedVariable">desplomada</link>. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Quien la creara no puede eliminar una figura a la que se refiere alguna 
+<link linkend="Answer">respuesta</link>.
+</para>
+
+<para>
+Quien resuelva no puede borrar una figura que fuera parte del problema. Sin embargo,
+cualquier figura que hubiera sido creada en el proceso de resolución del problema
+puede eliminarse.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportImage">
+<title>Exportar Imagen</title>
+
+<para>
+Se puede exportar una figura a un archivo imagen, seleccionando
+<emphasis>Exporta Imagen</emphasis>
+del menú
+<emphasis>Figura</emphasis>.
+Una caja de diálogo emergerá. Se debe elegir un tipo de archivo de imagen,
+anotar un nombre de archivo y un clic en Guarda.
+<emphasis>Guarda</emphasis>. 
+</para>
+
+<para>
+Esta acción no se puede
+<link linkend="UndoActions">deshacer</link>. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportOFFFile">
+<title>Exportar Figura OFF</title>
+
+<para>
+<emphasis>OFF</emphasis>
+es un formato de archivo conocido para poliedros. Se emplea con
+Geomview (http://www.geomview.org) y otros utilitarios geométricos.
+Para exportar una figura a un archivo de formato OFF, basta seleccionar
+<emphasis>Exporta Figura OFF</emphasis>
+en el menú
+<emphasis>Figura</emphasis>
+Una caja de diálogo emergerá. Se debe elegir un nombre de archivo y clic
+<emphasis>Guarda</emphasis>.
+</para>
+
+<para>
+Esta acción no se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RenameFigure">
+<title>Renombrar Figura</title>
+
+<para>
+Para renombrar una figura, basta seleccionar
+<emphasis>Renombra Figura</emphasis>
+del menú. 
+<emphasis>Figura</emphasis>.
+</para>
+
+<para>
+El nombre de una figura puede contener caracteres acentuados pero no están
+permitidos los espacios o algunos de los caracteres especiales.
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Quien resuelve no puede renombrar una figura que fuera parte del problema.
+Sin embargo, cualquier figura que hubiera sido creada en el proceso de resolución
+del problema puede ser renombrada. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="PrintFigure">
+<title>Imprimir Figura</title>
+
+<para>
+Se puede imprimir una figura, sea seleccionando
+<emphasis>Imprime Figura</emphasis>
+en el menú
+<emphasis>Figura</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Print.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Esta acción no se puede 
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="View">
+<title>Ver</title>
+
+<sect2 id="Attitude">
+<title>Comportamiento</title>
+
+<para>
+Geometria emplea un sistema de referencia fijado a mano derecha. El eje Z
+del sistema de referencia es paralelo al borde vertical de la pantalla.
+No es necesario el conocimiento del sistema de referencia para operar con figuras,
+crear y resolver problemas. 
+</para>
+
+<para>
+En determinado momento, la figura tiene cierto comportamiento.
+El comportamiento puede ser descripto en términos de los ángulos que la figura forma
+con el sistema de referencia. Cuando una figura es creada, adopta el comportamiento
+<emphasis>por omisión</emphasis>
+que va a cambiar cuando la figura sea rotada. 
+</para>
+
+<para>
+Para recuperar el comportamiento inicial de una figura, basta seleccionar
+<emphasis>Comportamiento Inicial</emphasis>
+en el menú
+<emphasis>Visualización</emphasis>
+o clic derecho y elegir
+<emphasis>Comportamiento Inicial</emphasis>
+del menú desplegado. 
+</para>
+
+<para>
+Cuando una figura se guarda, su comportamiento vigente deviene el inicial.
+Para recuperar el comportamiento que la figura tenía cuando fue creada,
+tras de cualquier rotación, se debe seleccionar
+<emphasis>Comportamiento por Omisión</emphasis>
+del menú
+<emphasis>Visualización</emphasis>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Rotar Figura</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RotateFigure">
+<title>Rotar Figura</title>
+
+<para>
+Si se desactiva el
+<link linkend="ToggleSelector">Seleccionador Alternante</link>
+basta elegir una figura y darle movimiento con el ratón (o mouse)
+para ponerla a rotar. La velocidad de rotación y el ángulo correspondiente
+dependerán del movimiento.
+</para>
+
+<para>
+Para fijar una figura en rotación, basta darle clic y se detendrá.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Attitude">Comportamiento</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="SelectElements">
+<title>Seleccionar Elementos</title>
+
+<sect3 id="ToggleSelector">
+<title>Seleccionador Alternante</title>
+
+<para>
+Con un clic derecho en una figura, se puede elegir
+<emphasis>Seleccionador Alternante</emphasis>
+del menú desplegado.
+Cada clic, alternativamente, permitirá elegir
+un elemento del boceto o clic en
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/SelectorOn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Cuando el seleccionador está activado (ícono del seleccionador blanco),
+los elementos pueden ser seleccionados con un clic sobre cada uno de ellos.
+Cuando el seleccionador está desactivado (ícono del seleccionador atenuado),
+al desplazar el ratón (o mouse) se pondrá a
+<link linkend="RotateFigure">rotar</link>
+la figura. 
+</para>
+
+<para>
+El seleccionador, por omisión, está desactivado.
+</para>
+
+</sect3>
+
+<sect3 id="SelectElementsOneByOne">
+<title>Seleccionar Elementos Uno por Uno</title>
+
+<para>
+Basta dar un clic en un elemento, como un punto, un segmento o una cara,
+para seleccionarlo (iluminarlo). Para seleccionar más de un elemento,
+debe mantenerse pulsada la tecla Ctrl. Las caras sólo pueden seleccionarse
+en el modo de ver llamado
+<link linkend="ViewModes">no-transparente</link>.
+</para>
+
+<para>
+Un clic sobre un espacio libre o vacío dentro de una figura, basta para limpiar
+la selección. Al mantener pulsada la tecla Ctrl con un clic sobre un elemento
+seleccionado, lo deselecciona particularmente.
+</para>
+
+</sect3>
+
+<sect3 id="SelectAllElements">
+<title>Seleccionar Todos los Elementos</title>
+
+<para>
+Para seleccionar todos los puntos y segmentos en una figura
+(exceptuando vértices y aristas), se dispone de la opción
+<emphasis>Selecciona Todo</emphasis>
+del menú
+<emphasis>Edita</emphasis>.
+Resulta un modo práctico de
+<link linkend="EraseSelection">borrar todos los elementos</link>
+a la vez.
+</para>
+
+<para>
+Ver también: 
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Rotar Figura</link>
+</listitem>
+<listitem>
+<link linkend="ViewModes">Modos de Ver</link>
+</listitem>
+<listitem>
+<link linkend="EraseSelection">Borra Selección</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ViewModes">
+<title>Modos de Ver</title>
+
+<sect3 id="ToggleTransparency">
+<title>Alternar Transparencia</title>
+
+<para>
+Para alternar el modo de ver una figura, entre transparente y opaco,
+basta seleccionar
+<emphasis>Alterna Transparencia</emphasis>
+del menú
+<emphasis>Visualización</emphasis>.
+Otra alternativa sería un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Transparency.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+En una figura transparente, los segmentos visibles son sólidos, mientras que
+los segmentos invisibles son punteados. Cualquier punto o segmento puede ser
+seleccionado, sea que fuera visible o no. las caras sólo pueden ser seleccionadas
+en una figura opaca.
+</para>
+
+<para>
+En una figura opaca, no se pueden controlar los segmentos invisibles y puntos
+no expuestos. Los puntos, segmentos y caras pueden seleccionarse, sólo si son visibles.
+</para>
+
+</sect3>
+
+<sect3 id="SetColor">
+<title>Fijar Color</title>
+
+<para>
+Para cambiar el color de una figura opaca, basta seleccionar
+<emphasis>Configura Color</emphasis>
+del menú
+<emphasis>Visualización</emphasis>
+o clic en el botón seleccionador
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Color.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. Basta con seleccionar un color en la
+caja de diálogo emergente y clic
+<emphasis>OK</emphasis>.
+</para>
+
+</sect3>
+
+<sect3 id="ToggleLabels">
+<title>Alternar Rótulos</title>
+
+<para>
+Para exponer rótulos de puntos, basta seleccionar
+<emphasis>Alterna Rótulos</emphasis>
+del menú
+<emphasis>Visualización</emphasis>.
+Como alternativa, clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Labels.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. Los rótulos sólo se expondrán en figuras
+<link linkend="ToggleTransparency">transparentes</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ZoomFigure">
+<title>Zoom de Figura</title>
+
+<para>
+Para dar zoom de acercamiento en una figura,
+basta seleccionar
+<emphasis>Amplía</emphasis>
+del menú
+<emphasis>Visualización</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/ZoomIn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas.
+</para>
+
+<para>
+Para dar zoom de alejamiento en una figura, basta seleccionar
+<emphasis>Reduce</emphasis>
+en el menú
+<emphasis>Visualización</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/ZoomOut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas.
+</para>
+
+<para>
+Para reescalar una figura para que se ajuste a la ventana, basta seleccionar
+<emphasis>Encuadra Ventana de Visualización</emphasis>
+del menú
+<emphasis>Visualización</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/FitToView.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Ver también: 
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Measure">
+<title>Medir</title>
+
+<sect2 id="MeasureDistance">
+<title>Medir Distancia</title>
+
+<para>
+Para medir la distancia entre dos puntos, proceder, alternativamente, como se indica:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Distancia</emphasis>
+del menú
+<emphasis>Medida</emphasis>
+o
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/MeasureDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o 
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Seleccionar</link>
+ambos puntos o el segmento que los une, clic derecho y seleccionar
+<emphasis>Distancia</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Los dos puntos deben pertenecer a la misma cara
+</para>
+
+<para>
+Una caja de diálogo emergerá. Completar, de ser necesario, los puntos, asignar una única
+<link linkend="Variables">variable</link>
+y clic
+<emphasis>OK</emphasis>.
+Aparecerá un registro en el
+<link linkend="Notepad">anotador</link>,
+como se expone: 
+</para>
+
+<programlisting>
+miDistancia = |AB| : MiCubo
+</programlisting>
+
+<para>
+donde miDistancia es la variable asignada a la distancia entre los puntos A y B
+en la figura MiCubo. Si MiCubo es la única figura activa, el registro se presentará como:
+</para>
+
+<programlisting>
+miDistancia = |AB|
+</programlisting>
+
+<para>
+Esta acción se puede 
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Anotador</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureAngle">
+<title>Medir Angulo</title>
+
+<para>
+Para medir un ángulo, proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Angulo</emphasis>
+el menú
+<emphasis>Medida</emphasis>
+o
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/MeasureAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Seleccionar</link>
+dos segmentos que forman el ángulo en cuestión, clic derecho y seleccionar
+<emphasis>Angulo</emphasis>
+del menú desplegado.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Los segmentos que limitan el ángulo deben pertenecer a la misma cara
+y no deben ser colineales.
+</para>
+
+<para>
+Una caja de diálogo emergerá. Completar, de ser necesario, los puntos, asignar una única
+<link linkend="Variables">variable</link>
+y clic
+<emphasis>OK</emphasis>.
+Un registro aparecerá en el
+<link linkend="Notepad"> anotador</link>,
+como aparece: 
+</para>
+
+<programlisting>
+miAngulo = &lt;ABC : MiPirAmide
+</programlisting>
+
+<para>
+donde miAngulo es la variable asignada al ángulo entre AB y AC en la figura
+MiPirAmide. Si MiPirAmide es la única figura activa, el registro se leerá como: 
+</para>
+
+<programlisting>
+miAngulo = &lt;ABC
+</programlisting>
+
+<para>
+Todos los ángulos se expresan en radianes.
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también: 
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Anotador</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureArea">
+<title>Medir Area</title>
+
+<para>
+Para medir el área de una cara proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Area</emphasis>
+del menú
+<emphasis>Medida</emphasis>
+o
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Area.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Seleccionar</link>
+la cara, clic derecho y seleccionar
+<emphasis>Area</emphasis>
+del menú desplegado.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Una caja de diálogo emergerá. Seleccionar, de ser necesario, la cara de la lista,
+asignar una única
+<link linkend="Variables">variable</link>
+y clic
+<emphasis>OK</emphasis>.
+Un registro aparecerá en el
+<link linkend="Notepad">anotador</link>,
+como sigue: 
+</para>
+
+<programlisting>
+miArea = Area[ABC] : MiCubo
+</programlisting>
+
+<para>
+donde miArea es la variable asignada al área de la cara que contiene los vértices
+A, B, C en la figura MiCubo. Si MiCubo es la única figura activa, el registro
+se leerá como: 
+</para>
+
+<programlisting>
+miArea = Area[ABC]
+</programlisting>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Anotador</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureVolume">
+<title>Medir Volumen</title>
+
+<para>
+Para medir el volumen de una figura proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Volumen</emphasis>
+del menú
+<emphasis>Medida</emphasis>
+o
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Volume.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Una caja de diálogo emergerá. Asignar una única
+<link linkend="Variables">variable</link>
+y clic
+<emphasis>OK</emphasis>.
+Un registro aparecerá en el
+<link linkend="Notepad">anotador</link>,
+como sigue: 
+</para>
+
+<programlisting>
+miVolumen = volumen : MiCubo
+</programlisting>
+
+<para>
+donde miVolumen es la variable asignada al volumen de la figura MiCubo. Si MiCubo
+es actualmente la única figura, el registro se leerá como: 
+</para>
+
+<programlisting>
+miVolumen = volumen
+</programlisting>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Anotador</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Draw">
+<title>Trazar</title>
+
+<sect2 id="DrawSegment">
+<title>Trazar un Segmento</title>
+
+<para>
+Para unir dos puntos con un segmento, proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Traza un Segmento</emphasis>
+del menú
+<emphasis>Construye</emphasis>
+o
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/DrawLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Seleccionar</link>
+los dos puntos, clic derecho y seleccionar
+<emphasis>Traza un Segmento</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Los dos puntos deben pertenecer a la misma cara.
+</para>
+
+<para>
+Si se despliega una caja de diálogo, completar los puntos y clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Esta acción se puede <link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawPerpendicular">
+<title>Trazar Perpendicular</title>
+
+<para>
+Para trazar una perpendicular a través de un punto a un segmento, proceder,
+alternativamente, como sigue: 
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Traza Perpendicular</emphasis>
+del menú
+<emphasis>Construye</emphasis>,
+o 
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Perpendicular.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Indicar</link>
+el punto y el segmento, clic derecho y seleccionar
+<emphasis>Traza Perpendicular</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+El punto y el segmento deben pertenecer a la misma cara. el punto puede
+o no pertenecer al segmento. 
+</para>
+
+<para>
+Si se despliega una caja de diálogo, completar los puntos y clic en
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Si el punto y el segmento pertenecen a dos caras diferentes al mismo tiempo
+una segunda caja de diálogo puede desplegarse. Se debe seleccionar
+una cara de la lista y clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideSegment">
+<title>Dividir Segmento</title>
+
+<para>
+Para dividir un segmento según una determinada razón, proceder,
+alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Divide Segmento</emphasis>
+del menú
+<emphasis>Construye</emphasis>
+o 
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/DivideLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Seleccionar</link>
+el segmento, clic derecho y seleccionar
+<emphasis>Divide Segmento</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Una caja de diálogo emergerá. Completar, de ser necesario, los puntos y válidas
+<link linkend="Expressions">expresiones</link>
+para el numerador y denominador de la razón. Clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+La razón es definida como AX : XB, donde X es el punto de división, AB el segmento.
+Por ejemplo, si la razón es 1 : 2, X estará dos veces más cerca de A que de B.
+Si la razón es 3 : 1, X estará tres veces más cerca de B que de A. 
+</para>
+
+<para>
+El punto medio divide el segmento según la razón 1 : 1 y por lo tanto puede ser
+trazado como se mostró previamente.
+Sin embargo, la conveniente acción
+<link linkend="DrawMidpoint">Traza Punto Medio</link>
+ofrece un atajo. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DrawMidpoint">Trazar Punto Medio</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawMidpoint">
+<title>Trazar Punto Medio</title>
+
+<para>
+Para trazar el punto medio de un segmento, proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Traza Punto Medio</emphasis>
+del menú
+<emphasis>Construye</emphasis>
+o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Seleccionar</link>
+el segmento, clic derecho y seleccionar
+<emphasis>Traza Punto Medio</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Una caja de diálogo puede desplegarse. Completar, de ser necesario, el puntos. Clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Vale advertir que trazar el punto medio es equivalente a
+<link linkend="DivideSegment">dividir</link>
+el segmento según la razón 1 : 1. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DivideSegment">Dividir Segmento</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideAngle">
+<title>Dividir Angulo</title>
+
+<para>
+Para dividir un ángulo según una razón, proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Divide Angulo</emphasis>
+del menú
+<emphasis>Construye</emphasis>
+o
+</listitem>
+
+<listitem>
+Clic el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/DivideAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Indicar</link>
+dos segmentos que limitan el ángulo, clic derecho y seleccionar
+<emphasis>Divide Angulo</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Los segmentos que forman el ángulo deben pertenecer a la misma cara
+y no ser colineales. 
+</para>
+
+<para>
+Una caja de diálogo emergerá. Completar, de ser necesario, los puntos y las
+que se consideren válidas
+<link linkend="Expressions">expresiones</link>
+para el numerador y denominador de la razón. Clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+La razón se define como &lt;AOX : &lt;XOB, donde OX es el segmento divisor, &lt;AOB
+el ángulo. Por ejemplo, si la razón es 1 : 2, OX formará con OB un ángulo dos veces
+mayor que con OA.
+Si la razón es 3 : 1, OX formará con OA un ángulo tres veces mayor que con OB.
+</para>
+
+<para>
+La bisectriz divide al ángulo según la razón 1 : 1. Por lo tanto, puede ser trazada
+como se ha señalado previamente. Sin embargo, es conveniente
+<link linkend="DrawBisector">Traza Bisectriz</link>
+ya que ofrece un atajo.
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="DrawBisector">Trazar Bisectriz</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawBisector">
+<title>Trazar Bisectriz</title>
+
+<para>
+Para trazar la bisectriz de un ángulo, proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Seleccionar
+<emphasis>Traza Bisectriz</emphasis>
+del menú
+<emphasis>Construye</emphasis>
+o 
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Seleccionar</link>
+dos segmentos que limitan el ángulo, clic derecho y seleccionar
+<emphasis>Traza Bisectriz</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Los segmentos que limitan el ángulo deben pertenecer a la misma cara y no deben ser colineales.
+</para>
+
+<para>
+Una caja de diálogo puede desplegarse. Completar, de ser necesario, los puntos. Clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Vale advertir que trazar la bisectriz es equivale a
+<link linkend="DivideSegment">dividir</link>
+el ángulo según la razón 1 : 1. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="DivideAngle">Dividir Angulo</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="IntersectLines">
+<title>Intersección de Rectas</title>
+
+<para>
+Para trazar el punto de intersección de las rectas de dos segmentos dados, proceder,
+alternativamente, como sigue: 
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Interseca Segmentos</emphasis>
+del menú
+<emphasis>Construye</emphasis>
+o
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Intersect.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+Indicar los segmentos, clic derecho y seleccionar Interseca Rectas del menú desplegado
+
+<link linkend="SelectElementsOneByOne">Indicar</link>
+los segmentos, clic derecho y seleccionar
+<emphasis>Interseca Rectas</emphasis>
+del menú desplegado.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Ambos segmentos, así como el punto de intersección de sus rectas, deben pertenecer
+a la misma cara.
+</para>
+
+<para>
+Una caja de diálogo puede desplegarse. Completar, de ser necesario, los puntos. Clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayDistance">
+<title>Disponer Distancia</title>
+
+<para>
+Para trazar un punto en un segmento dado a una determinada distancia desde cierto punto,
+proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Establece Distancia</emphasis>
+del menú
+<emphasis>Construye</emphasis>
+o 
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LayDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Indicar</link>
+el punto y el segmento, clic derecho y seleccionar
+<emphasis>Establece Distancia</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+El punto y el segmento deben pertenecer a la misma cara.
+El punto puede o no pertenecer al segmento.
+</para>
+
+<para>
+Una caja de diálogo emergerá. Completar, de ser necesario, los puntos y lo
+que se considere una válida
+<link linkend="Expressions">expresión</link>
+para la distancia. Clic
+<emphasis>OK</emphasis>.
+Conviene seleccionar un
+<link linkend="Notepad">registro</link>
+en el anotador antemano para tener copiada automáticamente la distancia
+a la caja de entrada.
+</para>
+
+<para>
+Esta acción puede derivar en la construcción de uno o más puntos diferentes.
+</para>
+
+<para>
+Esta acción se puede <link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayAngle">
+<title>Disponer Angulo</title>
+
+<para>
+Para trazar un segmento desde el punto extremo de otro segmento de modo que los dos segmentos
+formen un determinado ángulo, proceder, alternativamente, como sigue: 
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Traza Angulo</emphasis>
+del menú
+<emphasis>Construye</emphasis>
+o 
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LayAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Indicar</link>
+ el segmento y su punto extremo, clic derecho y seleccionar
+<emphasis>Traza Angulo</emphasis>
+del menú desplegado.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Una caja de diálogo emergerá. Completar, de ser necesario, los puntos y una válida
+<link linkend="Expressions">expresión</link>
+para el ángulo. Clic
+<emphasis>OK</emphasis>.
+Seleccionar un
+<link linkend="Notepad">registro</link>
+de anotador de antemano para que sea copiado automáticamente
+en la caja de entrada del ángulo. 
+</para>
+
+<para>
+El ángulo debe ser mayor que 0 y menor de 180 grados y expresado en radianes,
+en lugar de grados. Por ejemplo, para formar un ángulo de 60 grados,
+debe anotarse PI/3.
+</para>
+
+<para>
+Si el segmento pertenece a dos caras diferentes a la vez, puede desplegarse una segunda
+caja de diálogo. Seleccionar una cara de la lista y clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Esta acción puede resultar en la construcción de uno o más diferentes segmentos.
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RenamePoint">
+<title>Renombra Puntos</title>
+
+<para>
+
+Quien hasta creado un problema, puede modificar los rótulos de las figuras
+involucradas. Basta seleccionar
+<emphasis>Renombra Puntos</emphasis>
+del menu
+<emphasis>Construye</emphasis>.
+</para>
+
+<para>
+Se desplegará una caja de diálogo en donde deberán anotarse los nombres del punto
+a renombrar y completar la maniobra con un clic en
+<emphasis>OK</emphasis>.
+Toda letra mayúscula a la que le pueden suceder uno o más dígitos,
+constituye un rótulo válido.
+</para>
+
+<para>
+Es conveniente tener el punto
+<link linkend="SelectElements">seleccionado</link>
+de antemano para que quede anotado automáticamente en el casillero correspondiente. 
+</para>
+
+<para>
+Renombrar un punto desencadenará los cambios adecuados en
+<link linkend="Notepad">los registros</link>
+correspondientes del anotador. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selección de Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Anotador</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="EraseElements">
+<title>Borrar Elementos</title>
+
+<sect3 id="EraseSegment">
+<title>Borrar Segmento</title>
+
+<para>
+Para borrar por completo o sólo una parte, se cuenta con
+<emphasis>Borra Segmento</emphasis>
+del menú
+<emphasis>Construye</emphasis>.
+</para>
+
+<para>
+El segmento no puede pertenecer a una arista.
+</para>
+
+<para>
+Si emerge una caja de diálogo, tras completar los puntos, basta con un clic en
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Vale notar que un segmento completo puede ser borrado de modo más conveniente
+seleccionándolo y llevando a cabo la acción
+<link linkend="EraseSelection">Borrar Selección</link>.
+</para>
+
+<para>
+Si se borra un segmento a cuyas medidas se hiciera referencia, esto podría ocasionar
+que alguna variable resultara
+<link linkend="PinnedVariable">desplomada</link>. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>. 
+</para>
+
+</sect3>
+
+<sect3 id="EraseSelection">
+<title>Borrar lo Seleccionado</title>
+
+<para>
+Para borrar uno o más elementos, se trate de puntos o segmentos, basta con
+<link linkend="SelectElementsOneByOne">seleccionar</link>
+los y proceder, alternativamente, como se indica: 
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Borra Selección</emphasis>
+del menú
+<emphasis>Construye</emphasis>
+o 
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Erase.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Vértices y segmentos pertenecientes a aristas no serán borrados.
+</para>
+
+<para>
+Para borrar todos los puntos y segmentos de una figura (exceptuando vçertices
+y aristas), basta con
+<link linkend="SelectAllElements">seleccionar los todos</link>
+en primer lugar.
+</para>
+
+<para>
+Para borrar sólo parte de un segmento trazado, se puede apelar a
+<link linkend="EraseSegment">Borra Segmento</link>. 
+</para>
+
+<para>
+Borrar elementos a cuyas mediciones se hiciera referencia, puede ocasionar
+que alguna variable quedara
+<link linkend="PinnedVariable">desplomada</link>.
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Transform">
+<title>Transformar</title>
+
+<sect2 id="ScaleFigure">
+<title>Escalar Figura</title>
+
+<para>
+Para escalar una figura a lo largo de cierto segmento según un factor positivo dado,
+se puede proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Redimensiona Figura</emphasis>
+del menú
+<emphasis>Transforma</emphasis>
+o
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Scale.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Indicar</link>
+el segmento o dos de sus puntos, clic derecho y pasar a
+<emphasis>Redimensiona Figura</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+En la caja de diálogo emergente, completar, de ser necesario, los puntos
+y lo que fuera válido como
+<link linkend="Expressions">expresión</link>
+para el factor. Clic en
+<emphasis>OK</emphasis>.
+Seleccionar un registro en el anotador para tener automáticamente copiado
+de antemano en la entrada, antes de escalarse, el factor.
+</para>
+
+<para>
+El resultado de lo escalado; las distancias previamente medidas, los ángulos, áreas
+y volúmenes serán recalculados y las variables asignadas, actualizadas. Ver
+<link linkend="Variables">Variables</link>
+por más detalles. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>. 
+</para>
+
+<para>
+Quien resuelve no puede escalar una figura que forme parte del problema. Sin embargo,
+las figuras que han sido creadas en el proceso de resolución del problema,
+pueden ser escaladas.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="ShearFigure">
+<title>Deslizar Figura</title>
+
+<para>
+El deslizamiento implica una transformación afín donde los planos paralelos
+a un plano fijo de referencia se deslizan a lo largo de una recta fija
+contenida en el plano de referencia. El término 'afín' implica que
+la transformación preserva la colinearidad de los puntos. 
+</para>
+
+<para>
+Si la recta fija fuera XY en el plano de referencia, la transformación
+se identifica únicamente por los puntos X, Y y la imagen de cierto punto Z
+tal que XZ es perpendicular al plano de referencia. 
+</para>
+
+<para>
+Para deslizar una figura, proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Seleccionar
+<emphasis>Desliza Figura</emphasis>
+del menú
+<emphasis>Transforma</emphasis>
+o 
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Shear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Indicar</link>
+el segmento de referencia XY y la imagen del punto Z,
+clic derecho y seleccionar
+<emphasis>Desliza Figura</emphasis>
+del menú desplegado. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Una caja de diálogo emergerá. Completar, de ser necesario, los puntos de referencia 
+(X, Y al pie y la imagen del punto Z en el encabezado). Clic
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Como resultado del desplazamiento, las distancias previamente medidas
+y los ángulos serán recalculados y las variables asignadas, se actualizarán. Ver
+<link linkend="Variables">Variables</link>
+por más detalles. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Quien resuelve no puede deslizar una figura que fuera parte del problema.
+Sin embargo, las figuras que han sido creadas en el proceso de resolución
+del problema pueden deslizarse. 
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="CutFigure">
+<title>Cortar Figura</title>
+
+<para>
+Para cortar una figura con un plano, proceder, alternativamente, como sigue:
+</para>
+
+<itemizedlist>
+<listitem>
+Seleccionar
+<emphasis>Corta Figura</emphasis>
+del menú
+<emphasis>Transforma</emphasis>
+o
+</listitem>
+
+<listitem>
+Clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Cut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas, o
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">Indicar</link>
+los elementos que hacen referencia al plano, como 3 puntos,
+un punto y un segmento o dos segmentos, clic derecho y seleccionar
+<emphasis>Corta Figura</emphasis>
+del menú desplegado.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Los elementos seleccionados deben identificar un plano exclusivamente.
+El plano debe atravesar por el interior de la figura.
+</para>
+
+<para>
+Si emerge una caja de diálogo, completar los puntos y hacer clic en
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Las dos mitades resultantes se expondrán en diferentes vistas. La figura original
+se mantendrá intacta en su propia vista. 
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="JoinFigures">Unir Figuras</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="JoinFigures">
+<title>Unir Figuras</title>
+
+<para>
+Dos figuras se pueden unir, sea seleccionando
+<emphasis>Une Figuras</emphasis>
+del menú
+<emphasis>Transforma</emphasis>
+o con un clic en el botón
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Join.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barra de herramientas. 
+</para>
+
+<para>
+Una caja de diálogo emergerá. Seleccionar las figuras a unir y clic
+<emphasis>OK</emphasis>.
+Una figura puede unirse con una copia de sí misma.
+Por lo tanto, la misma figura puede ser seleccionada en sendas listas.
+</para>
+
+<para>
+Si las figuras pueden unirse de un único modo, una nueva vista se expondrá con
+la figura combinada expuesta. Las dos figuras originales se mantendrán intactas
+en sus correspondientes vistas.
+</para>
+
+<para>
+Si, en todo caso, las figuras pudieran unirse de más de un modo,
+aparecerá una nueva caja de diálogo consultando si van a unirse de cualquiera
+de las maneras posibles. Un clic en
+<emphasis>No</emphasis>
+abre el proceso de determinar con precisión  la definicón
+de los elementos de unión.
+</para>
+
+<para>
+Un clic en
+<emphasis>Sí</emphasis>,
+lleva a que las figuras se unan de una de las maneras posibles.
+Se desplegará un esquema anticipando el resultado y una caja
+de diálogo en que se consulta si se lo confirma. Un clic en
+<emphasis>Sí</emphasis>,
+lo corrobora y concluye la acción. Un clic en
+<emphasis>No</emphasis>
+ofrece otro boceto para la consideración del siguiente modo
+en que se pueden unir las figuras.
+</para>
+
+<para>
+Conviene, antes de operar sobre la caja de diálogo, referirse a los puntos
+y/o caras correspondientes y así
+<link linkend="SelectElementsOneByOne">seleccionarlos</link>.
+Esto minimizará las subsiguientes entradas en cajas de diálogo. Vale notar que las caras
+sólo se pueden seleccionar en el modo
+<link linkend="ToggleTransparency">opaco</link>
+de visualización. 
+</para>
+
+<para>
+Las caras de unión deben tener la misma forma, lo que implica ángulos iguales
+y caras proporcionales a los correspondientes vértices. Las caras de unión
+no deben tener la misma medida. Si fuera preciso, una de las figuras
+será automáticamente escalada para ajustarse a la otra. 
+</para>
+
+<para>
+La acción se cancelará si al unirse la figura no es convexa.
+</para>
+
+<para>
+Esta acción se puede
+<link linkend="UndoActions">deshacer</link>.
+</para>
+
+<para>
+Ver también:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CutFigure">Cortar Figura</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Seleccionar Elementos</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Deshacer Acciones</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+</book>
+

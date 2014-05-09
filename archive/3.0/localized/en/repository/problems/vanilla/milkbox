@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Liliana Saidon, Dir. Centro Babbage de Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>http://www.centrobabbage.com</web>
+</author>
+<comments/>
+</envelope>
+<text>Cut this empty milk box so that the section is a square.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>MilkBox</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.875 0.125 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.12500000000000006 0.875 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.875 -0.1249999999999999 0.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.12500000000000017 -0.875 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.875 0.125 3.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.12500000000000006 0.875 3.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>-0.875 -0.1249999999999999 3.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.12500000000000017 -0.875 3.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.45011922040704133 -0.3233626371232028 -0.48483954629873127 0.6765795641886674</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition/>
+<condition/>
+<condition>
+<type>square</type>
+<figureName>MilkBox</figureName>
+</condition>
+</answer>
+</problem>

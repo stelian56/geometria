@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Această soluţie e parte din repozitoriul Geometriei 3.0.</comments>
+</envelope>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Această problemă e parte din repozitoriul Geometriei 3.0.</comments>
+</envelope>
+<text>Din acest cub urmează a fi cioplit un cilindru a cărui rază este de şase ori mai scurtă decât latura cubului. Află volumul maxim al cilindrului.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Cub</name>
+<color>#ff9999</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>-1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>1.0 1.0 1.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-1.0 1.0 1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.33481863444368853 -0.4134665796294599 0.6580282918981488</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.8800971362925621</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GCutAction</className>
+<figureName>Cub</figureName>
+<p0Label>A</p0Label>
+<p1Label>E</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GDrawLineAction</className>
+<figureName>Figura2</figureName>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figura2</figureName>
+<p1Label>A</p1Label>
+<p2Label>E</p2Label>
+<variableName>Latura</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>Raza</variableName>
+<expression>Latura/6</expression>
+</action>
+<action>
+<className>GMeasureAngleAction</className>
+<figureName>Figura2</figureName>
+<p0Label>G</p0Label>
+<p1Label>E</p1Label>
+<p2Label>A</p2Label>
+<variableName>Unghi</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Figura2</figureName>
+<distance>Raza/sin(Unghi)</distance>
+<p0Label>G</p0Label>
+<p1Label>E</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura2</figureName>
+<p0Label>I</p0Label>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Figura2</figureName>
+<distance>Raza/sin(Unghi)</distance>
+<p0Label>A</p0Label>
+<p1Label>C</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura2</figureName>
+<p0Label>K</p0Label>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figura2</figureName>
+<p11Label>K</p11Label>
+<p12Label>L</p12Label>
+<p21Label>A</p21Label>
+<p22Label>G</p22Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figura2</figureName>
+<p11Label>I</p11Label>
+<p12Label>J</p12Label>
+<p21Label>A</p21Label>
+<p22Label>G</p22Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figura2</figureName>
+<p1Label>M</p1Label>
+<p2Label>N</p2Label>
+<variableName>Inaltime</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>Raport</variableName>
+<expression>Inaltime/Latura</expression>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>pi * Raza^2 * Inaltime</value>
+</action>
+</log>
+</solution>

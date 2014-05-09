@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Liliana Saidon Dir Centro Babbage Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>www.centrobbbage.com</web>
+</author>
+<comments/>
+</envelope>
+<text>3/4 of the capacity of this carton, shaped like a regular octahedron, is filled. Cut the carton at the surface of the liquid.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Carton</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.0 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 1.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 -1.0 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.0 0.0 -1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.33481863444368853 -0.4134665796294599 0.6580282918981488</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition/>
+<condition>
+<type>volumeCutInRatio</type>
+<figureName>Carton</figureName>
+<value>3.0</value>
+</condition>
+<condition/>
+</answer>
+</problem>

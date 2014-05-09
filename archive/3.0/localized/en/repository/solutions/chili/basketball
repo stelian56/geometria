@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This solution is part of the Geometria 3.0 repository.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This problem is part of the Geometria 3.0 repository.</comments>
+</envelope>
+<text>A ball has been put in this basket so that it is touching all edges without curving any one of them. Find the volume of the ball.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Basket</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.30901699437494745 0.9510565162951535 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.8090169943749473 0.5877852522924732 0.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.8090169943749475 -0.587785252292473 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.30901699437494723 -0.9510565162951536 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.0 0.0 2.1228911104120876</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>0.7938615870631486 -0.15681918651040877 0.12270304550559294 0.5745741779365391</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>2.382248567517585</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Basket</figureName>
+<p0Label>C</p0Label>
+<p1Label>E</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Basket</figureName>
+<p0Label>C</p0Label>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<p0Label>F</p0Label>
+<p1Label>C</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Figure2</figureName>
+<p0Label>A</p0Label>
+<p1Label>G</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<fLabel1>C</fLabel1>
+<fLabel2>F</fLabel2>
+<fLabel3>G</fLabel3>
+<p0Label>I</p0Label>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figure2</figureName>
+<p11Label>I</p11Label>
+<p12Label>J</p12Label>
+<p21Label>F</p21Label>
+<p22Label>H</p22Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<p0Label>K</p0Label>
+<p1Label>C</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figure2</figureName>
+<p1Label>K</p1Label>
+<p2Label>L</p2Label>
+<variableName>Radius</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>4/3*pi*Radius^3</value>
+</action>
+</log>
+</solution>

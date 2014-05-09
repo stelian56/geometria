@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema é parte do repositório do Geometria.</comments>
+</envelope>
+<text>Todas as arestas deste poliedro são congruentes. Corte-o com um plano que não contém nenhum de seus vértices e cuja seção por este plano é um losango.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Figura</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>-0.3333333333333332 -0.19245008972987532 1.0886621079036347</coords>
+</point>
+<point>
+<label>A</label>
+<coords>-0.3333333333333332 0.9622504486493761 -0.5443310539518175</coords>
+</point>
+<point>
+<label>C</label>
+<coords>0.6666666666666667 -0.769800358919501 -0.5443310539518175</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-1.3333333333333333 -0.769800358919501 -0.5443310539518175</coords>
+</point>
+<point>
+<label>E</label>
+<coords>1.3333333333333333 0.769800358919501 0.5443310539518176</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>0.24516082543905648 0.5560266954685396 0.5346493834469224 0.5872652896061579</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition>
+<type>throughNoVertex</type>
+<figureName>Figura</figureName>
+</condition>
+<condition/>
+<condition>
+<type>rhombus</type>
+<figureName>Figura</figureName>
+</condition>
+</answer>
+</problem>

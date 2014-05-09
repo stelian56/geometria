@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://geocentral.net"
+            xmlns="http://geocentral.net"
+            elementFormDefault="qualified">
+
+<!-- Geometria 3.1 options schema -->
+
+<xs:simpleType name="fontStyleType">
+ <xs:restriction base="xs:string">
+  <xs:enumeration value="plain"/>
+  <xs:enumeration value="bold"/>
+  <xs:enumeration value="italic"/>
+ </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="fontType">
+<xs:all>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="style" type="fontStyleType"/>
+<xs:element name="size" type="xs:positiveInteger"/>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="optionsType">
+<xs:all>
+<xs:element name="version" type="xs:string"/>
+<xs:element name="font" type="fontType"/>
+<xs:element name="language" type="xs:string"/>
+</xs:all>
+</xs:complexType>
+
+<xs:element name="options" type="optionsType"/>
+
+</xs:schema>

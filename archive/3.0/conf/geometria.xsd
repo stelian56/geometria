@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://geocentral.net"
+            xmlns="http://geocentral.net"
+            elementFormDefault="qualified">
+
+<!-- Geometria 3.0 schema -->
+
+<xs:complexType name="fontType">
+<xs:all>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="bold" type="xs:boolean" minOccurs="0"/>
+<xs:element name="size" type="xs:positiveInteger" minOccurs="0"/>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="applicationType">
+<xs:all>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="version" type="xs:string"/>
+<xs:element name="homeUrl" type="xs:string"/>
+<xs:element name="font" type="fontType"/>
+</xs:all>
+</xs:complexType>
+
+<xs:element name="application" type="applicationType"/>
+
+</xs:schema>

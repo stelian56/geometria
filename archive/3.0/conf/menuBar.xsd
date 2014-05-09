@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://geocentral.net"
+            xmlns="http://geocentral.net"
+            elementFormDefault="qualified">
+
+<!-- Geometria 3.0 menu bar schema -->
+
+<xs:complexType name="menuItemType">
+<xs:all>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="action" type="xs:string"/>
+</xs:all>
+<xs:attribute name="checkBox" type="xs:boolean" default="false"/>
+</xs:complexType>
+
+<xs:complexType name="menuType">
+<xs:sequence>
+<xs:element name="name" type="xs:string" />
+<xs:group ref="menuElementGroup" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:group name="menuElementGroup">
+<xs:choice>
+<xs:element name="menu" type="menuType"/>
+<xs:element name="menuItem" type="menuItemType"/>
+<xs:element name="separator"/>
+</xs:choice>
+</xs:group>
+
+<xs:complexType name="menuBarType">
+<xs:sequence>
+<xs:element name="menu" type="menuType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:element name="menuBar" type="menuBarType"/>
+
+</xs:schema>

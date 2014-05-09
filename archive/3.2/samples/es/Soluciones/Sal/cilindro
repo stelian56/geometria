@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Esta es la solución de un problema de Geometria que se ofrece como un ejemplo.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este es un problema de Geometria que se ofrece como ejemplo.</comments>
+</envelope>
+<text>La arista DI de este prisma recto es el eje de un cilindro. La arista CH pertenece a la superficie del cilindro. El desafío es encontrar el volumen de la parte común de los dos sólidos.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Prisma</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.1176596467718916 -0.02952914807284507 -0.5</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.08118513833431285 0.8092703740774122 -0.5</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.036848850415582 0.445999110074732 -0.5</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1.1176596467718916 -0.02952914807284507 0.5</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.6913573476030561 -0.6173144003653181 -0.5</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.6402021327092596 -0.9112070265115548 -0.5</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.08118513833431285 0.8092703740774122 0.5</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-1.036848850415582 0.445999110074732 0.5</coords>
+</point>
+<point>
+<label>I</label>
+<coords>-0.6913573476030561 -0.6173144003653181 0.5</coords>
+</point>
+<point>
+<label>J</label>
+<coords>0.6402021327092596 -0.9112070265115548 0.5</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.4134665796294599 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>1.3138662365345313</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Prisma</figureName>
+<p1Label>I</p1Label>
+<p2Label>H</p2Label>
+<variableName>Radio</variableName>
+</action>
+<action>
+<className>GMeasureAngleAction</className>
+<figureName>Prisma</figureName>
+<p0Label>I</p0Label>
+<p1Label>J</p1Label>
+<p2Label>H</p2Label>
+<variableName>Angulo</variableName>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Prisma</figureName>
+<p1Label>D</p1Label>
+<p2Label>I</p2Label>
+<variableName>Altura</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>Volumen</variableName>
+<expression>Altura*Radio^2*(Angulo/2)</expression>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>Volumen</value>
+</action>
+</log>
+</solution>

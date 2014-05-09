@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://geocentral.net"
+            xmlns="http://geocentral.net"
+            elementFormDefault="qualified">
+
+<!-- Geometria 3.0 solid schema -->
+
+<xs:simpleType name="coordsType">
+<xs:restriction base="xs:string">
+<xs:pattern value="\s*([0-9\+\-\.E]+)\s+([0-9\+\-\.E]+)\s+([0-9\+\-\.E]+)\s*"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="pointType">
+<xs:all>
+<xs:element name="label" type="xs:string"/>
+<xs:element name="coords" type="coordsType"/>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="pointsType">
+<xs:sequence>
+<xs:element name="point" type="pointType" minOccurs="4" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="labelType">
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z][0-9]*"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="labelsType">
+<xs:sequence>
+<xs:element name="label" type="labelType" minOccurs="2" maxOccurs="2"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lineType">
+<xs:all>
+<xs:element name="labels" type="labelsType"/>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="linesType">
+<xs:sequence>
+<xs:element name="line" type="lineType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="solidType">
+<xs:all>
+<xs:element name="version" type="xs:string" minOccurs="0"/>
+<xs:element name="points" type="pointsType"/>
+<xs:element name="lines" type="linesType"/>
+</xs:all>
+</xs:complexType>
+
+<xs:element name="solid" type="solidType"/>
+
+</xs:schema>

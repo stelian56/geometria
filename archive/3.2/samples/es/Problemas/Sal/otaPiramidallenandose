@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Liliana Saidon Dir Centro Babbage Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>www.centrobbbage.com</web>
+</author>
+<comments>Este problema puede estudiarse por separado con recursos de análisis, manteniento abierta la ventana de Geometria para ir haciendo intentos sucesivos a controlar con las herramientas de Medida, por ejemplo.</comments>
+</envelope>
+<text>Se ha llenado de agua este cartón con forma de octaedro regular hasta 3/4 de su capacidad.  El desafío es cortarlo al ras del nivel del líquido.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>OctaPirámide</name>
+<color>#3300ff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.0 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 1.1430952132988164</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 -1.0 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.0 0.0 -1.1430952132988161</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>0.7323967140306825 -0.17825401617115222 0.14427746441608424 0.6410963829702822</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition/>
+<condition>
+<type>volumeCutInRatio</type>
+<figureName>OctaPirámide</figureName>
+<value>3.0</value>
+</condition>
+<condition/>
+</answer>
+</problem>

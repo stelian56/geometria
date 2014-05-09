@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Soluţia unei problemă-model din cadrul Geometriei.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>O problemă-model din cadrul Geometriei.</comments>
+</envelope>
+<text>Această piesă e formată din două piramide regulate unite la bazele lor. O bucată din partea inferioară a piesei urmează a fi tăiată, iar fragmentul rămas folosit pentru a suporta plafonul unei săli. Înălţimea sălii este egală cu muchia cea mai lungă a piesei. Află planul secţiunii.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Piesa</name>
+<color>#ccff</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.9999999999999998 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.30901699437494723 0.9510565162951535 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.8090169943749476 0.5877852522924732 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.0 0.0 1.6329931618554518</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.8090169943749477 -0.587785252292473 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.309016994374947 -0.9510565162951536 0.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.0 0.0 -1.6329931618554518</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5776679660403664 -0.08700769102190056 -0.155600704687259 0.7965662580191633</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>fixedPlane</type>
+<coords>-0.6693774736545859 0.4863312018988447 -0.281861053657224</coords>
+<coords>-0.669377473654586 0.0 -0.28186105365722414</coords>
+<coords>0.8273960600441423 0.0 -0.28186105365722414</coords>
+</answer>
+</problem>
+<log>
+<action>
+<className>GCutAction</className>
+<figureName>Piesa</figureName>
+<p0Label>F</p0Label>
+<p1Label>D</p1Label>
+<p2Label>G</p2Label>
+<figure1Name>Figura1</figure1Name>
+<figure2Name>Figura2</figure2Name>
+</action>
+<action>
+<className>GDrawLineAction</className>
+<figureName>Figura2</figureName>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figura2</figureName>
+<p1Label>D</p1Label>
+<p2Label>F</p2Label>
+<variableName>Inaltime</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Figura2</figureName>
+<distance>Inaltime</distance>
+<p0Label>F</p0Label>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura2</figureName>
+<p0Label>I</p0Label>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura2</figureName>
+<fLabel1>G</fLabel1>
+<fLabel2>B</fLabel2>
+<fLabel3>H</fLabel3>
+<p0Label>K</p0Label>
+<p1Label>H</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>J,K,L</value>
+<figureName>Figura2</figureName>
+</action>
+</log>
+</solution>

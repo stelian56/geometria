@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>O problemă-model din cadrul Geometriei.</comments>
+</envelope>
+<text>Această figură e formată din două piramide regulate. Află punctul de tangenţă al sferei înscrise la faţa ABD.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Hexaedru</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.9999999999999999 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.49999999999999983 0.8660254037844386 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5000000000000004 -0.8660254037844386 0.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 0.0 1.632993161855452</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 -1.632993161855452</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.3984733955005549 -0.48033796315630073 -0.614331648435468 0.48279500821743815</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>0.22857142857142873 0.3958973274443148 0.13997084244475302</coords>
+</answer>
+</problem>

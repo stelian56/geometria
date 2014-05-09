@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este es un problema de Geometria que se ofrece como ejemplo.</comments>
+</envelope>
+<text>Una línea recta perfora este prisma regular en el vértice G y forma ángulos iguales con las tres aristas que confluyen allí. El desafío es ubicar el punto donde la línea emerge, del otro lado del prisma.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Prisma</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>-1.0 0.0 -0.5999999999999999</coords>
+</point>
+<point>
+<label>K</label>
+<coords>-0.5000000000000004 -0.8660254037844385 0.5999999999999999</coords>
+</point>
+<point>
+<label>H</label>
+<coords>0.5000000000000001 0.8660254037844386 0.5999999999999999</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.4999999999999998 0.8660254037844387 -0.5999999999999999</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.5000000000000001 0.8660254037844386 -0.5999999999999999</coords>
+</point>
+<point>
+<label>L</label>
+<coords>0.49999999999999933 -0.866025403784439 0.5999999999999999</coords>
+</point>
+<point>
+<label>G</label>
+<coords>1.0000000000000002 0.0 0.5999999999999999</coords>
+</point>
+<point>
+<label>I</label>
+<coords>-0.4999999999999998 0.8660254037844387 0.5999999999999999</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.0000000000000002 0.0 -0.5999999999999999</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.49999999999999933 -0.866025403784439 -0.5999999999999999</coords>
+</point>
+<point>
+<label>J</label>
+<coords>-1.0 0.0 0.5999999999999999</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-0.5000000000000004 -0.8660254037844385 -0.5999999999999999</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.41346657962945993 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>-1.0 0.0 -0.40000000000000013</coords>
+</answer>
+</problem>

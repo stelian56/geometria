@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This is the solution of a sample Geometria problem.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This is a sample Geometria problem.</comments>
+</envelope>
+<text>This cube is to be carved into a cylinder whose radius is six times shorter than the cube&#39;s side. What is the maximum volume of the cylinder.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Cube</name>
+<color>#ff9999</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>-1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>1.0 1.0 1.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-1.0 1.0 1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.41346657962945993 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.8800971362925621</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GCutAction</className>
+<figureName>Cube</figureName>
+<p0Label>A</p0Label>
+<p1Label>E</p1Label>
+<p2Label>G</p2Label>
+<figure1Name>Figure1</figure1Name>
+<figure2Name>Figure2</figure2Name>
+</action>
+<action>
+<className>GDrawLineAction</className>
+<figureName>Figure2</figureName>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figure2</figureName>
+<p1Label>A</p1Label>
+<p2Label>E</p2Label>
+<variableName>Side</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>Radius</variableName>
+<expression>Side/6</expression>
+</action>
+<action>
+<className>GMeasureAngleAction</className>
+<figureName>Figure2</figureName>
+<p0Label>G</p0Label>
+<p1Label>E</p1Label>
+<p2Label>A</p2Label>
+<variableName>Angle</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Figure2</figureName>
+<distance>Radius/sin(Angle)</distance>
+<p0Label>G</p0Label>
+<p1Label>E</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<p0Label>I</p0Label>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Figure2</figureName>
+<distance>Radius/sin(Angle)</distance>
+<p0Label>A</p0Label>
+<p1Label>C</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<p0Label>K</p0Label>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figure2</figureName>
+<p11Label>K</p11Label>
+<p12Label>L</p12Label>
+<p21Label>A</p21Label>
+<p22Label>G</p22Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figure2</figureName>
+<p11Label>I</p11Label>
+<p12Label>J</p12Label>
+<p21Label>A</p21Label>
+<p22Label>G</p22Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figure2</figureName>
+<p1Label>M</p1Label>
+<p2Label>N</p2Label>
+<variableName>Height</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>Ratio</variableName>
+<expression>Height/Side</expression>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>pi * Radius^2 * Height</value>
+</action>
+</log>
+</solution>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Ce problème fait partie du répertoire original de Geometria 3.0.</comments>
+</envelope>
+<text>Déterminer un plan qui tronque la pyramide d'un volume égal au volume du cube.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Cube</name>
+<color>#339900</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>-0.5 -0.5 -0.5</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.5 -0.5 -0.5</coords>
+</point>
+<point>
+<label>C</label>
+<coords>0.5 0.5 -0.5</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-0.5 -0.5 0.5</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.5 0.5 -0.5</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.5 -0.5 0.5</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.5 0.5 0.5</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.5 0.5 0.5</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.4134665796294599 0.6580282918981487</attitude>
+</camera>
+</figure>
+<figure>
+<name>Pyramide</name>
+<color>#ff6600</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.996180339887499 0.0 -0.5062278801751902</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.30519733426244644 0.9510565162951535 -0.5062278801751902</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.8128366544874484 0.5877852522924732 -0.5062278801751902</coords>
+</point>
+<point>
+<label>F</label>
+<coords>-0.003819660112501057 0.0 1.126765281680262</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.8128366544874485 -0.587785252292473 -0.5062278801751902</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.3051973342624462 -0.9510565162951536 -0.5062278801751902</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.4134665796294599 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition/>
+<condition>
+<type>volumeCutInRatio</type>
+<figureName>Pyramide</figureName>
+<value>3.398771123309213</value>
+</condition>
+<condition/>
+</answer>
+</problem>

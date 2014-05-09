@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Przykładowe zadanie programu Geometria.</comments>
+</envelope>
+<text>Z kostki sześciennej ma zostać wytoczony cylinder o promieniu sześciokrotnie mniejszym od długości krawędzi kostki. Jakia jest maksymalna objętość tego cylindra?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Kostka</name>
+<color>#ff9999</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>-1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>1.0 1.0 1.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-1.0 1.0 1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.41346657962945993 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.8800971362925621</value>
+</answer>
+</problem>

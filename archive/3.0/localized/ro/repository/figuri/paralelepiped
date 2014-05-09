@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<solid xmlns="http://geocentral.net">
+<version>3.0</version>
+<points>
+<point>
+<label>D</label>
+<coords>0.22916666666666657 -0.7708333333333334 -0.5</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.2625000000000002 -0.8625000000000002 0.5</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.7374999999999999 -0.1374999999999999 -0.5</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.26250000000000007 0.8624999999999999 -0.5</coords>
+</point>
+<point>
+<label>G</label>
+<coords>-1.2291666666666665 -0.22916666666666652 0.5</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.2291666666666667 0.22916666666666652 -0.5</coords>
+</point>
+<point>
+<label>F</label>
+<coords>-0.22916666666666663 0.7708333333333333 0.5</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.7375 0.1374999999999999 0.5</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>

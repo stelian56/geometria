@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Задача из хранилища Геометрии 3.0</comments>
+</envelope>
+<text>Найди угол между нижним и верхним основанием этой косоусеченной пирамиды.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Чурбан</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>-0.7218285238686927 -0.5244391205179378 0.0</coords>
+</point>
+<point>
+<label>O</label>
+<coords>0.8067959697661163 -6.692539936268421E-4 0.5338293853411964</coords>
+</point>
+<point>
+<label>M</label>
+<coords>-0.3209695026091842 0.3920945968857837 0.909161257240606</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.1562867710687599 -0.03175951985498025 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.833631922743682 0.8050155609257711 0.0</coords>
+</point>
+<point>
+<label>P</label>
+<coords>0.2152743032084155 0.6218626453934488 0.7611841101743672</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.327107164318697 1.109508299699204 0.0</coords>
+</point>
+<point>
+<label>L</label>
+<coords>-0.29709460182184527 -0.21585186306438958 0.8573214099741123</coords>
+</point>
+<point>
+<label>Q</label>
+<coords>0.34549551360367503 -0.6148861208080696 0.6306329107764074</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.5080088637561915 -1.0415945613793811 0.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5709758080154486 -0.3049986983105636 -0.3775619832983181 0.6621248896226513</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.30599244801374387</value>
+</answer>
+</problem>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<versions>
+ <version>
+  <number>3.0</number>
+  <solidSchema>solid3.0.xsd</solidSchema>
+  <problemSchema>problem3.0.xsd</problemSchema>
+  <solutionSchema>solution3.0.xsd</solutionSchema>
+ </version>
+ <version>
+  <number>3.1</number>
+  <solidSchema>solid3.0.xsd</solidSchema>
+  <problemSchema>problem3.0.xsd</problemSchema>
+  <solutionSchema>solution3.0.xsd</solutionSchema>
+  <optionsSchema>options3.1.xsd</optionsSchema>
+ </version>
+ <version>
+  <number>3.2</number>
+  <solidSchema>solid3.0.xsd</solidSchema>
+  <problemSchema>problem3.2.xsd</problemSchema>
+  <solutionSchema>solution3.2.xsd</solutionSchema>
+  <optionsSchema>options3.1.xsd</optionsSchema>
+ </version>
+</versions>

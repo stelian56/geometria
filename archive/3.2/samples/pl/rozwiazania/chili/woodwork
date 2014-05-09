@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Rozwiązanie przykładowego zadania programu Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Przykładowe zadanie programu Geometria.</comments>
+</envelope>
+<text>Z kostki sześciennej ma zostać wytoczony cylinder o promieniu sześciokrotnie mniejszym od długości krawędzi kostki. Jakia jest maksymalna objętość tego cylindra?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Kostka</name>
+<color>#ff9999</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>-1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>1.0 1.0 1.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-1.0 1.0 1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.41346657962945993 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.8800971362925621</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GCutAction</className>
+<figureName>Kostka</figureName>
+<p0Label>A</p0Label>
+<p1Label>E</p1Label>
+<p2Label>G</p2Label>
+<figure1Name>Bryła1</figure1Name>
+<figure2Name>Bryła2</figure2Name>
+</action>
+<action>
+<className>GDrawLineAction</className>
+<figureName>Bryła2</figureName>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Bryła2</figureName>
+<p1Label>A</p1Label>
+<p2Label>E</p2Label>
+<variableName>d</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>r</variableName>
+<expression>d/6</expression>
+</action>
+<action>
+<className>GMeasureAngleAction</className>
+<figureName>Bryła2</figureName>
+<p0Label>G</p0Label>
+<p1Label>E</p1Label>
+<p2Label>A</p2Label>
+<variableName>alfa</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Bryła2</figureName>
+<distance>r/sin(alfa)</distance>
+<p0Label>G</p0Label>
+<p1Label>E</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Bryła2</figureName>
+<p0Label>I</p0Label>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Bryła2</figureName>
+<distance>r/sin(alfa)</distance>
+<p0Label>A</p0Label>
+<p1Label>C</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Bryła2</figureName>
+<p0Label>K</p0Label>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Bryła2</figureName>
+<p11Label>K</p11Label>
+<p12Label>L</p12Label>
+<p21Label>A</p21Label>
+<p22Label>G</p22Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Bryła2</figureName>
+<p11Label>I</p11Label>
+<p12Label>J</p12Label>
+<p21Label>A</p21Label>
+<p22Label>G</p22Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Bryła2</figureName>
+<p1Label>M</p1Label>
+<p2Label>N</p2Label>
+<variableName>H</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>k</variableName>
+<expression>H/d</expression>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>pi * r^2 * H</value>
+</action>
+</log>
+</solution>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This is the solution of a sample Geometria problem.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This is a sample Geometria problem.</comments>
+</envelope>
+<text>A beetle crawls on the surface of this pyramid from some point on edge AC up to the top so covering a distance double to the height of the pyramid. Reconstruct the beetle&#39;s path.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Pyramid</name>
+<color>#cc00</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.2301875435702758 -0.415816992752015 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-1.2301875435702758 0.415816992752015 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.2206959949183201 -0.9813698464654804 0.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.6314183077106333 0.0646889245741619 0.816496580927726</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.48711728514843694 0.2042886408812613 0.1762086483682252 0.8306223052367102</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>0.5766349657931064 -0.6705710895547854 0.0</coords>
+<coords>-0.6314183077106333 0.0646889245741619 0.816496580927726</coords>
+</answer>
+</problem>
+<log>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramid</figureName>
+<p0Label>D</p0Label>
+<p1Label>C</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramid</figureName>
+<fLabel1>A</fLabel1>
+<fLabel2>C</fLabel2>
+<fLabel3>B</fLabel3>
+<p0Label>E</p0Label>
+<p1Label>C</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Pyramid</figureName>
+<p0Label>E</p0Label>
+<p1Label>F</p1Label>
+<p2Label>D</p2Label>
+<figure1Name>Figure1</figure1Name>
+<figure2Name>Figure2</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<p0Label>D</p0Label>
+<p1Label>F</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figure2</figureName>
+<p1Label>D</p1Label>
+<p2Label>G</p2Label>
+<variableName>Height</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Pyramid</figureName>
+<distance>2 * Height</distance>
+<p0Label>D</p0Label>
+<p1Label>A</p1Label>
+<p2Label>C</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>G,D</value>
+<figureName>Pyramid</figureName>
+</action>
+</log>
+</solution>

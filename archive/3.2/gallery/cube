@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<solid xmlns="http://geocentral.net">
+<version>3.1</version>
+<vertexCount>8</vertexCount>
+<points>
+<point>
+<label>A</label>
+<coords>-1 -1 -1</coords>
+</point>
+<point>
+<label>B</label>
+<coords>1 -1 -1</coords>
+</point>
+<point>
+<label>C</label>
+<coords>1 1 -1</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-1 1 -1</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-1 -1 1</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1 -1 1</coords>
+</point>
+<point>
+<label>G</label>
+<coords>1 1 1</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-1 1 1</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>

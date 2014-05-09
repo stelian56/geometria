@@ -1,0 +1,60 @@
+﻿<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Ce problème fait partie du répertoire original de Geometria 3.0.</comments>
+</envelope>
+<text>Un ballon a été placé dans ce panier, de telle façon qu'il est en contact avec toutes ses arêtes, sans déformer aucune d'entre elles. Déterminer le volume de ce ballon.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Panier</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.30901699437494745 0.9510565162951535 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.8090169943749473 0.5877852522924732 0.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.8090169943749475 -0.587785252292473 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.30901699437494723 -0.9510565162951536 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.0 0.0 2.1228911104120876</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>0.7938615870631486 -0.15681918651040877 0.12270304550559294 0.5745741779365391</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>2.382248567517585</value>
+</answer>
+</problem>

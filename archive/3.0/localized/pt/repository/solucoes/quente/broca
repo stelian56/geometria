@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Esta solução é parte do repositório do Geometria 3.0.</comments>
+</envelope>
+<problem>
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema é parte do repositório do Geometria 3.0.</comments>
+</envelope>
+<text>Este bloco de madeira que tem o formato de um tronco de pirâmide deve ser perfurado de J a B de modo que as arestas LK e LM permanecem intactas. Qual é o raio do maior buraco?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Bloco</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>0.0 -1.0 -0.05832118435198043</coords>
+</point>
+<point>
+<label>M</label>
+<coords>-0.40476190476190477 0.0 0.9136985548476934</coords>
+</point>
+<point>
+<label>K</label>
+<coords>0.4047619047619047 0.0 0.9136985548476934</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.0 0.0 -0.05832118435198043</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 0.0 -0.05832118435198043</coords>
+</point>
+<point>
+<label>J</label>
+<coords>0.0 -0.40476190476190477 0.9136985548476934</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.0 -0.05832118435198043</coords>
+</point>
+<point>
+<label>L</label>
+<coords>0.0 0.40476190476190466 0.9136985548476934</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.4578931504214606 -0.3579971115912482 -0.44278360824223556 0.6827258653086317</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.4003522876912712</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Bloco</figureName>
+<p0Label>M</p0Label>
+<p1Label>B</p1Label>
+<p2Label>C</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Bloco</figureName>
+<p0Label>J</p0Label>
+<p1Label>M</p1Label>
+<p2Label>N</p2Label>
+</action>
+<action>
+<className>GDrawLineAction</className>
+<figureName>Figura1</figureName>
+<p1Label>J</p1Label>
+<p2Label>N</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura1</figureName>
+<p0Label>M</p0Label>
+<p1Label>J</p1Label>
+<p2Label>N</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figura1</figureName>
+<p11Label>J</p11Label>
+<p12Label>N</p12Label>
+<p21Label>M</p21Label>
+<p22Label>P</p22Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figura1</figureName>
+<p1Label>Q</p1Label>
+<p2Label>M</p2Label>
+<variableName>Raio</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>Raio</value>
+</action>
+</log>
+</solution>

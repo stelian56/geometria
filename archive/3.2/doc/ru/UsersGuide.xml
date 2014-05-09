@@ -1,0 +1,4317 @@
+<?xml-stylesheet type="text/xsl" href="fo.xsl"?>
+
+<book id="GeometriaUsersGuide" lang="ru">
+
+<title>Geometria 3.2</title>
+<subtitle>Руководство пользователя</subtitle>
+
+<chapter id="General">
+<title>Общий раздел</title>
+
+<!-- Help page start -->
+
+<sect1 id="Overview">
+<title>Введение</title>
+
+<para>
+<emphasis>Geometria</emphasis>
+предоставляет графический интерфейс для составления и решения
+задач по геометрии в пространстве.
+</para>
+
+<para>
+В любой выбранный момент, пользователь программы является либо
+<emphasis>составителем</emphasis>
+задачи (иными словами, учителем), либо
+<emphasis>решателем</emphasis>
+задачи (иными словами, учеником).
+</para>
+
+<para>
+Задачи и решения называются
+<emphasis>документами</emphasis>.
+Документы сохраняются в файлах. Вот как выглядит типичный цикл
+пользования программой:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Составитель создает задачу, сопровождает ее
+<link linkend="Answer">ответом</link>
+и
+<link linkend="SaveProblem">сохраняет</link>
+задачу в файле.
+</listitem>
+
+<listitem>
+Решатель
+<link linkend="OpenProblem">открывает</link>
+задачу и начинает
+<link linkend="CreateSolution">новое решение</link>.
+</listitem>
+
+<listitem>
+Решение состоит из некоторого числа действий. Действия записываются в
+<link linkend="SolutionLog">журнале</link>
+решения.
+</listitem>
+
+<listitem>
+Решатель
+<link linkend="Answer">дает ответ</link>.
+Ответ решателя считается правильным,
+если он совпадает с ответом составителя. Правильный ответ записывается в
+<link linkend="SolutionLog">журнал решения</link>.
+Решатель
+<link linkend="SaveSolution">сохраняет</link>
+свое решение в файле.
+</listitem>
+
+<listitem>
+Пользователь
+<link linkend="OpenSolution">открывает</link>
+файл и
+<link linkend="SolutionLog">просматривает</link>
+решение.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Заметь, что программа не производит семантического
+анализа задачи, чтобы установить: является ли ответ заданный составителем,
+в действительности, правильным? Ответ может быть неправильным
+или даже бессмысленным. Задача тоже может оказаться бессмысленной.
+Так, в задаче может содержаться следующий вопрос:
+</para>
+
+<para>
+<emphasis>
+Какова наивысшая точка в кентакской губернии? 
+</emphasis>
+</para>
+
+<para>
+и иметь в качестве ответа:
+</para>
+
+<para>
+<emphasis>
+Точка Z в фигуре МояФигура.
+</emphasis>
+</para>
+
+<para>
+Если составитель считает это правильным ответом к своей задаче,
+у программы не будет возражений. Вполне возможно, однако, что решатели
+обойдут вниманием подобную задачу.
+</para>
+
+<para>
+Любой документ содержит условие задачи,
+<link linkend="Envelope">конверт</link>,
+некоторое число фигур и некоторое число
+<link linkend="Notepad">записей</link>
+на доске. Выпуклые многогранники являются единственными допустимыми фигурами.
+Фигуры можно преобразовывать,
+<link linkend="RotateFigure">вращать</link>,
+представлять
+<link linkend="ViewModes">прозрачными</link>,
+обозначать.
+</para>
+
+<para>
+Измерения и построения можно производить только на поверхности фигур.
+Если возникает необходимость действий внутри фигуры, ее нужно сначала
+<link linkend="CutFigure">рассечь</link>
+подходящей плоскостью.
+</para>
+
+<para>
+Обозначения и
+<link linkend="Variables">переменные</link>
+представляют собой удобную абстракцию числовых координат и измерений.
+<link linkend="Variables">Переменные</link>
+используются а
+<link linkend="Calculator">вычислениях</link>.
+На них можно ссылаться в построениях. Обозначения и переменные
+также используются в
+<link linkend="Answer">ответе</link>
+к задаче.
+</para>
+
+<para>
+<link linkend="Answer">Ответ</link>
+не обязательно числовой. Во многих
+задачах требуется построить точку, отрезок или плосксть.
+На эти задачи невозможно ответить простым числом.
+Например:
+</para>
+
+<para>
+<emphasis>
+Укажи плоскость которая параллельна диагонали куба
+и отсекает от него объем равный удвоенному объему пирамиды.
+</emphasis>
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Калькулятор</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Variables">
+<title>Переменные</title>
+
+<sect2 id="CreatingAVariable">
+<title>Задание переменной</title>
+
+<para>
+<emphasis>Переменная</emphasis>
+возникает в результате измерения или вычисления.
+Каждая новообразованная переменная имеет свое название и определение.
+Так, переменная моеРасстояние в нижеприведенной записи определена
+расстоянием между точками P и W в фигуре МойКуб:
+</para>
+
+<programlisting>
+моеРасстояние = |PW| : МойКуб
+</programlisting>
+
+<para>
+В другом примере, переменная мояПлощадь возникает в результате
+вычисления над раннее определенными переменными мойОбъем и моеРасстояние:
+</para>
+
+<programlisting>
+мояПлощадь = 2 * мойОбъем / моеРасстояние
+</programlisting>
+
+<para>
+Новообразованные переменные автоматически записываются,
+вместе с их определениями, на
+<link linkend="Notepad">доску</link>.
+</para>
+
+<para>
+Переменные могут состоять из букв латинского и русского алфавитов и цифр.
+Пробелы недопустимы.
+</para>
+
+<para>
+Большие и малые буквы в названиях переменных
+различаются. Например:
+<emphasis>мояПлощадь</emphasis>
+и
+<emphasis>МояПлощадь</emphasis>
+обозначают две различные переменные.
+</para>
+
+<para>
+<emphasis>PI</emphasis>
+зарезервировано для соответствующей числовой константы.
+Его нельзя использовать для обозначения новообразованных переменных.
+Однако, оно может участвовать в
+<link linkend="Calculator">вычислениях</link>.
+</para>
+
+</sect2>
+
+<sect2 id="ValueOfAVariable">
+<title>Значение переменной</title>
+
+<para>
+Каждая переменная имеет числовое значение. Однако, в большинстве случаев,
+это значение остается за кадром. Пользователь
+составляет и решает задачи не нуждаясь в конкретных числовых
+значениях переменных, которые он определил. Увидеть числовое значение
+любой переменной можно введя переменную в
+<link linkend="Calculator">калькулятор</link>
+и щелкнув по кнопке
+<emphasis>Вычислить</emphasis>.
+Благодаря ошибкам округления, числовые значения могут слегка варьировать
+в процессе составления и решения задачи.
+</para>
+
+<para>
+Значение переменной может измениться в результате некоторых
+действий над фигурами. Если, в вышеприведенном примере, фигуру МойКуб
+<link linkend="ScaleFigure">растягивают</link>
+с коэффициентом 3, значение переменной моеРасстояние
+автоматически умножится на 3.
+Значения переменных зависящих от переменной моеРасстояние
+будут автоматически вычислены заново.
+</para>
+
+<para>
+В то же время, числовое значение
+<link linkend="Answer">ответа</link>
+останется, в процессе действий над фигурами, неизменным.
+Если, в предыдущем примере, составитель задачи вводит
+моеРасстояние в качестве ответа
+<emphasis>перед</emphasis>
+растяжением фигуры, числовое значение ответа не изменится,
+хотя моеРасстояние приобретает новое значение во всех последующих
+вычислениях. Это замечание справедливо для ответов всех типов.
+</para>
+
+<para>
+В свете вышесказанного, мы рекомендуем составителю задачи 
+задавать ответ непосредственно перед завершением задачи,
+а если ответ к тому времени уже задан, ввести его еще раз.
+</para>
+
+</sect2>
+
+<sect2 id="PinnedVariable">
+<title>Прикрепленная переменная</title>
+
+<para>
+В результате определенных действий, определение некоторых переменных
+может стать недействительным. Например, если точка P или точка W
+<link linkend="EraseElements">удалена</link>,
+определение переменной моеРасстояние в вышеприведенном примере
+теряет силу. То же происходит если
+<link linkend="RemoveFigure">удаляют</link>
+фигуру МойКуб. Подобная переменная называется
+<emphasis>прикрепленной</emphasis>.
+</para>
+
+<para>
+Прикрепленная переменная перестает быть зависимой от
+своего первоначального определения, и ее числовое значение
+становится постоянным.
+Например, после
+<link linkend="EraseElements">удаления</link>
+точки P в фигуре МойКуб, переменная МоеРасстояние становится
+прикрепленной. Ее значение останется неизменным, невзирая на
+любые последующие действия над фигурой МойКуб.
+</para>
+
+<para>
+С другой стороны, если действие, которое привело к прикреплению переменной,
+<link linkend="UndoActions">отменяют</link>,
+первоначальное определение переменной вновь приобретает силу,
+и переменная снова становится изменяемой.
+</para>
+
+</sect2>
+
+<sect2 id="LifetimeOfAVariable">
+<title>Срок действительности переменной</title>
+
+<para>
+После чего переменная определена, ее можно использовать в
+<link linkend="Calculator">вычислениях</link>
+и на нее можно ссылаться в действиях, таких как измерения, построения
+и преобразования фигур. Переменную можно также использовать
+для задания
+<link linkend="Answer">ответа</link>
+на задачу. Прикрепленные переменные не представляют исключения.
+Их по-прежнему можно использовать в вычислениях и ссылках.
+</para>
+
+<para>
+Переменная существует пока она записана на
+<link linkend="Notepad">доске</link>.
+Удалить переменную можно единственным способом: очистив
+<link linkend="Notepad">доску</link>.
+Производить это действие нужно с осторожностью, так как
+его невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Во время сохранения документа, будь он задачей или решением,
+все записи на
+<link linkend="Notepad">доске</link>
+также сохраняются. 
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Калькулятор</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Сохранение задачи</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Сохранение решения</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RenameVariable">
+<title>Переименование переменной</title>
+
+<para>
+Переименовать любую переменную можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Выбери
+<emphasis>Переименовать переменную</emphasis>
+из меню
+<emphasis>Отредактировать</emphasis>,
+или
+</listitem>
+
+<listitem>
+Выбери ту
+<link linkend="Notepad">запись</link>
+на доске, в которой переменная была определена, щелкни по правой кнопке и выбери
+<emphasis>Переименовать переменную</emphasis>
+из попапа.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Вывесится диалог. Выбери переменную, подлежащую переименованию, из списка,
+введи новое название и шелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+Новое название должно быть
+<link linkend="CreatingAVariable">допустимым</link>.
+</para>
+
+<para>
+Выбери заблаговременно
+<link linkend="Notepad">запись</link>
+чтобы переписать переменную в диалог автоматически.
+</para>
+
+<para>
+Переименование переменной может привести к изменению некоторых
+<link linkend="Notepad">записей</link>
+на доске.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Calculator">
+<title>Калькулятор</title>
+
+<sect2 id="Expressions">
+<title>Выражения</title>
+
+<para>
+Вычисления производятся над допустимыми выражениями.
+Выражения могут содержать числа,
+<link linkend="Variables">переменные</link>,
+константу
+<emphasis>PI</emphasis>,
+операции, функции и скобки.
+</para>
+
+</sect2>
+
+<sect2 id="Assignment">
+<title>Присвоение</title>
+
+<para>
+Вычисления производятся в контексте текущего документа.
+</para>
+
+<para>
+Для того чтобы вычислить выражение моеВыражение и присвоить
+резултату новую переменную мояПеременная, введи:
+</para>
+
+<programlisting>
+мояПеременная = моеВыражение
+</programlisting>
+
+<para>
+и щелкни по кнопке
+<emphasis>Вычислить</emphasis>.
+Название переменной должно быть единственным а контексте текущего
+документа. В резултате на  
+<link linkend="Notepad">доске</link>
+появится новая запись. Новообразованную переменную можно использовать
+в последующих вычислениях и ссылках.
+</para>
+
+<para>
+В отсуствии открытого документа, будет просто вывешен
+числовой результат вычисления, без создания новой переменной.
+</para>
+
+</sect2>
+
+<sect2 id="Operators">
+<title>Операции</title>
+
+<para>
+Допустимыми являются следующие операции:
+</para>
+
+<itemizedlist>	
+
+<listitem>
++ (сложение)
+</listitem>
+
+<listitem>
+- (знак минус, вычитание)
+</listitem>
+
+<listitem>
+* (умножение)
+</listitem>
+
+<listitem>
+/ (деление)
+</listitem>
+
+<listitem>
+^ (операция возведения в степень)
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="Functions">
+<title>Функции</title>
+
+<para>
+Допускаются следующие функции:
+</para>
+
+<itemizedlist>
+
+<listitem>
+sqrt (квадратный корень)
+</listitem>
+
+<listitem>
+sin (синус)
+</listitem>
+
+<listitem>
+cos (косинус)
+</listitem>
+
+<listitem>
+tan (тангенс)
+</listitem>
+
+<listitem>
+asin (арксинус)
+</listitem>
+
+<listitem>
+acos (арккосинус)
+</listitem>
+
+<listitem>
+atan (арктангенс)
+</listitem>
+
+</itemizedlist>
+
+<para>
+Аргументы функций приводятся в скобках.
+</para>
+
+</sect2>
+
+<sect2 id="Examples">
+<title>Примеры</title>
+
+<para>
+Вычисление ребра куба, объем которого равен значению переменной мойОбъем:
+</para>
+
+<programlisting>
+моеРебро = мойОбъем ^ (1 / 3)
+</programlisting>
+
+<para>
+Вычисление катета, прилагающего к углу мойУгол в прямоугольном
+треугольнике с гипотенузой мояГипотенуза:
+</para>
+
+<programlisting>
+моеРебро = мояГипотенуза * cos(мойУгол)
+</programlisting>
+
+</sect2>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Notepad">
+<title>Доска</title>
+
+<para>
+Каждый раз когда новая 
+<link linkend="CreatingAVariable">переменная</link>
+образуется в результате измерения или
+<link linkend="Calculator">вычисления</link>,
+на доске автоматически производится запись.
+Запись содержит название переменной, а также, возможно, ее определение.
+Запись, возникшая в результате измерения, может также содержать
+название фигуры, на которой было произведено измерение. Так,
+запись
+</para>
+
+<programlisting>
+моеРасстояние = |AB| : МойКуб
+</programlisting>
+
+<para>
+является результатом измерения расстояния между точками A и B
+в фигуре под названием МойКуб. Расстояние обозначено
+переменной моеРасстояние. Запись
+</para>
+
+<programlisting>
+мойУгол = &lt;PLX
+</programlisting>
+
+<para>
+возникла в результате измерения угла. Название фигуры опущено,
+так как документ, в настоящее время, содержит единственную фигуру.
+Запись:
+</para>
+
+<programlisting>
+мойОбъем = объем : Фигура1
+</programlisting>
+
+<para>
+является результатом измерения объема фигуры под названием
+Фигура1. Нижеприведенная запись появилась на доске после
+<link linkend="Calculator">вычисления</link>:
+</para>
+
+<programlisting>
+высота = 2 * мойОбъем / мояПлощадь
+</programlisting>
+
+<para>
+Определения
+<link linkend="PinnedVariable">прикрепленных</link>,
+переменных на доске не указываются. Например, после
+<link linkend="EraseElements">удаления</link>
+точки X, переменная мойУгол потеряет свое определение,
+и второй из вышеприведенных примеров будет выглядеть
+следующим образом:
+</para>
+
+<programlisting>
+мойУгол
+</programlisting>
+
+<para>
+Записи на доске принадлежат текущему документу. Когда документ
+сохраняют в файле, записи сохраняются вместе с документом.
+</para>
+
+<para>
+Когда текущий документ
+<link linkend="CloseDocument">закрывают</link>,
+доска очищается от записей. Если, после этого, открывают
+другой документ, принадлежащие ему записи выставляются на доске вместо
+прежних.
+</para>
+
+<para>
+Если требуется очистить доску без закрытия текущего документа,
+выбирают
+<emphasis>Очистить доску</emphasis>
+из меню
+<emphasis>Отредактировать</emphasis>.
+Это действие нужно производить с осторожностью,
+так как
+<link linkend="UndoActions">отменить</link>
+его невозможно.
+</para>
+
+<para>
+Очищают выбор записи на доске вывесив попап и выбрав
+<emphasis>Очистить выборку</emphasis>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Калькулятор</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="UndoActions">
+<title>Отмена действий</title>
+
+<para>
+Отменить последнее действие над фигурой или документом можно выбрав
+<emphasis>Отменить</emphasis>
+из меню
+<emphasis>Отредактировать</emphasis>
+или щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов. Если текущий документ является решением,
+соответствующая запись будет также удалена из
+<link linkend="SolutionLog">журнала</link>
+решения. Действия отменяются в порядке обратном их выполнению.
+</para>
+
+<para>
+Чтобы вывесить короткое описание действия подлежащее отмене,
+возведи мышку над кнопкой
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject> .
+
+</para>
+
+<para>
+Любое отмененное действие можно
+<link linkend="RedoActions">восстановить</link>.
+</para>
+
+<para>
+Некоторые действия отменить невозможно. Перед каждым таким действием
+вывешивается предостережение.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RedoActions">Восстановление действий</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Журнал решения</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RedoActions">
+<title>Восстановление действий</title>
+
+<para>
+Восстановить последнее отмененное действие над фигурой или документом можно выбрав
+<emphasis>Восстановить</emphasis>
+из меню
+<emphasis>Отредактировать</emphasis>
+или щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов. Если текущий документ является решением,
+соответствующая запись будет добавлена в
+<link linkend="SolutionLog">журнал</link>
+решения. Действия восстанавливаются в порядке обратном порядку, в котором
+они были отменены.
+</para>
+
+<para>
+Чтобы вывесить короткое описание действия подлежащее восстановлению,
+возведи мышку над кнопкой
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject> .
+
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Журнал решения</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Options">
+<title>Настройка</title>
+
+<sect2 id="Font">
+<title>Шрифт</title>
+
+<para>
+Чтобы увеличить или уменьшить шрифт, выбери
+<emphasis>Шрифт</emphasis>
+из меню
+<emphasis>Настройка</emphasis>,
+затем выбери желаемую величину.
+</para>
+
+</sect2>
+
+<sect2 id="Language">
+<title>Язык</title>
+
+<para>
+Чтобы перейти на другой язык, выбери
+<emphasis>Язык</emphasis>
+из меню
+<emphasis>Настройка</emphasis>,
+затем выбери желаемый язык.
+</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="KnownLimitations">
+<title>Известные ограничения</title>
+
+<sect2 id="InordinateSizeOrShape">
+<title>Необычные размеры и формы</title>
+
+<para>
+Программа может стать неуправляемой если фигуры содержат
+элементы необычного размера или пропорций. Несколько
+советов по содержанию программы в пределах контролируемости:   
+</para>
+
+<itemizedlist>
+
+<listitem>
+Избегай как очень больших (больше 100), так и очень малых (менее 0.01)
+коэффициентов
+<link linkend="ScaleFigure">растяжения</link>.
+</listitem>
+
+<listitem>
+При выборе призмы или пирамиды из
+<link linkend="FigureGallery">галереи фигур</link>,
+задавай число сторон в пределах разумного (не более 100).
+Выпуклые многогранники являются единственными допустимыми фигурами.
+В то же время,
+<link linkend="ToggleTransparency">непрозрачные</link>
+призмы и пирамиды с большим числом граней выглядят
+как цилиндры и конусы соответственно.
+К сожалению, действия над подобными фигурами
+медленны. Хуже того, программа может потерять стабильность
+и перестать отвечать на команды пользователя.
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="PreviousVersionsOfGeometria">
+<title>Прежние версии программы</title>
+
+<para>
+Задачи, решения и фигуры созданные версиями программы, предшествующими
+версии 3.0, более не поддерживаются.
+Тем не менее, мы намереваемся сделать все будущие
+версии совместимыми с версией 3.0.
+</para>
+
+</sect2>
+
+<sect2 id="SolutionLanguage">
+<title>Язык решения</title>
+
+<para>
+Перед тем как
+<link linkend="OpenSolution">открыть</link>
+файл содержащий решение, следует перейти на тот же язык, в котором
+соответствующее решение было
+<link linkend="SaveSolution">сохранено</link>.
+</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Documents">
+<title>Документы</title>
+
+<sect1 id="Envelope">
+<title>Конверт</title>
+
+<para>
+Конверт документа состоит из имени, адреса электронной почты и
+веб-странички автора, а также объяснений. Ни один из параметров не
+обязателен.
+</para>
+
+<para>
+Отредакитровать конверт можно выбрав
+<emphasis>Конверт</emphasis>
+из меню
+<emphasis>Отредактировать</emphasis>
+или щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Envelope.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов. Введи данные в вывешеном диалоге и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Изменения в конверте возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Answer">
+<title>Ответ</title>
+
+<para>
+Задача не готова для решения пока составитель не сопродит ее
+ответом. Ответ данный решателем считается правильным, если
+он совпадает с ответом составителя (подробности во
+<link linkend="Overview">Введении</link>).
+</para>
+
+<sect2 id="CreatorsAnswer">
+<title>Ответ составителя</title>
+
+<para>
+Чтобы сопроводить текущую задачу ответом, составитель выбирает
+<emphasis>Ответ</emphasis>
+из меню 
+<emphasis>Отредактировать</emphasis>,
+затем задает тип ответа:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Число
+</listitem>
+
+<listitem>
+Множество точек
+</listitem>
+
+<listitem>
+Множество отрезков
+</listitem>
+
+<listitem>
+Фиксированная плоскость
+</listitem>
+
+<listitem>
+Условная плоскость, или
+</listitem>
+
+<listitem>
+Множественные варианты
+</listitem>
+
+</itemizedlist>
+
+<para>
+и открывает панель
+<emphasis>Значение</emphasis>.
+</para>
+
+</sect2>
+
+<sect2 id="AnswerTypes">
+<title>Типы ответов</title>
+
+<sect3 id="ANumber">
+<title>Число</title>
+
+<para>
+Введи допустимое
+<link linkend="Expressions">выражение</link>.
+Щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+Чтобы сэкономить время, выбери заблаговременно
+<link linkend="Notepad">запись</link>
+на доске.
+</para>
+
+</sect3>
+
+<sect3 id="PointSet">
+<title>Множество точек</title>
+
+<para>
+Термин
+<emphasis>множество точек</emphasis>
+может относиться к единственной точке, отрезку (заданному двумя
+точками) или пути (2 точки или более).
+</para>
+
+<para>
+Введи, через запятые, одну или более точек. Щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+Чтобы сэкономить на вводе,
+<link linkend="SelectElements">отбери</link>
+точки заблаговременно из фигуры.
+</para>
+
+</sect3>
+
+<sect3 id="SegmentSet">
+<title>Множество отрезков</title>
+
+<para>
+Отрезки должны удовлетворять определенным условиям. В настоящее время, допустимыми являются следующие условия:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Отрезки составляют
+<ulink url="http://en.wikipedia.org/wiki/Hamiltonian_path">гамильтонов цикл</ulink>
+в выбранной фигуре
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+<sect3 id="FixedPlane">
+<title>Фиксированная плоскость</title>
+
+<para>
+Задай плоскость тремя точками разделенными запятыми. Щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+Чтобы сэкономить на вводе,
+<link linkend="SelectElements">отбери</link>
+заблаговременно некоторые элементы,
+задающие фигуру, такие как 3 точки, точку и отрезок или грань.
+
+</para>
+
+</sect3>
+
+<sect3 id="ConditionPlane">
+<title>Условная плоскость</title>
+
+<para>
+В отличие от фиксированной плоскости, то есть плоскости занимающей
+фиксированное положение в пространстве,
+<emphasis>условная плоскость</emphasis>
+определяется некоторым набором условий.
+Условная плоскость, вообще говоря, не единственна.
+</para>
+
+<para>
+Условия подразделяются в три группы. Отбери по условию из одной или более групп.
+Щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Первая группа состоит из следующих условий:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Плоскость содержит данную точку
+</listitem>
+
+<listitem>
+Плоскость содержит данный отрезок
+</listitem>
+
+<listitem>
+Плоскость не содержит данную точку
+</listitem>
+
+<listitem>
+Плоскость не содержит данный отрезок
+</listitem>
+
+<listitem>
+Плоскость не содержит ни одной вершины фигуры
+</listitem>
+
+<listitem>
+Плоскость не содержит ни одного ребра фигуры
+</listitem>
+
+<listitem>
+Плоскость параллельна данной прямой
+</listitem>
+
+<listitem>
+Плоскость параллельна данной плоскости
+</listitem>
+
+<listitem>
+Плоскость перпендикулярна данной прямой
+</listitem>
+
+<listitem>
+Плоскость перпендикулярна данной плоскости
+</listitem>
+
+</itemizedlist>
+
+<para>
+Задай требуемую точку, прямую или плоскость точками, разделенными через
+запятую. Чтобы сэкономить на вводе,
+<link linkend="SelectElements">отбери</link>
+точки из фигуры заблаговременно.
+</para>
+
+<para>
+Вторая группа состоит из следующего условия:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Плоскость делит объем фигуры в данном отношении 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Введи допустимое
+<link linkend="Expressions">выражение</link>.
+Выражение будет проинтерпретировано как числитель дроби с знаменателем 1.
+Например, a + 1 означает что объем должен быть разделен в отношении a + 1 : 1.
+Заблаговременно выбранная
+<link linkend="Notepad">запись</link>
+на доске будет автоматически переписана в поле ввода отношения.
+</para>
+
+<para>
+Третья группа относится к сечению фигуры плоскостью.
+Сечение может иметь форму:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Равнобедренного треугольника
+</listitem>
+
+<listitem>
+Прямоугольного треугольника
+</listitem>
+
+<listitem>
+Равностороннего треугольника
+</listitem>
+
+<listitem>
+Параллелограмма
+</listitem>
+
+<listitem>
+Ромба
+</listitem>
+
+<listitem>
+Прямоугольника
+</listitem>
+
+<listitem>
+Квадрата
+</listitem>
+
+</itemizedlist>
+
+<para>
+Составитель может
+<link linkend="UndoActions">отменить</link>
+собственный ответ.
+</para>
+
+<para>
+Заметь, что, хотя, как правило, составитель задачи вводит ответ
+симболически, программа запоминает все ответы в числовой форме.
+После чего ответ введен, он остается неизменным каковы бы ни были
+последующие действия над фигурами. По этой причине, ответ лучше всего
+вводить (если необходимо, заново) непосредственно перед сохранением задачи. 
+
+</para>
+
+</sect3>
+
+<sect3 id="MultipleChoice">
+<title>Множественные варианты</title>
+
+<para>
+Введи вариант. Добавь вариант щелкнув по кнопке
+<emphasis>Добавить</emphasis>.
+Чтобы удалить вариант, щелкни по кнопке
+<emphasis>Удалить</emphasis>ю
+Варианты не должны повторяться. Выбери правильный вариант. Щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="SolversAnswer">
+<title>Ответ решателя</title>
+
+<para>
+Ответ вводят в конце решения.
+Снова подчеркнем, что ответ решателя считается правильным,
+если он совпадает с ответом определенным составителем задачи.
+</para>
+
+<para>
+Ответ задают выбрав
+<emphasis>Ответ</emphasis>
+из меню
+<emphasis>Отредактировать</emphasis>.
+Введи допустимое
+<link linkend="Expressions">выражение</link>
+или, по случаю, обозначения точек, разделенные запятыми. 
+Чтобы сэкономить на вводе, выбери заблаговременно,
+<link linkend="Notepad">запись</link>
+на доске и/или некоторые
+<link linkend="SelectElements">элементы</link>,
+такие как точки, отрезки или грань в вывешенной фигуре.
+Щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Вывешивается попап содержащий оценку ответа (правильный или
+неправильный).
+</para>
+
+<para>
+Правильный ответ завершает решение задачи. Никакие другие действия
+не возможны, хотя ответ можно 
+<link linkend="UndoActions">отменить</link>.
+<link linkend="SaveSolution">Сохрани</link>
+решение в файле. Сохраненное решение можно будет впоследствии
+<link linkend="SolutionLog">просмотреть</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">Введение</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="CreateProblem">
+<title>Создание задачи</title>
+
+<para>
+Создать задачу можно либо выбрав
+<emphasis>Создать документ-&gt;Задачу</emphasis>
+из меню
+<emphasis>Документ</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/NewProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+При наличии несохраненных изменений в текущем документе,
+вывесится диалог, предоставляющий пользователю возможность сохранения
+документа перед его закрытием.
+</para>
+
+<para>
+Чтобы сохранить текущий документ,
+щелкни по кнопке
+<emphasis>Да</emphasis>
+</para>
+
+<para>
+Чтобы закрыть текущий документ без сохранения, щелкни по кнопке
+<emphasis>Нет</emphasis>.
+Заметь, что несохраненные изменения в текущем документе будут
+потеряны.
+</para>
+
+<para>
+Отказаться от создания задачи можно щелкнув по кнопке 
+<emphasis>Отказаться</emphasis>.
+</para>
+
+<para>
+Успешно выполненное закрытие текущего документа невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Открытие задачи</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Сохрпнение задвчи</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Закрытие документа</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отменп действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenProblem">
+<title>Открытие задачи</title>
+
+<para>
+Открыть задачу из файла можно либо выбрав
+<emphasis>Открыть документ-&gt;Задачу</emphasis>
+из меню
+<emphasis>Документ</emphasis>,
+либо щелкнув по кнопке
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/OpenProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов. Можно обойтись и простым перетаскиванием мышью.
+</para>
+
+<para>
+При наличии несохраненных изменений в текущем документе,
+вывесится диалог, предоставляющий пользователю возможность сохранения
+документа перед его закрытием.
+</para>
+
+<para>
+Чтобы сохранить текущий документ,
+щелкни по кнопке
+<emphasis>Да</emphasis>
+</para>
+
+<para>
+Чтобы закрыть текущий документ без сохранения, щелкни по кнопке
+<emphasis>Нет</emphasis>.
+Заметь, что несохраненные изменения в текущем документе будут
+потеряны.
+</para>
+
+<para>
+Отказаться от открытия задачи можно щелкнув по кнопке 
+<emphasis>Отказаться</emphasis>.
+</para>
+
+<para>
+Успешно выполненное закрытие текущего документа невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Создание задачи</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Сохранение задачи</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Закрытие документа</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveProblem">
+<title>Сохранение задачи</title>
+
+<para>
+Сохранить текущую задачу в файле можно либо выбрав
+<emphasis>Сохранить документ</emphasis>
+из меню
+<emphasis>Документ</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SaveDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Чтобы сохранить задачу под другим названием, выбери
+<emphasis>Сохранить документ как</emphasis>
+из меню
+<emphasis>Документ</emphasis>.
+</para>
+
+<para>
+Успешно выполненное сохранение задачи невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Перед тем как сохранить окончательную редакцию задачи,
+составителю рекоммендуется 
+<link linkend="Notepad">очистить</link>
+с доски рабочие записи измерений и вычислений.
+Хотя неочищенные записи не появятся на доске решателя,
+их можно будет по-прежнему прочитать в файле задачи.
+</para>
+
+<para>
+Очищай доску с осторожностью, поскольку это действие
+<link linkend="UndoActions">отменить</link>
+невозможно.
+</para>
+
+<para>
+Также напоминаем, что окончательная редакция задачи должна
+содержать осмысленный
+<link linkend="Answer">ответ</link>.
+</para>
+
+<para>
+Чтобы предотвратить всякую редактировку задачи в будущем, выбери
+<emphasis>Сохранить заблокированную задачу как</emphasis>
+из меню <emphasis>Документ</emphasis>.
+При открытии файла, содержащего заблокированную задачу, решателем,
+новое решение будет начато автоматически. Решатель не сумеет
+изменить задачу как таковую.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Создание задачи</link>
+</listitem>
+<listitem>
+<link linkend="OpenProblem">Открытие задачи</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Закрытие документа</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Ответ</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CreateSolution">
+<title>Создание решения</title>
+
+<para>
+Создать решение к текущей задаче можно либо выбрав
+<emphasis>Создать документ-&gt;Решение</emphasis>
+из меню
+<emphasis>Документ</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/NewSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Если задача, которую ты желаешь решить, не вывешена, ее надо сначала
+<link linkend="OpenProblem">открыть</link>.
+</para>
+
+<para>
+При наличии несохраненных изменений в текущей задаче,
+вывесится диалог, предоставляющий пользователю возможность сохранения
+задачи перед ее закрытием.
+</para>
+
+<para>
+Чтобы сохранить задачу, щелкни по кнопке
+<emphasis>Да</emphasis>
+</para>
+
+<para>
+Чтобы закрыть текущую задачу без сохранения, щелкни по кнопке
+<emphasis>Нет</emphasis>.
+Заметь, что несохраненные изменения в текущей задаче будут
+потеряны.
+</para>
+
+<para>
+Отказаться от создания решения можно щелкнув по кнопке 
+<emphasis>Отказаться</emphasis>.
+</para>
+
+<para>
+Успешно выполненное закрытие текущей задачи невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Открытие задачи</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Открытие решения</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Сохранение решения</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Закрытие документа</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenSolution">
+<title>Открытие решения</title>
+
+<para>
+Открыть решение из файла можно либо выбрав
+<emphasis>Открыть документ-&gt;Решение</emphasis>
+из меню
+<emphasis>Документ</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/OpenSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов. Можно обойтись и простым перетаскиванием мышью.
+</para>
+
+<para>
+При наличии несохраненных изменений в текущем документе,
+вывесится диалог, предоставляющий пользователю возможность сохранения
+документа перед его закрытием.
+</para>
+
+<para>
+Щелкни по кнопке
+<emphasis>Да</emphasis>
+чтобы сохранить текущий документ.
+</para>
+
+<para>
+Чтобы закрыть текущий документ без сохранения, щелкни по кнопке
+<emphasis>Нет</emphasis>.
+Заметь, что несохраненные изменения в текущем документе будут
+потеряны.
+</para>
+
+<para>
+Отказаться от открытия решения можно щелкнув по кнопке 
+<emphasis>Отказаться</emphasis>.
+</para>
+
+<para>
+Успешно выполненное закрытие текущего документа невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Создание решения</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Сохранение решения</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Закрытие документа</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveSolution">
+<title>Сохранение решения</title>
+
+<para>
+Сохранить текущее решение в файле можно либо выбрав
+<emphasis>Сохранить документ</emphasis>
+из меню
+<emphasis>Документ</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SaveDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Чтобы сохранить решение под другим названием, выбери
+<emphasis>Сохранить документ как</emphasis>
+из меню
+<emphasis>Документ</emphasis>.
+</para>
+
+<para>
+Успешно выполненное сохранение решения невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Не забудь завершить решение правильным
+<link linkend="Answer">ответом</link>,
+если это - окончательная редакция документа.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Создание решения</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Открытие решения</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Закрытие документа</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Ответ</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloseDocument">
+<title>Закрытие документа</title>
+
+<para>
+Закрыть текущий документ можно либо выбрав
+<emphasis>Закрыть документ</emphasis>
+из меню
+<emphasis>Документ</emphasis>, либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/CloseDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+При наличии несохраненных изменений в текущем документе,
+вывесится диалог, предоставляющий пользователю возможность сохранения
+документа перед его закрытием.
+</para>
+
+<para>
+Щелкни по кнопке
+<emphasis>Да</emphasis>
+чтобы сохранить текущий документ.
+</para>
+
+<para>
+Чтобы закрыть текущий документ без сохранения, щелкни по кнопке
+<emphasis>Нет</emphasis>.
+Заметь, что несохраненные изменения в текущем документе будут
+потеряны.
+</para>
+
+<para>
+Отказаться от закрытия документа можно щелкнув по кнопке 
+<emphasis>Отказаться</emphasis>.
+</para>
+
+<para>
+Успешно выполненное закрытие текущего документа невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+<link linkend="Notepad">Записи</link>
+на доске и фигуры принадлежат текущему документу, будь то
+задача или решение. Когда документ закрывают, его фигуры также
+закрываются, а доска - очищается от записей.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SaveProblem">Сохранение задачи</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Сохранение решения</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SolutionLog">
+<title>Журнал решения</title>
+
+<sect2 id="PlayBack">
+<title>Просмотр решения</title>
+
+<para>
+По мере того, как решатель добавляет новые шаги к решению,
+его действия заносятся в журнал решения.
+<link linkend="SaveSolution">Сохраненное</link>
+решение можно впоследствии открыть, чтобы просмотреть его журнал.
+</para>
+
+<para>
+Чтобы начать просмотр, щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogPlay.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели решения.
+</para>
+
+<para>
+Чтобы просмотреть следующий шаг решения, щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogNext.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+</para>
+
+<para>
+Чтобы прыгнуть вперед или назад к любому шагу решения, щелкни по
+соответствующей записи в журнале.
+</para>
+
+<para>
+Чтобы очистить журнал решения, тем самым отменив все его шаги,
+щелкни по кнопке
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogClear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+. Будь осторожен, так как это действие
+<link linkend="UndoActions">отменить</link>
+невозможно.
+</para>
+
+<para>
+Чтобы отменить все шаги решения, начиная с некоторого,
+щелкни по соответствующей записи в журнале, а затем - по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogCut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+. Будь осторожен, так как это действие
+<link linkend="UndoActions">отменить</link>
+невозможно.
+</para>
+
+<para>
+Остановить просмотр решения можно щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogStop.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Во время просмотра, текущее решение застывает.
+Чтобы продолжить решение, нужно сначала остановить просмотр.
+</para>
+
+</sect2>
+
+<sect2 id="SolutionComments">
+<title>Комментирование решения</title>
+
+<para>
+Чтобы объяснить какой-либо шаг решения, щелкни по правой кнопке мыши и выбери
+<emphasis>Объяснить</emphasis>
+из попапа. Вывесится диалог. Введи объяснение и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Просмотреть объяснение можно остановив мышь над соответствующей записью.
+Записи содержащие объяснения в журнале решения выделены.
+</para>
+
+</sect2>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">Введение</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Сохранение документа</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Открытие решения</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Figures">
+<title>Фигуры</title>
+
+<sect1 id="FigureGallery">
+<title>Галерея фигур</title>
+
+<para>
+Галерея фигур содержит правильные призмы, правильные пирамиды,
+а также правильные многогранники, а именно: тетраэдр, куб,
+октаэдр, додекаэдр и икосаэдр.
+</para>
+
+<para>
+Призму выбирают из меню
+<emphasis>Фигура-&gt;Галерея-&gt;Призма</emphasis>.
+</para>
+
+<para>
+Пирамиду выбирают из меню
+<emphasis>Фигура-&gt;Галерея-&gt;Пирамида</emphasis>.
+</para>
+
+<para>
+Правильный многогранник выбирают из меню
+<emphasis>Фигура-&gt;Галерея-&gt;Правильный многогранник</emphasis>.
+</para>
+
+<para>
+Фигура будет добавлена к текущему документу.
+Если никакой документ не открыт, можно сперва создать
+<link linkend="CreateProblem">новую задачу</link>.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Открытие фигуры</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenFigure">
+<title>Открытие фигуры</title>
+
+<para>
+Открыть фигуру из файла можно либо выбрав
+<emphasis>Открыть фигуру</emphasis> из меню
+<emphasis>Фигура</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/OpenFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов. Можно обойтись и простым перетаскиванием мышью.
+</para>
+
+<para>
+Фигура будет добавлена к текущему документу.
+Если никакой документ не открыт, можно сперва создать
+<link linkend="CreateProblem">новую задачу</link>.
+</para>
+
+<para>
+<link linkend="FigureGallery">Галерея фигур</link>
+предоставляет выбор правильных призм, пирамид,
+а также правильных многогранников.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="FigureGallery">Галерея фигур</link>
+</listitem>
+<listitem>
+<link linkend="SaveFigure">Сохранение фигуры</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloneFigure">
+<title>Клонирование фигуры</title>
+
+<para>
+Склонировать фигуру можно либо выбрав
+<emphasis>Склонировать фигуру</emphasis>
+из меню
+<emphasis>Фигура</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/CloneFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveFigure">
+<title>Сохранение фигуры</title>
+
+<para>
+Сохранить фигуру можно либо выбрав
+<emphasis>Сохранить фигуру</emphasis>
+из меню
+<emphasis>Фигура</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SaveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Это действие невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Открытие фигуры</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RemoveFigure">
+<title>Удаление фигуры</title>
+
+<para>
+Удалить фигуру из текущего документа можно либо выбрав
+<emphasis>Удалить фигуру</emphasis>
+из меню
+<emphasis>Фигура</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/RemoveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Если удаленная фигура была в прошлом измерена, некоторые переменные
+окажутся
+<link linkend="PinnedVariable">прикрепленными</link>.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Решателю не разрешено удалять фигуры, которые
+являются частью задачи. С другой стороны, любая фигура, возникшая в процессе
+решения задачи, может быть удалена.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportImage">
+<title>Экспорт изображения</title>
+
+<para>
+Проэкспортировать фигуру в качестве изображения в файл можно выбрав
+<emphasis>Экспорт изображения</emphasis>
+из меню
+<emphasis>Фигура</emphasis>.
+Вывесится диалог. Выбери тип файла, введи имя файла и щелкни по кнопке
+<emphasis>Сохранить</emphasis>.
+</para>
+
+<para>
+Это действие невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportImage">
+<title>Экспорт в формате OFF</title>
+
+<para>
+OFF представляет собой популярный формат для файлов содержащих
+многогранники. Он используется программой Geomview
+(http://www.geomview.org)
+и другими геметрическими программами.
+Проэкспортировать фигуру в формате OFF можно выбрав
+<emphasis>Экспорт в формате OFF</emphasis>
+из меню
+<emphasis>Фигура</emphasis>.
+Вывесится диалог. Введи имя файла и щелкни по кнопке
+<emphasis>Сохранить</emphasis>.
+</para>
+
+<para>
+Это действие невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RenameFigure">
+<title>Переименование фигуры</title>
+
+<para>
+Переименовать фигуру можно выбрав
+<emphasis>Переименовать фигуру</emphasis>
+из меню
+<emphasis>Фигура</emphasis>.
+</para>
+
+<para>
+Название фигуры может состоять из букв латинского и русского алфавитов и цифр.
+Пробелы недопустимы.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Решателю не разрешено переименовывать фигуры, являющиеся частью
+задачи. Однако, любая фигура, возникшая в процессе
+решения задачи, может быть переименована.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="PrintFigure">
+<title>Распечатка фигуры</title>
+
+<para>
+Распечатать фигуру можно либо выбрав
+<emphasis>Распечатать фигуру</emphasis>
+из меню
+<emphasis>Фигура</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Print.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Это действие невозможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="View">
+<title>Вид</title>
+
+<sect2 id="Attitude">
+<title>Позиция</title>
+
+<para>
+Программа соотносит все точки к фиксированной правой системе
+отсчета. Ось Z системы системы отсчета параллельна вертикальному краю экрана.
+Знание  координат несущественно для того, чтобы успешно обращаться с
+фигурами, составлять и решать задачи.
+</para>
+
+<para>
+В любой данный момент времени, фигура занимает определенную позицию
+в пространстве. Эту позицию можно задать с помощью углов, которые
+фигура образует с фиксированной системой отсчета.
+Во время создания фигуры она занимает позицию
+<emphasis>по умолчанию</emphasis>.
+Когда фигуру вращают, позиция фигуры изменяется.
+</para>
+
+<para>
+Вернуть фигуру в исходную позицию можно выбрав
+<emphasis>Исходная позиция</emphasis>
+либо из меню
+<emphasis>Вид</emphasis>,
+либо из попапа.
+</para>
+
+<para>
+После чего фигуру сохраняют в файле, ее текущая позиция становится ее исходной
+позицией. Чтобы вернуть фигуру в позицию, которая она занимала при ее создании,
+перед последующими вращениями, выбери
+<emphasis>Позиция по умолчанию</emphasis>
+из меню
+<emphasis>Вид</emphasis>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Вращение фигуры</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RotateFigure">
+<title>Вращение фигуры</title>
+
+<para>
+Чтобы повернуть фигуру,
+<link linkend="ToggleSelector">переключи</link>
+селектор и проведи мышкой по фигуре при нажатой левой кнопке.
+Скорость и направление вращения зависят от движения руки.
+</para>
+
+<para>
+Чтобы остановить вращающуюся фигуру, щелкни по ней.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Attitude">Позиция</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="SelectElements">
+<title>Отбор элементов</title>
+
+<sect3 id="ToggleSelector">
+<title>Переключение селектора</title>
+
+<para>
+Вывеси попап и выбери
+<emphasis>Переключить селектор</emphasis>.
+Этого же можно достичь щелкнув по кнопке селектора
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SelectorOn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+При включенном селекторе (изображение белого цвета),
+элементы фигуры можно отбирать щелкая по ним.
+При выключенном селекторе (изображение серого цвета),
+фигуру можно
+<link linkend="RotateFigure">поворачивать</link>
+водя по ней мышкой при нажатой левой кнопке.
+</para>
+
+<para>
+Селектор выключен по умолчанию.
+</para>
+
+</sect3>
+
+<sect3 id="SelectElementsOneByOne">
+<title>Отбор элементов поодиночке</title>
+
+<para>
+Чтобы отобрать (выделить) элемент фигуры, будь то точка, отрезок или грань,
+щелкни по нему. Чтобы отобрать более одного элемента, держи нажатой
+клавишу Ctrl. Грани возможно отбирать лишь в
+<link linkend="ViewModes">непрозрачной</link>
+фигуре.
+</para>
+
+<para>
+Очистить всю выборку можно щелкнув по пустому месту внутри фигуры.
+Чтобы очистить только определенный элемент выборки, щелкни по
+нему при нажатой клавише Ctrl.
+</para>
+
+</sect3>
+
+<sect3 id="SelectAllElements">
+<title>Отбор всех элементов</title>
+
+<para>
+Чтобы отобрать из фигуры все точки и отрезки (за исключением вершин и ребер), выбери
+<emphasis>Отобрать всё</emphasis>
+из меню
+<emphasis>Отредактировать</emphasis>.
+Это предоставляет удобный способ
+<link linkend="EraseSelection">удалить сразу все элементы</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Вращение фигуры</link>
+</listitem>
+<listitem>
+<link linkend="ViewModes">Видовые режимы</link>
+</listitem>
+<listitem>
+<link linkend="EraseSelection">Удаление выборки</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ViewModes">
+<title>Видовые режимы</title>
+
+<sect3 id="ToggleTransparency">
+<title>Прозрачность</title>
+
+<para>
+Чтобы переключить видовой режим фигуры между прозрачным и непрозрачным,
+выбери
+<emphasis>Переключить прозрачность</emphasis>
+из меню
+<emphasis>Вид</emphasis>
+или щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Transparency.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+В прозрачной фигуре видимые отрезки изображены сплошными линиями,
+а невидимые - штриховыми. Точки и отрезки возможно отбирать вне
+зависимости от того, являются ли они видимыми или нет. Напротив,
+грани возможно отбирать исключительно в непрозрачной фигуре.
+</para>
+
+<para>
+В непрозрачной фигуре невидимые отрезки и точки скрыты. Точки, отрезки и
+грани возможно отобрать только если они видимы.
+</para>
+
+</sect3>
+
+<sect3 id="SetColor">
+<title>Перекрашивание</title>
+
+<para>
+Чтобы изменить цвет непрозрачной фигуры, выбери
+<emphasis>Перекрасить</emphasis>
+из меню 
+<emphasis>Вид</emphasis>
+или щелкни по кнопке выбора цвета
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Color.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+Выбери цвет из попапа и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+</sect3>
+
+<sect3 id="ToggleLabels">
+<title>Переключение обозначений</title>
+
+<para>
+Чтобы показать или, напротив, скрыть обозначения точек, выбери
+<emphasis>Переключение обозначений</emphasis>
+из меню
+<emphasis>Вид</emphasis>
+или щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Labels.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов. Обозначения показываются только в
+<link linkend="ToggleTransparency">прозрачных</link>
+фигурах.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ZoomFigure">
+<title>Увеличение и уменьшение</title>
+
+<para>
+Чтобы увеличить фигуру, выбери
+<emphasis>Увеличить</emphasis>
+из меню
+<emphasis>вид</emphasis>
+или щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/ZoomIn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Чтобы уменьшить фигуру, выбери
+<emphasis>Уменьшить</emphasis>
+из меню
+<emphasis>Вид</emphasis>
+или щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/ZoomOut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Чтобы подогнать размеры фигуры к размерам окна, выбери
+<emphasis>Подогнать в окно</emphasis>
+из меню
+<emphasis>Вид</emphasis>
+или щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/FitToView.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Measure">
+<title>Измерения</title>
+
+<sect2 id="MeasureDistance">
+<title>Измерение расстояния</title>
+
+<para>
+Измерить расстояние между двумя точками можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+<listitem>
+Выбери
+<emphasis>Расстояние</emphasis>
+из меню
+<emphasis>Измерение</emphasis>, или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/MeasureDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов, или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+либо соответствующие точки, либо отрезок их соединяющий,
+вывеси попап, затем выбери
+<emphasis>Расстояние</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Точки должны принадлежать одной и той же грани.
+</para>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек,
+присвой измеряемому расстоянию единственную
+<link linkend="Variables">переменную</link>
+и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+На доске будет произведена новая
+<link linkend="Notepad">запись</link>,
+подобная следующей:
+</para>
+
+<programlisting>
+моеРасстояние = |AB| : МойКуб
+</programlisting>
+
+<para>
+где моеРасстояние - переменная, обозначающая расстояние между
+точками A и B в фигуре МойКуб. Если МойКуб, к тому времени, является
+единственной фигурой, запись будет иметь вид:
+</para>
+
+<programlisting>
+моеРасстояние = |AB|
+</programlisting>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureAngle">
+<title>Измерение угла</title>
+
+<para>
+Измерить угол между двумя отрезками, исходящими из одной точки,
+можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+<listitem>
+Выбери
+<emphasis>Угол</emphasis>
+из меню
+<emphasis>Измерение</emphasis>, или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/MeasureAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов, или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+отрезки, образующие соответствующий угол, вывеси попап и выбери
+<emphasis>Угол</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Отрезки должны находиться на одной и той же грани и
+не быть коллинеарными.
+</para>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек,
+присвой измеряемому углу единственную
+<link linkend="Variables">переменную</link>
+и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+На доске будет произведена новая
+<link linkend="Notepad">запись</link>,
+подобная следующей:
+</para>
+
+<programlisting>
+мойУгол = &lt;ABC : МояПирамида
+</programlisting>
+
+<para>
+где мойУгол - переменная обозначающая угол между AB и AC
+в фигуре МояПирамида. Если МояПирамида, к тому времени, является
+единственной фигурой, запись будет иметь вид:
+</para>
+
+<programlisting>
+мойУгол = &lt;ABC
+</programlisting>
+
+<para>
+Все углы выражаются в радианах.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureArea">
+<title>Измерение площади</title>
+
+<para>
+Измерить площадь грани можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+<listitem>
+Выбери
+<emphasis>Площадь</emphasis>
+из меню
+<emphasis>Измерение</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Area.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+грань, вывеси попап и выбери
+<emphasis>Площадь</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Вывесится диалог. Выбери, если необходимо, грань из списка,
+присвой измеряемой площади единственную
+<link linkend="Variables">переменную</link>
+и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+На доске будет произведена новая
+<link linkend="Notepad">запись</link>,
+подобная следующей:
+</para>
+
+<programlisting>
+мояПлощадь = площадь[ABC] : МойКуб
+</programlisting>
+
+<para>
+где мояПлощадь - переменная обозначающая площадь грани содержащей
+вершины A, B, C в фигуре МойКуб.
+Если МойКуб, к тому времени, является
+единственной фигурой, запись будет иметь вид:
+</para>
+
+<programlisting>
+мояПлощадь = площадь[ABC]
+</programlisting>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureVolume">
+<title>Измерение объема</title>
+
+<para>
+Измерить объем фигуры можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+<listitem>
+Выбери
+<emphasis>Объем</emphasis>
+из меню
+<emphasis>Измерение</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Volume.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Вывесится диалог. Присвой измеряемому объему единственную
+<link linkend="Variables">переменную</link>
+и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+На доске будет произведена новая
+<link linkend="Notepad">запись</link>,
+подобная следующей:
+</para>
+
+<programlisting>
+мойОбъем = объем : МойКуб
+</programlisting>
+
+<para>
+где мойОбъем - переменная обозначающая объем фигуры МойКуб.
+Если МойКуб, к тому времени, является
+единственной фигурой, запись будет иметь вид:
+</para>
+
+<programlisting>
+мойОбъем = объем
+</programlisting>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Draw">
+<title>Построения</title>
+
+<sect2 id="DrawLine">
+<title>Проведение отрезка</title>
+
+<para>
+Соединить две точки отрезком можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Выбери
+<emphasis>Провести отрезок</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/DrawLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+точки, вывеси попап и выбери
+<emphasis>Провести отрезок</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Точки должны лежать в одной грани.
+</para>
+
+<para>
+Если вывесится диалог, введи обозначения точек и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawPerpendicular">
+<title>Перпендикуляр</title>
+
+<para>
+Провести перпендикуляр через точку к отрезку
+можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Выбери
+<emphasis>Перпендикуляр</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Perpendicular.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+точку и отрезок, вывеси попап и выбери
+<emphasis>Перпендикуляр</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Точка и отрезок должны лежать в одной и той же грани. Точка может
+принадлежать отрезку или нет. 
+</para>
+
+<para>
+Если вывесится диалог, введи обозначения точек и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Если точка и отрезок лежат в каждой из двух различных граней,
+может вывеситься второй диалог. Выбери грань из предложенного
+списка и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideLine">
+<title>Разделение отрезка</title>
+
+<para>
+Разделить отрезок в данном отношении
+можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Выбери
+<emphasis>Разделить отрезок</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/DivideLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+отрезок, вывеси попап и выбери
+<emphasis>Разделить отрезок</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек,
+допустимые
+<link linkend="Expressions">выражения</link>
+для числителя и знаменателя, и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Отношение определено как AX : XB, где X - точка деления,
+AB - отрезок. Например, если отношение равно 1 : 2,
+X вдвое ближе к A, чем к B. Если отношение равно 3 : 1,
+X втрое ближе к B, чем к A.
+</para>
+
+<para>
+Середина отрезка делит его в отношении 1 : 1 и, следовательно,
+может быть построена описанным выше методом. Однако, пользователь
+наверняка предпочтет более удобный метод построения
+<link linkend="DrawMidpoint">середины отрезка</link>.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DrawMidpoint">Середина отрезка</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawMidpoint">
+<title>Середина отрезка</title>
+
+<para>
+Построить середину отрезка можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+<listitem>
+Выбери
+<emphasis>Середина отрезка</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+отрезок, вывеси попап и выбери
+<emphasis>Середина отрезка</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек
+и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Заметь, что построение середины отрезка равносильно
+<link linkend="DivideLine">разделению отрезка</link>
+в отношении 1 : 1.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DivideLine">Разделить отрезок</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideAngle">
+<title>Разделение угла</title>
+
+<para>
+Разделить угол в данном отношении
+можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Выбери
+<emphasis>Разделить угол</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/DivideAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+отрезки, вывеси попап и выбери
+<emphasis>Разделить угол</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Образующие угол отрезки должны иметь общий конец и не быть коллинеарными.
+</para>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек,
+допустимые
+<link linkend="Expressions">выражения</link>
+для числителя и знаменателя, и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Отношение определено как &lt;AOX : &lt;XOB, где OX - луч разделяющий угол
+&lt;AOB. Например, если отношение равно 1 : 2,
+OX образует с OB угол вдвое больший, чем с OA. Если отношение равно 3 : 1,
+OX образует с OA втрое больший угол, чем с OB.
+</para>
+
+<para>
+Биссектриcса угла делит его в отношении 1 : 1 и, следовательно,
+может быть построена описанным выше методом. Однако, пользователь
+наверняка предпочтет более удобный метод построения
+<link linkend="DrawBisector">биссектрисы</link>.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DrawBisector">Биссектриса</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawBisector">
+<title>Биссектриса</title>
+
+<para>
+Построить биссектрису угла можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Выбери
+<emphasis>Биссектриса</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+образующие угол отрезки, вывеси попап и выбери
+<emphasis>Биссектриса</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Образующие угол отрезки должны иметь общий конец и не быть коллинеарными.
+</para>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек
+и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Заметь, что построение биссектрисы равносильно
+<link linkend="DivideLine">разделению угла</link>
+в отношении 1 : 1.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DivideAngle">Разделить угол</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="IntersectLines">
+<title>Пересечение прямых</title>
+
+<para>
+Построить точку пересечения прямых, которые содержат два данных
+отрезка, можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Выбери
+<emphasis>Пересечь прямые</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Intersect.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+данные отрезки, вывеси попап и выбери
+<emphasis>Пересечь прямые</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Данные отрезки, а также точка пересечения прямых, должны лежать в
+одной и той же грани.
+</para>
+
+<para>
+Может вывеситься диалог. Введи, если необходимо, обозначения точек
+и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayDistance">
+<title>Отложить расстояние</title>
+
+<para>
+Отложить данное расстояние от данной точки к данному отрезку
+можно любым из следующих способов:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Выбери
+<emphasis>Отложить расстояние</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LayDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+точку и отрезок, вывеси попап и выбери
+<emphasis>Отложить расстояние</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Точка и отрезок должны находиться в одной и той же грани.
+Точка может принадлежать отрезку или нет.
+</para>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек
+и допустимое
+<link linkend="Expressions">выражение</link>
+для расстояния, а затем щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+Чтобы сэкономить на вводе, отбери заблаговременно
+<link linkend="Notepad">запись</link>
+на доске. Отобранная запись будет переписана в диалог автоматически.
+</para>
+
+<para>
+В результате будут построены одна или две точки, в зависимости от
+взаимного положения данной точки и отрезка.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayAngle">
+<title>Отложить угол</title>
+
+<para>
+Отложить данный угол от данного отрезка
+можно любым из следующих способов:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Выбери
+<emphasis>Отложить угол</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LayAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+отрезок и один из его концов, вывеси попап и выбери
+<emphasis>Отложить угол</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек
+и допустимое
+<link linkend="Expressions">выражение</link>
+для угла, а затем щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+Чтобы сэкономить на вводе, отбери заблаговременно
+<link linkend="Notepad">запись</link>
+на доске. Отобранная запись будет переписана в диалог автоматически.
+</para>
+
+<para>
+Угол должен быть больше нуля, но меньше 180 градусов. Задавай угол
+в радианах, а не в градусах. Например, чтобы отложить угол в 60 градусов,
+введи PI/3.
+</para>
+
+<para>
+Если отрезок лежит в каждой из двух различных граней,
+может вывеситься второй диалог. Выбери грань из предложенного
+списка и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+В результате будут построены один или два отрезка, в зависимости от
+положения данного отрезка и выбранного конца.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RenamePoint">
+<title>Переобозначение точки</title>
+
+<para>
+Составитель задачи может переобозначить любую точку в фигуре, путем выбора
+<emphasis>Переобозначить точку</emphasis>
+из меню
+<emphasis>Начертить</emphasis>.
+</para>
+
+<para>
+Вывесится диалог. Введи старое и новое обозначения точки
+и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+Допустимы обозначения состоящие из большой буквы латинского алфавита
+и последующих одной или более цифр.
+</para>
+
+<para>
+<link linkend="SelectElements">Отбери</link>
+точку из фигуры заблаговременно, чтобы ввести ее автоматически
+в диалог.
+</para>
+
+<para>
+Переобозначение точки может привести к изменению некоторых
+<link linkend="Notepad">записей</link>
+на доске.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Доска</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="EraseElements">
+<title>Удаление элементов</title>
+
+<sect3 id="EraseLine">
+<title>Удаление отрезка</title>
+
+<para>
+Удалить отрезок или его часть можно выбрав
+<emphasis>Удалить отрезок</emphasis>
+из меню
+<emphasis>Начертить</emphasis>.
+</para>
+
+<para>
+Отрезки находящиеся на ребрах фигуры удалить невозможно.
+</para>
+
+<para>
+Если вывесится диалог, введи, по необходимости, обозначения точек
+и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+Чтобы сэкономить на вводе, отбери заблаговременно
+<link linkend="Notepad">запись</link>
+на доске. Отобранная запись будет переписана в диалог автоматически.
+</para>
+
+<para>
+Это действие направлено на удаление части отрезка.
+Пользователь наверняка предпочтет более удобный метод в случае
+<link linkend="EraseSelection">удаления целого отрезка</link>.
+</para>
+
+<para>
+В результате удаления отрезка, участвовавшего в предшедствовавших
+измерениях, некоторые переменные на доске могут оказаться
+<link linkend="PinnedVariable">прикрепленными</link>.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+</sect3>
+
+<sect3 id="EraseSelection">
+<title>Удаление выборки</title>
+
+<para>
+Чтобы удалить некоторое количество элементов, будь то точки
+или отрезки,
+<link linkend="SelectElementsOneByOne">отбери</link>
+их и следуй любому из нижеперечисленных методов:
+</para>
+
+<itemizedlist>
+<listitem>
+Выбери
+<emphasis>Удалить выборку</emphasis>
+из меню
+<emphasis>Начертить</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Erase.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Вершины фигуры и отрезки находящиеся на ее ребрах удалить невозможно.
+</para>
+
+<para>
+Чтобы удалить все точки и отрезки из фигуры (за исключением вершин и ребер),
+нужно их сначала
+<link linkend="SelectAllElements">отобрать</link>.
+</para>
+
+<para>
+Этим способом удаляют целые отрезки. Удалить
+часть построенного отрезка можно
+<link linkend="EraseLine">другим способом</link>.
+</para>
+
+<para>
+В результате удаления элементов, участвовавших в предшедствовавших
+измерениях, некоторые переменные на доске могут оказаться
+<link linkend="PinnedVariable">прикрепленными</link>.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Transform">
+<title>Преобразования</title>
+
+<sect2 id="ScaleFigure">
+<title>Растяжение фигуры</title>
+
+<para>
+Растянуть (сжать) фигуру вдоль данного отрезка с данным коэффициэнтом
+можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+<listitem>
+Выбери
+<emphasis>Растянуть фигуру</emphasis>
+из меню
+<emphasis>Преобразовать</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Scale.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+отрезок или его концы, вывеси попап и выбери
+<emphasis>Растянуть фигуру</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек
+и допустимое
+<link linkend="Expressions">выражение</link>
+для коэффициента, а затем щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+Чтобы сэкономить на вводе, отбери заблаговременно
+<link linkend="Notepad">запись</link>
+на доске. Отобранная запись будет переписана в диалог автоматически.
+</para>
+
+<para>
+Растяжение фигуры с коэффициентом меньше единицы, на самом деле,
+является сжатием. Так, растяжение с коэффициентом 1/2 равносильно
+сжатию с коэффициентом 2.
+</para>
+
+<para>
+В результате этого преобразования, раннее измеренные
+расстояния, углы, площади и объемы будут вычислены заново,
+а присвоенные им переменные - актуализированы. Детали - в параграфе
+<link linkend="Variables">Переменные</link>.
+</para>
+
+<para>
+Решателю запрещено преобразовывать фигуры, которые являются частью задачи.
+С другой стороны, любая фигура, появившаяся в процессе решения, может быть
+преобразована.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="ShearFigure">
+<title>Сдвиг фигуры</title>
+
+<para>
+Свигом называется аффинное преобразование, при котором все плоскости
+параллельные некоторой фиксированной плоскости переносятся вдоль
+некоторой фиксированной прямой, находящейся в фиксированной плоскости. По определению,
+<emphasis>аффинное</emphasis>
+преобразование сохраняет коллинеарность точек.
+</para>
+
+<para>
+Если XY - фиксированная прямая, преобразование сдвига однозначно
+определяется точками X, Y и образом произвольно выбранной точки Z,
+такой что прямая XZ перпендикулярна фиксированной плоскости.
+</para>
+
+<para>
+Сдвинуть фигуру можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+<listitem>
+Выбери
+<emphasis>Сдвинуть фигуру</emphasis>
+из меню
+<emphasis>Преобразовать</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Shear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+отрезок XY и точку являющуюся образом Z, вывеси попап и выбери
+<emphasis>Сдвинуть фигуру</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Вывесится диалог. Введи, если необходимо, обозначения точек
+(X, Y внизу и образ точки Z вверху) и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+В результате этого преобразования, раннее измеренные
+расстояния и углы будут вычислены заново,
+а присвоенные им переменные - актуализированы. Детали - в параграфе
+<link linkend="Variables">Переменные</link>.
+</para>
+
+<para>
+Решателю запрещено преобразовывать фигуры, которые являются частью задачи.
+С другой стороны, любая фигура, появившаяся в процессе решения, может быть
+преобразована.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Переменные</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="CutFigure">
+<title>Сечение фигуры</title>
+
+<para>
+Рассечь фигуру плоскостью можно одним из следующих способов:
+</para>
+
+<itemizedlist>
+<listitem>
+Выбери
+<emphasis>Рассечь фигуру</emphasis>
+из меню
+<emphasis>Преобразовать</emphasis>
+или
+</listitem>
+
+<listitem>
+щелкни по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Cut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов или
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">отбери</link>
+некоторые элементы задающие плоскость, такие как 3 точки,
+точку и отрезок или два отрезка, вывеси попап и выбери
+<emphasis>Рассечь фигуру</emphasis>.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Отобранные элементы должны однозначно задавать плоскость.
+Плоскость должна проходить через внутренность фигуры.
+</para>
+
+<para>
+Если вывесится диалог, введи обозначения точек и щелкни по кнопке
+<emphasis>Выполнить</emphasis>.
+</para>
+
+<para>
+Фигуры возникшие в результате сечения изображаются в отдельных
+окнах. Исходная фигура остается в собственном окне.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="JoinFigures">Соединение фигур</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="JoinFigures">
+<title>Соединение фигур</title>
+
+<para>
+Две фигуры можно соединить либо выбрав
+<emphasis>Соединить фигуры</emphasis>
+из меню
+<emphasis>Преобразовать</emphasis>,
+либо щелкнув по кнопке
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Join.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+на панели инструментов.
+</para>
+
+<para>
+Вывесится диалог. Отбери фигуры подлежащие соединению и щелкни по кнопке
+<emphasis>OK</emphasis>.
+Любую фигуру возможно соединить с ней самой, следовательно,
+в обоих списках можно отбирать одну и ту же фигуру.
+</para>
+
+<para>
+Если отобранные фигуры можно соединить единственным образом,
+появится новое окно, содержащее объединенную фигуру.
+Обе исходные фигуры останутся неизменными, каждая в своем окне.
+</para>
+
+<para>
+С другой стороны, если фигуры возможно соединить более чем одним способом,
+вывесится еще один диалог, спрашивающий, согласен ли пользователь
+с соединением фигур произвольным образом.
+Щелкни по кнопке
+<emphasis>Нет</emphasis>,
+для более аккуратного определения примыкающих элементов.
+</para>
+
+<para>
+Щелкни по кнопке
+<emphasis>Да</emphasis>,
+чтобы соединить фигуры одним из возможных способов.
+Вывесится результат для просмотра и новый диалог спрашивающий,
+следует ли сохранить результат. Щелкни по кнопке
+<emphasis>Да</emphasis>,
+чтобы сохранить результат соединения и завешить действие. Щелкни по кнопке
+<emphasis>Нет</emphasis>,
+для просмотра следующей возможности.
+</para>
+
+<para>
+Пользователю рекоммендуется
+<link linkend="SelectElementsOneByOne">отобрать</link>
+примыкающие элементы, будь то точки, отрезки или грани,
+заблаговременно, чтобы сэкономить на вводе. Заметь, что грани
+возможно отбирать только в
+<link linkend="ToggleTransparency">непрозрачной</link>
+фигуре.
+</para>
+
+<para>
+Примыкающие грани должны быть подобными многоугольниками,
+то есть иметь равные соответствующие углы и пропорциональные стороны
+при равных углах. Примыкающие грани не обязательно равны. Если
+необходимо, одна из фигур будет автоматически растянута или сжата,
+чтобы подогнать примыкающие грани одна к другой.
+</para>
+
+<para>
+Действие будет отменено, если фигура, образованная в результате соединения,
+невыпукла.
+</para>
+
+<para>
+Это действие возможно
+<link linkend="UndoActions">отменить</link>.
+</para>
+
+<para>
+Смотри также:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CutFigure">Сечение фигуры</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Отбор элементов</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Отмена действий</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+</book>

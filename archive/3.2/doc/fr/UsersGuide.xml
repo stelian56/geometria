@@ -1,0 +1,4148 @@
+<?xml-stylesheet type="text/xsl" href="fo.xsl" encoding="UTF-8"?>
+
+<book id="GeometriaUsersGuide" lang="fr">
+
+<title>Geometria 3.2</title>
+<subtitle>Guide de l'utilisateur</subtitle>
+
+<chapter id="General">
+<title>General</title>
+
+<!-- Help page start -->
+
+<sect1 id="Overview">
+<title>Présentation</title>
+
+<para>
+<emphasis>Geometria</emphasis>
+est un logiciel fournissant une interface graphique afin de créer et résoudre des problèmes de géométrie des solides.
+</para>
+
+<para>
+A tout moment, l'utilisateur de Geometria est soit un
+<emphasis>rédacteur</emphasis>
+de problème (alias le professeur) soit un
+<emphasis>résolveur</emphasis>
+de problème (alias l'étudiant).
+</para>
+
+<para>
+Les problèmes et les solutions sont tous deux appelés des
+<emphasis>documents</emphasis>.
+Les documents sont enregistrés dans des fichiers. L'utilisation de Geometria
+suit le processus suivant:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Le rédacteur crée un problème, lui fournit une
+<link linkend="Answer">réponse</link>
+et
+<link linkend="SaveProblem">enregistre</link>
+ce problème dans un fichier.
+
+</listitem>
+
+<listitem>
+Le résolveur
+<link linkend="OpenProblem">ouvre</link>
+le problème et commence une
+<link linkend="CreateSolution">nouvelle solution</link>
+à ce problème.
+</listitem>
+
+<listitem>
+La solution consiste en un certain nombre d'actions à effectuer. 
+Les actions sont enregistrées dans le
+<link linkend="SolutionLog">journal</link>
+de cette solution.
+</listitem>
+
+<listitem>
+Le résolveur
+<link linkend="Answer">répond</link>
+au problème. Sa réponse  est considérée comme correcte si elle correspond à celle
+fournie par le rédacteur. Une réponse correcte conclut le
+<link linkend="SolutionLog">journal</link> de cette solution.
+Le résolveur
+<link linkend="SaveSolution">enregistre</link>
+la solution dans un fichier.
+
+</listitem>
+
+<listitem>
+La solution peut ensuite être
+<link linkend="SolutionLog">répétée</link>
+en
+<link linkend="OpenSolution">ouvrant</link>
+le fichier et en suivant les différentes actions du résolveur.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Remarquez que Geometria n'accomplit aucune analyse sémantique du problème afin
+de déterminer si la réponse du rédacteur est effectivement correcte. La réponse
+peut être incorrecte ou même n'avoir aucun sens. Le problème lui-même peut
+n'avoir aucun sens non plus. Il pourrait demander:
+</para>
+
+<para>
+<emphasis>
+Quel est le point de plus haute altitude dans le comté de Sourcil de Singe, dans le Kentucky?
+</emphasis>
+</para>
+
+<para>
+et avoir pour réponse:
+</para>
+
+<para>
+<emphasis>
+Le point Z de la figure MaPyramide.
+</emphasis>
+</para>
+
+<para>
+Si c'est la réponse que le rédacteur considère comme correcte, c'est celle qui sera
+acceptée par Geometria. Cependant, il est peu probable qu'un tel problème attire
+beaucoup d'attention de la part des résolveurs.
+</para>
+
+<para>
+Chaque document contient le texte du problème, une
+<link linkend="Envelope">enveloppe</link>,
+ainsi qu'un certain nombre de figures et
+<link linkend="Notepad">d'enregistrements</link>
+de calepin. Les figures sont limitées aux polyèdres convexes.
+Elles peuvent être mesurées et
+<link linkend="ViewModes">visualisées</link> de façon transparente ou opaque.
+On peut effectuer des tracés à leur surface, les transformer et leur appliquer des
+<link linkend="RotateFigure">rotations</link>.
+</para>
+
+<para>
+Mesures et tracés ne peuvent être effectués que sur la surface d'une figure.
+Des actions peuvent être accomplies à l'intérieur d'une figure en
+<link linkend="CutFigure">sectionnant</link> auparavant cette figure
+à l'aide d'un plan adapté.
+</para>
+
+<para>
+Labels and
+<link linkend="Variables">variables</link>
+provide a convenient abstraction over numeric coordinates
+and measurements.
+<link linkend="Variables">Variables</link>
+are used in
+<link linkend="Calculator">calculations</link>
+and referenced in drawings. Labels and variables are also used to
+<link linkend="Answer">answer</link>
+the problem.
+
+Les étiquettes et les
+<link linkend="Variables">variables</link>
+fournissent un outil commode pour la manipulation des coordonnées numériques
+et des mesures. Les
+<link linkend="Variables">variables</link>
+sont utilisées pour des
+<link linkend="Calculator">calculs</link>
+ou comme arguments pour effectuer des tracés. Les étiquettes et les variables
+sont également utilisés pour
+<link linkend="Answer">répondre</link>
+au problème.
+</para>
+
+<para>
+La
+<link linkend="Answer">réponse</link>
+à un problème n'est pas nécessairement numérique. En fait, certains des problèmes
+les plus difficiles n'ont pas pour réponse un nombre. Le problème peut demander
+de construire un certain point ou bien un segment ou un chemin ou encore
+un plan. Par exemple :
+</para>
+
+<para>
+<emphasis>
+Déterminer un plan qui soit parallèle à la diagonale du cube et le sectionne en lui ôtant
+le double du volume de la pyramide.
+</emphasis>
+</para>
+
+<para>
+Voir également:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Calculatrice</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Calepin</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Variables">
+<title>Variables</title>
+
+<sect2 id="CreatingAVariable">
+<title>Créer une variable</title>
+
+<para>
+La création d'une
+<emphasis>variable</emphasis>
+résulte d'une mesure ou d'un calcul. Une variable nouvellement créée a un nom et
+une définition. Par exemple, la variable maDistance dans l'exemple ci-dessous
+est définie comme étant la distance entre les points P et W de la figure MonCube:
+</para>
+
+<programlisting>
+maDistance = |PW| : MonCube
+</programlisting>
+
+<para>
+Dans l'exemple si-dessous, la variable monAire est le résultat
+d'un calcul sur des variables monVolume et maDistance préalablement définies:
+</para>
+
+<programlisting>
+monAire = 2 * monVolume / maDistance
+</programlisting>
+
+<para>
+Les variables nouvellement créées sont automatiquement enregistrées,
+ainsi que leur définition, sur le
+<link linkend="Notepad">calepin</link>.
+</para>
+
+<para>
+Les noms des variables peuvent seulement contenir les caractères alphanumériques.
+Les caractères spéciaux ou accentués ne sont pas autorisés. Un nom de variable
+ne peut pas contenir d'espace non plus.
+</para>
+
+<para>
+Les noms de variables sont sensibles aux majuscules et minuscules. Ainsi,
+<emphasis>monAire</emphasis>
+et
+<emphasis>MonAire</emphasis>
+feront référence à deux variables distinctes.
+</para>
+
+<para>
+<emphasis>PI</emphasis>
+est un nom réservé à la constante correspondante et ne peut pas être utilisé
+en tant que nom pour de nouvelles variables. Cependant, il peut être utilisé
+pour des
+<link linkend="Calculator">calculs</link>.
+</para>
+
+</sect2>
+
+<sect2 id="ValueOfAVariable">
+<title>Valeur d'une variable</title>
+
+<para>
+Chaque variable a une valeur numérique. Cependant, dans la plupart des cas,
+cette valeur reste transparente pour l'utilisateur. Ainsi, l'utilisateur peut créer
+ou résoudre des problèmes dans Geometria sans jamais connaître la valeur
+sous-jacente des variables qu'il ou elle a définies. Pour afficher la valeur
+numérique d'une variable, saisissez le nom de la variable dans la
+<link linkend="Calculator">calculatrice</link> et cliquez sur le bouton
+<emphasis>Evaluer</emphasis>. Dû à des erreurs d'arrondi,
+les valeurs numériques peut varier légèrement au cours du processus de création
+ou de résolution d'un problème.
+</para>
+
+<para>
+La valeur d'une variable peut changer à la suite de certaines actions
+sur les figures. Si, dans l'exemple ci-dessus, MonCube subit un
+<link linkend="ScaleFigure">agrandissement</link>
+de coefficient 3, la valeur de maDistance sera implicitement multipliée par 3.
+Les valeurs de toutes les variables qui dépendent de maDistance, tout comme
+monAire, seront automatiquement mises à jour également.
+</para>
+
+<para>
+Cependant, la valeur numérique de la
+<link linkend="Answer">réponse</link> ne sera pas affectée par des actions
+sur les figures. Si, dans l'exemple ci-dessus, le rédacteur du problème désigne
+maDistance comme la réponse au problème
+<emphasis>avant</emphasis>
+agrandissement de cette figure,
+la valeur de la réponse restera inchangée, même si maDistance contient
+une nouvelle valeur pour les calculs ultérieurs. Cela ne s'applique pas
+à tous les types de réponse.
+</para>
+
+<para>
+Par conséquent, le rédacteur d'un problème devrait envisager de (re)saisir
+sa réponse juste avant de soumettre ce problème à des résolveurs.
+</para>
+
+</sect2>
+
+<sect2 id="PinnedVariable">
+<title>Variable figée</title>
+
+<para>
+Apres certaines actions, la définition d'une variable peut devenir obsolète.
+Par exemple, si le point P ou le point W sont
+<link linkend="EraseElements">effacés</link>,
+la définition de la variable maDistance ci-dessus devient alors obsolète.
+Même chose si la figure MonCube est
+<link linkend="RemoveFigure">supprimée</link>.
+Une telle variable est alors dite
+<emphasis>figée</emphasis>.
+</para>
+
+<para>
+Une variable figée n'est plus dépendante de sa définition originale
+et sa valeur n'est plus mise à jour. Par exemple,
+<link linkend="EraseElements">effacer</link>
+le point P dans la figure MonCube va figer la variable maDistance. Si MonCube
+est ensuite agrandi comme il est décrit ci-dessus, la valeur de maDistance
+restera néanmoins la même.
+</para>
+
+<para>
+Si l'action qui a abouti à figer une variable est
+<link linkend="UndoActions">annulée</link>,
+la définition de cette variable est restaurée et la variable est de nouveau
+mise à jour automatiquement.
+</para>
+
+</sect2>
+
+<sect2 id="LifetimeOfAVariable">
+<title>Durée de vie d'une variable</title>
+
+<para>
+Once a variable is defined, it can be used in
+<link linkend="Calculator">calculations</link> and
+referenced in actions, such as measuring, drawing
+and transforming figures. A variable can also be used to
+<link linkend="Answer">answer</link> a problem. A pinned variable
+can still be used in calculations and references.
+
+Une fois qu'une variable est définie, elle peut être utilisée pour des
+<link linkend="Calculator">calculs</link>
+ou comme argument d'actions comme des mesures, des tracés et des transformations
+de figures. Une variable peut également être utilisée en tant que
+<link linkend="Answer">réponse</link>
+d'un problème. A noter qu'une variable figée peut encore être utilisée
+pour des calculs ou en tant qu'argument.
+</para>
+
+<para>
+Une variable existe aussi longtemps qu'elle est enregistrée sur le
+<link linkend="Notepad">calepin</link>.
+Effacer le
+<link linkend="Notepad">calepin</link>
+est la seule façon de supprimer une variable. Soyez prudent car cette action
+ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Lorsqu'un document, que ce soit un problème ou une solution, est enregistré,
+toutes les variables répertoriées sur le
+<link linkend="Notepad">calepin</link>
+sont enregistrées également.
+</para>
+
+</sect2>
+
+<para>
+Voir également:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Notepad">Calepin</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Calculatrice</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Enregistrer un Problème</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Enregistrer une Solution</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Calculator">
+<title>Calculatrice</title>
+
+<sect2 id="Expressions">
+<title>Expressions</title>
+
+<para>
+Les calculs sont exécutés à partir d'expressions valides. Les expressions
+peuvent contenir des nombres, des
+<link linkend="Variables">variables</link>,
+la constante
+<emphasis>PI</emphasis>,
+des opérateurs, des fonctions et des parenthèses.
+</para>
+
+</sect2>
+
+<sect2 id="Assignment">
+<title>Assignation</title>
+
+<para>
+La calculatrice fonctionne dans le contexte du document ouvert à ce moment-là.
+</para>
+
+<para>
+Pour calculer une expression monExpression et assigner le résultat à une nouvelle
+variable maVariable, saisir:
+</para>
+
+<programlisting>
+maVariable = monExpression
+</programlisting>
+
+<para>
+et cliquer
+<emphasis>Evaluer</emphasis>.
+Le nom de la variable doit être unique dans le contexte du document ouvert. Un nouvel
+enregistrement va alors être ajouté au
+<link linkend="Notepad">calepin</link>.
+La variable nouvellement créée peut être utilisée dans des calculs ultérieurs
+et en tant qu'argument.
+</para>
+
+<para>
+Si aucun document n'est ouvert, le résultat numérique du calcul sera affiché.
+Aucune nouvelle variable ne sera créée.
+</para>
+
+</sect2>
+
+<sect2 id="Operators">
+<title>Opérateurs</title>
+
+<para>
+Les opérateurs suivants sont pris en charge:
+</para>
+
+<itemizedlist>	
+
+<listitem>
++ (addition)
+</listitem>
+
+<listitem>
+- (opposé, soustraction)
+</listitem>
+
+<listitem>
+* (multiplication)
+</listitem>
+
+<listitem>
+/ (division)
+</listitem>
+
+<listitem>
+^ (puissance)
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="Functions">
+<title>Fonctions</title>
+
+<para>
+Les fonctions suivantes sont prises en charge:
+</para>
+
+<itemizedlist>
+
+<listitem>
+sqrt (racine carrée)
+</listitem>
+
+<listitem>
+sin
+</listitem>
+
+<listitem>
+cos
+</listitem>
+
+<listitem>
+tan
+</listitem>
+
+<listitem>
+asin
+</listitem>
+
+<listitem>
+acos
+</listitem>
+
+<listitem>
+atan
+</listitem>
+
+</itemizedlist>
+
+<para>
+Les arguments des fonctions sont indiqués entre parenthèses.
+</para>
+
+</sect2>
+
+<sect2 id="Examples">
+<title>Exemples</title>
+
+<para>
+Calculer le côté d'un cube dont le volume est monVolume:
+</para>
+
+<programlisting>
+monCôté = monVolume ^ (1 / 3)
+</programlisting>
+
+<para>
+Calculer le côté adjacent à l'angle monAngle dans un triangle rectangle dont
+l'hypoténuse est monHypoténuse:
+</para>
+
+<programlisting>
+monCôté = monHypoténuse * cos(monAngle)
+</programlisting>
+
+</sect2>
+
+<para>
+Voir également:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Calepin</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Notepad">
+<title>Calepin</title>
+
+<para>
+Chaque fois qu’une nouvelle
+<link linkend="CreatingAVariable">variable</link>
+est créée comme résultat d’une mesure ou d’un
+<link linkend="Calculator">calcul</link>,
+un enregistrement est ajouté au calepin automatiquement.
+Chaque enregistrement consiste en un unique nom de variable et, peut-être,
+une définition. Les enregistrements de mesure peuvent aussi contenir le nom de la figure
+où la mesure a été prise. Par exemple, l’enregistrement suivant:
+</para>
+
+<programlisting>
+maDistance = |AB| : MonCube
+</programlisting>
+
+<para>
+est le résultat de la mesure de la distance entre les points A et B dans une figure
+nommée MonCube. La distance a été assignée à la variable maDistance. L’enregistrement: 
+</para>
+
+<programlisting>
+monAngle = &lt;PLX
+</programlisting>
+
+<para>
+est le résultat de la mesure d’un angle. Le nom de la figure n’apparaît pas
+puisque le document courrant contient une seule figure. L’enregistrement: 
+</para>
+
+<programlisting>
+monVolume = volume : Figure1
+</programlisting>
+
+<para>
+est le résultat de la mesure du volume de la figure nommée Figure1.
+L’enregistrement suivant est ajouté après un
+<link linkend="Calculator">calcul</link>:
+</para>
+
+<programlisting>
+h = 2 * monVolume / monAire
+</programlisting>
+
+<para>
+Si une variable est
+<link linkend="PinnedVariable">figée</link>,
+ sa définition n’apparaît plus sur le calepin. Par exemple, si le point X est
+<link linkend="EraseElements">effacé</link>,
+la variable monAngle sera enlevée de sa définition
+et le second exemple ci-dessous lira tout simplement: 
+</para>
+
+<programlisting>
+monAngle
+</programlisting>
+
+<para>
+Les enregistrements du calepin appartiennent au document courrant,
+qu’il soit problème ou solution. Quand le document est sauvegardé
+dans un fichier, les enregistrements seront également sauvegardés dans ce fichier. 
+</para>
+
+<para>
+Si le document est
+<link linkend="CloseDocument">fermé</link>,
+le calepin sera nettoyé des enregistrements. Si un autre document est ouvert,
+ses enregistrements seront affichés à la place. 
+</para>
+
+<para>
+Pour effacer tous les enregistrements du calepin, selectionner
+<emphasis>Effacer Calepin</emphasis>
+du menu
+<emphasis>Édition</emphasis>.
+À utiliser avec précaution car cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Pour désélectionner les enregistrements du calepin, faire un clic-droit et choisir
+<emphasis>Désélectionner</emphasis> du menu contextuel.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Calculatrice</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="UndoActions">
+<title>Annuler des actions</title>
+
+<para>
+Pour annuler la derniére action effectuée sur une figure ou un document, selectionner
+<emphasis>Annuler</emphasis>
+du menu 
+<emphasis>Édition</emphasis>
+ou cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils. Pour une solution, l’action sera aussi effacée à partir du
+<link linkend="SolutionLog">log</link>.
+Les actions sont annulées dans l’ordre inverse de leur exécution.
+</para>
+
+<para>
+Pour voir une courte description de l’action à annuler, laisser la souris sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Chaque annulation peut être
+<link linkend="RedoActions">refait</link>.
+</para>
+
+<para>
+Quelques actions ne peuvent pas être annulées. Un avertissement est alors affiché. 
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RedoActions">Refaire des actions</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Le log</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RedoActions">
+<title>Refaire des actions</title>
+
+<para>
+Pour refaire la dernière annulation sur une figure ou un document, selectionner
+<emphasis>Refaire</emphasis>
+du menu
+<emphasis>Édition</emphasis>
+ou cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils. Pour une solution, l’action sera ajoutée au
+<link linkend="SolutionLog">log</link>.
+Les actions sont alors refaites dans l’ordre inverse de leur annulation. 
+</para>
+
+<para>
+Pour voir une courte description de l’action à refaire, laisser la souris sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Log</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="KnownLimitations">
+<title>Limitations connues</title>
+
+<sect2 id="InordinateSizeOrShape">
+<title>Tailles ou formes extravagntes</title>
+
+<para>
+L’application peut avoir un coportement erratique si les figures ont une taille excessive
+ou des élements de forme bizarre. Voici quelques conseils pour avoir des figures sûres: 
+</para>
+
+<itemizedlist>
+
+<listitem>
+Éviter les facteurs
+<link linkend="ScaleFigure">d’échelle</link>
+très grands (&gt;100) et très petits (&lt;0.01).
+</listitem>
+
+<listitem>
+En créant un prisme ou une pyramide à partir de la
+<link linkend="FigureGallery">galerie de figures</link>,
+garder un nombre de faces raisonnable (&lt;100). Par conception,
+Geometria ne peut pas gérer des solides queconques, mais seulement des polyhèdres convexes.
+Cependant, les prismes et les pyramides
+<link linkend="ToggleTransparency">opaques</link>
+avec un grand nombre de faces ressembleront à des cylindres et des cônes respectivement.
+Malheureusement, les actions sur de telles figures sont lentes et inexpressives. 
+L’application peut devenir instable and et ne pas répondre aux actions des utilisateurs. 
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="PreviousVersionsOfGeometria">
+<title>Precédentes versions de Geometria</title>
+
+<para>
+Problèmes, solutions et figures créés avec des versions de Geometria anférieures à 3.0
+ne sont plus supportées. Cependant, nous désirons que toutes les versions futures
+de Geometria soient compatibles avec la 3.0. 
+</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Documents">
+<title>Documents</title>
+
+<sect1 id="Envelope">
+<title>Enveloppe</title>
+
+<para>
+L'enveloppe d'un document, comme un problème ou une solution, comporte le nom,
+l'adresse courriel et la page web de l'auteur, ainsi que des commentaires.
+Tous les champs sont optionnels. 
+</para>
+
+<para>
+Pour éditer l'enveloppe, sélectionner
+<emphasis>Enveloppe</emphasis>
+du menu
+<emphasis>Édition</emphasis>
+ou cliquer sur le bouton 
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Envelope.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils. Une boite de dialogue apparaîtra. Renseignez les champs et cliquez sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Les changements d'Enveloppe peuvent être 
+<link linkend="UndoActions">annulés</link>.
+</para>
+
+<para>
+Voir également:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Answer">
+<title>Réponse</title>
+
+<para>
+Un problème n'est pas prêt à être résolu tant que le créateur n'a pas fourni
+une réponse. La réponse du résolveur est considérée comme correcte si elle correspond
+à celle du rédacteur (voir
+<link linkend="Overview">Présentation</link>
+pour des détails). 
+</para>
+
+<sect2 id="CreatorsAnswer">
+<title>Réponse du rédacteur</title>
+
+<para>
+Pour définir la réponse au problème ouvert, sélectionner
+<emphasis>Réponse</emphasis>
+du menu
+<emphasis>Édition</emphasis>.
+Sélectionner le type de réponse : 
+</para>
+
+<itemizedlist>
+
+<listitem>
+Nombre
+</listitem>
+
+<listitem>
+Ensemble de points
+</listitem>
+
+<listitem>
+Ensemble de segments
+</listitem>
+
+<listitem>
+Plan fixé
+</listitem>
+
+<listitem>
+Plan sous condition, ou
+</listitem>
+
+<listitem>
+Options multiples
+</listitem>
+
+</itemizedlist>
+
+<para>
+Ouvrer le panneau 
+<emphasis>Valeur</emphasis>.
+</para>
+
+</sect2>
+
+<sect2 id="AnswerTypes">
+<title>Types de réponse</title>
+
+<sect3 id="ANumber">
+<title>Nombre</title>
+
+<para>
+Entrer une
+<link linkend="Expressions">expression</link>
+valide. Cliquer sur
+<emphasis>OK</emphasis>.
+Pour minimiser la saisie, sélectionnez au préalable un
+<link linkend="Notepad">enregistrement</link>
+du calepin. 
+</para>
+
+</sect3>
+
+<sect3 id="PointSet">
+<title>Ensemble de points</title>
+
+<para>
+Le terme
+<emphasis>ensemble de points</emphasis>
+fait référence à un seul point, ou aux extrémités d'un segment (2 points)
+ou à plus de 2 points. 
+</para>
+
+<para>
+Entrez une étiquette ou plus, séparées par des virgules. Cliquez sur
+<emphasis>OK</emphasis>.
+Pour minimiser la saisie,
+<link linkend="SelectElements">sélectionnez</link>
+les points au préalable dans la figure sélectionnée.
+</para>
+
+</sect3>
+
+<sect3 id="SegmentSet">
+<title>Ensemble de segments</title>
+
+<para>
+Les segments doivent satisfaire une certaine condition. A cet moment, les conditions suivantes sont pris en charge:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Les segments forment un cycle hamiltonien dans la figure sélectionnée.
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+<sect3 id="FixedPlane">
+<title>Plan fixé</title>
+
+<para>
+Nommez le plan par trois lettres séparées par des virgules. Cliquez sur
+<emphasis>OK</emphasis>.
+Pour minimiser la saisie,
+<link linkend="SelectElements">sélectionnez</link>
+au préalable quelques éléments de référence, comme 3 points,
+ou un point et un segment, ou une face dans la figure sélectionnée. 
+</para>
+
+</sect3>
+
+<sect3 id="ConditionPlane">
+<title>Plan sous conditions</title>
+
+<para>
+Contrairement au plan fixe, qui est un plan occupant une position fixe
+dans l'espace, un plan
+<emphasis>sous condition</emphasis>
+doit satisfaire certaines conditions. Généralement, un plan sous condition
+n'est pas unique. 
+</para>
+
+<para>
+Il y a 3 groupes de conditions. Sélectionnez une condition dans au moins
+l'un des groupes. Cliquez sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Le premier groupe contient les conditions suivantes:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Le plan contient un point donné
+</listitem>
+
+<listitem>
+Le plan contient une droite donnée
+</listitem>
+
+<listitem>
+Le plan ne contient pas un point donné
+</listitem>
+
+<listitem>
+Le plan ne contient pas une droite donnée
+</listitem>
+
+<listitem>
+Le plan ne contient aucun sommet de la figure sélectionnée
+</listitem>
+
+<listitem>
+Le plan ne contient aucune arête de la figure sélectionnée
+</listitem>
+
+<listitem>
+Le plan est  parallèle a une droite donnée
+</listitem>
+
+<listitem>
+Le plan est  parallèle a un plan donné
+</listitem>
+
+<listitem>
+Le plan est  perpendiculaire a une droite donnée
+</listitem>
+
+<listitem>
+Le plan est perpendiculaire à un plan donné
+</listitem>
+
+</itemizedlist>
+
+<para>
+Saisir le point, la droite, ou le plan, lorsque nécessaire, par des étiquettes
+séparées par des virgules. Pour minimiser la saisie,
+<link linkend="SelectElements">sélectionnez</link>
+au préalable les éléments précédents dans la figure sélectionnée. 
+</para>
+
+<para>
+Le second groupe contient la condition suivante:
+</para>
+
+<itemizedlist>
+
+<listitem>
+le plan divise le volume de la figure sélectionnée dans un rapport donné.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Saisir une
+<link linkend="Expressions">expression</link>
+valide. L' expression sera interprétée comme le numérateur d'un rapport
+dont le dénominateur est 1. Par exemple, a + 1 signifie que le volume doit être sectionné
+dans un rapport de a + 1 : 1. Sélectionnez au préalable un
+<link linkend="Notepad">enregistrement</link>
+du calepin pour le copier automatiquement dans la boite de saisie. 
+</para>
+
+<para>
+Le troisième groupe fait référence à la façon dont dont le plan sectionne la figure.
+La section peut avoir la forme d'un : 
+</para>
+
+<itemizedlist>
+
+<listitem>
+triangle isocèle
+</listitem>
+
+<listitem>
+triangle rectangle
+</listitem>
+
+<listitem>
+triangle équilatéral
+</listitem>
+
+<listitem>
+parallélogramme
+</listitem>
+
+<listitem>
+losange
+</listitem>
+
+<listitem>
+rectangle
+</listitem>
+
+<listitem>
+carré
+</listitem>
+
+</itemizedlist>
+
+<para>
+La définition de la réponse peut être 
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Notez que, bien que le rédacteur du problème entre la réponse symboliquement,
+Geometria enregistre toutes les réponses numériquement. Une fois saisie,
+la réponse ne sera affectée par aucune action suivante sur les figures.
+C'est pourquoi c'est une bonne idée de (re)saisir la réponse comme dernière
+action avant d'enregistrer le problème et le rendre disponible aux résolveurs.
+</para>
+
+</sect3>
+
+<sect3 id="MultipleChoice">
+<title>Multiple choice</title>
+
+<para>
+Enter an option. Click the
+<emphasis>Add</emphasis>
+button to add another option. Click the
+<emphasis>Remove</emphasis>
+button to remove an option. Each option must be unique. Select the correct option. Click
+<emphasis>OK</emphasis>.
+</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="SolversAnswer">
+<title>Réponse du résolveur</title>
+
+<para>
+Le résolveur conclut la solution en fournissant une réponse correcte.
+Notez, de nouveau, que la réponse du résolveur est considérée
+comme correcte si elle correspond à celle du rédacteur.
+</para>
+
+<para>
+<link linkend="OpenSolution">Ouvrez</link>
+la solution. Sélectionnez
+<emphasis>Réponse</emphasis>
+du menu
+<emphasis>Édition</emphasis> menu.
+Entrez une
+<link linkend="Expressions">expression</link>
+valide ou des étiquettes séparées par des virgules, comme il convient.
+Pour minimiser la saisie,
+<link linkend="SelectElements">sélectionnez</link>
+au préalable un
+<link linkend="Expressions">enregistrement</link>
+du calepin et/ou des éléments comme des points, segments ou faces dans la figure
+sélectionnée. Cliquez sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Une évaluation de la réponse (correcte or incorrecte) apparaîtra.
+</para>
+
+<para>
+Si la réponse est correcte, elle conclura le
+<link linkend="SolutionLog">journal</link>
+de la solution. Aucune autre action ne sera possible, à moins que la réponse ne soit
+<link linkend="UndoActions">annulée</link>.
+Si vous le souhaitez, vous pouvez
+<link linkend="SaveSolution">enregistrer</link>
+la solution dans un fichier. Une solution enregistrée peut être
+<link linkend="SolutionLog">répétée</link>
+ensuite.
+</para>
+
+<para>
+Voir également:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">Présentation</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Calepin</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Sélection</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="CreateProblem">
+<title>Créer un problème</title>
+
+<para>
+Créer un problème se fait soit en sélectionnant
+<emphasis>Créer Document-&gt;Problème</emphasis>
+dans le menu
+<emphasis>Document</emphasis>
+ou en cliquant sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/NewProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils.
+</para>
+
+<para>
+S’il y a des modifications non sauvegardées dans le document ouvert,
+une boite de dialogue apparaîtra pour confirmer si le document ouvert
+doit être enregistré avant qu'il ne soit fermé.
+</para>
+
+<para>
+Cliquer 
+<emphasis>Oui</emphasis>
+pour enregistrer le document. 
+</para>
+
+<para>
+Cliquer
+<emphasis>Non</emphasis>
+pour fermer le document sans sauvegarde. Notez que toutes les modifications
+seront perdues.
+</para>
+
+<para>
+Cliquer
+<emphasis>Annuler</emphasis>
+pour quitter la boite de dialogue sans action. 
+</para>
+
+<para>
+Une fois terminée, cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir également:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Ouvrir un problème</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Enregistrer un problème</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Fermer un document</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenProblem">
+<title>Ouvrir un problème</title>
+
+<para>
+Ouvrir un problème se fait soit en sélectionnant
+<emphasis>Ouvrir Document-&gt;Problème</emphasis>
+dans le menu
+<emphasis>Document</emphasis>
+ou en cliquant sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/OpenProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils.
+</para>
+
+<para>
+S’il y a des modifications non sauvegardées dans le document ouvert,
+une boite de dialogue apparaîtra pour confirmer si le document ouvert
+doit être enregistré avant qu'il ne soit fermé.
+</para>
+
+<para>
+Cliquer 
+<emphasis>Oui</emphasis>
+pour enregistrer le document. 
+</para>
+
+<para>
+Cliquer
+<emphasis>Non</emphasis>
+pour fermer le document sans sauvegarde. Notez que toutes les modifications
+seront perdues.
+</para>
+
+<para>
+Cliquer
+<emphasis>Annuler</emphasis>
+pour quitter la boite de dialogue sans action. 
+</para>
+
+<para>
+Une fois terminée, cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir également:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Créer un problème</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Enregistrer un problème</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Fermer un document</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveProblem">
+<title>Enregistrer un problème</title>
+
+<para>
+Enregistrer le problème en cours se fait soit en sélectionnant
+<emphasis>Enregistrer Document</emphasis>
+dans le menu
+<emphasis>Document</emphasis>
+ou en cliquant sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SaveProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils.
+</para>
+
+<para>
+Pour enregistrer le problème sous un nom différent, sélectionner
+<emphasis>Enregistrer Document Sous</emphasis>
+du menu
+<emphasis>Document</emphasis>
+</para>
+
+<para>
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+S'il s'agit de la version finale du problème, vous pouvez envisager
+<link linkend="Notepad">d'effacer</link>
+tous les calculs et mesures du calepin. Les enregistrements ne seront pas affichés
+sur le calepin du résolveur, cependant, à moins d'être effacés,
+ils seront encore présents dans le fichier.
+</para>
+
+<para>
+Attention, cette action d'effacement du calepin ne peut pas être 
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Une version finale du problème devrait aussi être fournie avec une
+<link linkend="Answer">réponse</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Créer un problème</link>
+</listitem>
+<listitem>
+<link linkend="OpenProblem">Ouvrir un problème</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Fermer un document</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Réponse</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CreateSolution">
+<title>Créer une solution</title>
+
+<para>
+Créer une solution pour le problème en cours se fait soit en sélectionnant
+<emphasis>Créer Document-&gt;Solution</emphasis>->
+du menu
+<emphasis>Document</emphasis>
+ou en cliquant le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/NewSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+sur la barre d'outils. 
+</para>
+
+<para>
+Si le problème que vous souhaitez n'est pas ouvert,
+<link linkend="OpenProblem">ouvrez</link>
+le d’abord
+</para>
+
+<para>
+S’il y a des modifications non sauvegardées dans le problème en cours,
+un dialogue apparaîtra demandant s'il faut sauvegarder avant de fermer. 
+</para>
+
+<para>
+Cliquez
+<emphasis>Oui</emphasis>
+pour sauvegarder. Notez que vous résoudrez la version du problème que
+vous venez de sauvegarder. 
+</para>
+
+<para>
+Cliquez
+<emphasis>Non</emphasis>
+pour fermer sans sauvegarder.
+the current problem without saving.
+*********
+Note that all unsaved modifications
+to the current problem will be lost and you will be solving
+the last saved version of the problem.
+**********
+</para>
+
+<para>
+Cliquez
+<emphasis>Annuler</emphasis>
+pour quitter le dialogue sans action. 
+</para>
+
+<para>
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Ouvrir un problème</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Ouvrir une solution</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Enregistrer le solution</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Fermer un document</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenSolution">
+<title>Ouvrir une solution</title>
+
+<para>
+Ouvrir une solution pour le problème en cours se fait soit en sélectionnant
+<emphasis>Ouvrir Document-&gt;Solution</emphasis>->
+du menu
+<emphasis>Document</emphasis>
+ou en cliquant le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/OpenSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+sur la barre d'outils. 
+</para>
+
+<para>
+S’il y a des modifications non sauvegardées dans le problème en cours,
+un dialogue apparaîtra demandant s'il faut sauvegarder avant de fermer. 
+</para>
+
+<para>
+Cliquez
+<emphasis>Oui</emphasis>
+pour sauvegarder le document en cours.
+</para>
+
+<para>
+Cliquez
+<emphasis>Non</emphasis>
+pour fermer sans sauvegarder.
+Notez que toutes les modifications seront perdues.
+</para>
+
+<para>
+Cliquez
+<emphasis>Annuler</emphasis>
+pour quitter le dialogue sans action. 
+</para>
+
+<para>
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Créer une solution</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Enregistrer une solution</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Fermer un document</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveSolution">
+<title>Enregistrer une solution</title>
+
+<para>
+Enregistrer la solution en cours se fait soit en sélectionnant
+<emphasis>Enregistrer Document</emphasis>->
+du menu
+<emphasis>Document</emphasis>
+ou en cliquant le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SaveDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+sur la barre d'outils. 
+</para>
+
+<para>
+Pour enregistrer la solution sous un nom différent, sélectionner
+<emphasis>Enregistrer Document Sous</emphasis>
+du menu
+<emphasis>Document</emphasis>
+</para>
+
+<para>
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Si c'est une révision finale de la solution, n'oubliez pas de conclure par une
+<link linkend="Answer">réponse</link>
+correcte.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Créer une solution</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Ouvrir une solution</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Fermer un document</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Réponse</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloseDocument">
+<title>Fermer un document</title>
+
+<para>
+Fermer le document présentement ouvert, que ce soit un problème ou une solution,
+se fait soit en sélectionnant
+<emphasis>Fermer Document</emphasis>
+du menu
+<emphasis>Document</emphasis>
+ou en cliquant sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/CloseDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils. 
+</para>
+
+<para>
+Si il y a des modifications non sauvegardées dans le document en cours,
+un dialogue apparaîtra demandant s'il faut sauvegarder avant de fermer. 
+</para>
+
+<para>
+Cliquez
+<emphasis>Oui</emphasis>
+pour sauvegarder le document en cours.
+</para>
+
+<para>
+Cliquez
+<emphasis>Non</emphasis>
+pour fermer sans sauvegarder.
+Notez que toutes les modifications seront perdues.
+</para>
+
+<para>
+Cliquez
+<emphasis>Annuler</emphasis>
+pour quitter le dialogue sans action. 
+</para>
+
+<para>
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+*********
+Notepad
+<link linkend="Notepad">records</link>
+and figures belong to the currently open document. When the document is
+closed, the notepad is cleared and the figures closed.
+*********
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SaveProblem">Enregistrer un problème</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Enregistrer une solution</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SolutionLog">
+<title>Le log</title>
+
+<para>
+Au fur et à mesure que l'élève progresse vers sa solution, ses actions sont enregistrées
+dans le log. Une solution
+<link linkend="SaveSolution">sauvegardée</link>
+peut plus tard être ouverte et rejouée. 
+</para>
+
+<para>
+Pour rejouer la solution, cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogPlay.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Pour rejouer le pas suivant cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogNext.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Pour sauter en avant ou en arrière, sélectionner un enregistrement arbitraire dans le log.
+</para>
+
+<para>
+Pour effacer tous les enregistrements du log, cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogClear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+À utiliser avec précaution car cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Pour effacer tous les enregistrements suivant l'enregistrement sélectionné, cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogCut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Pour arrêter de rejouer la solution cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogStop.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Tant que la solution est en train d’être rejouée, elle est gelée.
+Pour la modifier, arrêter de la rejouer d’abord. 
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">Présentation</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Enregistrer une solution</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Ouvrir une solution</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Figures">
+<title>Figures</title>
+
+<sect1 id="FigureGallery">
+<title>Galerie de figures</title>
+
+<para>
+La galerie de figures contient pyramides et prismes réguliers, et les 5 solides
+platoniciens (précisément : le tétraèdre, le cube, l'octaèdre, le dodécaèdre,
+et l'icosaèdre). 
+</para>
+
+<para>
+Pour créer un prisme, sélectionner un élément du menu
+<emphasis>Figure-&gt;Galerie-&gt;Prisme</emphasis>.
+</para>
+
+<para>
+Pour créer une pyramide, sélectionner un élément du menu
+<emphasis>Figure-&gt;Galerie-&gt;Pyramide</emphasis>.
+</para>
+
+<para>
+Pour créer un solide Platonicien, sélectionner un élément du menu
+<emphasis>Figure-&gt;Galerie-&gt;Solides platoniciens</emphasis>.
+</para>
+
+<para>
+La figure sera ajoutée au document en cours. Si aucun document n’est ouvert,
+vous pouvez d’abord
+<link linkend="CreateProblem">créer un problème</link>.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Ouvrir une figure</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenFigure">
+<title>Ouvrir une figure</title>
+
+<para>
+Ouvrir une figure à partir d’un fichier peut se faire, soit en sélectionnant
+<emphasis>Ouvrir Figure</emphasis>
+du menu
+<emphasis>Figure</emphasis>
+
+ou en cliquant le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/OpenFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils.
+</para>
+
+<para>
+La figure sera ajoutée au document en cours. Si aucun document n’est ouvert,
+vous pouvez d’abord
+<link linkend="CreateProblem">créer un problème</link>.
+</para>
+
+<para>
+Une
+<link linkend="FigureGallery">galerie</link>
+de figures est disponible pour faire son choix, incluant prismes,
+pyramides et solides platoniciens. 
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="FigureGallery">Galerie de figures</link>
+</listitem>
+<listitem>
+<link linkend="SaveFigure">Enregistrer une figure</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloneFigure">
+<title>Dupliquer une figure</title>
+
+<para>
+Dupliquer une figure peut se faire, soit en sélectionnant
+<emphasis>Dupliquer Figure</emphasis>
+du menu
+<emphasis>Figure</emphasis>
+
+ou en cliquant le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/CloneFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveFigure">
+<title>Enregistrer une figure</title>
+
+<para>
+Enregistrer une figure dans un fichier peut se faire, soit en sélectionnant
+<emphasis>Enregistrer Figure</emphasis>
+du menu
+<emphasis>Figure</emphasis>
+ou en cliquant le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SaveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils.
+</para>
+
+<para>
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Ouvrir une figure</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RemoveFigure">
+<title>Enlever une figure</title>
+
+<para>
+Enlever une figure du document en cours peut se faire, soit en sélectionnant
+<emphasis>Enlever Figure</emphasis>
+du menu
+<emphasis>Figure</emphasis>
+ou en cliquant le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/RemoveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils.
+</para>
+
+<para>
+Retrait d'une figure qui a été mesurée se traduira par quelques-uns des
+variables d'être
+<link linkend="PinnedVariable">figée</link>.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Le résolveur ne peut pas enlever une figure qui fait partie du problème.
+Cependant, toute figure qui a été créée pour la résolution du problème peut être enlevée.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportImage">
+<title>Exporter une image</title>
+
+<para>
+Pour exporter une figure vers un fichier image, sélectionner
+<emphasis>Export Image</emphasis>
+du menu
+<emphasis>Figure</emphasis>.
+Une boite de dialogue s’ouvrira. Choisir un type de fichier image,
+entrer un nom de fichier et cliquer sur
+<emphasis>Enregistrer</emphasis>.
+</para>
+
+<para>
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportOFFFile">
+<title>Export vers un fichier OFF</title>
+
+<para>
+<emphasis>OFF</emphasis>
+est un format de fichier populaire pour les polyèdres. Il est utilisé par Geomview
+(http://www.geomview.org) et d’autres logiciels de géométrie.
+Pour exporter une figure vers un fichier dans le format OFF, sélectionner
+<emphasis>Exporter Fichier OFF</emphasis>
+du menu
+<emphasis>Figure</emphasis>.
+Une boite de dialogue s’ouvrira. Choisir un nom de fichier et cliquer sur 
+<emphasis>Enregistrer</emphasis>.
+</para>
+
+<para>
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RenameFigure">
+<title>Renommer une figure</title>
+
+<para>
+Pour renommer une figure, sélectionner
+<emphasis>Renommer Figure</emphasis>
+du menu
+<emphasis>Figure</emphasis>.
+</para>
+
+<para>
+Quelques caractères spéciaux et espaces ne sont pas autorisés dans les noms de figures.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Le résolveur ne peut pas renommer une figure qui fait partie du problème.
+Cependant, toute figure qui a été créée pour la résolution du problème peut être renommer.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="PrintFigure">
+<title>Imprimer une figure</title>
+
+<para>
+Imprimer une figure peut se faire, soit en sélectionnant
+<emphasis>Imprimer Figure</emphasis>
+du menu
+<emphasis>Figure</emphasis>
+ou en cliquant le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Print.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils.
+</para>
+
+<para>
+Cette action ne peut pas être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="View">
+<title>Vue</title>
+
+<sect2 id="Attitude">
+<title>Position</title>
+
+<para>
+<emphasis>Geometria</emphasis>
+emploie un repère d'espace fixé d'orientation positive. L’axe des Z du repère
+est parallèle au bord vertical de l’écran. Aucune connaissance de repères n’est
+nécessaire pour manipuler les figures, créer ou résoudre les problèmes.
+</para>
+
+<para>
+À chaque instant donné, la figure a une certaine position. Cette position peut être décrite
+en termes d’angles que forme la figure avec le repère. Quand une figure est créée,
+elle a sa position par
+<emphasis>défaut</emphasis>.
+La position de la figure change par rotation. 
+</para>
+
+<para>
+Pour revenir à sa position initiale, sélectionner
+<emphasis>Position initiale</emphasis>
+du menu
+<emphasis>Vue</emphasis>
+ou faire un clic droit et sélectionner
+<emphasis>Position initiale</emphasis>
+du menu contextuel. 
+</para>
+
+<para>
+Quand une figure est sauvegardée, sa position courante devient sa position initiale.
+Pour revenir à la position que la figure avait quand elle avait été créée, avant
+des rotations quelconques, sélectionner
+<emphasis>Position par defaut</emphasis>
+du menu
+<emphasis>Vue</emphasis>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Rotation d'une figure</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RotateFigure">
+<title>Rotation d'une figure</title>
+
+<para>
+<link linkend="ToggleSelector">Inactiver le sélecteur</link>
+et faire glisser la souris sur une figure pour la faire tourner.
+La vitesse de rotation et l’angle dépendront du glissement. 
+</para>
+
+<para>
+Pour arrêter une figure en rotation, cliquer dessus.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Attitude">Position</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="SelectElements">
+<title>Sélectionner des éléments</title>
+
+<sect3 id="ToggleSelector">
+<title>Basculer le sélecteur</title>
+
+<para>
+Faire un clic droit sur une figure et sélectionner
+<emphasis>Basculer Sélecteur</emphasis>
+du menu contextuel. Sinon, cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SelectorOn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils.
+</para>
+
+<para>
+Quand le sélecteur est actif (icône du sélecteur claire), les éléments peuvent être
+sélectionnés en cliquant dessus. Quand le sélecteur est inactif (icône du
+sélecteur sombre), glisser la souris fera
+<link linkend="RotateFigure">tourner</link>
+la figure. 
+<link linkend="RotateFigure">rotate</link>.
+</para>
+
+<para>
+Le sélecteur est inactif par défaut.
+</para>
+
+</sect3>
+
+<sect3 id="SelectElementsOneByOne">
+<title>Sélectionner des éléments un à un</title>
+
+<para>
+Cliquer sur un élément, comme un point, un segment ou une face, pour le
+sélectionner (mettre en évidence). Pour sélectionner plus d’un élément,
+appuyer sur la touche Ctrl. Les faces ne peuvent être sélectionnées
+que dans un mode
+<link linkend="ViewModes">non-transparent</link>.
+</para>
+
+<para>
+Cliquer sur un espace vide à l’intérieur d’une figure pour dé-sélectionner.
+Appuyer sur la touche Ctrl et cliquer sur un élément pour dé-sélectionner
+cet élément seul. 
+</para>
+
+</sect3>
+
+<sect3 id="SelectAllElements">
+<title>Sélectionner tous les éléments</title>
+
+<para>
+Pour sélectionner tous les points et segments dans une figure (sauf les sommets et les côtés),
+choisir
+<emphasis>Tout Sélectionner</emphasis>
+du menu
+<emphasis>Édition</emphasis>.
+Cette action offre un moyen pratique pour
+<link linkend="EraseSelection">effacer tous les éléments</link>
+d’un coup. 
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Rotation d’une figure</link>
+</listitem>
+<listitem>
+<link linkend="ViewModes">Modes de vue</link>
+</listitem>
+<listitem>
+<link linkend="EraseSelection">Effacer une sélection</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ViewModes">
+<title>Modes de vue</title>
+
+<sect3 id="ToggleTransparency">
+<title>Changer de mode transparent ou opaque</title>
+
+<para>
+Pour basculer les modes de vue entre transparent et opaque, sélectionner
+<emphasis>Basculer Transparence</emphasis>
+du menu
+<emphasis>Vue</emphasis>
+Sinon, cliquer sur le bouton 
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Transparency.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils.
+</para>
+
+<para>
+Dans une figure transparente, les segments visibles sont continus (épais),
+là où les segments invisibles sont en pointillés. N’importe quel point
+ou segment peut être sélectionné, qu’il soit visible ou non. Les faces
+peuvent seulement être sélectionnées dans une figure opaque. 
+</para>
+
+<para>
+Dans une figure opaque, les segments invisibles et les points ne sont pas montrés.
+Points, segments et faces ne peuvent être sélectionnés que s’ils sont visibles. 
+</para>
+
+</sect3>
+
+<sect3 id="SetColor">
+<title>Définir la couleur</title>
+
+<para>
+Pour changer la couleur d’une figure opaque, sélectionner
+<emphasis>Changer Couleur</emphasis>
+du menu
+<emphasis>Vue</emphasis>
+ou cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Color.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils. Sélectionner une couleur dans la boite de dialogue et cliquer sur 
+<emphasis>OK</emphasis>.
+</para>
+
+</sect3>
+
+<sect3 id="ToggleLabels">
+<title>Montrer ou cacher les étiquettes</title>
+
+<para>
+Pour montrer ou cacher les étiquettes de points, sélectionner
+<emphasis>Basculer Étiquettes</emphasis>
+du menu
+<emphasis>Vue</emphasis>
+Sinon, cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Labels.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils. Les étiquettes ne seront montrées que sur des figures
+<link linkend="ToggleTransparency">transparentes</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ZoomFigure">
+<title>Zoomer une figure</title>
+
+<para>
+Pour zoomer(+) sur une figure, sélectionner
+<emphasis>Agrandir</emphasis>
+du menu
+<emphasis>Vue</emphasis>
+ou cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/ZoomIn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+ de la barre d’outils.
+</para>
+
+<para>
+Pour zoomer(-) sur une figure, sélectionner
+<emphasis>Reduire</emphasis>
+du menu
+<emphasis>Vue</emphasis>
+ou cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/ZoomOut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils.
+</para>
+
+<para>
+Pour redimensionner une figure et l’adapter à la fenêtre, sélectionner
+<emphasis>Ajuster à la vue</emphasis>
+du menu
+<emphasis>Vue</emphasis>
+ou cliquer sur le bouton 
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/FitToView.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Measure">
+<title>Mesurer</title>
+
+<sect2 id="MeasureDistance">
+<title>Mesurer une distance</title>
+
+<para>
+Pour mesurer la distance entre deux points, procéder comme suit: 
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner 
+<emphasis>Distance</emphasis>
+du menu
+<emphasis>Measure</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/MeasureDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+2 points ou le segment qui les joint, faire un clic droit et sélectionner
+<emphasis>Distance</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Les deux points doivent appartenir à la même face.
+</para>
+
+<para>
+Une boite de dialogue apparaît. La remplir si besoin avec les points, assigner une unique
+<link linkend="Variables">variable</link>
+et cliquer sur
+<emphasis>OK</emphasis>.
+Un enregistrement apparaîtra sur le
+<link linkend="Notepad">calepin</link>,
+comme ci-dessous,
+</para>
+
+<programlisting>
+maDistance = |AB| : MonCube
+</programlisting>
+
+<para>
+où myDistance est la variable assignée à la distance entre les points A et B
+dans la figure MonCube. Si MonCube est la seule figure en cours, l’enregistrement lira: 
+</para>
+
+<programlisting>
+maDistance = |AB|
+</programlisting>
+
+<para>
+ette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Calepin</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureAngle">
+<title>Mesurer un angle</title>
+
+<para>
+Pour mesurer un angle, procéder comme suit: 
+</para>
+
+<itemizedlist>
+<listitem>
+Sélectionner 
+<emphasis>Angle</emphasis>
+du menu
+<emphasis>Measure</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/MeasureAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+deux segments qui forment l’angle en question, faire un clic droit et sélectionner
+<emphasis>Angle</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Les segments qui forment l’angle doivent appartenir à la même face et ne pas être parallèles. 
+</para>
+
+<para>
+Une boite de dialogue s’ouvrira. La remplir si besoin avec les points, assigner une unique
+<link linkend="Variables">variable</link>
+et cliquer sur
+<emphasis>OK</emphasis>.
+Un enregistrement apparaîtra sur le
+<link linkend="Notepad">calepin</link>,
+comme ci-dessous, 
+</para>
+
+<programlisting>
+monAngle = &lt;ABC : MaPyramide
+</programlisting>
+
+<para>
+où monAngle est la variable assignée à l’angle &lt;ABC dans la figure MaPyramide.
+Si MaPyramide est la seule figure en cours, l’enregistrement lira: 
+</para>
+
+<programlisting>
+monAngle = &lt;ABC
+</programlisting>
+
+<para>
+Tous les angles sont mesurés en radians.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Calepin</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureArea">
+<title>Measurer une aire</title>
+
+<para>
+Pour mesurer l’aire d’une face procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner 
+<emphasis>Aire</emphasis>
+du menu
+<emphasis>Measurer</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Area.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+la face, faire un clic droit et sélectionner
+<emphasis>Aire</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Une boite de dialogue s’ouvrira. Sélectionner si besoin la face de la liste,
+assigner une unique
+<link linkend="Variables">variable</link>
+et cliquer sur
+<emphasis>OK</emphasis>.
+Un enregistrement apparaîtra sur le
+<link linkend="Notepad">calepin</link>,
+comme ci-dessous, 
+</para>
+
+<programlisting>
+monAire = area[ABC] : MonCube
+</programlisting>
+
+<para>
+où monAire est la variable assignée à l’aire de la face qui contient A, B, C
+dans la figure MonCube. Si MonCube est la seule figure en cours, l’enregistrement lira: 
+</para>
+
+<programlisting>
+monAire = area[ABC]
+</programlisting>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Calepin</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureVolume">
+<title>Mesurer un volume</title>
+
+<para>
+ur mesurer le volume d’une figure procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Volume</emphasis>
+du menu
+<emphasis>Measurer</emphasis>,
+ou 
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Volume.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d’outils.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Une boite de dialogue s’ouvrira. Assigner une unique
+<link linkend="Variables">variable</link>
+et cliquer sur
+<emphasis>OK</emphasis>.
+Un enregistrement apparaîtra sur le
+<link linkend="Notepad">calepin</link>,
+comme ci-dessous : 
+</para>
+
+<programlisting>
+monVolume = volume : MonCube
+</programlisting>
+
+<para>
+où monVolume est la variable assignée au volume de la figure MonCube. Si MonCube
+est la seule figure en cours, l’enregistrement lira:
+</para>
+
+<programlisting>
+monVolume = volume
+</programlisting>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Calepin</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Draw">
+<title>Dessiner</title>
+
+<sect2 id="DrawSegment">
+<title>Dessiner un segment</title>
+
+<para>
+Pour joindre 2 points pour former un segment, procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner 
+<emphasis>Dessiner Segment</emphasis>
+du menu
+<emphasis>Dessiner</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/DrawLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+les 2 points, faire un clic droit et sélectionner
+<emphasis>Dessiner Segment</emphasis>
+du menu contextuel. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Les 2 points doivent appartenir à la même face.
+</para>
+
+<para>
+Si une boite de dialogue apparaît, y mettre les points et cliquer sur 
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawPerpendicular">
+<title>Dessiner Perpendiculaire</title>
+
+<para>
+Pour dessiner une perpendiculaire à un segment, passant par un point,
+procéder comme suit : 
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner 
+<emphasis>Dessiner Perpendiculaire</emphasis>
+du menu
+<emphasis>Dessiner</emphasis>, ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Perpendicular.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+le point et le segment, faire un clic droit et sélectionner
+<emphasis>Dessiner Perpendiculaire</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Le point et le segment doivent appartenir à la même face.
+Le point peut appartenir, ou non, au segment. 
+</para>
+
+<para>
+Si une boite de dialogue apparaît, la remplir et cliquer sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Si le point et le segment appartiennent à deux différentes faces en même temps,
+une deuxième boite de dialogue s’ouvre. Sélectionner une face de la liste
+et cliquer sur 
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideSegment">
+<title>Diviser un segment</title>
+
+<para>
+Pour diviser un segment dans un rapport donné, procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Diviser Segment</emphasis>
+du menu 
+<emphasis>Dessiner</emphasis>, ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/DivideLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+le segment, faire un clic droit et sélectionner
+<emphasis>Diviser Segment</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Une boite de dialogue apparaît, la remplir au besoin avec des points et des
+<link linkend="Expressions">expressions</link>
+valides pour les numérateur et dénominateur du rapport, puis cliquer sur 
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Le rapport est défini par AX : XB, où X est le point de partage, [AB] le segment.
+Par exemple, si le rapport est 1 : 2, X sera 2 fois plus proche de A que de B.
+Si le rapport est 3 : 1, X sera 3 fois plus proche de B que de A. 
+</para>
+
+<para>
+Le milieu divise le segment dans le rapport 1 : 1 et peut ainsi être tracé
+comme ci-dessus. Cependant, l’action pratique
+<link linkend="DrawMidpoint">Dessiner Point milieu</link>
+offre un raccourci. 
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DrawMidpoint">Dessiner point milieu</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawMidpoint">
+<title>Dessiner point milieu</title>
+
+<para>
+Pour tracer le milieu d’un segment, procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Dessiner Point milieu</emphasis>
+du menu
+<emphasis>Dessiner</emphasis>,
+ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+le segment, faire un clic droit et sélectionner
+<emphasis>Dessiner Point milieu</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Si une boite de dialogue apparaît, la remplir au besoin par 2 points et cliquer sur 
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Noter que tracer le milieu est équivalent à
+<link linkend="DivideSegment">diviser</link>
+le segment dans le rapport 1 : 1. 
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DivideSegment">Diviser un segment</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideAngle">
+<title>Diviser un angle</title>
+
+<para>
+Pour diviser un angle dans un rapport donné, procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Divide Angle</emphasis>
+du menu 
+<emphasis>Dessiner</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/DivideAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+2 segments qui forment l’angle, faire un clic droit et sélectionner
+<emphasis>Diviser Angle</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Les segments qui forment l’angle doivent appartenir à la même face
+sans être colinéaires. 
+</para>
+
+<para>
+Une boite de dialogue apparaît, la remplir au besoin avec les points et des
+<link linkend="Expressions">expressions</link>
+valides pour les numérateur et dénominateur du rapport, puis cliquer sur 
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Le rapport est défini par &lt;AOX : &lt;XOB, où OX est le segment divisant,
+et &lt;AOB l’angle. Par exemple, si le rapport est 1 : 2, OX fera avec OB
+un angle de mesure double de celui avec OA.
+Si le rapport est 3 : 1, OX fera avec OA un angle de mesure triple de celui avec OB. 
+</para>
+
+<para>
+La bissectrice divise l’angle dans le rapport 1 : 1, et peut ainsi être tracée
+comme ci-dessus. Cependant, l’action pratique
+<link linkend="DrawBisector">Dessiner la bissectrice</link>
+offre un raccourci. 
+</para>
+
+<para>
+This action can be
+<link linkend="UndoActions">undone</link>.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DrawBisector">Dessiner la bissectrice</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawBisector">
+<title>Dessiner la bissectrice</title>
+
+<para>
+Pour tracer la bissectrice d’un angle, procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Dessiner Bissectrice</emphasis>
+du menu 
+<emphasis>Dessiner</emphasis>,
+ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+2 segments qui forment un angle, faire un clic droit et sélectionner
+<emphasis>Dessiner Bissectrice</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Les segments qui forment l’angle doivent appartenir à la même face sans être colinéaires. 
+</para>
+
+<para>
+Si une boite de dialogue apparaît, la remplir au besoin avec les points et cliquer sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Noter que tracer la bissectrice est équivalent à
+<link linkend="DivideAngle">diviser</link>
+l’angle dans le rapport 1 : 1.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DivideAngle">Diviser un angle</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="IntersectLines">
+<title>Intersections de droites</title>
+
+<para>
+Pour tracer le point d’intersection de lignes contenant 2 segments donnés,
+procéder comme suit: 
+</para>
+
+<itemizedlist>
+
+<listitem>
+Soit sélectionner
+<emphasis>Intersection</emphasis>
+du menu 
+<emphasis>Dessiner</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Intersect.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+les segments, faire un clic droit et sélectionner 
+<emphasis>Intersection</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Les 2 segments, comme le point d’intersection de leurs supports, doivent appartenir à la même face.
+</para>
+
+<para>
+Si une boite de dialogue apparaît, la remplir au besoin avec les points et cliquer sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayDistance">
+<title>Fixer distance</title>
+
+<para>
+Pour placer un point sur un segment donné à une distance donnée d’un point donné,
+procéder comme suit : 
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Fixer Distance</emphasis>
+du menu 
+<emphasis>Dessiner</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LayDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+le point et le segment, faire un clic droit et sélectionner
+<emphasis>Fixer Distance</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Le point et le segment doivent appartenir à la même face. Le point peut appartenir ou non au segment.
+</para>
+
+<para>
+Une boite de dialogue apparaît, la remplir au besoin avec les points et une
+<link linkend="Expressions">expression</link>
+valide pour la distance, puis cliquer sur 
+<emphasis>OK</emphasis>.
+Sélectionner un
+<link linkend="Notepad">enregistrement</link>
+du calepin auparavant pour le copier automatiquement dans la boite d’entrée de la distance. 
+</para>
+
+<para>
+Cette action peut entraîner la construction d’un ou deux points distincts.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayAngle">
+<title>Fixer Angle</title>
+
+<para>
+Pour tracer un segment à partir d’une extrémité d’un autre segment
+en formant un angle donné, procéder comme suit: 
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Fixer Angle</emphasis>
+du menu
+<emphasis>Dessiner</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LayAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+le segment et ses extrémités, faire un clic droit et sélectionner
+<emphasis>Fixer Angle</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Une boite de dialogue apparaît, la remplir au besoin avec les points et une
+<link linkend="Expressions">expression</link>
+valide pour l’angle, puis cliquer sur
+<emphasis>OK</emphasis>.
+Sélectionner un
+<link linkend="Notepad">enregistrement</link>
+du calepin auparavant pour le copier automatiquement dans la boite d’entrée de l'angle.
+</para>
+
+<para>
+L’angle doit valoir plus que 0 et moins que 180 degrés et doit être
+entré en radians, et non en degrés. Par exemple, pour placer un angle de 60 degrés,
+entrer PI/3. 
+</para>
+
+<para>
+Si le segment appartient à 2 différentes faces en même temps, un second dialogue
+s’ouvre. Sélectionner une face de la liste et cliquer sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+De cette action peut résulter la construction d’un ou deux segments distincts.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RenamePoint">
+<title>Renommer un point</title>
+
+<para>
+Le créateur du problème peut renommer un point dans une figure en sélectionnant
+<emphasis>Renommer Point</emphasis>
+du menu
+<emphasis>Dessiner</emphasis>.
+</para>
+
+<para>
+Un dialogue s’ouvre. Entrer l’ancienne et la nouvelle étiquette pour
+le point en question et cliquer sur
+<emphasis>OK</emphasis>.
+Une étiquette valide consiste en une lettre majuscule, qui peut être
+suivie par un chiffre ou plus.
+</para>
+
+<para>
+<link linkend="SelectElements">Sélectionner</link>
+un point auparavant pour le copier automatiquement dans la boite d’entrée. 
+</para>
+
+<para>
+De renommer un point peut résulter dans quelques
+<link linkend="Notepad">enregistrements</link>
+du calepin d’être mis à jour en conséquence. 
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Calepin</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="EraseElements">
+<title>Effacer des éléments</title>
+
+<sect3 id="EraseSegment">
+<title>Effacer un segment</title>
+
+<para>
+Pour effacer un segment ou une partie, sélectionner
+<emphasis>Effacer Segment</emphasis>
+du menu
+<emphasis>Dessiner</emphasis>.
+Le segment ne peut pas appartenir à un côté. 
+</para>
+
+<para>
+Si un dialogue s’ouvre, y mettre les points et cliquer sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Noter qu’un segment entier peut être plus commodément effacé en le
+sélectionnant et en utilisant l’action
+<link linkend="EraseSelection">Effacer la sélection</link>. 
+</para>
+
+<para>
+Effacer un segment qui a été référencé dans des mesures aura pour conséquence
+pour quelques variables d’être
+<link linkend="PinnedVariable">figées</link>. 
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+</sect3>
+
+<sect3 id="EraseSelection">
+<title>Effacer une sélection</title>
+
+<para>
+Pour effacer un élément ou plus, comme des points et/ou des segments, les
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+et procéder comme suit: 
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Effacer Sélection</emphasis>
+du menu
+<emphasis>Dessiner</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Erase.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+sur la barre d'outils.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Les sommets et les segments qui appartiennent aux côtés ne peuvent être effacés. 
+</para>
+
+<para>
+Pour effacer tous les points et segments d’une figure (avec l’exception ci-dessus),
+<link linkend="SelectAllElements">sélectionner les tous</link>
+d’abord. 
+</para>
+
+<para>
+Pour effacer seulement une partie d’un segment tracé, utiliser l’action
+<link linkend="EraseSegment">Effacer Segment</link>.
+</para>
+
+<para>
+Effacer un élément qui a été référencé dans des mesures aura
+pour conséquence pour quelques variables d’être
+<link linkend="PinnedVariable">figées</link>. 
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Transform">
+<title>Transformations</title>
+
+<sect2 id="ScaleFigure">
+<title>Mettre à l’échelle une figure</title>
+
+<para>
+Pour mettre à l’échelle une figure selon un segment donné par un facteur positif,
+procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Mettre à l'échelle Figure</emphasis>
+du menu
+<emphasis>Transformer</emphasis>,
+ou 
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Scale.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+le segment ou 2 points sur lui, faire un clic droit et sélectionner
+<emphasis>Mettre à l'échelle Figure</emphasis>
+du menu contextuel. 
+</listitem>
+
+</itemizedlist>
+
+<para>
+Une boite de dialogue apparaît, la remplir au besoin avec les points et une
+<link linkend="Expressions">expression</link>
+valide pour le facteur, puis cliquer sur
+<emphasis>OK</emphasis>.
+Sélectionner un
+<link linkend="Notepad">enregistrement</link>
+du calepin auparavant pour le copier automatiquement dans la boite d’entrée du facteur.
+</para>
+
+<para>
+Comme résultat d’une mise à l’échelle, les précédentes mesures (distances,
+aires et volumes) seront recalculés et les variables assignées mises à jour. Voir
+<link linkend="Variables">Variables</link>
+pour plus de détails. 
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Le résolveur ne peut pas modifier l’échelle d’une figure qui fait partie du problème.
+Cependant, les figures créées pour résoudre le problème peuvent être changées d’échelle. 
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="ShearFigure">
+<title>Cisailler une figure</title>
+
+<para>
+Cisailler fait référence à une transformation affine où des plans parallèles
+à un plan de référence fixé glissent le long d’une droite fixée contenue
+dans le plan de référence. Le terme
+<emphasis>affine</emphasis>
+implique que la transformation préserve l’alignement des points.
+</para>
+
+<para>
+Si XY est la droite fixée dans le plan de référence, la transformation
+est uniquement caractérisée par les points X, Y et l’image d’un point
+quelconque Z tel que XZ est perpendiculaire au plan de référence. 
+</para>
+
+<para>
+Pour cisailler une figure, procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Cisailler Figure</emphasis>
+du menu
+<emphasis>Transformer</emphasis>,
+ou 
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Shear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+le segment de référence XY et l’image du point Z, faire un clic
+droit et sélectionner
+<emphasis>Cisailler Figure</emphasis> 
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Une boite de dialogue apparaît, la remplir au besoin avec les points
+de référence (X, Y en bas et l’image du point Z en haut). Cliquer sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Comme conséquence, les précédentes mesures de distances et d’angles seront
+recalculées et les variables assignées mises à jour. Voir
+<link linkend="Variables">Variables</link>
+pour plus de détails. 
+</para>
+
+<para>
+Le résolveur ne peut pas cisailler une figure qui fait partie du problème.
+Cependant, les figures créées pour résoudre le problème peuvent être cisailler. 
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variables</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="CutFigure">
+<title>Couper une figure</title>
+
+<para>
+Pour couper une figure par un plan, procéder comme suit:
+</para>
+
+<itemizedlist>
+<listitem>
+Soit sélectionner
+<emphasis>Couper Figure</emphasis>
+du menu
+<emphasis>Transformer</emphasis>,
+ou
+</listitem>
+
+<listitem>
+cliquer sur le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Cut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils, ou
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">sélectionner</link>
+les éléments qui caractérisent le plan, comme 3 points, un point et un segment
+ou 2 segments, faire un clic droit et sélectionner\
+<emphasis>Couper Figure</emphasis>
+du menu contextuel.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Les éléments sélectionnés doivent uniquement caractériser un plan.
+Le plan doit traverser l’intérieur de la figure. 
+</para>
+
+<para>
+Si une boite de dialogue apparaît, la remplir au besoin avec les points et cliquer sur
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Les 2 moitiés résultantes seront affichées dans des vues séparées.
+La figure originale sera conservée intacte dans sa propre vue. 
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="JoinFigures">Joindre des figures</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="JoinFigures">
+<title>Joindre des figures</title>
+
+<para>
+Deux figures peuvent être jointes, soit en sélectionnant
+<emphasis>Joindre Figures</emphasis>
+du menu
+<emphasis>Transformer</emphasis>
+ou en cliquant le bouton
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Join.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de la barre d'outils.
+</para>
+
+<para>
+Un dialogue s’ouvre. Sélectionner les figures à joindre et cliquer sur
+<emphasis>OK</emphasis>.
+Une figure peut être jointe à une copie d’elle même.
+Pour cela la même figure peut être sélectionnée dans les 2 listes. 
+</para>
+
+<para>
+Si les figures peuvent être jointes d’une seule façon,
+une nouvelle vue apparaîtra avec la figure combinée.
+Les 2 figures originales seront conservées intactes dans leur propres vues. 
+</para>
+
+<para>
+Si, cependant, les figures peuvent être jointes de plus d’une façon,
+un autre dialogue sera affiché demandant si les figures devront être
+jointes de n’importe quelle façon possible. Cliquer
+<emphasis>Non</emphasis>
+pour procéder avec une définition plus précise des éléments à joindre.
+</para>
+
+<para>
+Cliquer
+<emphasis>Oui</emphasis>
+pour joindre les figures d’une façon possible. Une prévisualisation sera affichée
+à côté d’un autre dialogue demandant si le résultat doit être gardé.
+Cliquer
+<emphasis>Oui</emphasis>
+pour le garder et achever l’action. Cliquer
+<emphasis>Non</emphasis>
+pour avoir une prévisualisation de la façon suivante de joindre les figures. 
+</para>
+
+<para>
+Il est recommandé que, avant de joindre les figures, les points correspondants
+et/ou les faces soient
+<link linkend="SelectElementsOneByOne">sélectionnés</link>.
+Cela réduira au minimum l’entrée du dialogue résultant. Noter que les faces
+peuvent seulement être sélectionnées dans le mode de vue
+<link linkend="ToggleTransparency">opaque</link>.
+</para>
+
+<para>
+Les faces à joindre doivent avoir la même forme, c’est à dire,
+avoir des angles égaux et des côtés proportionnels aux sommets correspondants.
+Les faces à joindre n’ont pas à avoir la même taille.
+Si cela doit être, une des figures sera automatiquement mise à l’échelle de l’autre. 
+</para>
+
+<para>
+L’action sera annulée si la figure jointe n’est pas convexe.
+</para>
+
+<para>
+Cette action peut être
+<link linkend="UndoActions">annulée</link>.
+</para>
+
+<para>
+Voir aussi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CutFigure">Couper une figure</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Sélectionner des éléments</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Annuler des actions</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+</book>
+

@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This solution is part of the Geometria 3.0 repository.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This problem is part of the Geometria 3.0 repository.</comments>
+</envelope>
+<text>This artifact, made of two regular pyramids, is to be packed in a rectangular box. What would be the minimum dimension of the box?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Artifact</name>
+<color>#ff00cc</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>0.0 0.0 1.3063945294843615</coords>
+</point>
+<point>
+<label>A</label>
+<coords>0.9999999999999998 0.0 -0.3265986323710904</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5000000000000006 -0.8660254037844387 -0.3265986323710904</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.49999999999999994 0.8660254037844385 -0.3265986323710904</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 -1.3063945294843615</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5182848694362453 -0.3995627011364725 -0.4528020052742224 0.6055582432711353</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>1.3360853142453704</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GCutAction</className>
+<figureName>Artifact</figureName>
+<p0Label>B</p0Label>
+<p1Label>D</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<p0Label>B</p0Label>
+<p1Label>D</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<p0Label>B</p0Label>
+<p1Label>F</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figure2</figureName>
+<p1Label>B</p1Label>
+<p2Label>G</p2Label>
+<variableName>Height1</variableName>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figure2</figureName>
+<p1Label>B</p1Label>
+<p2Label>H</p2Label>
+<variableName>Height2</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>Height2</value>
+</action>
+</log>
+</solution>

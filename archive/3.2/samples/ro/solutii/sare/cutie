@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Liliana Saidon Dir Centro Babbage Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>www.centrobbbage.com</web>
+</author>
+<comments/>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Liliana Saidon Dir Centro Babbage Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>www.centrobbbage.com</web>
+</author>
+<comments/>
+</envelope>
+<text>Trei sferturi din capacitatea acestei cutii de forma unui octoedru regulat sunt umplute. Taie cutia la nivelul lichidului.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Cutie</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.0 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 1.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 -1.0 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.0 0.0 -1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.4134665796294599 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition/>
+<condition>
+<type>volumeCutInRatio</type>
+<figureName>Cutie</figureName>
+<value>3.0</value>
+</condition>
+<condition/>
+</answer>
+</problem>
+<log>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Cutie</figureName>
+<p1Label>D</p1Label>
+<p2Label>E</p2Label>
+<variableName>latura</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>distanta</variableName>
+<expression>latura/(2^(1/3))</expression>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Cutie</figureName>
+<distance>distanta</distance>
+<p0Label>E</p0Label>
+<p1Label>D</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Cutie</figureName>
+<distance>distanta</distance>
+<p0Label>E</p0Label>
+<p1Label>A</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Cutie</figureName>
+<distance>distanta</distance>
+<p0Label>E</p0Label>
+<p1Label>E</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Cutie</figureName>
+<p0Label>G</p0Label>
+<p1Label>H</p1Label>
+<p2Label>I</p2Label>
+<figure1Name>Figura1</figure1Name>
+<figure2Name>Figura2</figure2Name>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>H,G,I</value>
+<figureName>Figura1</figureName>
+</action>
+</log>
+</solution>

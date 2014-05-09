@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<!-- Geometria build file -->
+
+<project name="net.geocentral.geometria" default="all">
+ 
+ <property name="java_version" value="1.5"/>
+ <property name="app_name" value="Geometria"/>
+ <property name="version" value="3.0"/>
+ <property name="debug" value="true"/>
+ <property name="lib_dir" value="lib"/>
+ <property name="conf_dir" value="conf"/>
+ <property name="gallery_dir" value="gallery"/>
+ <property name="images_dir" value="images"/>
+ <property name="javahelp_dir" value="javahelp"/>
+ <property name="license_dir" value="license"/>
+ <property name="scripts_dir" value="scripts"/>
+ <property name="src_dir" value="src"/>
+ <property name="jar_name" value="geometria-${version}.jar"/>
+ <property name="doc_dir" value="doc"/>
+ <property name="repository_dir" value="repository"/>
+ <property name="loc_dir" value="${basedir}/localized"/>
+ <property name="build_dir" value="${basedir}/build"/>
+ <property name="dist_dir" value="${basedir}/dist"/>
+ <property name="classes_dir" value="${build_dir}/classes"/>
+
+ <target name="clean">
+  <delete dir="${build_dir}"/>
+  <delete dir="${dist_dir}"/>
+ </target>
+
+ <target name="all">
+  <antcall target="en"/>
+  <antcall target="es"/>
+  <antcall target="fr"/>
+  <antcall target="pt"/>
+  <antcall target="ro"/>
+  <antcall target="ru"/>
+ </target>
+
+ <target name="en" depends="compile">
+  <antcall target="dist">
+   <param name="language" value="en"/>
+  </antcall>
+ </target>
+
+ <target name="es" depends="compile">
+  <antcall target="dist">
+   <param name="language" value="es"/>
+  </antcall>
+ </target>
+
+ <target name="fr" depends="compile">
+  <antcall target="dist">
+   <param name="language" value="fr"/>
+  </antcall>
+ </target>
+
+ <target name="pt" depends="compile">
+  <antcall target="dist">
+   <param name="language" value="pt"/>
+  </antcall>
+ </target>
+
+ <target name="ro" depends="compile">
+  <antcall target="dist">
+   <param name="language" value="ro"/>
+  </antcall>
+ </target>
+
+ <target name="ru" depends="compile">
+  <antcall target="dist">
+   <param name="language" value="ru"/>
+  </antcall>
+ </target>
+
+ <target name="compile" description="Compile the code">
+  <mkdir dir="${classes_dir}"/>
+  <javac srcdir="${src_dir}" destdir="${classes_dir}" debug="${debug}" target="${java_version}"
+         source="${java_version}">   
+   <classpath>
+    <fileset dir="${lib_dir}">
+     <include name="**/*.jar"/>
+    </fileset>
+   </classpath>
+  </javac>
+ </target>
+
+ <target name="prepare">
+  <echo message="Building distribution for ${language}"/>
+  <property name="loc_lang_dir" value="${loc_dir}/${language}"/>
+  <property name="build_lang_dir" value="${build_dir}/${language}"/>
+  <property name="dist_lang_dir" value="${dist_dir}/${language}"/>
+  <mkdir dir="${build_lang_dir}"/>
+  <mkdir dir="${dist_lang_dir}"/>
+ </target>
+
+ <target name="doc" description="Make documentation">
+  <exec executable="bash">
+   <arg value="${loc_dir}/makedocs.sh"/>
+   <arg value="${loc_lang_dir}/${doc_dir}"/>
+   <arg value="${build_lang_dir}/${doc_dir}"/>
+   <arg value="${build_lang_dir}/${javahelp_dir}"/>
+  </exec>
+  <copy todir="${build_lang_dir}/${javahelp_dir}" overwrite="true">
+   <fileset dir="${javahelp_dir}"/>
+  </copy>
+ </target>
+
+ <target name="jar" depends="prepare,doc" description="Create JAR file">
+  <copy todir="${build_lang_dir}/${images_dir}">
+   <fileset dir="${images_dir}" includes="**/*.png"/>
+   <fileset dir="${images_dir}" includes="**/*.gif"/>
+  </copy>
+  <copy todir="${build_lang_dir}/${gallery_dir}">
+   <fileset dir="${gallery_dir}" includes="**/*"/>
+  </copy>
+  <copy todir="${build_lang_dir}/${conf_dir}">
+   <fileset dir="${conf_dir}" includes="**/*.*"/>
+   <fileset dir="${loc_lang_dir}/${conf_dir}" includes="**/*.*"/>
+  </copy>
+  <tstamp>
+  <format property="NOW" pattern="yyyy/MM/dd kk:mm Z"/>
+  </tstamp>
+  <exec executable="svnversion" outputproperty="svn.Revision">
+   <arg value="-n"/>
+  </exec>
+  <mkdir dir="${dist_lang_dir}/${lib_dir}"/>
+  <jar jarfile="${dist_lang_dir}/${lib_dir}/${jar_name}">
+   <manifest>
+    <attribute name="Build-Date" value="${NOW}"/> 
+    <attribute name="Application" value="${app_name}"/>
+   	<attribute name="Version" value="${version}"/>
+    <attribute name="SVN-Revision" value="${svn.Revision}"/>
+   </manifest>
+   <fileset dir="${classes_dir}"/>
+   <fileset dir="${build_lang_dir}" excludes="${doc_dir}/**"/>
+  </jar>
+ </target>
+
+<!--
+ <taskdef name="jarbundler" classname="net.sourceforge.jarbundler.JarBundler"/>
+ <target name="macapp">
+
+  <jarbundler dir="${dist_lang_dir}"
+              name="${app_name}"
+              mainclass="net.geocentral.geometria.view.GFrame"
+              version="${version}"
+              jvmversion="${java_version}+"
+              stubfile="${dist_lang_dir}/${app_name}">
+   <jarfileset dir="${dist_lang_dir}/${lib_dir}" includes="*.jar"/>
+  </jarbundler>
+ </target>
+-->
+ 	
+ <target name="dist" depends="jar" description="Create distribution">
+  <mkdir dir="${dist_lang_dir}/${lib_dir}"/>
+  <copy todir="${dist_lang_dir}/${lib_dir}">
+   <fileset dir="${lib_dir}" includes="**/*.jar"/>
+  </copy>
+  <copy todir="${dist_lang_dir}">
+   <fileset dir="${scripts_dir}" includes="**/*"/>
+  </copy>
+  <chmod dir="${dist_lang_dir}" perm="a+x" includes="**/*.sh"/>
+  <copy todir="${dist_lang_dir}/${repository_dir}">
+   <fileset dir="${loc_lang_dir}/${repository_dir}" includes="**/*"/>
+  </copy>
+  <copy file="log4j-dist.properties" tofile="${dist_lang_dir}/log4j.properties"/>
+  <copy file="${loc_lang_dir}/README.txt" todir="${dist_lang_dir}"/>
+  <copy file="License.txt" todir="${dist_lang_dir}"/>
+  <delete>
+   <fileset dir="${dist_lang_dir}" includes="*.zip"/>
+  </delete>
+  <zip destfile="${dist_lang_dir}/${app_name}-${version}.r${svn.Revision}-${language}.zip">
+   <zipfileset dir="${dist_lang_dir}" excludes="**/*.sh"/>
+   <zipfileset dir="${dist_lang_dir}" includes="**/*.sh" filemode="755"/>
+  </zip>
+ </target>
+
+ </project>

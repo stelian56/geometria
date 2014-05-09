@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Решение из хранилища Геометрии 3.0</comments>
+</envelope>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Задача из хранилища Геометрии 3.0</comments>
+</envelope>
+<text>Некоторая прямая пронизывает эту правильную призму в вершине G и образует равные углы с тремя ребрами которые исходят из этой вершины. Найди точку, где прямая торчит из обратной стороны призмы.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Призма</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>-1.0 0.0 -0.5999999999999999</coords>
+</point>
+<point>
+<label>K</label>
+<coords>-0.5000000000000004 -0.8660254037844385 0.5999999999999999</coords>
+</point>
+<point>
+<label>H</label>
+<coords>0.5000000000000001 0.8660254037844386 0.5999999999999999</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.4999999999999998 0.8660254037844387 -0.5999999999999999</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.5000000000000001 0.8660254037844386 -0.5999999999999999</coords>
+</point>
+<point>
+<label>L</label>
+<coords>0.49999999999999933 -0.866025403784439 0.5999999999999999</coords>
+</point>
+<point>
+<label>G</label>
+<coords>1.0000000000000002 0.0 0.5999999999999999</coords>
+</point>
+<point>
+<label>I</label>
+<coords>-0.4999999999999998 0.8660254037844387 0.5999999999999999</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.0000000000000002 0.0 -0.5999999999999999</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.49999999999999933 -0.866025403784439 -0.5999999999999999</coords>
+</point>
+<point>
+<label>J</label>
+<coords>-1.0 0.0 0.5999999999999999</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-0.5000000000000004 -0.8660254037844385 -0.5999999999999999</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.41346657962945993 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>-1.0 0.0 -0.40000000000000013</coords>
+</answer>
+</problem>
+<log>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Призма</figureName>
+<p0Label>G</p0Label>
+<p1Label>H</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Призма</figureName>
+<p0Label>K</p0Label>
+<p1Label>G</p1Label>
+<p2Label>M</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>N</value>
+<figureName>Фигура2</figureName>
+</action>
+</log>
+</solution>

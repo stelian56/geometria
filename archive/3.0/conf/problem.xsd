@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://geocentral.net"
+            xmlns="http://geocentral.net"
+            elementFormDefault="qualified">
+
+<!-- Geometria 3.0 problem schema -->
+
+<xs:include schemaLocation="conf/solid.xsd"/>
+
+<xs:complexType name="documentEnvelopeType">
+<xs:all>
+<xs:element name="author" type="authorType"/>
+<xs:element name="comments" type="xs:string"/>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="authorType">
+<xs:all>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="email" type="xs:string"/>
+<xs:element name="web" type="xs:string"/>
+</xs:all>
+</xs:complexType>
+
+<xs:simpleType name="colorType">
+<xs:restriction base="xs:string">
+<xs:pattern value="#[A-Fa-f0-9]{1,6}"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="attitudeType">
+<xs:restriction base="xs:string">
+<xs:pattern value=
+    "\s*([0-9\+\-\.E]+)\s+([0-9\+\-\.E]+)\s+([0-9\+\-\.E]+)\s+([0-9\+\-\.E]+)\s*"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="cameraType">
+<xs:all>
+<xs:element name="attitude" type="attitudeType" minOccurs="0"/>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="figureType">
+<xs:all>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="color" type="colorType" minOccurs="0"/>
+<xs:element name="transparent" type="xs:boolean" minOccurs="0"/>
+<xs:element name="labelled" type="xs:boolean" minOccurs="0"/>
+<xs:element name="solid" type="solidType"/>
+<xs:element name="camera" type="cameraType"/>
+</xs:all>
+</xs:complexType>
+
+<xs:simpleType name="variableType">
+<xs:restriction base="xs:string">
+<xs:pattern value="[a-zA-Z_][a-zA-Z_0-9]*"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="measurementType">
+<xs:sequence>
+<xs:element name="expression" type="xs:string"/>
+<xs:element name="figureName" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculationType">
+<xs:sequence>
+<xs:element name="expression" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:group name="recordGroup">
+<xs:choice>
+<xs:element name="measurement" type="measurementType"/>
+<xs:element name="calculation" type="calculationType"/>
+</xs:choice>
+</xs:group>
+
+<xs:complexType name="recordType">
+<xs:sequence>
+<xs:element name="variable" type="variableType"/>
+<xs:group ref="recordGroup" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="notepadType">
+<xs:sequence>
+<xs:element name="record" type="recordType" minOccurs="0"
+			maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="figuresType">
+<xs:sequence>
+<xs:element name="figure" type="figureType" minOccurs="0"
+			maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="answerType">
+<xs:sequence>
+<xs:element name="type" type="xs:string"/>
+<xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="problemType">
+<xs:all>
+<xs:element name="version" type="xs:string" minOccurs="0"/>
+<xs:element name="envelope" type="documentEnvelopeType"/>
+<xs:element name="text" type="xs:string"/>
+<xs:element name="notepad" type="notepadType"/>
+<xs:element name="figures" type="figuresType"/>
+<xs:element name="answer" type="answerType"/>
+</xs:all>
+</xs:complexType>
+
+<xs:element name="problem" type="problemType"/>
+
+</xs:schema>

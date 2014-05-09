@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Задача-образец</comments>
+</envelope>
+<text>Найти на ребре AB точку равноудаленную от концов ребра GJ.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Колода</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>-0.7218285238686927 -0.5244391205179378 0.0</coords>
+</point>
+<point>
+<label>K</label>
+<coords>0.7194232694404553 0.0071033124717115766 0.6672867316764954</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.28113968679372 0.36001390343502954 0.9797958971132712</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.833631922743682 0.8050155609257711 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.327107164318697 1.109508299699204 0.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.2975986671312231 -0.489124214802423 0.816496580927726</coords>
+</point>
+<point>
+<label>I</label>
+<coords>0.2071478174124759 0.5864272157368696 0.816496580927726</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.1562867710687599 -0.031759519854980184 0.0</coords>
+</point>
+<point>
+<label>J</label>
+<coords>-0.23641832724372425 -0.17176796914245404 0.9797958971132712</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.5080088637561915 -1.0415945613793811 0.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.23832255127860552 -0.548601532534033 -0.7192233284686536 0.35349190067077696</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>0.48364151396281696 0.894057250916324 0.0</coords>
+</answer>
+</problem>

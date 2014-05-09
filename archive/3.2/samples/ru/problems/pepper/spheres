@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Задача-образец</comments>
+</envelope>
+<text>В эту правильную пирамиду вписали один шар, затем, в оставшуюся верхнюю часть пирамиды, второй. Найди точку, в которой меньший шар касается грани ABD.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Пирамида</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 -0.5062278801751899</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.4999999999999997 0.8660254037844386 -0.5062278801751899</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5000000000000003 -0.8660254037844386 -0.5062278801751899</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 0.0 1.126765281680262</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.471568900975726 -0.3694329508005702 -0.46849832780545786 0.6493468898353322</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>0.09672529403490243 0.16753312364548995 0.4949583067304475</coords>
+</answer>
+</problem>

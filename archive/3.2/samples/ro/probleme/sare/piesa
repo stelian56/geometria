@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>O problemă-model din cadrul Geometriei.</comments>
+</envelope>
+<text>Această piesa, formată din două piramide regulate, trebuie împachetată într-o cutie rectangulară. Care e dimensiunea minimă a cutiei?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Piesa</name>
+<color>#ff00cc</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>0.0 0.0 1.3063945294843615</coords>
+</point>
+<point>
+<label>A</label>
+<coords>0.9999999999999998 0.0 -0.3265986323710904</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5000000000000006 -0.8660254037844387 -0.3265986323710904</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.49999999999999994 0.8660254037844385 -0.3265986323710904</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 -1.3063945294843615</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5182848694362453 -0.3995627011364725 -0.4528020052742224 0.6055582432711353</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>1.3360853142453704</value>
+</answer>
+</problem>

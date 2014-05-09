@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema é parte do repositório do Geometria.</comments>
+</envelope>
+<text>Este bloco de madeira que tem o formato de um tronco de pirâmide deve ser perfurado de J a B de modo que as arestas LK e LM permanecem intactas. Qual é o raio do maior buraco?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Bloco</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>0.0 -1.0 -0.05832118435198043</coords>
+</point>
+<point>
+<label>M</label>
+<coords>-0.40476190476190477 0.0 0.9136985548476934</coords>
+</point>
+<point>
+<label>K</label>
+<coords>0.4047619047619047 0.0 0.9136985548476934</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.0 0.0 -0.05832118435198043</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 0.0 -0.05832118435198043</coords>
+</point>
+<point>
+<label>J</label>
+<coords>0.0 -0.40476190476190477 0.9136985548476934</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.0 -0.05832118435198043</coords>
+</point>
+<point>
+<label>L</label>
+<coords>0.0 0.40476190476190466 0.9136985548476934</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.4578931504214606 -0.3579971115912482 -0.44278360824223556 0.6827258653086317</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.4003522876912712</value>
+</answer>
+</problem>

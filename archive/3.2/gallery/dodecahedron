@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<solid xmlns="http://geocentral.net">
+<version>3.1</version>
+<vertexCount>20</vertexCount>
+<points>
+<point>
+<label>A</label>
+<coords>1 1 1</coords>
+</point>
+<point>
+<label>B</label>
+<coords>1 1 -1</coords>
+</point>
+<point>
+<label>C</label>
+<coords>1 -1 1</coords>
+</point>
+<point>
+<label>D</label>
+<coords>1 -1 -1</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-1 1 1</coords>
+</point>
+<point>
+<label>F</label>
+<coords>-1 1 -1</coords>
+</point>
+<point>
+<label>G</label>
+<coords>-1 -1 1</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-1 -1 -1</coords>
+</point>
+<point>
+<label>I</label>
+<coords>0 0.61803398874989485 1.61803398874989484</coords>
+</point>
+<point>
+<label>J</label>
+<coords>0 0.61803398874989485 -1.61803398874989484</coords>
+</point>
+<point>
+<label>K</label>
+<coords>0 -0.61803398874989485 1.61803398874989484</coords>
+</point>
+<point>
+<label>L</label>
+<coords>0 -0.61803398874989485 -1.61803398874989484</coords>
+</point>
+<point>
+<label>M</label>
+<coords>0.61803398874989485 1.61803398874989484 0</coords>
+</point>
+<point>
+<label>N</label>
+<coords>0.61803398874989485 -1.61803398874989484 0</coords>
+</point>
+<point>
+<label>O</label>
+<coords>-0.61803398874989485 1.61803398874989484 0</coords>
+</point>
+<point>
+<label>P</label>
+<coords>-0.61803398874989485 -1.61803398874989484 0</coords>
+</point>
+<point>
+<label>Q</label>
+<coords>1.61803398874989484 0 0.61803398874989485</coords>
+</point>
+<point>
+<label>R</label>
+<coords>1.61803398874989484 0 -0.61803398874989485</coords>
+</point>
+<point>
+<label>S</label>
+<coords>-1.61803398874989484 0 0.61803398874989485</coords>
+</point>
+<point>
+<label>T</label>
+<coords>-1.61803398874989484 0 -0.61803398874989485</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>

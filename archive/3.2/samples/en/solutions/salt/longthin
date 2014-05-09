@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This is the solution of a sample Geometria problem.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This is a sample Geometria problem.</comments>
+</envelope>
+<text>A cylindric bar is passed through the holes ABC and DEF of this prismatic framework. What is the maximum radius of the bar?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Framework</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.3645178571428576 0.4662618915018005 -1.53</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.10333928571428494 1.4250757314060003 -1.53</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.26405357142857155 -0.7709172567616832 -1.53</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.5770178571428572 0.21367114873133905 1.47</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-0.8908392857142855 1.1724849886355388 1.47</coords>
+</point>
+<point>
+<label>F</label>
+<coords>-1.0515535714285722 -1.0235079995321446 1.47</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.2886460228968565 -0.3824155256842154 -0.6703088153368398 0.566681507783001</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.5519283602520165</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GDrawMidpointAction</className>
+<figureName>Framework</figureName>
+<p1Label>C</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Framework</figureName>
+<p0Label>G</p0Label>
+<p1Label>D</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Framework</figureName>
+<p0Label>H</p0Label>
+<p1Label>B</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Framework</figureName>
+<p0Label>G</p0Label>
+<p1Label>H</p1Label>
+<p2Label>I</p2Label>
+<figure1Name>Figure1</figure1Name>
+<figure2Name>Figure2</figure2Name>
+</action>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Figure1</figureName>
+<p0Label>G</p0Label>
+<p1Label>H</p1Label>
+<p2Label>I</p2Label>
+</action>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Figure1</figureName>
+<p0Label>I</p0Label>
+<p1Label>H</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figure1</figureName>
+<p11Label>G</p11Label>
+<p12Label>J</p12Label>
+<p21Label>I</p21Label>
+<p22Label>K</p22Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure1</figureName>
+<p0Label>L</p0Label>
+<p1Label>G</p1Label>
+<p2Label>I</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figure1</figureName>
+<p1Label>L</p1Label>
+<p2Label>M</p2Label>
+<variableName>Radius</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>Radius</value>
+</action>
+</log>
+</solution>

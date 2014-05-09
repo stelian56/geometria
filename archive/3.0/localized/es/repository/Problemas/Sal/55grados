@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema es parte del almacén o repositorio de Geometria 3.0.</comments>
+</envelope>
+<text>El desafío es encontrar un plano que contenga la arista AB y forme un ángulo de 55 grados con la arista DC de esta pirámide regular.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Pirámide</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 -0.5062278801751902</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.49999999999999967 0.8660254037844386 -0.5062278801751902</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5000000000000003 -0.8660254037844386 -0.5062278801751902</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 0.0 1.1267652816802618</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.48539945142374036 -0.3848186992264811 -0.45894369408367536 0.6369243494670311</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>fixedPlane</type>
+<coords>-0.061570293273071175 -0.10664287618587553 0.9256775459035419</coords>
+<coords>0.2499999999999999 0.4330127018922194 -0.5062278801751902</coords>
+<coords>-0.49999999999999967 0.8660254037844386 -0.5062278801751902</coords>
+</answer>
+</problem>

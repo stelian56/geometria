@@ -1,0 +1,53 @@
+﻿<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Ce problème fait partie du répertoire original de Geometria 3.0.</comments>
+</envelope>
+<text>Une coccinelle grimpe sur la surface de cette pyramide à partir d'un point sur le côté AC jusqu'en haut couvrant ainsi la distance correspondant au double de la hauteur de la pyramide. Reconstruisez le chemin parcouru par la coccinelle.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Pyramide</name>
+<color>#cc00</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.2301875435702758 -0.415816992752015 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-1.2301875435702758 0.415816992752015 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.2206959949183201 -0.9813698464654804 0.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.6314183077106333 0.0646889245741619 0.816496580927726</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.48711728514843694 0.2042886408812613 0.1762086483682252 0.8306223052367102</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>0.5766349657931064 -0.6705710895547854 0.0</coords>
+<coords>-0.6314183077106333 0.0646889245741619 0.816496580927726</coords>
+</answer>
+</problem>

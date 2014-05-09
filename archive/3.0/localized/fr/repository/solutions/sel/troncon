@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This solution is part of the Geometria 3.0 repository.</comments>
+</envelope>
+<problem>
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Ce problème fait partie du répertoire original de Geometria 3.0.</comments>
+</envelope>
+<text>Un cylindre doit être fabriqué à partir de ce prisme droit. Quel est le volume maximal de ce cylindre ?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Prisme</name>
+<color>#ffcc99</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>-0.06833333333333345 -0.9283333333333333 -1.0</coords>
+</point>
+<point>
+<label>M</label>
+<coords>-0.754047619047619 0.10023809523809538 1.0</coords>
+</point>
+<point>
+<label>A</label>
+<coords>0.9316666666666666 0.07166666666666675 -1.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.06833333333333345 -0.9283333333333333 1.0</coords>
+</point>
+<point>
+<label>J</label>
+<coords>-0.23499999999999988 0.9049999999999999 1.0</coords>
+</point>
+<point>
+<label>N</label>
+<coords>-0.754047619047619 0.10023809523809542 -1.0</coords>
+</point>
+<point>
+<label>L</label>
+<coords>-0.23499999999999993 0.905 -1.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.9316666666666666 0.07166666666666675 1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.44923225907437553 -0.3852272142987234 -0.47788661402670396 0.6491646593158555</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>2.1811810889866967</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Prisme</figureName>
+<p0Label>H</p0Label>
+<p1Label>M</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Prisme</figureName>
+<p0Label>E</p0Label>
+<p1Label>H</p1Label>
+<p2Label>J</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Prisme</figureName>
+<p11Label>H</p11Label>
+<p12Label>O</p12Label>
+<p21Label>E</p21Label>
+<p22Label>P</p22Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Prisme</figureName>
+<p0Label>Q</p0Label>
+<p1Label>E</p1Label>
+<p2Label>H</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Prisme</figureName>
+<p1Label>Q</p1Label>
+<p2Label>R</p2Label>
+<variableName>Rayon</variableName>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Prisme</figureName>
+<p1Label>H</p1Label>
+<p2Label>D</p2Label>
+<variableName>Hauteur</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>PI * Hauteur * Rayon ^ 2</value>
+</action>
+</log>
+</solution>

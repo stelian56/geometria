@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Rozwiązanie przykładowego zadania programu Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Przykładowe zadanie programu Geometria.</comments>
+</envelope>
+<text>Znajdź płaszczyznę równoległą do podstawy tej bryły w kształcie ołówka i przecinającą go na dwie części o jednakowej objętości.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Ołówek</name>
+<color>#3399ff</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.9999999999999998 0.0 0.776163282309382</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.4999999999999999 0.8660254037844383 0.776163282309382</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5 0.8660254037844384 0.776163282309382</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.0 0.0 2.409156444164834</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-1.0000000000000002 0.0 0.776163282309382</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-0.5000000000000007 -0.8660254037844388 0.776163282309382</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.4999999999999991 -0.8660254037844394 0.776163282309382</coords>
+</point>
+<point>
+<label>H</label>
+<coords>0.9999999999999998 0.0 -2.2238367176906157</coords>
+</point>
+<point>
+<label>I</label>
+<coords>0.4999999999999998 0.8660254037844385 -2.2238367176906157</coords>
+</point>
+<point>
+<label>J</label>
+<coords>-0.49999999999999933 0.8660254037844387 -2.2238367176906157</coords>
+</point>
+<point>
+<label>K</label>
+<coords>-0.9999999999999993 0.0 -2.2238367176906157</coords>
+</point>
+<point>
+<label>L</label>
+<coords>-0.5 -0.8660254037844372 -2.2238367176906157</coords>
+</point>
+<point>
+<label>M</label>
+<coords>0.4999999999999992 -0.8660254037844378 -2.2238367176906157</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.4134665796294599 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>fixedPlane</type>
+<coords>-0.5000000000000004 -0.8660254037844382 -0.4516711907147073</coords>
+<coords>-0.9999999999999999 0.0 -0.45167119071470707</coords>
+<coords>-0.49999999999999956 0.8660254037844387 -0.4516711907147066</coords>
+</answer>
+</problem>
+<log>
+<action>
+<className>GVolumeAction</className>
+<figureName>Ołówek</figureName>
+<variableName>V</variableName>
+</action>
+<action>
+<className>GAreaAction</className>
+<figureName>Ołówek</figureName>
+<fLabel1>J</fLabel1>
+<fLabel2>I</fLabel2>
+<fLabel3>H</fLabel3>
+<variableName>S</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>H</variableName>
+<expression>0.5*V/S</expression>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Ołówek</figureName>
+<distance>H</distance>
+<p0Label>H</p0Label>
+<p1Label>H</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Ołówek</figureName>
+<p0Label>N</p0Label>
+<p1Label>M</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Ołówek</figureName>
+<p0Label>N</p0Label>
+<p1Label>B</p1Label>
+<p2Label>I</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>O,N,P</value>
+<figureName>Ołówek</figureName>
+</action>
+</log>
+</solution>

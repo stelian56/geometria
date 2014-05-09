@@ -1,0 +1,47 @@
+{
+"problem": {
+    "version": "4.0",
+    "properties": {
+        "author": {
+            "name": "Stelian Dumitrascu",
+            "email": "stelian@geocentral.net",
+            "web": "http://geocentral.net/geometria"
+        },
+        "comments": "This is a sample Geometria problem"
+    },
+    "text": "Find the volume of this cube.",
+    "notepad": [
+    ],
+    "figures": [
+        {
+            "name": "Cube",
+            "color": "#cc00",
+            "transparent": true,
+            "labels": true,
+            "solid": {
+                "points": {
+                    "A": [-1, -1, -1],
+                    "B": [1, -1, -1],
+                    "C": [1, 1, -1],
+                    "D": [-1, 1, -1],
+                    "E": [-1, -1, 1],
+                    "F": [1, -1, 1],
+                    "G": [1, 1, 1],
+                    "H": [-1, 1, 1],
+                    
+                    "I": [0, -1, -1]
+                },
+                "lines": [
+                    ["A", "C"],
+                    ["B", "D"]
+                ]
+            },
+            "camera": [-0.48711728514843694, 0.2042886408812613, 0.1762086483682252, 0.8306223052367102]
+        }
+    ],
+    "answer": {
+        "type": "number",
+        "value": 8
+    }
+}
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Rozwiązanie przykładowego zadania programu Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Przykładowe zadanie programu Geometria.</comments>
+</envelope>
+<text>Na większej podstawie tego ostrosłupa ściętego znajdź punkt, z którego odcinek IG widać pod największym kątem.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Ostrosłup ścięty</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.00875 0.0021650635094609978 -0.3674234614174767</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.4912499999999997 0.8681904672938996 -0.3674234614174767</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.4912500000000003 -0.8638603402749776 -0.3674234614174767</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-0.30375 0.11041823898251604 0.8573214099741122</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.07125000000000006 0.32692458992862566 0.8573214099741122</coords>
+</point>
+<point>
+<label>I</label>
+<coords>-0.30374999999999985 0.5434309408747353 0.8573214099741122</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.30857064108211824 -0.45635037495583985 -0.6225501940001136 0.5558414798215913</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>-0.11624999999999978 0.43517776540168074 -0.3674234614174765</coords>
+</answer>
+</problem>
+<log>
+<action>
+<className>GDrawMidpointAction</className>
+<figureName>Ostrosłup ścięty</figureName>
+<p1Label>G</p1Label>
+<p2Label>I</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Ostrosłup ścięty</figureName>
+<p0Label>J</p0Label>
+<p1Label>A</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Ostrosłup ścięty</figureName>
+<fLabel1>A</fLabel1>
+<fLabel2>C</fLabel2>
+<fLabel3>B</fLabel3>
+<p0Label>K</p0Label>
+<p1Label>A</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Ostrosłup ścięty</figureName>
+<p0Label>L</p0Label>
+<p1Label>K</p1Label>
+<p2Label>J</p2Label>
+<figure1Name>Bryła1</figure1Name>
+<figure2Name>Bryła2</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Bryła2</figureName>
+<p0Label>J</p0Label>
+<p1Label>L</p1Label>
+<p2Label>K</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>M</value>
+<figureName>Bryła2</figureName>
+</action>
+</log>
+</solution>

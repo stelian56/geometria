@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Peter Cerman</name>
+<email>pcerman@centrum.sk</email>
+<web/>
+</author>
+<comments>Cette solution fait partie du répertoire original de Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Ce problème fait partie du répertoire original de Geometria.</comments>
+</envelope>
+<text>Déterminer la mesure de l&#39;angle formé par la diagonale GI et la face GEF.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Pyramide</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.9590909090909091 0.0 0.06680426571226851</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.10909090909090911 0.0 1.4548484532894026</coords>
+</point>
+<point>
+<label>F</label>
+<coords>-0.7193181818181819 0.2500000000000001 -0.05010319928420138</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.19181818181818167 -0.8 0.013360853142453692</coords>
+</point>
+<point>
+<label>I</label>
+<coords>-0.03820554445554441 0.7184065934065934 -0.0026611589363403627</coords>
+</point>
+</points>
+<lines>
+<line>
+<labels>
+<label>I</label>
+<label>G</label>
+</labels>
+</line>
+</lines>
+</solid>
+<camera>
+<attitude>-0.4798297595615975 -0.32224010172017575 -0.44285261288914507 0.6854241620629429</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.5257165960644197</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GDivideLineAction</className>
+<figureName>Pyramide</figureName>
+<numerator>1</numerator>
+<denominator>2</denominator>
+<p1Label>G</p1Label>
+<p2Label>I</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramide</figureName>
+<p0Label>J</p0Label>
+<p1Label>G</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramide</figureName>
+<fLabel1>E</fLabel1>
+<fLabel2>F</fLabel2>
+<fLabel3>G</fLabel3>
+<p0Label>K</p0Label>
+<p1Label>G</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Pyramide</figureName>
+<p0Label>J</p0Label>
+<p1Label>K</p1Label>
+<p2Label>L</p2Label>
+<figure1Name>Figure1</figure1Name>
+<figure2Name>Figure2</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure2</figureName>
+<p0Label>J</p0Label>
+<p1Label>L</p1Label>
+<p2Label>K</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Figure2</figureName>
+<p0Label>J</p0Label>
+<p1Label>O</p1Label>
+<p2Label>G</p2Label>
+<figure1Name>Figure3</figure1Name>
+<figure2Name>Figure4</figure2Name>
+</action>
+<action>
+<className>GMeasureAngleAction</className>
+<figureName>Figure4</figureName>
+<p0Label>G</p0Label>
+<p1Label>J</p1Label>
+<p2Label>O</p2Label>
+<variableName>angle</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>angle</value>
+</action>
+</log>
+</solution>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This is the solution of a sample Geometria problem.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This is a sample Geometria problem.</comments>
+</envelope>
+<text>A square bar with a maximum cross-section passes through the interior of this framework so that its basis rests on edges AD and BC. The framewok has the shape of a regular pyramid. Locate the point where the bar touches edge ED.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Framework</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.010000000000000016 -0.50622788017519</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.01 -0.50622788017519</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 0.010000000000000139 -0.50622788017519</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.010000000000000016 1.126765281680262</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 -0.99 -0.50622788017519</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.4569342975720601 -0.4040725401005429 -0.48813003491643053 0.6242319272926593</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>0.0 -0.5258983848622455 0.25164688375083377</coords>
+</answer>
+</problem>
+<log>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Framework</figureName>
+<p0Label>E</p0Label>
+<p1Label>D</p1Label>
+<p2Label>C</p2Label>
+</action>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Framework</figureName>
+<p0Label>E</p0Label>
+<p1Label>A</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Framework</figureName>
+<p0Label>E</p0Label>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+<figure1Name>Figure1</figure1Name>
+<figure2Name>Figure2</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure1</figureName>
+<p0Label>E</p0Label>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Figure1</figureName>
+<p0Label>H</p0Label>
+<p1Label>E</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure1</figureName>
+<p0Label>I</p0Label>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure1</figureName>
+<p0Label>I</p0Label>
+<p1Label>E</p1Label>
+<p2Label>H</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figure1</figureName>
+<p11Label>I</p11Label>
+<p12Label>K</p12Label>
+<p21Label>E</p21Label>
+<p22Label>H</p22Label>
+</action>
+<action>
+<className>GDrawLineAction</className>
+<figureName>Figure1</figureName>
+<p1Label>G</p1Label>
+<p2Label>L</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figure1</figureName>
+<p11Label>G</p11Label>
+<p12Label>L</p12Label>
+<p21Label>E</p21Label>
+<p22Label>F</p22Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure1</figureName>
+<fLabel1>F</fLabel1>
+<fLabel2>D</fLabel2>
+<fLabel3>E</fLabel3>
+<p0Label>M</p0Label>
+<p1Label>E</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>N</value>
+<figureName>Figure1</figureName>
+</action>
+</log>
+</solution>

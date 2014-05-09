@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Esta es la solución de un problema de Geometria que se ofrece como un ejemplo.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este es un problema de Geometria que se ofrece como ejemplo.</comments>
+</envelope>
+<text>El desafío es encontrar la distancia entre las aristas EG y AI.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Pirámide</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 1.632993161855452</coords>
+</point>
+<point>
+<label>F</label>
+<coords>-0.75 0.2500000000000001 0.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.19999999999999984 -0.8 0.0</coords>
+</point>
+<point>
+<label>I</label>
+<coords>-0.039835164835164784 0.7184065934065934 0.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.4134665796294599 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>1.0557804249509197</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GDrawMidpointAction</className>
+<figureName>Pirámide</figureName>
+<p1Label>I</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GDrawMidpointAction</className>
+<figureName>Pirámide</figureName>
+<p1Label>A</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GDrawMidpointAction</className>
+<figureName>Pirámide</figureName>
+<p1Label>A</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Pirámide</figureName>
+<p0Label>L</p0Label>
+<p1Label>K</p1Label>
+<p2Label>J</p2Label>
+<figure1Name>Figura1</figure1Name>
+<figure2Name>Figura2</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura1</figureName>
+<p0Label>K</p0Label>
+<p1Label>L</p1Label>
+<p2Label>M</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura1</figureName>
+<fLabel1>I</fLabel1>
+<fLabel2>A</fLabel2>
+<fLabel3>L</fLabel3>
+<p0Label>N</p0Label>
+<p1Label>L</p1Label>
+<p2Label>M</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Figura1</figureName>
+<p0Label>N</p0Label>
+<p1Label>K</p1Label>
+<p2Label>O</p2Label>
+<figure1Name>Figura3</figure1Name>
+<figure2Name>Figura4</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura4</figureName>
+<p0Label>O</p0Label>
+<p1Label>K</p1Label>
+<p2Label>N</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figura4</figureName>
+<p1Label>O</p1Label>
+<p2Label>P</p2Label>
+<variableName>MediaDistancia</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>2*MediaDistancia</value>
+</action>
+</log>
+</solution>

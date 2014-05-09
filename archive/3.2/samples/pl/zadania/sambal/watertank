@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Przykładowe zadanie programu Geometria.</comments>
+</envelope>
+<text>Ten zbiornik na wodę w kształcie graniastosłupa prawidłowego jest wypełniony w 7/8 objętości. Pewną ilość jednakowych kulek metalowych wrzucono do zbiornika do momentu, gdy woda zaczęła się wylewać. Każda kulka miała średnicę równą ćwierci wysokości zbiornika. Ile kulek wrzucono do zbiornika?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Zbiornik</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>I</label>
+<coords>-0.804746484543699 -0.5819073997695483 0.5</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.804746484543699 -0.5819073997695483 -0.5</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.0042705098312485 0.005877852522924672 -0.5</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1.0042705098312485 0.005877852522924672 0.5</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.8047464845436989 0.593663104815398 0.5</coords>
+</point>
+<point>
+<label>J</label>
+<coords>0.31328750420619567 -0.9451786637722289 0.5</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.8047464845436989 0.593663104815398 -0.5</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.3132875042061959 0.9569343688180783 -0.5</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.3132875042061959 0.9569343688180783 0.5</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.31328750420619567 -0.9451786637722289 -0.5</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.41346657962945993 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>37.0</value>
+</answer>
+</problem>

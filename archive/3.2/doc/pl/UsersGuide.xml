@@ -1,0 +1,4093 @@
+﻿<?xml-stylesheet type="text/xsl" href="fo.xsl" encoding="UTF-8"?>
+
+<book id="GeometriaUsersGuide" lang="pl">
+
+<title>Geometria 3.2</title>
+<subtitle>Podręcznik użytkownika</subtitle>
+
+<chapter id="General">
+<title>Informacje ogólne</title>
+
+<!-- Help page start -->
+
+<sect1 id="Overview">
+<title>O programie</title>
+
+<para>
+<emphasis>Geometria</emphasis>
+to interfejs graficzny do tworzenia i rozwiązywania zadań z geometrii przestrzennej.
+</para>
+
+<para>
+Użytkownikiem programu jest albo
+<emphasis>autor</emphasis>
+zadania (np. nauczyciel) albo
+<emphasis>rozwiązujący</emphasis>
+zadanie (np. uczeń).
+</para>
+
+<para>
+Zadania i rozwiązania nazywane są
+<emphasis>dokumentami</emphasis>.
+Dokumenty przechowywane są w plikach. Użytkownik Geometrii ma następujący cel:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Autor tworzy zadanie, zaopatruje je w 
+<link linkend="Answer">odpowiedź</link>
+i
+<link linkend="SaveProblem">zapisuje</link>
+zadanie w pliku.
+</listitem>
+
+<listitem>
+Rozwiązujący
+<link linkend="OpenProblem">otwiera</link>
+plik z zadaniem i tworzy
+<link linkend="CreateSolution">nowe rozwiązanie</link> zadania.
+</listitem>
+
+<listitem>
+Na rozwiązanie składa się szereg czynności. Czynności te zapisywane są w towarzyszącym rozwiązaniu 
+<link linkend="SolutionLog">dzienniku</link>.
+</listitem>
+
+<listitem>
+Rozwiązujący
+<link linkend="Answer">rozwiązuje</link>
+zadanie. Rozwiązanie dostarczone przez rozwiązującego uważa się za poprawne, jeśli jest takie, jakie podał autor. 
+Odpowiedź jest ostatnim zapisem w towarzyszącym odpowiedzi
+<link linkend="SolutionLog">dzienniku</link>.
+Rozwiązujący
+<link linkend="SaveSolution">zapisuje</link>
+swoje rozwiązanie w osobnym pliku.
+</listitem>
+
+<listitem>
+Rozwiązanie można 
+<link linkend="SolutionLog">odtworzyć</link> przez
+<link linkend="OpenSolution">otworzenie</link>
+pliku rozwiązania i wykonanie kolejno czynności zapisanych w dzienniku.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Program nie przeprowadza analizy treści zadania, ani oceny poprawności odpowiedzi. 
+Odpowiedź może być błędna lub nawet nie mieć sensu.
+Zadanie również może nie mieć sensu. Autor może np. zapytać:
+</para>
+
+<para>
+<emphasis>
+Jaki jest najwyżej położony punkt w masywie Beskidu Wyspowego?
+</emphasis>
+</para>
+
+<para>
+a jako odpowiedź podać:
+</para>
+
+<para>
+<emphasis>
+Punkt Z w bryle Ostrosłup.
+</emphasis>
+</para>
+
+<para>
+Jeśli autor zadania taką odpowiedź uzna za poprawną, tak będzie. 
+Jest jednak mało prawdopodobne, aby ktoś chciał rozwiązywać tak sformułowane zadania.
+</para>
+
+<para>
+Każdy dokument zawiera treść zadania,
+<link linkend="Envelope">kopertę</link>,
+pewną liczbę brył oraz znajdujące się w notatniku
+<link linkend="Notepad">zapisy</link>.
+Bryłami mogą być wielościany wypukłe. Można je 
+mierzyć, rysować na nich, przekształcać,
+<link linkend="RotateFigure">obracać</link>,
+<link linkend="ViewModes">oglądać</link>
+jako bryły przezroczyste lub nieprzezroczyste.
+</para>
+
+<para>
+Pomiary i konstrukcje mogą być wykonywane jedynie na powierzchni brył.
+Operacje we wnętrzu bryły są możliwe po wykonaniu
+<link linkend="CutFigure">przekroju</link>
+tej bryły odpowiednią płaszczyzną.
+</para>
+
+<para>
+Opisy i
+<link linkend="Variables">zmienne</link>
+dają możliwość zapisu wyników pomiarów
+i współrzędnych położenia.
+<link linkend="Variables">Zmienne</link>
+używane są w
+<link linkend="Calculator">obliczeniach</link>
+można się do nich odwoływać w konstrukcjach. Opisy i zmienne używane są też do udzielenia
+<link linkend="Answer">odpowiedzi</link>
+do zadania.
+</para>
+
+<para>
+<link linkend="Answer">Odpowiedź</link>
+nie musi mieć postaci liczbowej. Najciekawsze zadania przeważnie nie mają liczbowej odpowiedzi.
+W zadaniu można pytać o wyznaczenie określonego
+punktu, odcinka, trasy lub płaszczyzny. Przykład:
+</para>
+
+<para>
+<emphasis>
+Znajdź płaszczyznę równoległą do przekątnej sześcianu i odcinającą z niego bryłę 
+o objętości dwukrotnie większej od objętości danego ostrosłupa.
+</emphasis>
+</para>
+
+<para>
+Zobacz również:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Kalkulator</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Variables">
+<title>Zmienne</title>
+
+<sect2 id="CreatingAVariable">
+<title>Tworzenie Zmiennej</title>
+
+<para>
+<emphasis>Zmienną</emphasis> tworzy się dla zapisania
+pomiaru lub obliczenia. Nowo utworzona zmienna posiada
+nazwę i definicję. Na przykład, zmienna d w przykładzie poniżej
+jest zdefiniowana jako odległość między punktami P i W 
+w bryle Sześcian:
+</para>
+
+<programlisting>
+d = |PW| : Sześcian
+</programlisting>
+
+<para>
+W kolejnym przykładzie, zmienna S jest wynikiem obliczeń
+wykonanych na wcześniej zdefiniowanych zmiennych V i d:
+</para>
+
+<programlisting>
+S = 2 * V / d
+</programlisting>
+
+<para>
+Nowo utworzone zmienne i ich definicje
+są automatycznie zapisywane w 
+<link linkend="Notepad">notatniku</link>.
+</para>
+
+<para>
+Nazwa zmiennej może się składać wyłącznie z cyfr i znaków alfanumerycznych.
+Symbole specjalne i znaki akcentowane nie są dozwolone. Nazwa zmiennej 
+nie może zawierać spacji.
+
+</para>
+
+<para>
+Wielkość liter w nazwie zmiennej ma znaczenie. I tak
+<emphasis>powierzchnia</emphasis>
+i
+<emphasis>Powierzchnia</emphasis>
+oznaczają różne zmienne.
+</para>
+
+<para>
+Nazwa
+<emphasis>PI</emphasis>
+jest nazwą zarezerwowaną dla liczby o tej nazwie i nie może być użyta jako nazwa zmiennej.
+Można jej jednak używać w
+<link linkend="Calculator">obliczeniach</link>.
+</para>
+
+</sect2>
+
+<sect2 id="ValueOfAVariable">
+<title>Wartość Zmiennej</title>
+
+<para>
+Każda zmienna ma przypisaną wartość numeryczną. Jednak w większości przypadków, wartość ta 
+nie jest widoczna dla użytkownika, który może tworzyć i rozwiązywać 
+zadania Geometrii nie mając pojęcia jaką wartość mają zmienne przez niego tworzone czy używane.
+Aby zobaczyć jaką wartość ma dana zmienna należy wpisać jej nazwę w polu oznaczonym 
+<link linkend="Calculator">Kalkulator</link>
+i nacisnąć przycisk <emphasis>Oblicz</emphasis>.
+Z uwagi na błędy zaokrąglenia, wartość zmiennej może ulegać niewielkim zmianom 
+w procesie tworzenia lub rozwiązywania zadania.
+</para>
+
+<para>
+Wartość danej zmiennej może się też zmieniać z powodu czynności wykonywanych 
+na bryłach. Jeśli, w przykładzie powyżej, bryła Sześcian zostanie poddana
+<link linkend="ScaleFigure">skalowaniu</link>
+o skali 3, wartość zmiennej d zwiększy się trzykrotnie.
+Wartość każdej zmiennej powiązanej z d, w naszym przykładzie - S, zostanie też automatycznie uaktualniona.
+</para>
+
+<para>
+Wartość liczbowa
+<link linkend="Answer">odpowiedzi</link>
+nie podlega jednak zmianom  wynikającym z operacji wykonywanych na figurach.
+W powyższym przykładzie, jeśli autor zadania poda zmienną d jako odpowiedź
+<emphasis>zanim</emphasis>
+podda bryłę skalowaniu, wartość odpowiedzi nie zmieni się pomimo
+zmiany wartości zmiennej d we wszystkich następujących po skalowaniu obliczeniach.
+Czasem jednak wartość zmiennej jest elementem odpowiedzi.
+</para>
+
+<para>
+W takich przypadkach należy uaktualnić odpowiedź 
+przed udostępnieniem zadania rozwiązującym.
+</para>
+
+</sect2>
+
+<sect2 id="PinnedVariable">
+<title>Zmienna Zablokowana</title>
+
+<para>
+Niektóre czynności mogą spowodować, że zdefiniowana wcześniej zmienna traci sens.
+Gdyby, na przykład, punkt P lub W został
+<link linkend="EraseElements">usunięty</link>,
+zmienna d, w powyższym przykładzie, straciłaby sens.
+Podobnie, gdyby cała bryła Sześcian została
+<link linkend="RemoveFigure">usunięta</link>.
+Taka zmienna staje się <emphasis>zablokowana</emphasis>.
+</para>
+
+<para>
+Zablokowana zmienna nie podlega zmianom wynikającym z jej definicji.
+Na przykład,
+<link linkend="EraseElements">usunięcie</link>
+punktu P w bryle Sześcian blokuje zmienną d.
+Jeśli bryła Sześcian zostałaby potem przeskalowana,
+wartość zmiennej d pozostałaby niezmieniona.
+</para>
+
+<para>
+Jeśli czynność, która spowodowała zablokowanie zmiennej zostanie
+<link linkend="UndoActions">cofnięta</link>,
+zmienna zostaje przywrócona i podlega aktualizacji.
+</para>
+
+</sect2>
+
+<sect2 id="LifetimeOfAVariable">
+<title>Okres ważności Zmiennej</title>
+
+<para>
+Raz zdefiniowana zmienna może by używana w 
+<link linkend="Calculator">obliczeniach</link> oraz
+jako parametr czynności takich jak mierzenie, kreślenie i przekształcanie brył.
+Zmiennej można też użyć w 
+<link linkend="Answer">odpowiedzi</link> do zadania. Zablokowana zmienna
+może być również używana w obliczeniach.
+</para>
+
+<para>
+Zmienna jest ważna tak długo jak długo widnieje w
+<link linkend="Notepad">notatniku</link>.
+Wyczyszczenie
+<link linkend="Notepad">notatnika</link>
+to jedyny sposób na usunięcie zmiennej. Należy to jednak robić z rozwagą, ponieważ 
+czynności tej nie można 
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zapisanie dokumentu (zadania lub rozwiązania) powoduje 
+zapisanie wszystkich zmiennych widocznych w
+<link linkend="Notepad">notatniku</link>.
+</para>
+
+</sect2>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Kalkulator</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Zapisz zadanie</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Zapisz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+<sect2 id="RenameVariable">
+<title>Zmiana nazwy Zmiennej</title>
+
+<para>
+Aby zmienić nazwę zmiennej wybieramy
+<emphasis>Zmień nazwę zmiennej</emphasis>
+z menu
+<emphasis>Edycja</emphasis>
+albo wybieramy w notatniku
+<link linkend="Notepad">zapis</link>
+definiujący tę zmienną, klikamy prawym przyciskiem myszy i wybieramy
+<emphasis>Zmień nazwę zmiennej</emphasis> z pojawiającego się menu.
+</para>
+
+<para>
+W pojawiającym się oknie dialogowym wybieramy zmienną, której 
+nazwę chcemy zmienić i wpisujemy nową nazwę dla tej zmiennej po czym klikamy 
+<emphasis>OK</emphasis>.
+Nowa nazwa musi być
+<link linkend="CreatingAVariable">dopuszczalną</link>
+nazwą zmiennej.
+</para>
+
+<para>
+Kiknięcie na zapis definiujący zmienną w
+<link linkend="Notepad">notatniku</link>
+powoduje automatyczne wybranie tej zmiennej w oknie dialogowym.
+</para>
+
+<para>
+Zmiana nazwy zmiennej powoduje uaktualnienie
+<link linkend="Notepad">zapisów</link> w notatniku.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Calculator">
+<title>Kalkulator</title>
+
+<sect2 id="Expressions">
+<title>Wyrażenia</title>
+
+<para>
+Obliczenia można przeprowadzać na dopuszczalnych wyrażeniach. 
+Wyrażenia takie mogą zawierać liczby,
+<link linkend="Variables">zmienne</link>,
+stałą
+<emphasis>PI</emphasis>,
+operatory, funkcje i nawiasy.
+</para>
+
+</sect2>
+
+<sect2 id="Assignment">
+<title>Przypisywanie</title>
+
+<para>
+Kalkulator może wykonywać obliczenia dotyczące aktualnie otwartego dokumentu.
+</para>
+
+<para>
+Aby obliczyć wartość wyrażenia W i przypisać wynik zmiennej z, wpisujemy
+</para>
+
+<programlisting>
+z = W
+</programlisting>
+
+<para>
+i klikamy 
+<emphasis>Oblicz</emphasis>.
+Nazwa zmiennej musi być dopuszczalną i nieużywaną w danym dokumencie nazwą.
+W 
+<link linkend="Notepad">notatniku</link> pojawi się nowy zapis. 
+Nowo utworzona zmienna może być odtąd używana w zapisach i obliczeniach.
+</para>
+
+<para>
+Jeśli żaden dokument nie jest aktualnie otwarty, wpisanie wyrażenia spowoduje 
+obliczenie jego wartości. Żadna nowa zmienna nie zostanie utworzona.
+</para>
+
+</sect2>
+
+<sect2 id="Operators">
+<title>Operatory</title>
+
+<para>
+Dopuszcza się użycie następujących operatorów:
+</para>
+
+<itemizedlist>  
+
+<listitem>
++ (dodawanie)
+</listitem>
+
+<listitem>
+- (zmiana znaku, odejmowanie)
+</listitem>
+
+<listitem>
+* (mnożenie)
+</listitem>
+
+<listitem>
+/ (dzielenie)
+</listitem>
+
+<listitem>
+^ (potęgowanie)
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="Functions">
+<title>Funkcje</title>
+
+<para>
+Dopuszcza się użycie następujących funkcji:
+</para>
+
+<itemizedlist>
+
+<listitem>
+sqrt (pierwiastek kwadratowy)
+</listitem>
+
+<listitem>
+sin (sinus)
+</listitem>
+
+<listitem>
+cos (cosinus)
+</listitem>
+
+<listitem>
+tan (tangens)
+</listitem>
+
+<listitem>
+asin (arcsin)
+</listitem>
+
+<listitem>
+acos (arccos)
+</listitem>
+
+<listitem>
+atan (arctg)
+</listitem>
+
+</itemizedlist>
+
+<para>
+Argumenty funkcji umieszcza się w nawiasach okrągłych.
+</para>
+
+</sect2>
+
+<sect2 id="Examples">
+<title>Przykłady</title>
+
+<para>
+Obliczenie krawędzi sześcianu o objętości V:
+</para>
+
+<programlisting>
+a = V ^ (1 / 3)
+</programlisting>
+
+<para>
+Obliczenie długości przyprostokątnej przyległej do kąta alfa 
+w trójkącie prostokątnym o przeciwprostokątnej c: 
+</para>
+
+<programlisting>
+x = c * cos(alfa)
+</programlisting>
+
+</sect2>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Notepad">
+<title>Notatnik</title>
+
+<para>
+Zapis o każdej nowo utworzonej
+<link linkend="CreatingAVariable">zmiennej</link>
+powstałej na skutek pomiaru lub
+<link linkend="Calculator">obliczeń</link>,
+jest automatycznie dodawany do notatnika.
+Każdy zapis składa się z nazwy zmiennej i,
+jeśli to możliwe, definicji tej zmiennej. Zapisy dotyczące wyników pomiarów 
+mogą też zawierać nazwę bryły, na której dokonano pomiaru. Na przykład, zapis:
+</para>
+
+<programlisting>
+d = |AB| : Sześcian
+</programlisting>
+
+<para>
+jest wynikiem pomiaru odległości między
+punktami A i B w bryle o nazwie Sześcian. 
+Wynik ten został przypisany zmiennej d. Zapis:
+</para>
+
+<programlisting>
+alfa = &lt;PLX
+</programlisting>
+
+<para>
+powstał w wyniku pomiaru kąta. Nazwy bryły nie uwzględniono
+ponieważ bieżący dokument zawiera tylko jedną bryłę. Zapis:
+</para>
+
+<programlisting>
+V = objętość : Bryła1
+</programlisting>
+
+<para>
+jest wynikiem pomiaru objętości bryły o nazwie Bryła1.
+Zapis poniżej został dodany po wykonaniu
+<link linkend="Calculator">obliczenia</link>:
+</para>
+
+<programlisting>
+h = 2 * V / S
+</programlisting>
+
+<para>
+Jeśli zmienna zostanie
+<link linkend="PinnedVariable">zablokowana</link>,
+jej definicja znika z notatnika. Na przykład,po
+<link linkend="EraseElements">usunięciu</link>,
+punktu X, definicja zmiennej alfa straci sens,
+a widoczny wyżej zapis w notatniku przyjmie postać:
+</para>
+
+<programlisting>
+alfa
+</programlisting>
+
+<para>
+Zapisy notatnika są elementem bieżącego dokumentu, zarówno
+zadania jak i rozwiązania. Jeśli dokument zostanie zapisany,
+w tym samym pliku znajdą się zapisy notatnika.
+</para>
+
+<para>
+Jeśli bieżący dokument zostanie
+<link linkend="CloseDocument">zamknięty</link>,
+wszystkie zapisy z notatnika zostaną usunięte. Po otwarciu nowego dokumentu, 
+w notatniku pojawią się zapisy znajdujące się w tym dokumencie.
+</para>
+
+<para>
+Aby usunąć zapisy z notatnika, wybieramy
+<emphasis>Usuń notatki</emphasis>
+z menu <emphasis>Edycja</emphasis>.
+Należy jednak zachować ostrożność, ponieważ czynności tej nie można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Aby odznaczyć wybrane elementy notatnika, klikamy prawym przyciskiem myszy i wybieramy
+<emphasis>usuń wybór</emphasis> z pojawiającego się menu.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Kalkulator</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="UndoActions">
+<title>Cofnij</title>
+
+<para>
+Aby cofnąć ostatnio wykonaną czynność wybieramy
+<emphasis>Cofnij</emphasis>
+z menu <emphasis>Edycja</emphasis>
+albo klikamy przycisk
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym. W przypadku rozwiązania, czynność 
+zostanie też usunięta z pliku
+<link linkend="SolutionLog">dziennika</link>.
+Cofanie czynności odbywa się w kolejności odwrotnej 
+do ich tworzenia.
+</para>
+
+<para>
+Aby zobaczyć, która czynność zostanie cofnięta
+należy zatrzymać wskaźnik myszy na przycisku
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject>
+.
+</para>
+
+<para>
+Każda cofnięta czynność może zostać 
+<link linkend="RedoActions">powtórzona</link>.
+</para>
+
+<para>
+Niektórych czynności nie można cofnąć. W przypadku próby cofnięcia takiej czynności,
+pojawi się komunikat ostrzegający.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RedoActions">Powtórz</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Log</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RedoActions">
+<title>Powtórzenie czynności</title>
+
+<para>
+Aby powtórzyć ostatnio cofniętą czynność dotyczącą bryły lub dokumentu wybieramy
+<emphasis>Powtórz</emphasis>
+z menu <emphasis>Edycja</emphasis>
+lub klikamy przycisk
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym. W przypadku pliku rozwiązania, czynność zostanie dopisana do pliku
+<link linkend="SolutionLog">dziennika</link>.
+Powtórne wykonywanie czynności odbywa się w kolejności odwrotnej do ich cofania.
+</para>
+
+<para>
+Aby obejrzeć jaka czynność będzie powtórzona 
+należy zatrzymać wskaźnik myszy na przycisku
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject>
+.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Dziennik</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Options">
+<title>Opcje</title>
+
+<sect2 id="Font">
+<title>Czcionka</title>
+
+<para>
+Aby zmniejszyć lub powiększyć czcionki, wybieramy
+<emphasis>Czcionka</emphasis>
+z menu
+<emphasis>Opcje</emphasis>
+i wybieramy odpowiedni rozmiar czcionki.
+</para>
+
+</sect2>
+
+<sect2 id="Language">
+<title>Język</title>
+
+<para>
+Aby przełączyć się na inny język, wybieramy
+<emphasis>Język</emphasis>
+z menu
+<emphasis>Opcje</emphasis>
+i wybieramy żądany język.
+</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="KnownLimitations">
+<title>Znane ograniczenia</title>
+
+<sect2 id="InordinateSizeOrShape">
+<title>Nadmierny rozmiar lub kształt</title>
+
+<para>
+Aplikacja może reagować błędnie, jeśli bryły zawierają elementy 
+o dużych rozmiarach lub dziwnych kształtach.  Oto kilka wskazówek 
+jak uniknąć niebezpiecznych sytuacji:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Unikać zbyt dużych (ponad 100) i zbyt małych (poniżej0,01) współczynników
+<link linkend="ScaleFigure">skalowania</link>.
+</listitem>
+
+<listitem>
+Wybierając ostrosłup lub graniastosłup z dostępnych w
+<link linkend="FigureGallery">galerii</link>,
+nie należy przesadzać z liczbą boków (powinna być mniejsza od 100).
+Z definicji, Geometria nie obsługuje innych brył poza wielościanami wypukłymi.
+Jednakże
+<link linkend="ToggleTransparency">nieprzezroczyste</link>
+ostrosłupy i graniastosłupy o dużej liczbie krawędzi wyglądają jak walce i stożki
+Operacje dotyczące takich brył mogą być niezwykle powolne lub 
+mogą spowodować utratę stabilności programu i jego zawieszenie się.
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="PreviousVersionsOfGeometria">
+<title>Wcześniejsze wersje programu</title>
+
+<para>
+Zadania, rozwiązania i bryły utworzone za pomocą programu Geometria 
+w wersji wcześniejszej niż 3.0 nie są obsługiwane. Planujemy jednak
+zmiany, aby wszystkie wcześniejsze wersje uczynić kompatybilnymi z wersją 3.0.
+
+</para>
+
+</sect2>
+
+<sect2 id="SolutionLanguage">
+<title>Język rozwiązania</title>
+
+<para>
+Pliki rozwiązań utworzone w programie Geometria w wersji wcześniejszej niż 3.1 
+muszą być 
+<link linkend="OpenSolution">otwierane</link>
+w 
+<link linkend="Language">języku</link>,
+w którym zostały
+<link linkend="SaveSolution">zapisane</link>.
+</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Documents">
+<title>Dokumenty</title>
+
+<sect1 id="Envelope">
+<title>Koperta</title>
+
+<para>
+Koperta z dokumentem (zadaniem lub rozwiązaniem) zawiera
+imię i nazwisko, adres email oraz strony internetowej autora
+oraz komentarz. Nie trzeba wypełniać wszystkich pól.
+</para>
+
+<para>
+Aby wprowadzić zmiany w kopercie, wybieramy <emphasis>Koperta</emphasis>
+z menu <emphasis>Edycja</emphasis> lub klikamy przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Envelope.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+W okienku dialogowym, które się pojawi wypełniamy pola i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Zmiany w zapisach Koperty można 
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Answer">
+<title>Odpowiedź</title>
+
+<para>
+Kompletne zadanie musi zawierać odpowiedź określoną przez autora zadania.
+Odpowiedź rozwiązującego uznaje się za poprawną, jeśli pasuje do tej, 
+podanej przez autora (więcej w rozdziale
+<link linkend="Overview">O programie</link>).
+</para>
+
+<sect2 id="CreatorsAnswer">
+<title>Odpowiedź autora</title>
+
+<para>
+Aby określić odpowiedź w aktualnie tworzonym zadaniu, wybieramy
+<emphasis>Odpowiedź</emphasis> z menu 
+<emphasis>Edycja</emphasis>.
+Określamy rodzaj odpowiedzi:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Liczba
+</listitem>
+
+<listitem>
+Zbiór punktów
+</listitem>
+
+<listitem>
+Zbiorem segmentów
+</listitem>
+
+<listitem>
+Ustalona płaszczyzna lub
+</listitem>
+
+<listitem>
+Płaszczyzna warunkowa
+</listitem>
+
+<listitem>
+Multiple choice
+</listitem>
+
+</itemizedlist>
+
+<para>
+Otwieramy zakładkę 
+<emphasis>Wartość</emphasis>.
+</para>
+
+</sect2>
+
+<sect2 id="AnswerTypes">
+<title>Rodzaje odpowiedzi</title>
+
+<sect3 id="ANumber">
+<title>Liczba</title>
+
+<para>
+Wprowadzamy poprawne
+<link linkend="Expressions">wyrażenie</link>.
+Klikamy
+<emphasis>OK</emphasis>.
+Aby ograniczyć ilość elementów wpisywanych ręcznie (a przez to, możliwość pomyłek), wybieramy wcześniej
+<link linkend="Notepad">zapis</link>
+z notatnika, który ma być odpowiedzią do zadania.
+</para>
+
+</sect3>
+
+<sect3 id="PointSet">
+<title>Zbiór punktów</title>
+
+<para>
+Określenie
+<emphasis>zbiór punktów</emphasis>
+dotyczy pojedynczego punktu, końców odcinka (2 punkty) 
+lub trasy (2 lub więcej punktów).
+</para>
+
+<para>
+Wprowadzamy nazwy oddzielone przecinkami i klikamy
+<emphasis>OK</emphasis>.
+Aby ograniczyć ilość elementów wpisywanych ręcznie,
+<link linkend="SelectElements">wybieramy</link>
+wcześniej punkty, które mają być odpowiedzią do zadania.
+</para>
+
+</sect3>
+
+<sect3 id="SegmentSet">
+<title>Zbiorem segmentów</title>
+
+<para>
+The segments must satisfy a certain condition. Currently, the following conditions are supported:
+</para>
+
+<itemizedlist>
+
+<listitem>
+The segments form a Hamiltonian cycle in the selected figure
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+<sect3 id="FixedPlane">
+<title>Ustalona płaszczyzna</title>
+
+<para>
+Taką płaszczyznę określa się podając nazwy trzech punktów 
+należących do tej płaszczyzny oddzielone przecinkami i klikając
+<emphasis>OK</emphasis>.
+Aby ograniczyć ilość elementów wpisywanych ręcznie,
+<link linkend="SelectElements">wybieramy</link>
+wcześniej wymagane elementy (trzy punkty, punkt i odcinek lub ścianę) 
+określające płaszczyznę będącą odpowiedzią.
+</para>
+
+</sect3>
+
+<sect3 id="ConditionPlane">
+<title>Płaszczyzna warunkowa</title>
+
+<para>
+W odróżnieniu od ustalonej płaszczyzny, zajmującej stałą pozycję w przestrzeni,
+<emphasis>płaszczyzna warunkowa</emphasis>
+zwykle nie jest jednoznacznie wyznaczona i musi spełniać kilka warunków.
+</para>
+
+<para>
+Są trzy grupy warunków. Wybieramy warunek z co najmniej jednej z grup i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Grupa pierwsza składa się z następujących warunków:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Płaszczyzna ma zawierać określony punkt
+</listitem>
+
+<listitem>
+Płaszczyzna ma zawierać określoną linię
+</listitem>
+
+<listitem>
+Płaszczyzna ma nie zawierać określonego punktu
+</listitem>
+
+<listitem>
+Płaszczyzna ma nie zawierać określonej linii
+</listitem>
+
+<listitem>
+Płaszczyzna ma nie zawierać wierzchołków wybranej figury
+</listitem>
+
+<listitem>
+Płaszczyzna ma nie zawierać krawędzi wybranej figury
+</listitem>
+
+<listitem>
+Płaszczyzna ma być równoległa do danej prostej
+</listitem>
+
+<listitem>
+Płaszczyzna ma być równoległa do danej płaszczyzny
+</listitem>
+
+<listitem>
+Płaszczyzna ma być prostopadła do danej prostej
+</listitem>
+
+<listitem>
+Płaszczyzna ma być prostopadła do danej płaszczyzny
+</listitem>
+
+</itemizedlist>
+
+<para>
+Potrzebny punkt, prostą lub płaszczyznę wybieramy podając nazwy oddzielone przecinkami
+Aby ograniczyć ilość elementów wpisywanych ręcznie,
+<link linkend="SelectElements">wybieramy</link>
+wcześniej potrzebne elementy.
+</para>
+
+<para>
+Druga grupa obejmuje następujący warunek:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Płaszczyzna ma dzielić objętość danej figury w zadanym stosunku
+</listitem>
+
+</itemizedlist>
+
+<para>
+Podajemy prawidłowo określone
+<link linkend="Expressions">wyrażenie</link>.
+Wyrażenie to będzie interpretowane jako licznik stosunku podziału. 
+Mianownik przyjmuje się równy 1. Na przykład,a+1 oznacza, że objętość 
+podzielono w stosunku a+1 : 1.
+Najlepiej wcześniej wybrać z notatnika żądany
+<link linkend="Notepad">zapis</link>,
+a zostanie on automatycznie skopiowany w odpowiednie pole okna dialogowego.
+</para>
+
+<para>
+Trzecia grupa określa sposób w jaki płaszczyzna ma przecinać bryłę.
+Przekrój może mieć kształt:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Trójkąta równoramiennego
+</listitem>
+
+<listitem>
+Trójkąta prostokątnego
+</listitem>
+
+<listitem>
+Trójkąta  równobocznego (foremnego)
+</listitem>
+
+<listitem>
+Równoległoboku
+</listitem>
+
+<listitem>
+Rombu
+</listitem>
+
+<listitem>
+Prostokąta
+</listitem>
+
+<listitem>
+Kwadratu
+</listitem>
+
+</itemizedlist>
+
+<para>
+Wprowadzoną odpowiedź można 
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Warto pamiętać, że choć autor wprowadza odpowiedź jako symbol,
+Geometria przechowuje ją w sposób numeryczny. Po wprowadzeniu, jej wartość nie podlega zmianom 
+związanym z czynnościami, którym później poddajemy bryły. Dobrze jest więc 
+wprowadzać odpowiedź jako ostatnią czynność przed zapisaniem i udostępnieniem pliku z zadaniem.
+</para>
+
+</sect3>
+
+<sect3 id="MultipleChoice">
+<title>Multiple choice</title>
+
+<para>
+Enter an option. Click the
+<emphasis>Add</emphasis>
+button to add another option. Click the
+<emphasis>Remove</emphasis>
+button to remove an option. Each option must be unique. Select the correct option. Click
+<emphasis>OK</emphasis>.
+</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="SolversAnswer">
+<title>Odpowiedź rozwiązującego</title>
+
+<para>
+Rozwiązujący kończąc rozwiązanie zadania wprowadza odpowiedź. Odpowiedź uznawana jest za poprawną, jeśli 
+jest zgodna z odpowiedzią przewidzianą przez autora.
+</para>
+
+<para>
+Mając 
+<link linkend="OpenSolution">otwarty</link>
+plik rozwiązania wybieramy 
+<emphasis>Odpowiedź</emphasis> z menu
+<emphasis>Edycja</emphasis>.
+Wprowadzamy
+<link linkend="Expressions">wyrażenie</link>
+lub nazwy obiektów oddzielone przecinkami.
+Aby ograniczyć ilość elementów wpisywanych ręcznie, z
+<link linkend="Notepad">zapisów</link>
+notatnika wcześniej
+<link linkend="SelectElements">wybieramy</link>
+elementy stanowiące odpowiedź (punkty, odcinki czy ściany) i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Pojawi się wyskakujące okienko z oceną udzielonej odpowiedzi (prawidłowa lub błędna)
+</para>
+
+<para>
+Jeśli odpowiedź jest prawidłowa oznacza to koniec rozwiązywania i zamknięcie pliku
+<link linkend="SolutionLog">dziennika</link>.
+Nie będzie można już wykonywać żadnych czynności chyba, że odpowiedź zostanie
+<link linkend="UndoActions">cofnięta</link>.
+Rozwiązanie można
+<link linkend="SaveSolution">zapisać</link> do pliku.
+Zapisane rozwiązanie można później
+<link linkend="SolutionLog">odtworzyć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">O programie</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Wybierz</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="CreateProblem">
+<title>Utwórz zadanie</title>
+
+<para>
+Zadanie tworzy się wybierając
+<emphasis>Utwórz dokument-&gt;Zadanie</emphasis> z menu
+<emphasis>Dokument</emphasis> albo klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/NewProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Jeśli aktywna jest niezapisana modyfikacja bieżącego dokumentu,
+pojawi się okno dialogowe z zapytaniem
+czy zapisać bieżący dokument przez zamknięciem.
+</para>
+
+<para>
+Klikamy <emphasis>Tak</emphasis>, aby zapisać
+aktywny dokument.
+</para>
+
+<para>
+Klikamy <emphasis>Nie</emphasis>, aby zamknąć
+bieżący dokument bez zapisywania go. W takim przypadku 
+niezapisane modyfikacje dokumentu, jeśli istnieją, zostaną utracone.
+</para>
+
+<para>
+Klikamy <emphasis>Anuluj</emphasis>, aby zamknąć okno
+bez podejmowania żadnej akcji.
+</para>
+
+<para>
+Tak podjętej decyzji nie można już
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Otwórz zadanie</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Zapisz zadanie</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Zamknij dokument</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenProblem">
+<title>Otwórz zadanie</title>
+
+<para>
+Zadanie otwiera się wybierając
+<emphasis>Otwórz dokument-&gt;Zadanie</emphasis> z menu
+<emphasis>Dokument</emphasis> albo klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/OpenProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym. 
+Można też przeciągnąć odpowiedni plik do okna Geometrii.
+</para>
+
+<para>
+Jeśli aktywna jest niezapisana modyfikacja bieżącego dokumentu,
+pojawi się okno dialogowe z zapytaniem
+czy zapisać bieżący dokument przez zamknięciem.
+</para>
+
+<para>
+Klikamy <emphasis>Tak</emphasis>, aby zapisać
+aktywny dokument. 
+</para>
+
+<para>
+Klikamy <emphasis>Nie</emphasis>, aby zamknąć
+bieżący dokument bez zapisywania go. W takim przypadku 
+niezapisane modyfikacje dokumentu, jeśli istnieją, zostaną utracone.
+</para>
+
+<para>
+Klikamy <emphasis>Anuluj</emphasis>, aby zamknąć okno
+bez podejmowania żadnej akcji.
+</para>
+
+<para>
+Tak podjętej decyzji nie można już
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Utwórz zadanie</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Zapisz zadanie</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Zamknij dokument</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveProblem">
+<title>Zapisz zadanie</title>
+
+<para>
+Zadanie zapisuje się wybierając
+<emphasis>Zapisz dokument</emphasis> z menu
+<emphasis>Dokument</emphasis> albo klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SaveDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Aby zapisać zadanie pod inną nazwą, wybieramy
+<emphasis>Zapisz dokument jako</emphasis> z menu
+<emphasis>Dokument</emphasis> .
+</para>
+
+<para>
+Czynności tej nie można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Jeśli dokonywaliśmy ostatecznego przeglądu zadania przed publikacją, można teraz
+<link linkend="Notepad">wyczyścić</link>
+wszystkie robocze obliczenia i pomiary w notatniku.
+Wyczyszczone zapisy będą niewidoczne dla rozwiązującego
+chyba, że wcześniej je zapisaliśmy w pliku zadania.
+</para>
+
+<para>
+Uwaga jednak, bo czynność czyszczenia notatnika nie może być
+<link linkend="UndoActions">cofnięta</link>.
+</para>
+
+<para>
+Dokonując ostatecznego przeglądu zadania trzeba pamiętać, aby zadanie zaopatrzyć w
+<link linkend="Answer">odpowiedź</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Utwórz zadanie</link>
+</listitem>
+<listitem>
+<link linkend="OpenProblem">Otwórz zadanie</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Zamknij dokument</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Odpowiedź</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CreateSolution">
+<title>Utwórz rozwiązanie</title>
+
+<para>
+Rozwiązanie otwartego zadania tworzy się wybierając
+<emphasis>Utwórz dokument-&gt;Rozwiązanie</emphasis> z menu
+<emphasis>Dokument</emphasis> albo klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/NewSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Zadanie, które mamy rozwiązywać należy najpierw
+<link linkend="OpenProblem">otworzyć</link>.
+</para>
+
+<para>
+Jeśli aktywna jest niezapisana modyfikacja bieżącego dokumentu,
+pojawi się okno dialogowe z zapytaniem
+czy zapisać bieżący dokument przez zamknięciem.
+</para>
+
+<para>
+Klikamy <emphasis>Tak</emphasis>, aby zapisać
+aktywny dokument. Rozwiązywana będzie zapisana właśnie wersja zadania.
+</para>
+
+<para>
+Klikamy <emphasis>Nie</emphasis>, aby zamknąć
+bieżące zadanie bez zapisywania go. W takim przypadku 
+niezapisane modyfikacje zadania zostaną utracone 
+i rozwiązywana będzie ostatnio zapisana wersja zadania.
+</para>
+
+<para>
+Klikamy <emphasis>Anuluj</emphasis>, aby zamknąć okno
+bez podejmowania żadnej akcji.
+</para>
+
+<para>
+Tak podjętej decyzji nie można już
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Otwórz zadanie</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Otwórz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Zapisz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Zamknij dokument</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenSolution">
+<title>Otwórz rozwiązanie</title>
+
+<para>
+Plik z rozwiązaniem otwiera się wybierając
+<emphasis>Otwórz dokument-&gt;Rozwiązanie</emphasis> z menu
+<emphasis>Dokument</emphasis> albo klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/OpenSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym. Można też przeciągnąć odpowiedni plik do okna Geometrii.
+</para>
+
+<para>
+Jeśli aktywna jest niezapisana modyfikacja bieżącego dokumentu,
+pojawi się okno dialogowe z zapytaniem
+czy zapisać bieżący dokument przez zamknięciem.
+</para>
+
+<para>
+Klikamy <emphasis>Tak</emphasis> , aby zapisać
+aktywny dokument. 
+</para>
+
+<para>
+Klikamy <emphasis>Nie</emphasis>, aby zamknąć
+bieżący dokument bez zapisywania go. W takim przypadku 
+niezapisane modyfikacje dokumentu, jeśli istnieją, zostaną utracone.
+</para>
+
+<para>
+Klikamy <emphasis>Anuluj</emphasis>, aby zamknąć okno
+bez podejmowania żadnej akcji.
+</para>
+
+<para>
+Tak podjętej decyzji nie można już
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Utwórz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Zapisz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Zamknij dokument</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveSolution">
+<title>Zapisz rozwiązanie</title>
+
+<para>
+Aktualnie otwarte rozwiązanie zapisuje się wybierając
+<emphasis>Zapisz dokument</emphasis> z menu 
+<emphasis>Dokument</emphasis> albo klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SaveDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Aby zapisać rozwiązanie pod inną nazwą, wybieramy
+<emphasis>Zapisz dokument jako</emphasis> z menu
+<emphasis>Dokument</emphasis>.
+</para>
+
+<para>
+Czynności tej nie można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Jeśli dokonywaliśmy ostatecznego przeglądu rozwiązania przed zapisaniem, 
+trzeba pamiętać o udzieleniu
+<link linkend="Answer">odpowiedzi</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Utwórz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Otwórz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Zamknij dokument</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Odpowiedź</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloseDocument">
+<title>Zamknij dokument</title>
+
+<para>
+Aktualnie otwarty dokument (zadanie lub rozwiązanie) zamyka się wybierając
+<emphasis>Zamknij dokument</emphasis> z menu 
+<emphasis>Dokument</emphasis> albo klikając przycisk
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/CloseDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Jeśli aktywna jest niezapisana modyfikacja bieżącego dokumentu,
+pojawi się okno dialogowe z zapytaniem
+czy zapisać bieżący dokument przez zamknięciem.
+</para>
+
+<para>
+Klikamy <emphasis>Tak</emphasis>, aby zapisać 
+bieżący dokument.
+</para>
+
+<para>
+Klikamy <emphasis>Nie</emphasis> , aby zamknąć
+bieżący dokument bez zapisywania go. W takim przypadku 
+niezapisane modyfikacje dokumentu zostaną utracone.
+</para>
+
+<para>
+Klikamy <emphasis>Anuluj</emphasis>, aby zamknąć okno
+bez podejmowania żadnej akcji.
+</para>
+
+<para>
+Tak podjętej decyzji nie można już
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+<link linkend="Notepad">Zapisy</link>
+notatnika i bryły znajdujące się w bieżącym dokumencie przynależą do tego dokumentu.
+Zamknięcie go powoduje wyczyszczenie notatnika i zamknięcie wszystkich brył.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SaveProblem">Zapisz zadanie</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Zapisz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SolutionLog">
+<title>Dziennik</title>
+
+<sect2 id="PlayBack">
+<title>Odtwarzanie</title>
+
+<para>
+Wszystkie czynności rozwiązującego zapisywane są w dzienniku rozwiązania.
+<link linkend="SaveSolution">Zapisane</link>
+rozwiązanie może zostać później odtworzone.
+</para>
+
+<para>
+Odtwarzanie rozpoczyna się klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogPlay.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Kolejny krok rozwiązania odtwarza się klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogNext.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Wybranie któregoś z zapisów dziennika powoduje skok w przód lub w tył.
+</para>
+
+<para>
+Kliknięcie przycisku
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogClear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+powoduje wymazanie wszystkich zapisów dziennika. Czynność ta nie może być 
+<link linkend="UndoActions">cofnięta</link>.
+</para>
+
+<para>
+Aby skasować wszystkie zapisy począwszy od wybranego zapisu klikamy przycisk 
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogCut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+. Czynność ta nie może być 
+<link linkend="UndoActions">cofnięta</link>.
+</para>
+
+<para>
+Odtwarzanie rozwiązania można zatrzymać klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LogStop.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Podczas odtwarzania rozwiązania nie można dokonywać w nim żadnych zmian.
+Aby dokonać zmian należy zatrzymać odtwarzanie.
+</para>
+
+</sect2>
+
+<sect2 id="SolutionComments">
+<title>Komentarz</title>
+
+<para>
+Poszczególne kroki rozwiązania można opatrzyć komentarzem. W tym celu klikamy prawym przyciskiem myszy na wybranym zapisie i wybieramy
+<emphasis>Komentarz</emphasis>
+z pojawiającego się menu. W oknie pojawiającym się oknie dialogowym wpisujemy komentarz i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Aby zobaczyć komentarz zatrzymujemy przycisk myszy na wybranej linii z zapisu rozwiązania.
+Linie zapisu, które posiadają komentarz są wyróżnione.
+</para>
+
+</sect2>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">O programie</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Zapisz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Otwórz rozwiązanie</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Figures">
+<title>Bryły</title>
+
+<sect1 id="FigureGallery">
+<title>Galeria</title>
+
+<para>
+Galeria zawiera prawidłowe graniastosłupy i ostrosłupy
+oraz pięć wielościanów foremnych (tzw. brył platońskich) czworościan, sześcian,
+ośmiościan, dwunastościan i dwudziestościan.
+</para>
+
+<para>
+Graniastosłup tworzy się wybierając odpowiednią figurę z menu
+<emphasis>Bryły-&gt;Galeria-&gt;Graniastosłup</emphasis> .
+</para>
+
+<para>
+Ostrosłup tworzy się wybierając odpowiednią figurę z menu
+<emphasis>Bryły-&gt;Galeria-&gt;Ostrosłup</emphasis> .
+</para>
+
+<para>
+Wielościan foremny tworzy się wybierając odpowiednią figurę z menu
+<emphasis>Bryły-&gt;Galeria-&gt;Bryła platońska</emphasis> .
+</para>
+
+<para>
+Bryła taka zostanie dodana do aktualnie otwartego dokumentu.
+Jeśli nie jest otwarty żaden dokument trzeba wcześniej
+<link linkend="CreateProblem">utworzyć zadanie</link>.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Otwórz bryłę</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenFigure">
+<title>Otwórz bryłę</title>
+
+<para>
+Bryłę z pliku otwiera się wybierając albo
+<emphasis>Otwórz bryłę</emphasis> z
+menu <emphasis>Bryły</emphasis> albo
+klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/OpenFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym. Można też przeciągnąć plik do okna Geometrii.
+</para>
+
+<para>
+Bryła taka zostanie dodana do aktualnie otwartego dokumentu.
+Jeśli nie jest otwarty żaden dokument trzeba wcześniej
+<link linkend="CreateProblem">utworzyć zadanie</link>.
+</para>
+
+<para>
+Dostępna jest
+<link linkend="FigureGallery">galeria</link>
+brył z której można wybierać gotowe bryły takie, jak 
+graniastosłupy, ostrosłupy i bryły platońskie.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="FigureGallery">Galeria</link>
+</listitem>
+<listitem>
+<link linkend="SaveFigure">Zapisz bryłę</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloneFigure">
+<title>Klonuj bryłę</title>
+
+<para>
+Bryłę można sklonować albo wybierając
+<emphasis>Klonuj bryłę</emphasis> z menu
+<emphasis>Bryły</emphasis> albo 
+klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/CloneFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveFigure">
+<title>Zapisz bryłę</title>
+
+<para>
+Bryłę można zapisać do pliku albo wybierając
+<emphasis>Zapisz bryłę</emphasis> z menu 
+<emphasis>Bryły</emphasis> albo
+klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SaveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Czynności tej nie można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Otwórz bryłę</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RemoveFigure">
+<title>Usuń bryłę</title>
+
+<para>
+Bryłę można usunąć z bieżącego dokumentu albo wybierając
+<emphasis>Usuń bryłę</emphasis> z menu 
+<emphasis>Bryły</emphasis> albo
+klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/RemoveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Usunięcie bryły, na której dokonano pomiarów spowoduje, że 
+niektóre zmienne zostaną 
+<link linkend="PinnedVariable">zablokowane</link>.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Rozwiązujący nie może usunąć bryły będącej częścią zadania.
+Jednak bryły utworzone w procesie rozwiązywania zadania 
+mogą być usunięte.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportImage">
+<title>Zapisz obraz</title>
+
+<para>
+Bryłę można zapisać jako plik wybierając 
+<emphasis>Zapisz obraz</emphasis> z menu 
+<emphasis>Bryły</emphasis>.
+W okienku dialogowym należy wybrać rodzaj pliku,
+wpisać nazwę i kliknąć 
+<emphasis>Zapisz</emphasis>.
+</para>
+
+<para>
+Czynności tej nie można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportOFFFile">
+<title>Zapisz w formacie OFF</title>
+
+<para>
+<emphasis>OFF</emphasis> jest formatem plików używanym do zapisu
+wielościanów w programie Geomview (http://www.geomview.org) i
+innych programach do geometrii. Bryłę można zapisać w formacie OFF 
+wybierając
+<emphasis>Zapisz w formacie OFF</emphasis> z menu 
+<emphasis>Bryły</emphasis>.
+W okienku dialogowym wybieramy nazwę pliku i klikamy 
+<emphasis>Zapisz</emphasis>.
+</para>
+
+<para>
+Czynności tej nie można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RenameFigure">
+<title>Zmień nazwę bryły</title>
+
+<para>
+Nazwę bryły można zmienić wybierając
+<emphasis>Zmień nazwę bryły</emphasis> z menu 
+<emphasis>Bryły</emphasis>.
+</para>
+
+<para>
+Nazwy brył nie mogą zawierać znaków specjalnych ani spacji.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Rozwiązujący nie może zmienić nazwy bryły, która jest częścią zadania. 
+Nazwy brył utworzonych w procesie rozwiązywania mogą być zmienione.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="PrintFigure">
+<title>Drukuj bryłę</title>
+
+<para>
+Bryłę można wydrukować wybierając
+<emphasis>Drukuj bryłę</emphasis> z menu 
+<emphasis>Bryły</emphasis> albo
+klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Print.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Czynności tej nie można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="View">
+<title>Widok</title>
+
+<sect2 id="Attitude">
+<title>Położenie</title>
+
+<para>
+<emphasis>Geometria</emphasis> stosuje ustalony prawoskrętny 
+układ odniesienia. Oś Z jest równoległa   
+do pionowej krawędzi ekranu. 
+Do pracy z programem nie jest konieczna żadna wiedza dotycząca układu odniesienia.  
+</para>
+
+<para>
+W każdej chwili bryła ma określone położenie. Położenie to można opisać 
+podając np. kąty jakie tworzy bryła z osiami układu odniesienia.  
+Po utworzeniu, bryła znajduje się w położeniu 
+<emphasis>domyślnym</emphasis>.
+Położenie bryły zmienia się podczas obracania jej.
+</para>
+
+<para>
+Do początkowego położenia można powrócić wybierając 
+<emphasis>Położenie początkowe</emphasis> z menu 
+<emphasis>Widok</emphasis> lub
+klikając prawym przyciskiem myszy i wybierając 
+<emphasis>Położenie początkowe</emphasis>
+w pojawiającym się okienku.
+</para>
+
+<para>
+Bryły są zapisywane w swoim początkowym położeniu.
+Po serii obrotów i manipulacji bryłą można przywrócić 
+jej początkowe położenie wybierając 
+<emphasis>Położenie domyślne</emphasis> z menu 
+<emphasis>Widok</emphasis>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Obrót bryły</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RotateFigure">
+<title>Obrót bryły</title>
+
+<para>
+<link linkend="ToggleSelector">Przełączamy</link>
+funkcję wskaźnika 
+i uruchamiamy obrót bryły przeciągając myszką. Prędkość obrotu 
+i kąt zależeć będzie od szybkości przeciągnięcia.
+</para> 
+
+<para>
+Aby zatrzymać ruch bryły należy kliknąć lewym przyciskiem myszki.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Attitude">Położenie</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="SelectElements">
+<title>Zaznaczanie elementów</title>
+
+<sect3 id="ToggleSelector">
+<title>Przełączanie</title>
+
+<para>
+Klikamy prawym przyciskiem myszy i wybieramy
+<emphasis>Przełącz funkcję wskaźnika</emphasis> z pojawiającego się menu.
+Można też wcisnąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/SelectorOn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Przy włączonym wybieraniu elementów (ikona strzałki jest biała) 
+można kliknięciem wybierać, zaznaczać elementy.
+Przy wyłączonym wybieraniu (strzałka jest szara) 
+pociągnięcia myszką spowoduje 
+<link linkend="RotateFigure">obracanie</link> bryły.
+</para>
+
+<para>
+Domyślnie zaznaczanie jest wyłączone. 
+</para>
+
+</sect3>
+
+<sect3 id="SelectElementsOneByOne">
+<title>Zaznaczanie kilku elementów</title>
+
+<para>
+Klikając na jakiś element (punkt, odcinek, ścianę) powodujemy jego wybranie (podświetlenie). 
+Aby wybrać więcej niż jeden element należy przy klikaniu trzymać wciśnięty klawisz Ctrl. 
+Wybór ściany jest możliwy tylko przy włączonym 
+<link linkend="ViewModes">nieprzezroczystym</link>
+trybie podglądu.
+</para>
+
+<para>
+Kliknięcie w pusty obszar powoduje odznaczenie wszystkich wybranych elementów. 
+Klikając z wciśniętym klawiszem Ctrl na podświetlony element 
+kasuje podświetlenie tego elementu.
+</para>
+
+</sect3>
+
+<sect3 id="SelectAllElements">
+<title>Zaznaczanie wszystkich elementów</title>
+
+<para>
+Aby wybrać jednym kliknięciem wszystkie dorysowane punkty i odcinki bryły 
+(oprócz jej własnych wierzchołków i krawędzi), wybieramy
+<emphasis>Zaznacz wszystko</emphasis>
+z menu
+<emphasis>Edycja</emphasis>. 
+Tym sposobem można też w prosty sposób
+<link linkend="EraseSelection">usunąć wszystkie</link>
+dorysowane w bryle elementy za jednym kliknięciem.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Obrót bryły</link>
+</listitem>
+<listitem>
+<link linkend="ViewModes">Tryby podglądu</link>
+</listitem>
+<listitem>
+<link linkend="EraseSelection">Usuń wybrane</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ViewModes">
+<title>Tryby podglądu</title>
+
+<sect3 id="ToggleTransparency">
+<title>Przełączanie przezroczystości</title>
+
+<para>
+Aby przełączyć widok z przezroczystego na nieprzezroczysty lub odwrotnie wybieramy
+<emphasis>Przełącz przezroczystość</emphasis> z menu
+<emphasis>Widok</emphasis>. 
+Można też wcisnąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Transparency.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+W trybie przezroczystym elementy widoczne są rysowane linią ciągłą natomiast te zasłonięte, linią przerywaną. 
+Można wybierać podświetlając punkty i odcinki bez względu na to, czy są widoczne czy zasłonięte. 
+Ściany można wybierać tylko w trybie nieprzezroczystym.
+</para>
+
+<para>
+W trybie nieprzezroczystym nie widać punktów ani odcinków. 
+Punkty, odcinki i ściany można wybierać tylko wtedy, gdy są widoczne.
+</para>
+
+</sect3>
+
+<sect3 id="SetColor">
+<title>Wybór koloru</title>
+
+<para>
+Aby zmienić kolor bryły w trybie nieprzezroczystym, wybieramy 
+<emphasis>Ustaw kolor</emphasis> z menu 
+<emphasis>Widok</emphasis> lub klikamy przycisk wyboru koloru
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Color.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym..
+Wybieramy żądany kolor z okienka dialogowego i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+</sect3>
+
+<sect3 id="ToggleLabels">
+<title>Przełączanie napisów</title>
+
+<para>
+Aby schować lub pokazać nazwy, wybieramy
+<emphasis>Przełącz napisy</emphasis> z menu
+<emphasis>Widok</emphasis>
+Można też wcisnąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Labels.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym. Nazwy są widoczne tylko przy włączonym
+<link linkend="ToggleTransparency">przezroczystym</link> trybie podglądu.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ZoomFigure">
+<title>Zoom widoku</title>
+
+<para>
+Aby powiększyć widok bryły wybieramy <emphasis>Powiększ</emphasis> z menu 
+<emphasis>Widok</emphasis> lub klikamy przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/ZoomIn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Aby pomniejszyć go wybieramy <emphasis>Zmniejsz</emphasis> z menu
+ <emphasis>Widok</emphasis> lub klikamy przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/ZoomOut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Aby dopasować rozmiar bryły do rozmiaru okna 
+wybieramy <emphasis>Dopasuj widok</emphasis> z menu
+ <emphasis>Widok</emphasis> lub klikamy przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/FitToView.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Measure">
+<title>Mierzenie</title>
+
+<sect2 id="MeasureDistance">
+<title>Mierzenie odległości</title>
+
+<para>
+Aby zmierzyć odległość między dwoma punktami, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Odległość</emphasis> z menu
+<emphasis>Zmierz</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/MeasureDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+końce odcinka, który chcemy zmierzyć, kliknąć prawym przyciskiem myszy i wybrać 
+<emphasis>Odległość</emphasis> z pojawiającego się menu..
+</listitem>
+
+</itemizedlist>
+
+<para>
+Końce odcinka muszą należeć do tej samej ściany bryły.
+</para>
+
+<para>
+Pojawi się okienko dialogowe. Wpisujemy, jeśli to konieczne, nazwy 
+końców odcinka, wprowadzamy nieużywaną jeszcze nazwę
+<link linkend="Variables">zmiennej</link>
+i klikamy <emphasis>OK</emphasis>.
+W 
+<link linkend="Notepad">notatniku</link> pojawi się następujący zapis:
+</para>
+
+<programlisting>
+d = |AB| : Sześcian
+</programlisting>
+
+<para>
+gdzie d jest zmienną oznaczającą odległość między punktami A i B w bryle o nazwie Sześcian.
+Jeśli sześcian jest jedyną bryłą, zapis ten będzie miał postać:
+</para>
+
+<programlisting>
+d = |AB|
+</programlisting>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureAngle">
+<title>Mierzenie kąta</title>
+
+<para>
+Aby zmierzyć kąt, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Kąt</emphasis> z menu
+<emphasis>Zmierz</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/MeasureAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+dwa odcinki będące ramionami tego kąta, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Kąt</emphasis> z pojawiającego się menu..
+</listitem>
+
+</itemizedlist>
+
+<para>
+Odcinki tworzące mierzony kąt muszą należeć do tej samej ściany 
+i nie być współliniowe.
+</para>
+
+<para>
+Pojawi się okienko dialogowe. Wpisujemy, jeśli to konieczne, nazwy 
+punktów, wprowadzamy nieużywaną jeszcze nazwę
+<link linkend="Variables">zmiennej</link>
+i klikamy <emphasis>OK</emphasis>.
+W 
+<link linkend="Notepad">notatniku</link> pojawi się następujący zapis:
+</para>
+
+<programlisting>
+alfa = &lt;ABC : Ostrosłup
+</programlisting>
+
+<para>
+gdzie alfa jest nazwą zmiennej oznaczającej miarę kąta zawartego między AB i BC 
+w bryle o nazwie Ostrosłup. Jeśli Ostrosłup jest jedyną bryłą 
+zapis ten będzie miał postać:
+</para>
+
+<programlisting>
+alfa = &lt;ABC
+</programlisting>
+
+<para>
+Miary kątów wyrażane są w radianach.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureArea">
+<title>Mierzenie powierzchni</title>
+
+<para>
+Aby zmierzyć powierzchnię ściany należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Powierzchnia</emphasis> z menu
+<emphasis>Zmierz</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Area.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+ścianę, której powierzchnię chcemy zmierzyć, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Powierzchnia</emphasis> z pojawiającego się menu..
+</listitem>
+
+</itemizedlist>
+
+<para>
+Pojawi się okienko dialogowe. Wybieramy, jeśli to konieczne, nazwę ściany 
+z pojawiającej się listy, wprowadzamy nieużywaną jeszcze nazwę
+<link linkend="Variables">zmiennej</link>
+i klikamy <emphasis>OK</emphasis>.
+W 
+<link linkend="Notepad">notatniku</link> pojawi się następujący zapis:
+</para>
+
+<programlisting>
+S = powierzchnia[ABC] : Sześcian
+</programlisting>
+
+<para>
+gdzie S jest zmienną oznaczającą powierzchnię ściany 
+zawierającej wierzchołki A, B, C w bryle o nazwie Sześcian.
+Jeśli Sześcian jest jedyną bryłą 
+zapis ten będzie miał postać:
+</para>
+
+<programlisting>
+S = powierzchnia[ABC]
+</programlisting>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureVolume">
+<title>Mierzenie objętości</title>
+
+<para>
+Aby zmierzyć objętość bryły, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Objętość</emphasis> z menu
+<emphasis>Zmierz</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Volume.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Pojawi się okienko dialogowe. Wprowadzamy nieużywaną jeszcze nazwę
+
+<link linkend="Variables">zmiennej</link>
+i klikamy <emphasis>OK</emphasis>. W 
+<link linkend="Notepad">notatniku</link> pojawi się następujący zapis:
+</para>
+
+<programlisting>
+V = objętość : Sześcian
+</programlisting>
+
+<para>
+gdzie V jest zmienną oznaczającą objętość bryły o nazwie Sześcian.
+Jeśli Sześcian jest jedyną bryłą zapis ten będzie miał postać:
+</para>
+
+<programlisting>
+V = objętość
+</programlisting>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Draw">
+<title>Rysuj</title>
+
+<sect2 id="DrawSegment">
+<title>Odcinek</title>
+
+<para>
+Aby połączyć odcinkiem dwa punkty, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Odcinek</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/DrawLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+dwa punkty, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Narysuj odcinek</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Wybrane punkty muszą należeć do tej samej ściany.
+</para>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy wybrane punkty i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawPerpendicular">
+<title>Prostopadłą</title>
+
+<para>
+Aby narysować prostopadłą do odcinka przez punkt, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Prostopadłą</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Perpendicular.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+żądany punkt i odcinek, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Narysuj prostopadłą</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Punkt i odcinek, o których mowa, muszą należeć do tej samej ściany.
+Punkt może należeć do odcinka lub nie. 
+</para>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy nazwy punktów i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Jeśli wybrany punkt i odcinek należą do kilku ścian, pojawi się kolejne okno dialogowe.
+Zaznaczamy w nim odpowiednią ścianę i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementu</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideSegment">
+<title>Podział odcinka</title>
+
+<para>
+Aby podzielić odcinek w zadanym stosunku, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Podziel odcinek</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/DivideLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+żądany odcinek, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Podziel odcinek</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy, jeśli to konieczne,
+poprawne
+<link linkend="Expressions">wyrażenia</link>
+dla licznika i mianownika stosunku podziału i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Stosunek podziału definiuje się jako iloraz AX : XB, gdzie
+X jest punktem podziału, a AB dzielonym odcinkiem. Jeśli, na przykład stosunek podziału będzie równy 1 : 2,
+odległość punktu X od A będzie 2 razy mniejsza niż od B. Jeśli stosunek będzie równy 3 : 1, odległość punktu X 
+od A będzie 3 razy większa niż od B.
+</para>
+
+<para>
+Środek odcinka dzieli go w stosunku 1 : 1 i można go wyznaczyć w sposób opisany powyżej
+Dla wygody można też wybrać polecenie
+<link linkend="DrawMidpoint">Środek odcinka</link>.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DrawMidpoint">Środek odcinka</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawMidpoint">
+<title>Środek odcinka</title>
+
+<para>
+Aby znaleźć środek odcinka, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Środek odcinka</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+wybrany odcinek, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Środek odcinka</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy, jeśli to konieczne, nazwy punktów i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Wyznaczanie środka odcinka jest równoważne
+<link linkend="DivideSegment">podziałowi</link> tego odcinka w stosunku 1 : 1.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DivideSegment">Podziel odcinek</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideAngle">
+<title>Podziel kąt</title>
+
+<para>
+Aby podzielić kąt w danym stosunku, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Podziel kąt</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/DivideAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+dwa odcinki będące ramionami kąta, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Podziel kąt</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Ramiona kąta muszą leżeć na jednej ścianie
+i nie mogą leżeć na jednej prostej.
+</para>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy, jeśli to konieczne,
+nazwy punktów oraz poprawne
+<link linkend="Expressions">wyrażenia</link>
+dla licznika i mianownika stosunku podziału i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Stosunek podziału definiuje się jako iloraz &lt;AOX : &lt;XOB, gdzie
+OX jest odcinkiem podziału, a &lt;AOB dzielonym kątem. Jeśli, na przykład stosunek podziału będzie równy 1 : 2,
+kąt, jaki utworzy OX z OB będzie dwa razy większy niż ten jaki utworzy on z OA.
+Jeśli stosunek będzie równy 3 : 1 kąt, jaki utworzy OX z OA będzie dwa trzy większy niż ten jaki utworzy on z OB.
+</para>
+
+<para>
+Dwusieczna dzieli kąt w stosunku 1 : 1 i można ją wyznaczyć w sposób opisany powyżej
+Dla wygody można też wybrać polecenie
+<link linkend="DrawBisector">Dwusieczną</link>.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="DrawBisector">Dwusieczną</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawBisector">
+<title>Dwusieczną</title>
+
+<para>
+Aby narysować dwusieczną kąta, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Dwusieczną</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+dwa odcinki będące ramionami kąta, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Narysuj dwusieczną</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Ramiona kąta muszą leżeć na jednej ścianie
+i nie mogą leżeć na jednej prostej.
+</para>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy, jeśli to konieczne, nazwy punktów i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Wyznaczanie dwusiecznej kąta jest równoważne
+<link linkend="DivideAngle">podziałowi</link> tego kąta w stosunku 1 : 1.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="DivideAngle">Podziel kąt</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="IntersectLines">
+<title>Punkt przecięcia</title>
+
+<para>
+Aby utworzyć punkt przecięcia linii zawierających dwa dane odcinki 
+należy wykonać następujące czynności:
+
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Punkt przecięcia</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Intersect.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+odcinki, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Punkt przecięcia</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Oba odcinki oraz ich punkt przecięcia 
+muszą leżeć na tej samej ścianie.
+</para>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy, jeśli to konieczne, nazwy punktów i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayDistance">
+<title>Zaznacz w odległości</title>
+
+<para>
+Aby zaznaczyć punkt leżący na danym odcinku w zadanej odległości od danego punktu
+należy wykonać następujące czynności
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Zaznacz w odległości</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LayDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+punkt i odcinek, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Zaznacz w odległości</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Wybrany punkt i odcinek muszą leżeć na tej samej ścianie.
+Wybrany punkt nie musi leżeć na odcinku.
+</para>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy, jeśli to konieczne,
+nazwy punktów oraz poprawne
+<link linkend="Expressions">wyrażenie</link>
+oznaczające odległość i klikamy
+<emphasis>OK</emphasis>.
+Wcześniej wybrany z notatnika
+<link linkend="Notepad">zapis</link>
+zostanie automatycznie skopiowany w pole odległość okna dialogowego.
+</para>
+
+<para>
+W wyniku tej operacji może zostać zaznaczony jeden lub dwa punkty.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayAngle">
+<title>Zaznacz pod kątem</title>
+
+<para>
+Aby wyznaczyć odcinek, którego końcem jest punkt wybranego odcinka i który 
+tworzy z tym odcinkiem zadany kąt należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Zaznacz pod kątem</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/LayAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+wybrany odcinek i jego koniec, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Zaznacz pod kątem</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy, jeśli to konieczne,
+nazwy punktów oraz poprawne
+<link linkend="Expressions">wyrażenie</link> oznaczające kąt i klikamy
+<emphasis>OK</emphasis>.
+Wcześniej wybrany z notatnika
+<link linkend="Notepad">zapis</link>
+zostanie automatycznie skopiowany w pole kąt okna dialogowego.
+</para>
+
+<para>
+Kąt musi mieć miarę większą od 0 i mniejszą niż 180 stopni i być wprowadzony w radianach.
+Na przykład, jeśli chodzi nam o kąt 60 stopni, wprowadzamy PI/3.
+</para>
+
+<para>
+Jeśli wybrany odcinek należy do dwóch różnych ścian
+pojawi się kolejne okno dialogowe. Z widocznej tam listy wybieramy 
+odpowiednią ścianę i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+W wyniku tej operacji może zostać zaznaczony jeden lub dwa odcinki.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RenamePoint">
+<title>Zmień nazwę punktu</title>
+
+<para>
+Autor zadania może zmienić nazwę punktu w bryle wybierając
+<emphasis>Zmień nazwę punktu</emphasis>
+z menu
+<emphasis>Rysuj</emphasis>.
+</para>
+
+<para>
+W pojawiającym się okienku dialogowym wpisujemy starą i nową 
+nazwę dla punktu i klikamy
+<emphasis>OK</emphasis>.
+Poprawna nazwa składa się z dużej litery alfabetu 
+i jednej lub kilku cyfr.
+</para>
+
+<para>
+<link linkend="SelectElements">Wybranie</link>
+wcześniej punktu powoduje automatyczne skopiowanie go 
+w odpowiednie pole okna dialogowego.
+</para>
+
+<para>
+Zmiana nazwy punktu może spowodować zmiany niektórych
+<link linkend="Notepad">zapisów</link> w notatniku.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Notatnik</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="EraseElements">
+<title>Usuwanie elementów</title>
+
+<sect3 id="EraseSegment">
+<title>Usuń odcinek</title>
+
+<para>
+Aby usunąć odcinek lub jego część wybieramy
+<emphasis>Usuń odcinek</emphasis>
+z menu
+<emphasis>Rysuj</emphasis>
+Odcinek nie może należeć do krawędzi bryły.
+</para>
+
+<para>
+Jeśli pojawi się okno dialogowe, wpisujemy nazwy punktów i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Usunięcie całego odcinka wygodniej jest wykonać zaznaczając odcinek 
+i wybierając polecenie
+<link linkend="EraseSelection">Usuń wybrane</link>.
+</para>
+
+<para>
+Usunięcie odcinka używanego wcześniej w pomiarach może skutkować
+<link linkend="PinnedVariable">zablokowaniem</link> niektórych zmiennych.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+</sect3>
+
+<sect3 id="EraseSelection">
+<title>Usuń wybrane</title>
+
+<para>
+Aby usunąć jeden lub więcej elementów takich jak punkty czy odcinki należy
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+je, a następnie wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Usuń wybrane</emphasis> z menu
+<emphasis>Rysuj</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Erase.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Wierzchołki i odcinki należące do krawędzi bryły nie zostaną usunięte.
+</para>
+
+<para>
+Aby usunąć wszystkie punkty i odcinki w bryle 
+(za wyjątkiem jej krawędzi i wierzchołków) trzeba najpierw
+<link linkend="SelectAllElements">zaznaczyć je wszystkie</link>.
+</para>
+
+<para>
+Aby usunąć tylko część narysowanego odcinka, wybieramy polecenie
+<link linkend="EraseSegment">Usuń odcinek</link>.
+</para>
+
+<para>
+Usunięcie elementów używanych wcześniej w pomiarach może skutkować
+<link linkend="PinnedVariable">zablokowaniem</link> niektórych zmiennych..
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Transform">
+<title>Przekształcenia</title>
+
+<sect2 id="ScaleFigure">
+<title>Skalowanie</title>
+
+<para>
+Aby przeskalować bryłę wzdłuż danego odcinka w zadanej skali
+należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać
+<emphasis>Skalowanie</emphasis> z menu
+<emphasis>Przekształcenia</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Scale.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+wybrany odcinek lub dwa punkty na nim, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Skaluj bryłę</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy, jeśli to konieczne,
+nazwy punktów oraz poprawne
+<link linkend="Expressions">wyrażenie</link>
+określające skalę i klikamy
+<emphasis>OK</emphasis>.
+Wcześniej wybrany z notatnika
+<link linkend="Notepad">zapis</link>
+zostanie automatycznie skopiowany w pole skali okna dialogowego.
+</para>
+
+<para>
+W wyniku skalowania wszystkie wcześniej zmierzone odległości,
+kąty, pola i objętości zostaną odpowiednio przeliczone,
+a odpowiadające im zmienne uaktualnione. Więcej w punkcie
+<link linkend="Variables">Zmienne</link>.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Rozwiązujący zadanie nie może skalować brył, które stanowią część zadania.
+Bryły utworzone w trakcie rozwiązywania zadania mogą, wszakże, być skalowane.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="ShearFigure">
+<title>Powinowactwo ścinające</title>
+
+<para>
+Powinowactwo to oznacza przekształcenie afiniczne, w którym
+płaszczyzny równoległe do ustalonej płaszczyzny odniesienia tego przekształcenia przesuwają się
+wzdłuż pewnej ustalonej prostej zawartej w tej płaszczyźnie. Określenie
+<emphasis>afiniczne</emphasis>
+oznacza, że przekształcenie to zachowuje współliniowość punktów.
+</para>
+
+<para>
+Jeśli XY jest wspomnianą prostą leżącą na płaszczyźnie odniesienia, powinowactwo ścinające 
+jest jednoznacznie zdefiniowane przez punkty X, Y i obraz dowolnego punktu Z
+takiego, że XZ jest prostopadłe do płaszczyzny odniesienia.
+</para>
+
+<para>
+Aby przekształcić bryłę przez powinowactwo ścinające, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Powinowactwo ścinające</emphasis> z menu
+<emphasis>Przekształcenia</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Shear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+odcinek XY oraz obraz punktu Z, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Przekształć przez powinowactwo ścinające</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+W pojawiającym się oknie dialogowym wpisujemy, jeśli to konieczne,
+nazwy punktów (X, Y na dole a obraz punktu Z u góry) i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+W wyniku skalowania wszystkie wcześniej zmierzone odległości i kąty
+zostaną odpowiednio przeliczone, a odpowiadające im zmienne uaktualnione. 
+Więcej w punkcie
+<link linkend="Variables">Zmienne</link>.
+</para>
+
+<para>
+Rozwiązujący zadanie nie może przekształcać brył, które stanowią część zadania.
+Bryły utworzone w trakcie rozwiązywania zadania mogą, wszakże, być przekształcane 
+przez powinowactwo ścinające.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Zmienne</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="CutFigure">
+<title>Przekrój</title>
+
+<para>
+Aby wykonać przekrój bryły płaszczyzną, należy wykonać następujące czynności:
+</para>
+
+<itemizedlist>
+<listitem>
+Wybrać <emphasis>Przekrój</emphasis> z menu
+<emphasis>Przekształcenia</emphasis> albo
+</listitem>
+
+<listitem>
+kliknąć przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Cut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym lub
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">zaznaczyć</link>
+elementy wyznaczające płaszczyznę, np. 3 punkty, punkt i odcinek 
+lub dwa odcinki, kliknąć prawym przyciskiem myszy i wybrać
+<emphasis>Przekrój</emphasis> z pojawiającego się menu.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Wybrane elementy muszą jednoznacznie wyznaczać płaszczyznę.
+Płaszczyzna ta musi przechodzić przez wnętrze bryły.
+</para>
+
+<para>
+Jeśli pojawi się okienko dialogowe, wpisujemy nazwy punktów i klikamy
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Dwie bryły powstałe w wyniku wykonania przekroju 
+zostaną umieszczone w osobnych oknach. 
+Bryła oryginalna pozostaje nienaruszona w swoim oknie.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="JoinFigures">Połącz bryły</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="JoinFigures">
+<title>Połącz bryły</title>
+
+<para>
+Dwie bryły można połączyć albo wybierając
+<emphasis>Połącz bryły</emphasis>
+z menu
+<emphasis>Przekształcenia</emphasis>
+albo klikając przycisk
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../../images/24x24/Join.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+na pasku narzędziowym.
+</para>
+
+<para>
+W pojawiającym się okienku dialogowym wybieramy bryły do połączenia i klikamy
+<emphasis>OK</emphasis>. Ponieważ bryłę można połączyć z kopią jej samej
+można wybrać tę samą bryłę z obu list brył do połączenia.
+</para>
+
+<para>
+Jeśli bryły można połączyć tylko w jeden sposób, w nowym oknie 
+pojawi się nowa bryła powstała z ich połączenia . 
+Bryły wyjściowe pozostaną nienaruszone w swoich oknach.
+</para>
+
+<para>
+Jeżeli jednak wybrane bryły mogą być połączone na więcej niż jeden sposób, pojawi się 
+kolejne okno dialogowe z zapytaniem, czy połączyć bryły na jeden z proponowanych sposobów. Klikamy
+<emphasis>Nie</emphasis>
+aby dokładniej określić elementy łączące obie bryły.
+</para>
+
+<para>
+Klikamy
+<emphasis>Tak</emphasis>
+aby połączyć bryły na jeden z proponowanych sposobów. 
+Pojawi się podgląd wyniku połączenia i kolejne zapytanie, czy zatwierdzamy dokonany wybór. 
+Klikamy <emphasis>Tak</emphasis>, 
+aby zachować połączone bryły i zakończyć operację. Klikamy
+<emphasis>Nie</emphasis>, 
+aby obejrzeć kolejny możliwy sposób połączenia obu brył.
+</para>
+
+<para>
+Zaleca się, aby przed połączeniem brył
+<link linkend="SelectElementsOneByOne">wybrać</link>
+odpowiednie punkty lub ściany.
+Ograniczymy w ten sposób ilość pojawiających się kolejnych okien.
+Wybranie całych ścian jest możliwe tylko w trybie
+<link linkend="ToggleTransparency">nieprzezroczystym</link>.
+</para>
+
+<para>
+Łączone ściany muszą być podobne tzn. mieć 
+jednakowe kąty i proporcjonalne długości odpowiednich krawędzi. 
+Nie muszą mieć jednakowych rozmiarów. W razie potrzeby
+jedna z brył zostanie automatycznie przeskalowana, aby je dopasować. 
+</para>
+
+<para>
+Operacja zostanie anulowana, jeśli bryła otrzymana z połączenia nie byłaby wypukła.
+</para>
+
+<para>
+Czynność tę można
+<link linkend="UndoActions">cofnąć</link>.
+</para>
+
+<para>
+Zobacz też:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CutFigure">Przekrój</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Zaznaczanie elementów</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Cofnij</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+</book>

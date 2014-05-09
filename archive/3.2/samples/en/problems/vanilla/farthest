@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem xmlns="http://geocentral.net">
+<version>3.2</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/stelian</web>
+</author>
+<comments>This is a sample Geometria problem.</comments>
+</envelope>
+<text>Which point on the surface of this regular icosahedron is the farthest from vertex F?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Figure</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.0 1.0 1.618033988749895</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.0 -1.618033988749895</coords>
+</point>
+<point>
+<label>C</label>
+<coords>0.0 -1.0 1.618033988749895</coords>
+</point>
+<point>
+<label>E</label>
+<coords>1.0 1.618033988749895 0.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 -1.0 -1.618033988749895</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1.0 -1.618033988749895 0.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>-1.0 1.618033988749895 0.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-1.0 -1.618033988749895 0.0</coords>
+</point>
+<point>
+<label>I</label>
+<coords>1.618033988749895 0.0 1.0</coords>
+</point>
+<point>
+<label>J</label>
+<coords>1.618033988749895 0.0 -1.0</coords>
+</point>
+<point>
+<label>K</label>
+<coords>-1.618033988749895 0.0 1.0</coords>
+</point>
+<point>
+<label>L</label>
+<coords>-1.618033988749895 0.0 -1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.8292754647170058 -0.29240531085750765 -0.1329874913831275 0.4572916628764858</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>multipleChoice</type>
+<option>K</option>
+<option>B</option>
+<option selected="true">G</option>
+<option>L</option>
+</answer>
+</problem>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>This problem is part of the Geometria 3.0 repository.</comments>
+</envelope>
+<text>This framework has the shape of a regular truncated pyramid. To make the framework k times higher than it is now, the four shortest edges are going to be replaced with longer ones. What is the maximum value of k?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Trunk</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 -0.007499999999999982 -0.23270152556440193</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 0.9925 -0.23270152556440193</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 -0.007499999999999859 -0.23270152556440193</coords>
+</point>
+<point>
+<label>I</label>
+<coords>0.0 -0.2575 0.9920433458271871</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 -1.0075 -0.23270152556440193</coords>
+</point>
+<point>
+<label>J</label>
+<coords>0.25000000000000006 -0.007499999999999982 0.9920433458271871</coords>
+</point>
+<point>
+<label>K</label>
+<coords>0.0 0.24250000000000002 0.9920433458271871</coords>
+</point>
+<point>
+<label>L</label>
+<coords>-0.2500000000000001 -0.007499999999999951 0.992043345827187</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.47362987369018933 -0.3665103929239398 -0.46694017433073187 0.650624122072753</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>1.1726039399558574</value>
+</answer>
+</problem>

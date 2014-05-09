@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema é parte do repositório do Geometria.</comments>
+</envelope>
+<text>Encontre um plano que passa através do vértice L deste prima e é paralelo ao plano AHN.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Prisma</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>-0.06833333333333344 -0.9283333333333333 -0.625</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.06833333333333344 -0.9283333333333333 0.625</coords>
+</point>
+<point>
+<label>L</label>
+<coords>-0.23499999999999993 0.905 -0.625</coords>
+</point>
+<point>
+<label>M</label>
+<coords>-0.754047619047619 0.10023809523809546 0.625</coords>
+</point>
+<point>
+<label>A</label>
+<coords>0.9316666666666666 0.07166666666666685 -0.625</coords>
+</point>
+<point>
+<label>J</label>
+<coords>-0.23499999999999988 0.9049999999999999 0.625</coords>
+</point>
+<point>
+<label>N</label>
+<coords>-0.754047619047619 0.10023809523809551 -0.625</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.9316666666666666 0.07166666666666685 0.625</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.2883423794292621 -0.5419386698228811 -0.6966094377680295 0.3713441013240806</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>fixedPlane</type>
+<coords>-0.6169047619047617 -0.10547619047619056 0.625</coords>
+<coords>0.731666666666666 -0.12833333333333363 0.625</coords>
+<coords>-0.23499999999999993 0.905 -0.625</coords>
+</answer>
+</problem>

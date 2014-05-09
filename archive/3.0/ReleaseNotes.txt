@@ -1,0 +1,31 @@
+Copyright 2000-2010 Geometria Contributors
+http://geocentral.net/geometria
+
+RELEASE NOTES
+
+Version 3.0
+
+Changes
+
+* Open source (GPL).
+* Human-readable XML format for saved documents.
+* Swing look and feel.
+* One application for both problem creation and solving.
+* Applet has the same functionality as desktop version, except documents
+cannot be saved.
+* Internationalization.
+* Rotate figures with mouse strokes.
+* Built-in solution log.
+* Toolbars.
+* Printing.
+* Help navigation, search.
+* Logging.
+* Measure area, volume.
+
+Known Limitations
+
+* The application may behave erratically if the figures contain excessively
+sized or oddly shaped elements.
+* The application font and other attributes are not configurable by the user.
+* Not backward compatible. Documents saved with prior versions are not
+supported.

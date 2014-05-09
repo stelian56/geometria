@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Esta solução é parte do repositório do Geometria 3.0.</comments>
+</envelope>
+<problem>
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema é parte do repositório do Geometria 3.0.</comments>
+</envelope>
+<text>Este tanque d'água, na forma de um prisma regular, está com 7/8 cheio. O diâmetro de uma bola metálica é igual a um quarto da altura do tanque. Um certo número destas bolas é colocada no tanque até que a água comece a transbordar. Quantas bolas podem ser colocadas no tanque?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Tanque</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>I</label>
+<coords>-0.804746484543699 -0.5819073997695483 0.5</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.804746484543699 -0.5819073997695483 -0.5</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.0042705098312485 0.005877852522924672 -0.5</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1.0042705098312485 0.005877852522924672 0.5</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.8047464845436989 0.593663104815398 0.5</coords>
+</point>
+<point>
+<label>J</label>
+<coords>0.31328750420619567 -0.9451786637722289 0.5</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.8047464845436989 0.593663104815398 -0.5</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.3132875042061959 0.9569343688180783 -0.5</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.3132875042061959 0.9569343688180783 0.5</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.31328750420619567 -0.9451786637722289 -0.5</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.41346657962945993 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>37.0</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GVolumeAction</className>
+<figureName>Tanque</figureName>
+<variableName>VolumeDoTanque</variableName>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Tanque</figureName>
+<p1Label>F</p1Label>
+<p2Label>A</p2Label>
+<variableName>Altura</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>DiametroDaBola</variableName>
+<expression>Altura/4</expression>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>VolumeDaBola</variableName>
+<expression>PI*DiametroDaBola^3/6</expression>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>NumeroDeBolas</variableName>
+<expression>VolumeDoTanque/8/VolumeDaBola</expression>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>37</value>
+</action>
+</log>
+</solution>

@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Esta solución es parte del almacén o repositorio de Geometria 3.0.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema es parte del almacén o repositorio de Geometria 3.0.</comments>
+</envelope>
+<text>Una esfera de un diámetro máximo se coloca en este tazón hecho de un prisma regular unido a una pirámide regular. El tazón estaba inicialmente lleno de agua. ¿Cómo hallar el volumen de agua desplazado por la esfera?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Tazón</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.996180339887499 0.0 -0.9770271963607354</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.30519733426244633 0.9510565162951535 -0.9770271963607354</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.8128366544874485 0.5877852522924732 -0.9770271963607354</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.996180339887499 0.0 -0.22702719636073543</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.8128366544874486 -0.587785252292473 -0.9770271963607354</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.3051973342624461 -0.9510565162951536 -0.9770271963607354</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.30519733426244633 0.9510565162951535 -0.22702719636073543</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.8128366544874485 0.5877852522924732 -0.22702719636073543</coords>
+</point>
+<point>
+<label>I</label>
+<coords>-0.8128366544874486 -0.587785252292473 -0.22702719636073543</coords>
+</point>
+<point>
+<label>J</label>
+<coords>0.3051973342624461 -0.9510565162951536 -0.22702719636073543</coords>
+</point>
+<point>
+<label>K</label>
+<coords>-0.00381966011250099 0.0 1.4059659654947168</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>0.29466086296282445 0.7208393787344652 -0.5807039079065018 0.23737846837031026</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>4.2732230472552475</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GCutAction</className>
+<figureName>Tazón</figureName>
+<p0Label>H</p0Label>
+<p1Label>C</p1Label>
+<p2Label>K</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura2</figureName>
+<p0Label>K</p0Label>
+<p1Label>M</p1Label>
+<p2Label>C</p2Label>
+</action>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Figura2</figureName>
+<p0Label>L</p0Label>
+<p1Label>M</p1Label>
+<p2Label>K</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figura2</figureName>
+<p11Label>L</p11Label>
+<p12Label>O</p12Label>
+<p21Label>K</p21Label>
+<p22Label>N</p22Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura2</figureName>
+<p0Label>P</p0Label>
+<p1Label>K</p1Label>
+<p2Label>L</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figura2</figureName>
+<p1Label>P</p1Label>
+<p2Label>Q</p2Label>
+<variableName>Radio</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Figura2</figureName>
+<distance>Radio</distance>
+<p0Label>P</p0Label>
+<p1Label>K</p1Label>
+<p2Label>N</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figura2</figureName>
+<p1Label>R</p1Label>
+<p2Label>N</p2Label>
+<variableName>Altura</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Figura2</figureName>
+<distance>Radio</distance>
+<p0Label>P</p0Label>
+<p1Label>M</p1Label>
+<p2Label>C</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Figura2</figureName>
+<p1Label>S</p1Label>
+<p2Label>T</p2Label>
+<variableName>Base</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>Volumen</variableName>
+<expression>PI*Altura*(3*Base^2+Altura^2)/6</expression>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>Volumen</value>
+</action>
+</log>
+</solution>

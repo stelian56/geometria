@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>O problemă-model din cadrul Geometriei.</comments>
+</envelope>
+<text>Această carcasă are forma unei piramide regulate. O bară cilindrică suficient de lungă este trecută prin interiorul carcasei astfel încat suprafaţa barei atinge toate muchiile cu exceptia lui AB. Construieşte punctul în care bara atinge muchia DC.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Piramida</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>D</label>
+<coords>0.0 0.0 1.1267652816802618</coords>
+</point>
+<point>
+<label>A</label>
+<coords>1.0 0.0 -0.5062278801751902</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5000000000000003 -0.8660254037844386 -0.5062278801751902</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.49999999999999967 0.8660254037844386 -0.5062278801751902</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.4792916756378825 -0.354306829601106 -0.4609184033373507 0.6574955403857817</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>-0.2771332833038013 -0.4800089271505632 0.221651768564948</coords>
+</answer>
+</problem>

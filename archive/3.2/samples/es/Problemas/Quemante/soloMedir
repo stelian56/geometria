@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Liliana Saidon - Dir Centro Babbage</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>www.centrobabbage.com</web>
+</author>
+<comments>El desafío es averiguar el valor de la altura sólo a partir de medidas de longitud. Acaso antes de controlar la respuesta, para validar el resultado - llamémoslo &lt;resultado obtenido&gt; -  se prefiera calcular:
+Vol = vol[PirA]
+ABC = area[ABC]
+hc = 3 * Vol / ABC  - siendo hc la altura calculada a contrastar con la medida y obtenida  - 
+y verificar que sea aproximadamente 1 la razón entre hc  /  &lt;resultado obtenido&gt;.</comments>
+</envelope>
+<text>Averiguar la altura de la pirámide, apelando sólo a la medición de longitudes.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Pirámide</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>-0.2934267007882947 0.020880078872271925 0.08769511275662126</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.14243408449630893 -0.28003638609105586 0.1895605786345931</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.3624571939483009 -0.3999818667606038 0.21598706992542652</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.1549653690956006 -0.12571438053459386 0.3860318776682486</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.3875522969405371 0.02853119036992066 -0.06560492834350733 0.9190675610036687</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.2339417032462657</value>
+</answer>
+</problem>

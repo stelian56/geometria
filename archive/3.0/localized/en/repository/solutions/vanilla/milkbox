@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Liliana Saidon, Dir. Centro Babbage de Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>http://www.centrobabbage.com</web>
+</author>
+<comments>This solution is part of the Geometria 3.0 repository.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Liliana Saidon, Dir. Centro Babbage de Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>http://www.centrobabbage.com</web>
+</author>
+<comments/>
+</envelope>
+<text>Cut this empty milk box so that the section is a square.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>MilkBox</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.875 0.125 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.12500000000000006 0.875 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.875 -0.1249999999999999 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.875 0.125 3.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.12500000000000017 -0.875 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.12500000000000006 0.875 3.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>-0.875 -0.1249999999999999 3.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.12500000000000017 -0.875 3.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.4501192204070411 -0.32336263712320257 -0.484839546298731 0.6765795641886668</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition/>
+<condition/>
+<condition>
+<type>square</type>
+<figureName>MilkBox</figureName>
+</condition>
+</answer>
+</problem>
+<log>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>MilkBox</figureName>
+<p1Label>H</p1Label>
+<p2Label>E</p2Label>
+<variableName>side</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>MilkBox</figureName>
+<distance>side</distance>
+<p0Label>F</p0Label>
+<p1Label>A</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>MilkBox</figureName>
+<p0Label>I</p0Label>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>G,F,I</value>
+<figureName>Figure1</figureName>
+</action>
+</log>
+</solution>

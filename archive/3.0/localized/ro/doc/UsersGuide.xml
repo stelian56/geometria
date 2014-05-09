@@ -1,0 +1,4159 @@
+<?xml-stylesheet type="text/xsl" href="fo.xsl"  encoding="UTF-8"?>
+
+<book id="GeometriaUsersGuide" lang="ro">
+
+<title>Geometria 3.0</title>
+<subtitle>Ghid de utilizator</subtitle>
+
+<chapter id="General">
+<title>Noţiuni generale</title>
+
+<!-- Help page start -->
+
+<sect1 id="Overview">
+<title>Introducere</title>
+
+<para>
+<emphasis>Geometria</emphasis>
+oferă o interfaţă grafica pentru crearea şi rezolvarea problemelor
+de geometrie în spaţiu.
+</para>
+
+<para>
+La orice moment dat, utilizatorul Geometriei are rolul fie de
+<emphasis>creator</emphasis>
+de probleme (altfel spus, profesor), fie de
+<emphasis>rezolvitor</emphasis>
+de probleme (altfel spus, elev).
+</para>
+
+<para>
+Atât problemele, cât şi soluţiile reprezintă
+<emphasis>documente</emphasis>.
+Documentele sunt salvate in fişiere. Tipic, utilizatorii Geometriei sunt
+angajati în felul următor:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Creatorul crează o problemă nouă, îi dă un
+<link linkend="Answer">răspuns</link>
+şi
+<link linkend="SaveProblem">salvează</link>
+problema într-un fişier.
+</listitem>
+
+<listitem>
+Rezolvitorul
+<link linkend="OpenProblem">deschide</link>
+problema şi începe o
+<link linkend="CreateSolution">nouă soluţie</link>
+a problemei.
+</listitem>
+
+<listitem>
+Soluţia constă dintr-un număr de paşi. Paşii sunt înscriși în
+<link linkend="SolutionLog">jurnalul soluţiei</link>.
+</listitem>
+
+<listitem>
+Rezolvitorul dă
+<link linkend="Answer">răspuns</link>
+la problemă. Răspunsul rezolvitorul se consideră corect dacă
+acest raspuns se potriveşte cu răspunsul dat de creator.
+Un răspuns corect încheie
+<link linkend="SolutionLog">jurnalul soluţiei</link>.
+Rezolvitorul
+<link linkend="SaveSolution">salvează</link>
+soluţia într-un fişier.
+</listitem>
+
+<listitem>
+Soluţia poate fi
+<link linkend="SolutionLog">derulată</link>
+prin
+<link linkend="OpenSolution">deschiderea</link>
+fişierului şi urmărirea pas cu pas a acţiunilor rezolvitorului.
+</listitem>
+
+</itemizedlist>
+
+<para>
+E de notat că Geometria nu produce o analiză semantică a problemei
+pentru a afla dacă răspunsul dat de creator este în realitate corect.
+E posibil ca acest răspuns să fie incorect sau chiar să nu aibă
+nici un sens. Ca, de altfel, şi problema însăşi. Ne putem imagina
+o problemă cu textul următor:
+
+</para>
+
+<para>
+<emphasis>
+Care e cel mai înalt vârf în judeţul Monkey's Brow, statul Kentucky?
+</emphasis>
+</para>
+
+<para>
+şi să aibă ca răspuns:
+</para>
+
+<para>
+<emphasis>
+Punctul Z în figura PiramidaMea.
+</emphasis>
+</para>
+
+<para>
+Dacă creatorul consideră acesta un răspuns corect
+la problema sa, nu vor exista obiecţii din partea Geometriei.
+Pe de alta parte, însă, e puţin probabil ca problema sa să se
+bucure de atenţia rezolvitorilor.
+</para>
+
+<para>
+Fiecare document conține textul problemei,
+<link linkend="Envelope">plicul</link>
+documentului, un număr de figuri şi un număr de 
+<link linkend="Notepad">înregistrări</link>
+pe tablă. Figurile pot fi doar poliedre convexe.
+Figurile pot fi măsurate, transformate
+<link linkend="RotateFigure">rotite</link>,
+făcute
+<link linkend="ViewModes">transparente</link>
+sau opace, văzute cu sau fără notaţii.
+</para>
+
+<para>
+Măsurătorile şi construcţiile sunt posibile doar pe suprafaţa
+figurii. Dacă există necesitatea unor acțiuni în interiorul figurii,
+aceasta trebuie mai întâi
+<link linkend="CutFigure">secţionată</link>
+cu un plan potrivit.
+</para>
+
+<para>
+Notaţiile şi
+<link linkend="Variables">variabilele</link>
+oferă o abstracţie utilă asupra coordonatelor numerice şi măsurătorilor.
+<link linkend="Variables">Variabilele</link>
+sunt folosite în
+<link linkend="Calculator">calcule</link>
+şi referite în construcţii. Notaţiile şi variabilele pot fi folosite şi
+pentru a da
+<link linkend="Answer">răspuns</link>
+la problemă.
+</para>
+
+<para>
+<link linkend="Answer">Răspunsul</link>
+nu este în mod necesar numeric. Multe
+probleme au ca răspuns un punct, un segment, o linie frântă sau
+un plan. De exemplu:
+</para>
+
+<para>
+<emphasis>
+Află un plan care este paralel cu diagonala cubului
+şi taie din cub un volum egal cu cel al piramidei.
+</emphasis>
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Calculator</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Tabla</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Variables">
+<title>Variabile</title>
+
+<sect2 id="CreatingAVariable">
+<title>Crearea unei variabile</title>
+
+<para>
+O <emphasis>variabilă</emphasis> este creată ca rezultat al unei
+măsurări sau al unui calcul. Variabila are un nume şi o definiţie.
+De exemplu, variabila distantaMea din exemplul de mai jos este
+definită ca distanţa dintre punctele P şi W în figura CubulMeu:
+</para>
+
+<programlisting>
+distantaMea = |PW| : CubulMeu
+</programlisting>
+
+<para>
+În exemplul următor variabila ariaMea a aparut în rezultatul unui calcul
+asupra variabilelor volumulMeu şi distantaMea, care
+au fost definite anterior:
+</para>
+
+<programlisting>
+ariaMea = 2 * volumulMeu / distantaMea
+</programlisting>
+
+<para>
+Variabilele nou create sunt înregistrate, în mod automat, împreună
+cu definiţiile lor, pe
+<link linkend="Notepad">tablă</link>.
+</para>
+
+<para>
+Un nume de variabilă nu poate conţine alte caractere decât cele
+alfanumerice. Spaţiile, caracterele speciale si cele cu semne diacritice
+nu sunt permise.
+</para>
+
+<para>
+Majusculele şi minusculele reprezintă caractere
+diferite. De pildă,
+<emphasis>ariaMea</emphasis>
+şi
+<emphasis>AriaMea</emphasis>
+referă două variabile distincte.
+</para>
+
+<para>
+Cuvântul
+<emphasis>PI</emphasis>
+e rezervat pentru constanta respectivă şi nu poate fi folosit pentru
+denumirea unei variabile nou create. Însă acest cuvânt poate fi folosit
+în
+<link linkend="Calculator">calcule</link>.
+</para>
+
+</sect2>
+
+<sect2 id="ValueOfAVariable">
+<title>Valoarea variabilei</title>
+
+<para>
+Fiecare variabilă are o valoare numerică. În cele mai dese cazuri, însă,
+această valoare rămâne în afara cadrului. În Geometria,
+utilizatorul poate compune şi rezolva probleme fără a cunoaște
+valoarile intrinsece a variabilelor pe care le-a definit. Pentru
+a vedea valoarea numerică a unei variabile, introdu variabila în
+<link linkend="Calculator">calculator</link>
+şi fă click pe butonul
+<emphasis>Evaluează</emphasis>.
+Datorită erorilor de rotunjire, valorile numerice pot varia uşor
+în procesul creării sau rezolvării problemei.
+</para>
+
+<para>
+Valoarea variabilei se poate schimba ca rezultat al unor
+acţiuni asupra figurilor. Dacă, în exemplul de mai sus, CubulMeu e
+<link linkend="ScaleFigure">scalat</link>
+de 3 ori, valoarea numerică a variabilei
+distantaMea se va mări implicit de 3 ori. Valorile altor variabile,
+care depind de distantaMea, ca de pildă AriaMea, vor vi actualizate şi ele.
+</para>
+
+<para>
+Dimpotrivă, valoarea numerică a
+<link linkend="Answer">răspunsului</link>
+va rămâne neafectată de acţiunile asupra figurilor. Să ne întoarcem
+la exemplul de mai sus. Dacă creatorul problemei introduce 
+distantaMea ca răspuns la problemă
+<emphasis>înainte</emphasis>
+de a scala figura, valoarea răspunsului nu se va schimba, în
+pofida faptului ca distantaMea va purta o nouă valoare în toate
+calculele ulterioare. Această observaţie e valabilă pentru orice
+tip de răspuns.
+</para>
+
+<para>
+Prin urmare, creatorul problemei este încurajat să introducă
+răspunsul chiar înainte de a pune problema la dispoziţia
+rezolvitorilor, iar dacă răspunsul a fost deja introdus, să-l mai
+introducă încă o dată.
+</para>
+
+</sect2>
+
+<sect2 id="PinnedVariable">
+<title>Variabilă fixată</title>
+
+<para>
+Ca rezultat al anumitor acţiuni, definiţia unei variabile poate
+deveni irelevantă. De exemplu, dacă punctul P sau W este
+<link linkend="EraseElements">eliminat</link>,
+definiţia variabilei distantaMea de mai sus va deveni irelevantă.
+Acelaşi lucru se va întâmpla, dacă figura CubulMeu este
+<link linkend="RemoveFigure">eliminat</link>.
+O astfel de variabilă se numeşte
+<emphasis>fixată</emphasis>.
+</para>
+
+<para>
+O variabilă fixată încetează să mai depindă de definiţia sa
+originală, iar valoarea ei nu va mai fi actualizată în procesul
+acțiunilor asupra figurilor. De exemplu,
+<link linkend="EraseElements">eliminarea</link>
+punctului P din figura CubulMeu va face din distantaMea o
+variabilă fixată. Dacă CubulMeu e ulterior scalat, așa cum e arătat
+mai sus, valoarea variabilei distantaMea va rămâne neschimbată.
+</para>
+
+<para>
+Dacă, însă, acţiunea care s-a soldat cu fixarea variabiliei este
+<link linkend="UndoActions">anulată</link>,
+definiţia variabilei e reconstruită şi variabila devine din nou
+ţintă a modificărilor.
+</para>
+
+</sect2>
+
+<sect2 id="LifetimeOfAVariable">
+<title>Ciclul de viaţă al variabilei</title>
+
+<para>
+Odată definită, o variabilă poate fi folosită în
+<link linkend="Calculator">calcule</link>
+şi referită în măsurări, construcţii şi transformări. Variabila
+poate fi folosită şi pentru a da
+<link linkend="Answer">răspuns</link>
+la problemă. Variabilele fixate pot fi folosite şi ele în calcule
+şi referinţe.
+</para>
+
+<para>
+O variabilă există atâta timp cât ea este inregistrată pe
+<link linkend="Notepad">tablă</link>.
+Ştergerea
+<link linkend="Notepad">tablei</link>
+este singura modalitate de a elimina o variabilă. Recurge la
+această acţiune cu prudenţă, deoarece ea nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+La salvarea documentului, înregistrările de pe
+<link linkend="Notepad">tablă</link>
+sunt salvate şi ele.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Notepad">Tabla</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Calculatorul</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Salvare problemă</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Salvare soluţie</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anulare</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Calculator">
+<title>Calculator</title>
+
+<sect2 id="Expressions">
+<title>Expresii</title>
+
+<para>
+Calculele sunt efectuate asupra unor expresii valabile. Expresiile pot
+conţine numere,
+<link linkend="Variables">variabile</link>,
+constanta
+<emphasis>PI</emphasis>,
+operaţii, funcţii şi paranteze.
+</para>
+
+</sect2>
+
+<sect2 id="Assignment">
+<title>Atribuire</title>
+
+<para>
+Calculatorul operează în contextul documentului curent.
+</para>
+
+<para>
+Pentru a calcula expresia expresiaMea şi a atribui rezultatul
+unei noi variabile variabilaMea, introdu:
+</para>
+
+<programlisting>
+variabilaMea=expresiaMea
+</programlisting>
+
+<para>
+şi fă click pe
+<emphasis>Evaluează</emphasis>.
+Numele variabilei trebuie să fie unic în contextul documentului curent.
+O nouă înregistrare va fi trecută pe
+<link linkend="Notepad">tabla</link>.
+Variabila creată în acest fel poate fi utilizată în calculele şi referinţele
+ulterioare.
+</para>
+
+<para>
+Dacă nu e deschis nici un document, calculatorul va afişa valoarea
+numerică a rezultatului. Nu va fi creată o variabilă nouă.
+</para>
+
+</sect2>
+
+<sect2 id="Operators">
+<title>Operaţii</title>
+
+<para>
+Sunt disponibile operaţiile următoare:
+</para>
+
+<itemizedlist>	
+
+<listitem>
++ (adunare)
+</listitem>
+
+<listitem>
+- (negaţie, scădere)
+</listitem>
+
+<listitem>
+* (înmulţire)
+</listitem>
+
+<listitem>
+/ (împărţire)
+</listitem>
+
+<listitem>
+^ (ridicarea la putere)
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="Functions">
+<title>Funcţii</title>
+
+<para>
+Sunt disponibile funcţiile următoare:
+</para>
+
+<itemizedlist>
+
+<listitem>
+sqrt (rădăcină pătrată)
+</listitem>
+
+<listitem>
+sin
+</listitem>
+
+<listitem>
+cos
+</listitem>
+
+<listitem>
+tan
+</listitem>
+
+<listitem>
+asin
+</listitem>
+
+<listitem>
+acos
+</listitem>
+
+<listitem>
+atan
+</listitem>
+
+</itemizedlist>
+
+<para>
+Argumentele funcţiilor sunt luate în paranteze rotunde.
+</para>
+
+</sect2>
+
+<sect2 id="Examples">
+<title>Exemple</title>
+
+<para>
+Latura unui cub al cărui volum este volumulMeu:
+</para>
+
+<programlisting>
+laturaMea = volumulMeu ^ (1 / 3)
+</programlisting>
+
+<para>
+Cateta alăturată unghiului unghiulMeu
+într-un triunghi dreptunghic cu ipotenuza ipotenuzaMea:
+</para>
+
+<programlisting>
+catetaMea = ipotenuzaMea * cos(unghiulMeu)
+</programlisting>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Tabla</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Notepad">
+<title>Tabla</title>
+
+<para>
+Orice
+<link linkend="CreatingAVariable">variabilă</link>
+creată ca rezultat al unei măsurări sau a unui
+<link linkend="Calculator">calcul</link>
+este înregistrată, în mod automat, pe tablă. Orice înregistrare de pe tablă
+constă dint-un nume unic de variabilă şi, posibil,
+o definiţie. Înregistrarile măsurărilor pot conţine şi numele
+figurii măsurate. De exemplu, înregistrarea următoare:
+</para>
+
+<programlisting>
+distantaMea = |AB| : CubulMeu
+</programlisting>
+
+<para>
+este rezultatul măsurării distanţei dintre punctele A şi B în
+figura CubulMeu. Acestei distanţe i-a fost atribuită variabila
+distantaMea. Înregistrarea:
+</para>
+
+<programlisting>
+unghiulMeu = &lt;PLX
+</programlisting>
+
+<para>
+este rezultatul măsurării unui unghi. Numele figurii nu este indicat
+deoarece documentul conţine doar o singura figură. Înregistrarea:
+</para>
+
+<programlisting>
+volumulMeu = volum : Figura1
+</programlisting>
+
+<para>
+este rezultatul măsurării volumului figurii Figura1. Înregistrarea
+următoare a fost creată în urma unui
+<link linkend="Calculator">calcul</link>:
+</para>
+
+<programlisting>
+h = 2 * volumulMeu / ariaMea
+</programlisting>
+
+<para>
+Atunci când o variabilă devine
+<link linkend="PinnedVariable">fixată</link>,
+definiţia ei nu mai apare pe tablă. De exemplu,
+dacă punctul X este
+<link linkend="EraseElements">eliminat</link>,
+definiţia variabilei unghiulMeu devine irelevantă şi exemplul
+al doilea de mai sus va arăta în felul următor:
+</para>
+
+<programlisting>
+unghiulMeu
+</programlisting>
+
+<para>
+Înregistrările de pe tablă aparţin documentului
+curent, fie acesta o problemă sau o soluţie. Atunci când documentul
+e salvat într-un fişier, înregistrarile sunt salvate şi ele în
+acel fişier.
+</para>
+
+<para>
+Dacă documentul curent este
+<link linkend="CloseDocument">închis</link>,
+tabla e curăţată de înregistrări. Dacă alt document e
+deschis ulterior, tabla va afişa înregistrările ce
+aparţin acestuia din urmă.
+</para>
+
+<para>
+Pentru a şterge toate înregistrările de pe tablă, alege
+<emphasis>Curăţare tablă</emphasis>
+din meniul <emphasis>Editare</emphasis>.
+Procedează cu precauţie fiindcă această acţiune nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Pentru a deselecta înregistrarile de pe tablă, fă click
+pe butonul stâng şi alege
+<emphasis>Curăţă selecţia</emphasis>
+din meniul popup.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="Calculator">Calculator</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="UndoActions">
+<title>Anularea acţiunilor</title>
+
+<para>
+Pentru a anula ultima acţiune executată asupra unei figuri
+sau a documentului curent, alege
+<emphasis>Anulare</emphasis>
+din meniul <emphasis>Editare</emphasis>
+sau fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte. Dacă documentul curent este o soluţie,
+acţiunea va fi eliminată şi din
+<link linkend="SolutionLog">jurnalul</link>
+soluţiei. Acţiunile sunt anulate în ordinea inversă a execuției lor.
+</para>
+
+<para>
+Pentru a afişa o scurtă descriere a acţiunii care urmează a fi anulată,
+plasează mouse-ul de asupra butonului
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Undo.png"/>
+</imageobject> 
+</inlinemediaobject> .
+
+</para>
+
+<para>
+Orice acțiune anulată poate fi
+<link linkend="RedoActions">refăcută</link>.
+</para>
+
+<para>
+Unele acţiuni nu pot fi anulate. În cazul lor se afișează un avertisment.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RedoActions">Refacerea acțiunilor</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Jurnalul soluţiei</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RedoActions">
+<title>Refacerea acţiunilor</title>
+
+<para>
+Pentru a reface ultima acţiune anulată asupra unei figuri
+sau a documentului curent, alege
+<emphasis>Refacere</emphasis>
+din meniul
+<emphasis>Editare</emphasis>
+sau fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject>
+<imagedata fileref="../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte. Dacă documentul curent este o soluţie,
+acţiunea va fi înscrisă în
+<link linkend="SolutionLog">jurnalul</link>
+soluţiei. Acţiunile sunt refăcute în ordinea inversă a anulării lor.
+</para>
+
+<para>
+Pentru a afişa o scurtă descriere a acţiunii care urmează a fi refăcută,
+plasează mouse-ul de asupra butonului
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Redo.png"/>
+</imageobject> 
+</inlinemediaobject> .
+
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Anularea acțiunilor</link>
+</listitem>
+<listitem>
+<link linkend="SolutionLog">Jurnalul soluţiei</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="KnownLimitations">
+<title>Limitări</title>
+
+<sect2 id="InordinateSizeOrShape">
+<title>Dimensiuni şi forme neordinare</title>
+
+<para>
+Programul poate avea un comportament instabil dacă figurile conţin
+elemente de formă sau dimensiune exagerată.
+Iată câteva recomandaţii demne de urmat:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Evită
+<link linkend="ScaleFigure">raporturi de scalare</link>
+atat foarte mari (peste 100) cât şi foarte mici (sub 0.01).
+</listitem>
+
+<listitem>
+Atunci când creezi o prismă sau piramidă folosind
+<link linkend="FigureGallery">galeria de figuri</link>,
+alege un număr de laturi moderat (sub 100). Geometria nu poate opera
+decât cu poliedre convexe. Totuşi, prismele şi piramidele
+<link linkend="ToggleTransparency">opace</link>
+cu un număr mare de laturi produc
+impresia unor cilindri, respectiv сoni. Din păcate, manipularea unor
+astfel de figuri poate fi lentă şi neimpresionantă. Programul poate
+să devină instabil şi să înceteze a mai reacţiona la comenzile utilizatorului.
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="PreviousVersionsOfGeometria">
+<title>Versiunile anterioare ale Geometriei</title>
+
+<para>
+Nu oferim suport pentru problemele, soluţiile şi figurile create
+cu versiunile Geometriei, care au precedat versiunea 3.0. Vom face, însă,
+tot ce ne stă în putinţă, pentru ca toate versiunile viitoare să fie
+compatibile cu versiunea 3.0.
+</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Documents">
+<title>Documente</title>
+
+<sect1 id="Envelope">
+<title>Plicul</title>
+
+<para>
+Plicul documentului constă din
+numele, adresa email si pagina web ale autorului şi din comentarii.
+Toţi parametrii sunt opţionali.
+</para>
+
+<para>
+Pentru a edita plicul, alege
+<emphasis>Plic</emphasis>
+din meniul
+<emphasis>Editare</emphasis>
+sau fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Envelope.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte. Se va afişa un dialog. Introdu informaţia cerută şi
+fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Modificările plicului pot fi
+<link linkend="UndoActions">anulate</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="Answer">
+<title>Răspuns</title>
+
+<para>
+Problema nu este gata de rezolvare până când creatorul nu defineşte un
+răspuns. Răspunsul rezolvitorului se consideră corect dacă acest
+răspuns se potriveşte cu răspunsul creatorului (vezi
+<link linkend="Overview">Introducerea</link>).
+</para>
+
+<sect2 id="CreatorsAnswer">
+<title>Raspunsul creatorului</title>
+
+<para>
+Pentru a da răspuns problemei curente, alege
+<emphasis>Răspuns</emphasis>
+din meniul
+<emphasis>Editare</emphasis>.
+Selectează tipul răspunsului:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Număr
+</listitem>
+
+<listitem>
+Mulţime de puncte
+</listitem>
+
+<listitem>
+Plan fix, sau
+</listitem>
+
+<listitem>
+Plan condiţionat.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Deschide panoul
+<emphasis>Valoare</emphasis>.
+</para>
+
+</sect2>
+
+<sect2 id="AnswerTypes">
+<title>Tipuri de răspuns</title>
+
+<sect3 id="ANumber">
+<title>Număr</title>
+
+<para>
+Introdu o
+<link linkend="Expressions">expresie</link>
+valabilă. Fă click pe butonul
+<emphasis>OK</emphasis>.
+Pentru a câştiga timp, selectează anterior o
+<link linkend="Notepad">înregistrare</link>
+de pe tablă.
+</para>
+
+</sect3>
+
+<sect3 id="PointSet">
+<title>Mulţime de puncte</title>
+
+<para>
+Termenul
+<emphasis>mulţime de puncte</emphasis>
+se referă la un singur punct, un segment (2 puncte) sau o linie frântă
+(3 sau mai multe puncte).
+</para>
+
+<para>
+Introdu, prin virgulă, una sau mai multe notaţii. Fă click pe butonul
+<emphasis>OK</emphasis>.
+Pentru a câştiga timp,
+<link linkend="SelectElements">selectează</link>
+anterior punctele în figură.
+</para>
+
+</sect3>
+
+<sect3 id="FixedPlane">
+<title>Plan fix</title>
+
+<para>
+Introdu 3 puncte care definesc planul în mod unic.
+Separă punctele prin virgulă. Fă click pe butonul
+<emphasis>OK</emphasis>.
+Pentru a câştiga timp,
+<link linkend="SelectElements">selectează</link>
+anterior punctele în figură.
+</para>
+
+</sect3>
+
+<sect3 id="ConditionPlane">
+<title>Plan condiţionat</title>
+
+<para>
+Spre deosebire de un plan fix, adică un plan ce ocupă o poziţie
+fixă în spaţiu, un
+<emphasis>plan condiţionat</emphasis>
+trebuie să satisfacă un număr de condiții. În cele mai
+multe cazuri, există o infinitate de plane care satisfac condiţiile impuse.
+</para>
+
+<para>
+Condiţiile se împart în trei grupuri. Selectează o condiţie din cel puţin
+un grup. Fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Primul grup constă din următoarele condiţii:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Planul conţine un punct dat
+</listitem>
+
+<listitem>
+Planul conţine o dreaptă dată
+</listitem>
+
+<listitem>
+Planul nu conţine un punct dat
+</listitem>
+
+<listitem>
+Planul nu conţine o dreaptă dată
+</listitem>
+
+<listitem>
+Planul nu conţine nici un vărf al figurii
+</listitem>
+
+<listitem>
+Planul nu conţine nici o muchie a figurii
+</listitem>
+
+<listitem>
+Planul este paralel la o dreaptă dată
+</listitem>
+
+<listitem>
+Planul este paralel la un plan dat
+</listitem>
+
+<listitem>
+Planul este perpendicular pe o dreaptă dată
+</listitem>
+
+<listitem>
+Planul este perpendicular pe un plan dat
+</listitem>
+
+</itemizedlist>
+
+<para>
+Referă, după caz, punctul, dreapta sau planul dat, separând
+punctele prin virgulă.
+Pentru a câştiga timp,
+<link linkend="SelectElements">selectează</link>
+anterior punctele în figură.
+</para>
+
+<para>
+Grupul al doilea constă din condiţia următoare:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Planul împarte volumul figurii în raportul dat
+</listitem>
+
+</itemizedlist>
+
+<para>
+Introdu o
+<link linkend="Expressions">expresie</link>
+valabilă. Expresia va fi interpretată ca numărător al unei fracţii
+cu numitorul 1. De exemplu, a + 1 înseamnă că volumul trebuie împărţit în
+raportul a + 1 : 1. Pentru a câştiga timp, selectează o
+<link linkend="Notepad">înregistrare</link>
+de pe tablă. Aceasta va fi copiată, în mod automat, în căsuța raportului.
+</para>
+
+<para>
+Grupul al treilea indică forma secțiunii. Secţiunea poate fi:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Un triunghi isoscel
+</listitem>
+
+<listitem>
+Un triunghi dreptunghic
+</listitem>
+
+<listitem>
+Un triunghi echilateral
+</listitem>
+
+<listitem>
+Un paralelogram
+</listitem>
+
+<listitem>
+Un romb
+</listitem>
+
+<listitem>
+Un dreptunghi
+</listitem>
+
+<listitem>
+Un pătrat
+</listitem>
+
+</itemizedlist>
+
+<para>
+Creatorul poate
+<link linkend="UndoActions">anula</link>
+propriul răspuns.
+</para>
+
+<para>
+E de notat că, deşi creatorul problemei introduce, de regulă, răspunsul în
+mod simbolic, Geometria salvează toate răspunsurile în mod numeric.
+Odată introdus, răspunsul nu va mai fi afectat de acţiunile ulterioare
+asupra figurilor. Prin urmare, creatorul problemei este încurajat să introducă
+răspunsul chiar înainte de a pune problema la dispoziţia
+rezolvitorilor, iar dacă răspunsul a fost deja introdus, să-l mai
+introducă încă o dată.
+</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="SolversAnswer">
+<title>Răspunsul rezolvitorului</title>
+
+<para>
+Rezolvitorul încheie soluţia printr-un răspuns corect la problemă.
+Răspunsul rezolvitorului se consideră corect dacă acest răspuns
+se potriveşte cu răspunsul dat de creator.
+</para>
+
+<para>
+Pentru a da răspuns,
+<link linkend="OpenSolution">deschide</link>
+soluţia, alege
+<emphasis>Răspuns</emphasis>
+din meniul
+<emphasis>Editare</emphasis>
+şi introdu, după caz, o
+<link linkend="Expressions">expresie</link>
+valabilă sau câteva puncte separate prin virgulă.
+Pentru a câştiga timp, selectează anterior o
+<link linkend="Notepad">înregistrare</link>
+de pe tablă şi/sau nişte 
+<link linkend="SelectElements">elemente</link>,
+precum puncte, segmente sau o faţă. Fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Ca rezultat, se va afişa o evaluare a răspunsului (corect sau incorect).
+</para>
+
+<para>
+Un răspuns corect încheie soluția. Alte acţiuni nu mai sunt posibile,
+decât dacă răspunsul este
+<link linkend="UndoActions">anulat</link>.
+<link linkend="SaveSolution">Salvează</link>
+soluţia într-un fişier. O soluţie salvată poate fi
+<link linkend="SolutionLog">derulată</link>
+mai târziu.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">Introducere</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Tabla</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Selectare</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="CreateProblem">
+<title>Crearea unei probleme</title>
+
+<para>
+Crează o problemă fie alegând
+<emphasis>Creare document-&gt;Problemă</emphasis>
+din meniul
+<emphasis>Document</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/NewProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Dacă documentul curent conţine modificări nesalvate, se va afişa
+un dialog, avertizându-l pe utilizator să salveze documentul înainte
+de a-l închide.
+</para>
+
+<para>
+Pentru a salva documentul curent, fă click pe butonul
+<emphasis>Da</emphasis>.
+</para>
+
+<para>
+Pentru a închide documentul curent fără a-l salva, fă click pe butonul
+<emphasis>Nu</emphasis>.
+E de notat că modificările nesalvate ale documentului curent
+vor fi pierdute.
+</para>
+
+<para>
+Pentru a renunţa la crearea problemei, fă click pe butonul
+<emphasis>Renunţă</emphasis>.
+Dialogul va dispărea, iar documentul curent va fi afişat în continuare.
+</para>
+
+<para>
+Odată dusă la bun sfârşit, această acţiune nu mai poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Deschiderea problemei</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Salvarea problemei</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Închiderea documentului</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenProblem">
+<title>Deschiderea problemei</title>
+
+<para>
+Deschide o problemă dintr-un fişier fie alegând
+<emphasis>Deschidere document-&gt;Problemă</emphasis>
+din meniul
+<emphasis>Document</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/OpenProblem.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Dacă documentul curent conţine modificări nesalvate, se va afişa
+un dialog avertizându-l pe utilizator să salveze documentul înainte
+de a-l închide.
+</para>
+
+<para>
+Pentru a salva documentul curent, fă click pe butonul
+<emphasis>Da</emphasis>.
+</para>
+
+<para>
+Pentru a închide documentul curent fără a-l salva, fă click pe butonul
+<emphasis>Nu</emphasis>.
+E de notat că modificările nesalvate ale documentului curent
+vor fi pierdute.
+</para>
+
+<para>
+Pentru a renunţa la deschiderea problemei, fă click pe butonul
+<emphasis>Renunţă</emphasis>.
+Dialogul va dispărea, iar documentul curent va fi afişat în continuare.
+</para>
+
+<para>
+Odată dusă la bun sfârşit, această acţiune nu mai poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Crearea unei probleme</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Salvarea problemei</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Închiderea documentului</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveProblem">
+<title>Salvarea problemei</title>
+
+<para>
+Salvează problema curentă într-un fişier fie alegând
+<emphasis>Salvare document</emphasis>
+din meniul
+<emphasis>Document</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/SaveDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Pentru a salva problema sub un nume diferit, alege
+<emphasis>Salvează documentul ca</emphasis>
+din meniul
+<emphasis>Document</emphasis>.
+</para>
+
+<para>
+Această acţiune nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Dacă problema curentă e gata de a fi pusă la dispoziţia rezolvitorilor,
+creatorul e încurajat să
+<link linkend="Notepad">curăţe</link>
+toate calculele şi măsurătorile de pe tablă.
+Deşi înregistrările neeliminate nu vor mai apărea pe tabla rezolvitorului,
+ele vor fi totuși prezente în fişierul problemei.
+</para>
+
+<para>
+Procedează la curăţarea tablei cu precauţie, deoarece această acțiune
+nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Nu uita că versiunea finală a problemei trebuie să aibă şi un
+<link linkend="Answer">răspuns</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Crearea unei probleme</link>
+</listitem>
+<listitem>
+<link linkend="OpenProblem">Deschiderea problemei</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Închiderea documentului</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Răspuns</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CreateSolution">
+<title>Crearea unei soluţii</title>
+
+<para>
+Crează o soluţie a problemei curente fie alegând
+<emphasis>Creare document-&gt;Soluţie</emphasis>
+din meniul
+<emphasis>Document</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/NewSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Dacă problema pe care vrei s-o rezolvi nu e afişată,
+<link linkend="OpenProblem">deschide-o</link>
+mai întâi.
+</para>
+
+<para>
+Dacă problema curentă conţine modificări nesalvate, se va afişa
+un dialog avertizându-l pe utilizator să salveze problema înainte
+de a o închide.
+</para>
+
+<para>
+Pentru a salva problema curentă, fă click pe butonul
+<emphasis>Da</emphasis>.
+</para>
+
+<para>
+Pentru a închide problema curentă fără a o salva, fă click pe butonul
+<emphasis>Nu</emphasis>.
+E de notat că modificările nesalvate ale problemei curente
+vor fi pierdute.
+</para>
+
+<para>
+Pentru a renunţa la crearea soluţiei, fă click pe butonul
+<emphasis>Renunţă</emphasis>.
+Dialogul va dispărea, iar problema curentă va fi afişată în continuare.
+</para>
+
+<para>
+Odată dusă la bun sfârşit, această acţiune nu mai poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenProblem">Deschiderea problemei</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Deschiderea soluţiei</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Salvarea soluţiei</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Închiderea documentului</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenSolution">
+<title>Deschiderea soluţiei</title>
+
+<para>
+Deschide o soluţie dintr-un fişier fie alegând
+<emphasis>Deschidere document-&gt;Soluţie</emphasis>
+din meniul
+<emphasis>Document</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/OpenSolution.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Dacă documentul curent conţine modificări nesalvate, se va afişa
+un dialog avertizându-l pe utilizator să salveze documentul înainte
+de a-l închide.
+</para>
+
+<para>
+Pentru a salva documentul curent, fă click pe butonul
+<emphasis>Da</emphasis>.
+</para>
+
+<para>
+Pentru a închide documentul curent fără a-l salva, fă click pe butonul
+<emphasis>Nu</emphasis>.
+E de notat că modificările nesalvate ale documentului curent
+vor fi pierdute.
+</para>
+
+<para>
+Pentru a renunţa la deschiderea soluţiei, fă click pe butonul
+<emphasis>Renunţă</emphasis>.
+Dialogul va dispărea, iar documentul curent va fi afişat în continuare.
+</para>
+
+<para>
+Odată dusă la bun sfârşit, această acţiune nu mai poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Crearea unei soluţii</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Salvarea soluţiei</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Închiderea documentului</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveSolution">
+<title>Salvarea soluției</title>
+
+<para>
+Salvează soluţia curentă într-un fişier fie alegând
+<emphasis>Salvare document</emphasis>
+din meniul 
+<emphasis>Document</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/SaveDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Pentru a salva soluţia un nume diferit, alege
+<emphasis>Salvează documentul ca</emphasis>
+din meniul
+<emphasis>Document</emphasis>.
+</para>
+
+<para>
+Această acţiune nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Nu uita că versiunea finală a problemei trebuie să aibă şi un
+<link linkend="Answer">răspuns</link>.
+</para>
+
+<para>
+Vezi şi
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateSolution">Crearea unei soluţii</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Deschiderea soluţiei</link>
+</listitem>
+<listitem>
+<link linkend="CloseDocument">Închiderea documentului</link>
+</listitem>
+<listitem>
+<link linkend="Answer">Răspuns</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloseDocument">
+<title>Închiderea documentului</title>
+
+<para>
+Închide documentul curent, fie acesta o problemă sau o soluţie, alegând
+<emphasis>Închidere document</emphasis>
+din meniul
+<emphasis>Document</emphasis>
+sau făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/CloseDocument.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Dacă documentul curent conţine modificări nesalvate, se va afişa
+un dialog avertizându-l pe utilizator să salveze documentul înainte
+de a-l închide.
+</para>
+
+<para>
+Pentru a salva documentul curent, fă click pe butonul
+<emphasis>Da</emphasis>.
+</para>
+
+<para>
+Pentru a închide documentul curent fără a-l salva, fă click pe butonul
+<emphasis>Nu</emphasis>.
+E de notat că modificările nesalvate ale documentului curent
+vor fi pierdute.
+</para>
+
+<para>
+Pentru a renunţa la închiderea documentului, fă click pe butonul
+<emphasis>Renunţă</emphasis>.
+Dialogul va dispărea, iar documentul curent va fi afişat în continuare.
+</para>
+
+<para>
+Odată dusă la bun sfârşit, această acţiune nu mai poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Înregistrările de pe
+<link linkend="Notepad">tablă</link>
+şi figurile aparţin documentului curent. După ce documentul e închis,
+tabla se curăţa, iar figurile se închid și ele.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CreateProblem">Crearea unei probleme</link>
+</listitem>
+<listitem>
+<link linkend="OpenProblem">Deschiderea problemei</link>
+</listitem>
+<listitem>
+<link linkend="SaveProblem">Salvarea problemei</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SolutionLog">
+<title>Jurnalul soluţiei</title>
+
+<para>
+Aciţiunile rezolvitorului sunt înscrise în jurnalul soluţiei.
+O soluţie
+<link linkend="SaveSolution">salvată</link>
+poate fi ulterior deschisă pentru a derula jurnalul soluţiei.
+</para>
+
+<para>
+Pentru a demara derularea soluţia, fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogPlay.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Pentru a executa pasul următor al soluţiei, fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogNext.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Pentru a sări câţiva paşi înainte sau înapoi, selectează înregistrarea
+respectivă din jurnalul soluţiei.
+</para>
+
+<para>
+Pentru a curăţa jurnalul soluţiei, fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogClear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+. Fii precaut, deoarece această acţiune nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Pentru a elimina toate înregistrările mai jos de cea selectată,
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogCut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+. Procedează cu precauţie, deoarece această acţiune nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Pentru a opri derularea soluţiei, fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LogStop.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+.
+</para>
+
+<para>
+Soluţia curentă este îngheţată pe întreaga perioadă a derulării sale.
+Daca doreşti să modifici soluţia, opreşte mai întâi derularea ei.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Overview">Întroducere</link>
+</listitem>
+<listitem>
+<link linkend="SaveSolution">Salvarea documentului</link>
+</listitem>
+<listitem>
+<link linkend="OpenSolution">Deschiderea soluţiei</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="Figures">
+<title>Figuri</title>
+
+<sect1 id="FigureGallery">
+<title>Galeria de figuri</title>
+
+<para>
+Galeria de figuri conţine prisme şi piramide regulate, precum şi cele cinci
+poliedre regulate: tetraedrul, cubul, octoedrul, dodecaedrul şi icosaedrul.
+</para>
+
+<para>
+Pentru a crea o prismă, alege un articol din meniul
+<emphasis>Figură-&gt;Galerie-&gt;Prismă</emphasis>.
+</para>
+
+<para>
+Pentru a crea o piramidă, alege un articol din meniul
+<emphasis>Figură-&gt;Galerie-&gt;Piramidă</emphasis>.
+</para>
+
+<para>
+Pentru a crea un poliedru regulat, alege un articol din meniul
+<emphasis>Figură-&gt;Galerie-&gt;Poliedru regulat</emphasis>.
+</para>
+
+<para>
+Figura va fi adăugată la documentul curent. Dacă nu e deschis nici
+un document, poți crea, mai întâi,
+<link linkend="CreateProblem">o problemă nouă</link>.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Deschiderea figurii</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="OpenFigure">
+<title>Deschiderea figurii</title>
+
+<para>
+Deschide o figură din fişier fie alegând
+<emphasis>Deschidere figură</emphasis>
+din meniul
+<emphasis>Figură</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/OpenFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Figura va fi adăugată la documentul curent. Dacă nu e deschis nici
+un document, poți crea, mai întâi,
+<link linkend="CreateProblem">o problemă nouă</link>.
+</para>
+
+<para>
+Prismele şi piramidele regulate, precum şi cele cinci poliedre regulate,
+pot fi alese din
+<link linkend="FigureGallery">galeria</link>
+de figuri.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="FigureGallery">Galeria de figuri</link>
+</listitem>
+<listitem>
+<link linkend="SaveFigure">Salvează figura</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="CloneFigure">
+<title>Clonarea figurii</title>
+
+<para>
+Clonează figura fie alegând
+<emphasis>Clonare figură</emphasis>
+din meniul
+<emphasis>Figură</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/CloneFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="SaveFigure">
+<title>Salvarea figurii</title>
+
+<para>
+Salvează figura într-un fişier fie alegând
+<emphasis>Salvare figură</emphasis>
+din meniul
+<emphasis>Figură</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/SaveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Această acţiune nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="OpenFigure">Deschiderea figurii</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RemoveFigure">
+<title>Eliminarea figuii</title>
+
+<para>
+Elimină figura din documentul curent fie alegând
+<emphasis>Eliminare figură</emphasis>
+din meniul
+<emphasis>Figură</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/RemoveFigure.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Dacă figura eliminată a fost în trecut măsurată,
+unele variabile vor deveni
+<link linkend="PinnedVariable">fixate</link>.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Creatorul poate elimina orice figură cu excepţia celei referite în
+<link linkend="Answer">răspuns.</link>.
+</para>
+
+<para>
+Rezolvitorul poate elimina orice figură cu excepţia celor care
+fac parte din problemă.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportImage">
+<title>Export Imagine</title>
+
+<para>
+Pentru a exporta figura într-un fișier imagine, alege
+<emphasis>Export Imagine</emphasis>
+din meniul
+<emphasis>Figură</emphasis>.
+Se va afișa un dialog. Alege tipul fișierului imagine,
+introdu un nume de fișier și fă click pe butonul
+<emphasis>Salvează</emphasis>.
+</para>
+
+<para>
+Această acţiune nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi și:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Anularea acțiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="ExportOFFFile">
+<title>Export fisier OFF</title>
+
+<para>
+<emphasis>OFF</emphasis> este un format răspândit pentru
+fișierele ce conțin poliedre. El este folosit în
+Geomview (http://www.geomview.org) și alte programe de geometrie
+pe calculator. Pentru a exporta figura în formatul OFF, alege
+<emphasis>Export fișier OFF</emphasis>
+din meniul
+<emphasis>Figură</emphasis>.
+Se va afișa un dialog. Introdu un nume de fișier și fă click pe butonul
+<emphasis>Salvează</emphasis>.
+</para>
+
+<para>
+Această acţiune nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi și:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Anularea acțiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="RenameFigure">
+<title>Redenumirea figurii</title>
+
+<para>
+Pentru a schimba numele figurii, alege
+<emphasis>Redenumire figură</emphasis>
+din meniul
+<emphasis>Figură</emphasis>.
+</para>
+
+<para>
+Un nume de figură poate conține semne diacritice.
+Unele semne speciale, precum și spațiile, nu sunt admise.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Rezolvitorul nu poate schimba numele unei figuri care face parte din
+problemă. Dimpotrivă, orice figură creată ca parte a soluţiei
+poate fi redenumită.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="PrintFigure">
+<title>Imprimarea figurii</title>
+
+<para>
+Imprimă figura fie alegând
+<emphasis>Imprimare figură</emphasis>
+din meniul
+<emphasis>Figură</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Print.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Această acţiune nu poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi și:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="UndoActions">Anularea acțiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="View">
+<title>Vizualizare</title>
+
+<sect2 id="Attitude">
+<title>Atitudine</title>
+
+<para>
+<emphasis>Geometria</emphasis>
+utilizează un sistem de coordonate fix de orientare pozitivă.
+Axa Z a sistemului de coordonate este paralelă la muchia verticală
+a ecranului. Cunoaşterea coordonatelor nu e necesară nici pentru manipularea
+figurilor, nici pentru crearea şi rezolvarea problemelor.
+</para>
+
+<para>
+În orice moment dat, figura are o anumită atitudine. Atitudinea poate
+fi descrisă în termeni de unghiuri pe care figura le formează cu
+sistemul de coordonate. În momentul creării, figura are atitudinea
+<emphasis>lipsă</emphasis>.
+Atitudinea figurii se schimbă în procesul rotaţiei.
+</para>
+
+<para>
+Pentru a reveni la atitudinea iniţială, alege
+<emphasis>Atitudine iniţială</emphasis>
+din meniul
+<emphasis>Vizualizare</emphasis>.
+sau fă click pe butonul drept și alege
+<emphasis>Vizualizare</emphasis>.
+din meniul popup.
+</para>
+
+<para>
+În momentul salvării documentului, atitudinile curente ale figurilor
+devin atitudinile lor iniţiale.
+Pentru a reveni la atitudinea pe care figura o avea la momentul creării
+sale, înainte de rotaţiile ulterioare, alege
+<emphasis>Atitudine lipsă</emphasis>
+din meniul
+<emphasis>Vizualizare</emphasis>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Rotaţia figurii</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RotateFigure">
+<title>Rotaţia figurii</title>
+
+<para>
+<link linkend="ToggleSelector">Dezangajează</link>
+selectorul şi mângâie figura cu mouse-ul pentru a o roti.
+Viteza şi ungiul rotaţiei va depinde de mişcarea mouse-ului.
+</para>
+
+<para>
+Pentru a opri rotaţia, fă click pe figură.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Attitude">Atitudine</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="SelectElements">
+<title>Selectarea elementelor</title>
+
+<sect3 id="ToggleSelector">
+<title>Comutarea selectorului</title>
+
+<para>
+Fă click pe figură şi alege
+<emphasis>Comutare selector</emphasis>
+din meniul popup sau fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/SelectorOn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Atunci când selectorul este angajat (icoană albă),
+elementele pot fi selectate făcând click pe acestea.
+Atunci când selectorul este dezangajat (icoană gri),
+figura poate fi
+<link linkend="RotateFigure">rotită</link>
+mângâind-o cu mouse-ul.
+</para>
+
+<para>
+Selectorul este dezangajat prin lipsă.
+</para>
+
+</sect3>
+
+<sect3 id="SelectElementsOneByOne">
+<title>Selectarea elementelor unul câte unul</title>
+
+<para>
+Pentru a selecta (evidenţia) un element, fie el punct, segment sau faţă,
+fă click pe el. Pentru a selecta două sau mai multe elemente,
+fă click pe ele, unul după altul, ţinând tasta
+Ctrl apăsată. Feţele pot fi selectate doar în modul
+<link linkend="ViewModes">opac</link>.
+</para>
+
+<para>
+Fă click într-un spațiu gol din interiuorul figurii
+pentru a curăţa selecţia. Pentru a curăța un singur element din selecție,
+fă click pe el, ținând tasta Ctrl apăsată.
+</para>
+
+</sect3>
+
+<sect3 id="SelectAllElements">
+<title>Selectarea tuturor elementelor</title>
+
+<para>
+Pentru a selecta toate punctele si segmentele dintr-o figură
+(cu excepția vârfurilor și a muchiilor), alege
+<emphasis>Selectează totul</emphasis>
+din meniul
+<emphasis>Editare</emphasis>.
+Această acțiune oferă o modalitate convenabilă de a
+<link linkend="EraseSelection">elimina toate elementele</link>
+deodată.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="RotateFigure">Rotaţia figurii</link>
+</listitem>
+<listitem>
+<link linkend="ViewModes">Moduri de vizualizare</link>
+</listitem>
+<listitem>
+<link linkend="EraseSelection">Eliminarea selecției</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ViewModes">
+<title>Moduri de vizualizare</title>
+
+<sect3 id="ToggleTransparency">
+<title>Comutarea transparenţei</title>
+
+<para>
+Pentru a comuta modul de vizualizare între transparent şi opac, alege
+<emphasis>Comutare transparenţă</emphasis>
+din meniul
+<emphasis>Vizualizare</emphasis>
+sau fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Transparency.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Într-o figură transparentă, segmentele vizibile sunt trasate cu linii continui,
+iar cele invizibile cu linii întrerupte. Atât punctele şi segmentele
+vizibile, cât şi cele invizibile, pot fi selectate. Feţele pot fi selectate
+doar în figuri opace.
+</para>
+
+<para>
+Într-o figură opacă, punctele şi segmentele invizibile nu sunt
+afişate. Punctele, segmentele şi feţele pot fi selectate doar dacă acestea
+sunt vizibile.
+</para>
+
+</sect3>
+
+<sect3 id="SetColor">
+<title>Schimbarea culorii</title>
+
+<para>
+Pentru a schimba culoarea unei figuri opace, alege
+<emphasis>Schimbare culoare</emphasis>
+din meniul
+<emphasis>Vizualizare</emphasis>
+sau fă click pe butonul selectării culorii
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Color.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+pe bara de unelte. Selectează o culoare din dialogul afişat şi
+fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+</sect3>
+
+<sect3 id="ToggleLabels">
+<title>Comutarea notaţiilor</title>
+
+<para>
+Pentru a afişa sau, dimpotrivă, a ascunde notaţiile punctelor, alege
+<emphasis>Comutare notaţii</emphasis>
+din meniul
+<emphasis>Vizualizare</emphasis>
+sau fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Labels.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte. Notaţiile vor fi afişate doar în figurile
+<link linkend="ToggleTransparency">transparente</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="ZoomFigure">
+<title>Redimensionarea figurii</title>
+
+<para>
+Pentru a mări figura, alege
+<emphasis>Mărire</emphasis>
+din meniul
+<emphasis>Vizualizare</emphasis>
+sau vă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/ZoomIn.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Pentru a micşora figura, alege
+<emphasis>Micşorare</emphasis>
+din meniul
+<emphasis>Vizualizare</emphasis>
+sau fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/ZoomOut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Pentru a potrivi dimensiunile figurii cu cele ale feresrei, alege
+<emphasis>Dimensiuni potrivite</emphasis>
+din meniul
+<emphasis>Vizualizare</emphasis>
+sau fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/FitToView.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Measure">
+<title>Măsurări</title>
+
+<sect2 id="MeasureDistance">
+<title>Măsurarea distanţei</title>
+
+<para>
+Pentru a măsura distanţa dintre două puncte, procedează în unul din
+modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Distanţa</emphasis>
+din meniul
+<emphasis>Măsurare</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/MeasureDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+cele două puncte sau segmentul care le uneşte, fă click pe
+butonul drept şi alege
+<emphasis>Distanţă</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Cele două puncte trebuie să se afle pe aceeaşi faţă.
+</para>
+
+<para>
+Se va afişa un dialog. Introdu, dacă e nevoie, cele două puncte,
+atribuie distanței o
+<link linkend="Variables">variabilă</link>
+unică şi fă click pe butonul
+<emphasis>OK</emphasis>.
+Pe
+<link linkend="Notepad">tablă</link>
+va apărea o nouă înregistrare de felul:
+</para>
+
+<programlisting>
+distantaMea = |AB| : CubulMeu
+</programlisting>
+
+<para>
+unde distantaMea e variabila atribuită distanţei dintre punctele A şi B
+în figura CubulMeu. Dacă documentul nu conţine alte figuri decât CubulMeu,
+înregistrarea va arăta în modul următor:
+</para>
+
+<programlisting>
+distantaMea = |AB|
+</programlisting>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea Elementelor</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Tabla</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureAngle">
+<title>Măsurarea unghiului</title>
+
+<para>
+Pentru a măsura un unghi, procedează în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Unghi</emphasis>
+din meniul
+<emphasis>Măsurare</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/MeasureAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+două segmente care formează unghiul în cauză,
+fă click pe butonul drept şi alege
+<emphasis>Unghi</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Segmentele care formează unghiul trebuie să aparţină aceleiaşi feţe
+şi să nu fie coliniare.
+</para>
+
+<para>
+Se va afişa un dialog. Introdu, dacă e nevoie, extremitățile segmentelor,
+atribuie o
+<link linkend="Variables">variabilă</link>
+unică unghiului măsurat şi fă click pe butonul
+<emphasis>OK</emphasis>.
+Pe
+<link linkend="Notepad">tablă</link>
+se va afişa o înregistrare de felul:
+</para>
+
+<programlisting>
+unghiulMeu = &lt;ABC : PiramidaMea
+</programlisting>
+
+<para>
+unde unghiulMeu e variabila atribuită unghiului dintre AB şi AC
+în figura PiramidaMea. Dacă documentul curent nu conţine altă figură
+decât PiramidaMea, înregistrarea va arăta în modul următor:
+</para>
+
+<programlisting>
+unghiulMeu = &lt;ABC
+</programlisting>
+
+<para>
+Toate unghiurile sunt exprimate în radiani.
+</para>
+
+<para>
+Această acţiune poat fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Tabla</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureArea">
+<title>Măsurarea ariei</title>
+
+<para>
+Pentru a măsura aria unei feţe, procedează în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Arie</emphasis>
+din meniul
+<emphasis>Măsurare</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Area.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+faţa, fă click pe butonul drept şi alege
+<emphasis>Arie</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Se va afişa un dialog. Selectează, dacă este necesar, faţa din listă,
+atribuie o
+<link linkend="Variables">variabilă</link>
+unică şi fă click pe butonul
+<emphasis>OK</emphasis>.
+Pe
+<link linkend="Notepad">tablă</link>
+se va afișa o înregistrare de felul:
+</para>
+
+<programlisting>
+ariaMea = aria[ABC] : CubulMeu
+</programlisting>
+
+<para>
+unde ariaMea e variabila atriubuită ariei feţei care conține vârfurile
+A, B, C din figura CubulMeu.
+Dacă documentul curent nu conţine altă figură decât
+CubulMeu, înregistrarea va avea forma:
+</para>
+
+<programlisting>
+ariaMea = aria[ABC]
+</programlisting>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Tabla</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="MeasureVolume">
+<title>Măsurarea volumului</title>
+
+<para>
+Pentru a măsura volumul figurii, procedează în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Volum</emphasis>
+din meniul
+<emphasis>Măsurare</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Volume.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Se va afişa un dialog. Atribuie o
+<link linkend="Variables">variabilă</link>
+unică volumului măsurat şi fă click pe butonul
+<emphasis>OK</emphasis>.
+Pe
+<link linkend="Notepad">tablă</link>
+va apărea o înregistrare de felul următor:
+</para>
+
+<programlisting>
+volumulMeu = volum : CubulMeu
+</programlisting>
+
+<para>
+unde volumulMeu este variabila atribuită volumului figurii CubulMeu.
+Dacă documentul curent nu conţine altă figură decât
+CubulMeu, înregistrarea va avea forma:
+</para>
+
+<programlisting>
+volumulMeu = volum
+</programlisting>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Tabla</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Draw">
+<title>Construcţii</title>
+
+<sect2 id="DrawLine">
+<title>Construirea segmentului</title>
+
+<para>
+Pentru a uni două puncte printr-un segment, procedează în unul din
+modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Construire segment</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/DrawLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+cele două puncte, fă click pe butonul drept şi alege
+<emphasis>Construire segment</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Cele două puncte trebuie să aparţină aceleiaşi feţe.
+</para>
+
+<para>
+Dacă se afişează un dialog, introdu punctele şi fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawPerpendicular">
+<title>Construirea perpendicularei</title>
+
+<para>
+Pentru a duce perpendiculara printr-un punct pe un segment,
+procedează în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Construire perpendiculară</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Perpendicular.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+punctul şi segmentul, fă click pe butonul drept şi alege
+<emphasis>Construire perpendiculară</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Punctul şi segmentul trebuie să aparţină aceleiaşi feţe. Punctul poate
+să aparţină segmentului sau să nu-i aparţină.
+</para>
+
+<para>
+Dacă se aşişiează un dialog, introdu punctul și extremitățile segmentului
+şi fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Dacă punctul şi segmentul aparţin la două feţe diferite în acelaşi timp,
+un al doilea dialog poate apărea. Alege faţa din lista afişată
+şi fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideLine">
+<title>Împărţirea segmentului</title>
+
+<para>
+Pentru a împărţi segmentul într-un raport dat, procedează
+în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Împărţire segment</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/DivideLine.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+fă click pe butonul drept şi alege
+<emphasis>Împărţire segment</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Se va afişa un dialog. Introdu, dacă e nevoie, extremitățile segmentului
+şi două
+<link linkend="Expressions">expresii</link>
+valabile pentru, respectiv, numărătorul şi numitorul raportului.
+Fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Raportul este definit ca AX : XB, unde X este punctul de diviziune, AB
+segmentul. De exemplu, dacă raportul este 1 : 2, X va fi de două ori mai
+aproape de A decât de B. Dacă raportul este 3 : 1, X va fi de trei ori
+mai aproape de B decât de A.
+</para>
+
+<para>
+Mijlocul segmentului împarte segmentul în raportul 1 : 1 şi deci poate
+fi construit după cum e arătat mai sus, deşi
+<link linkend="DrawMidpoint">calea directă</link>
+este mai convenabilă.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DrawMidpoint">Mijlocul segmentului</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawMidpoint">
+<title>Mijlocul segmentului</title>
+
+<para>
+Pentru a construi mijlocul segmentului, procedează în unul din modurile
+următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Mijlocul segmentului</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>,
+sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+segmentul, fă click pe butonul drept şi alege
+<emphasis>Mijlocul segmentului</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Dacă se afişează un dialog, introdu punctele. Fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+E de notat că construirea mijlocului segmentului este echivalentă cu
+<link linkend="DivideLine">împărţirea</link>
+acestuia în raportul 1 : 1.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="DivideLine">Împărţirea segmentului</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DivideAngle">
+<title>Împărţirea unghiului</title>
+
+<para>
+Pentru a împărţi unghiul într-un raport dat, procedează în
+unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Împărţire unghi</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/DivideAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+două segmente care formează unghiul, fă click pe butonul drept
+şi alege
+<emphasis>Împărţire unghi</emphasis> 
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Segmentele care formează unghiul trebuie să aparţină aceleiaşi feţe
+şi să nu fie coliniare.
+</para>
+
+<para>
+Se va afişa un dialog. Introdu, dacă e necesar, extremitățile segmentelor
+şi două
+<link linkend="Expressions">expresii</link>
+valabile pentru, respectiv, numărătorul şi numitorul raportului.
+Fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Raportul este definit ca &lt;AOX : &lt;XOB, unde
+OX este segmentul de diviziune, iar &lt;AOB unghiul. De exemplu, dacă raportul
+este 1 : 2, OX va forma cu OB un unghi de două ori mai mare decât
+cu OA. Dacă raportul este 3 : 1, OX va forma cu OA un unghi de trei
+ori mai mare decât cu OB.
+</para>
+
+<para>
+Bisectoarea împarte unghiul în raportul 1 : 1 şi deci poate fi construită
+după cum e arătat mai sus, deşi
+<link linkend="DrawBisector">calea directă</link>
+este mai convenabilă.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="DrawBisector">Bisectoarea</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="DrawBisector">
+<title>Bisectoarea</title>
+
+<para>
+Pentru a construi bisectoarea unghiului, procedează în unul din
+modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Bisectoare</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>,
+sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+două segmente care formează unghiul, fă click pe butonul drept şi alege
+<emphasis>Bisectoare</emphasis> din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Segmentele care formează unghiul trebuie să aparţină aceleiaşi feţe
+şi să nu fie coliniare.
+</para>
+
+<para>
+Se va afişa un dialog. Introdu, dacă este necesar, extremitățile segmentelor.
+Fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+E de notat că construirea bisectoarei este echivalentă cu
+<link linkend="DivideAngle">împărţirea</link>
+unghiului în raportul 1 : 1.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="DivideAngle">Împărţirea unghiului</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="IntersectLines">
+<title>Intersecţia</title>
+
+<para>
+Pentru a construi punctul de intersecţie a dreptelor care conțin
+două segmente date, procedează în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Intersectare drepte</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>, sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Intersect.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+cele două segmente, fă click pe butonul drept şi alege
+<emphasis>Intersectare drepte</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Cele două segmente trebuie să aparţine aceleiaşi feţe. Punctul de intersecţie
+trebuie să se afle în interiorul feţei în cauză
+</para>
+
+<para>
+Dacă se afişează un dialog, introdu punctele. Fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayDistance">
+<title>Depunerea segmentului</title>
+
+<para>
+Pentru a construi pe segmentul dat un punct la distanţa dată de un
+punct dat, procedează în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Depunere segment</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>, sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LayDistance.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+punctul şi segmentul, fă click pe butonul drept şi alege
+<emphasis>Depunere segment</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Punctul şi segmentul trebuie să aparţină aceleiaşi feţe. Punctul poate
+să aparţine segmentului sau să nu-i aparţină.
+</para>
+
+<para>
+Se va afişa un dialog. Introdu, dacă e nevoie, punctul,
+extremitățile segmentului şi o
+<link linkend="Expressions">expresie</link>
+valabilă pentru lungimea segmentului depus. Fă click pe butonul
+<emphasis>OK</emphasis>.
+Daca o variabilă e selectată pe
+<link linkend="Notepad">tablă</link>,
+ea va fi copiată, în mod automat, în dialogul afişat.
+</para>
+
+<para>
+Această acţiune poate rezulta în construirea unui singul punct sau a două
+puncte diferite.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="LayAngle">
+<title>Depunerea unghiului</title>
+
+<para>
+Pentru a construi un segment care porneşte dintr-o extremitate a segmentului
+dat şi formează cu acesta un unghi dat, procedează în unul din modurile
+următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Depunere unghi</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/LayAngle.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+segmentul şi extremitatea sa, fă click pe butonul drept şi alege
+<emphasis>Depunere unghi</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Se va afişa un dialog. Introdu, dacă este necesar,
+extremitățile segmentului şi o
+<link linkend="Expressions">expresie</link>
+valabilă pentru unghi. Fă click pe butonul
+<emphasis>OK</emphasis>.
+Dacă o variabilă e selectată pe
+<link linkend="Notepad">tablă</link>
+ea va fi copiată, în mod automat, în dialogul afişat.
+</para>
+
+<para>
+Unghiul trebuie să fie cuprins între 0 şi 180 de grade exclusiv şi
+să fie introdus în radiani. De exemplu, pentru a depune un unghi de 60 de grade,
+introdu PI/3.
+</para>
+
+<para>
+Daca segmentul aparţine la două feţe diferite în acelaşi timp,
+se va afişf un al doilea dialog. Selectează o faţă din listă
+şi fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Această acţiune poate rezulta în construirea unui singul segment sau a două
+segmente diferite.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="RenamePoint">
+<title>Schimb notație</title>
+
+<para>
+Creatorul problemei poate schimba notația oricărui punct dintr-o figură, selectând
+<emphasis>Schimb notație</emphasis>
+din meniul
+<emphasis>Construcție</emphasis>.
+</para>
+
+<para>
+Se va afișa un dialog. Introdu notația veche și cea nouă ale punctului în cauză
+și fă click pe butonul
+<emphasis>OK</emphasis>.
+O notație valabilă constă dintr-o majusculă, care poate fi urmată
+de una sau mai multe cifre. Nu se admit semne diacritice.
+</para>
+
+<para>
+<link linkend="SelectElements">Selectează</link>
+punctul din timp pentru a-l copia, în mod automat,
+în dialogul afișat.
+</para>
+
+<para>
+Ca rezultat al schimbului de notații, unele
+<link linkend="Notepad">înregistrări</link>
+de pa tablă se pot modifica corespunzător.
+</para>
+
+<para>
+Această acțiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi și:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectare elemente</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anulare acțiuni</link>
+</listitem>
+<listitem>
+<link linkend="Notepad">Tabla</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="EraseElements">
+<title>Eliminarea elementelor</title>
+
+<sect3 id="EraseLine">
+<title>Eliminarea segmentului</title>
+
+<para>
+Pentru a elimina un segment sau un fragment al acestuia, alege
+<emphasis>Eliminare segment</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>.
+</para>
+
+<para>
+Segmentul în cauză nu poate aparţine unei muchii.
+</para>
+
+<para>
+Dacă se afişează un dialog, introdu extremitățile segmentului şi
+fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+E de notat că întregul segment poate fi eliminat într-un mod mai simplu:
+selectând-ul mai întâi şi apoi
+<link linkend="EraseSelection">eliminând selecţia</link>.
+</para>
+
+<para>
+Dacă segmentul eliminat este referit în măsurătorile anterioare,
+unele variabile vor deveni
+<link linkend="PinnedVariable">fixate</link>.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+</sect3>
+
+<sect3 id="EraseSelection">
+<title>Eliminarea selecţiei</title>
+
+<para>
+Pentru a elimina unul sau mai multe elemente,
+fie acestea puncte sau segmente,
+<link linkend="SelectElementsOneByOne">selectează-le</link>
+şi procedează în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Eliminare selecţie</emphasis>
+din meniul
+<emphasis>Construcţie</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Erase.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Vărfurile şi segmentele care aparţin muchiilor nu pot fi eliminate.
+</para>
+
+<para>
+Pentru a elimina toate punctele și segmentele dintr-o figură (cu excepția vârfurilor
+și a muchiilor),
+<link linkend="SelectAllElements">selectează-le</link>
+mai întâi.
+</para>
+
+<para>
+Pentru a elimina doar un fragment al unui segment construit anterior,
+consultă paragraful
+<link linkend="EraseLine">Eliminarea segmentului</link>.
+</para>
+
+<para>
+Eliminarea elementelor care sunt referite în măsurătorile anterioare
+va rezulta în
+<link linkend="PinnedVariable">fixarea</link>
+unora dintre variabile.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="Transform">
+<title>Transformări</title>
+
+<sect2 id="ScaleFigure">
+<title>Scalarea figurii</title>
+
+<para>
+Pentru a scala (dilata sau comprima) figura cu un raport dat
+de-a lungul unui segment, procedează în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Scalare figură</emphasis>
+din meniul
+<emphasis>Transformare</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Scale.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+segmentul de referinţă sau extremităţile sale, fă click
+pe butonul drept şi alege
+<emphasis>Scalare figură</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Se va afişa un dialog. Introdu, dacă este necesar, punctele de
+referinţă şi o
+<link linkend="Expressions">expresie</link>
+valabilă pentru raport. Fă click pe butonul
+<emphasis>OK</emphasis>.
+Dacă o variablilă e selectată din timp pe
+<link linkend="Notepad">tablă</link>,
+ea va fi copiată, în mod automat, în căsuța raportului.
+</para>
+
+<para>
+Ca rezultat al scalării, distanţele, unghiurile, ariile şi
+volumele măsurate anterior vor fi recalculate, iar variabilele
+atribuite lor - modificate. Vezi paragraful
+<link linkend="Variables">Variabile</link>
+pentru mai multe detalii.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Rezolvitorul poate scala doar figurile create în procesul
+rezolvării problemei, nu şi figurile ce aparţin problemei
+propriu-zise.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="ShearFigure">
+<title>Forfecarea figurii</title>
+
+<para>
+Prin forfecare se înţelege o transformare afină în procesul căreia
+planele paralele unui plan fix de referinţă se translatează de-a lungul
+unei drepte fixe aflate în planul de referinţă.
+Termenul "afină" presupune că transformarea păstrează coliniaritatea
+punctelor.
+</para>
+<para>
+Dacă XY este dreapta fixă în planul de referinţă, forfecarea este
+definită în mod unic de punctele X, Y şi de imaginea unui punct Z, astfel
+încât XZ e perpendicular pe planul de referinţă.
+</para>
+
+<para>
+Pentru a forfeca figura, procedează în unul din modurile următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Forfecare figură</emphasis>
+din meniul
+<emphasis>Transformare</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Shear.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+segmentul de referinţă XY şi imaginea punctului Z, fă click pe butonul
+drept şi alege
+<emphasis>Forfecare figură</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Se va afişa un dialog. Introdu, dacă este necesar, punctele de
+referinţă (X, Y dedesubt şi imaginea punctului Z deasupra).
+Fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Ca rezultat al forfecării, distanţele și unghiurile
+măsurate anterior vor fi recalculate, iar variabilele
+atribuite lor - modificate. Vezi paragraful
+<link linkend="Variables">Variabile</link>
+pentru mai multe detalii.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Rezolvitorul poate forfeca doar figurile create în procesul
+rezolvării problemei, nu şi figurile ce aparţin problemei
+propriu-zise.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="Variables">Variabile</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="CutFigure">
+<title>Secţionarea figurii</title>
+
+<para>
+Pentru a secţiona figura cu un plan, procedează în unul din modurile
+următoare:
+</para>
+
+<itemizedlist>
+<listitem>
+Alege
+<emphasis>Secţionare figură</emphasis>
+din meniul
+<emphasis>Transformare</emphasis>,
+sau
+</listitem>
+
+<listitem>
+fă click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Cut.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte, sau
+</listitem>
+
+<listitem>
+<link linkend="SelectElementsOneByOne">selectează</link>
+nişte elemente care referă planul, de exemplu, 3 puncte, un punct şi un segment
+sau două segmente, fă click pe butonul drept şi alege
+<emphasis>Secţionare figură</emphasis>
+din meniul popup.
+</listitem>
+
+</itemizedlist>
+
+<para>
+Elementele selectate trebuie să identifice planul în mod unic. Planul
+trebuie să treacă prin interiorul figurii.
+</para>
+
+<para>
+Dacă se afişează un dialog, introdu punctele şi fă click pe butonul
+<emphasis>OK</emphasis>.
+</para>
+
+<para>
+Secţionarea va produce două figuri noi, care vor fi afişate în ferestre
+separate. Figura originală va rămâne intacta în propria fereastră.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="JoinFigures">Unirea figurilor</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="JoinFigures">
+<title>Unirea figurilor</title>
+
+<para>
+Două figuri pot fi unite ашу alegând
+<emphasis>Unire figuri</emphasis>
+din meniul
+<emphasis>Transformare</emphasis>,
+fie făcând click pe butonul
+
+<inlinemediaobject> 
+<imageobject role="html">
+<imagedata fileref="../images/24x24/Join.png"/>
+</imageobject> 
+</inlinemediaobject>
+
+de pe bara de unelte.
+</para>
+
+<para>
+Se va afişa un dialog. Selectează figurile care urmează a fi unite
+şi fă click pe butonul
+<emphasis>OK</emphasis>.
+O figură poate fi unită şi cu o copie a sine însăşi, prin urmare
+aceeaşi figură poate fi selectată în ambele liste.
+</para>
+
+<para>
+Dacă există o singură modalitate de a uni figurile date,
+se va afișa o nouă fereastră conţinând figura combinată.
+Cele două figuri iniţiale
+vor fi păstrate intacte în propriile ferestre.
+</para>
+
+<para>
+Dimpotrivă, dacă figurile pot fi unite în diferite feluri, se va
+afişa un nou dialog cu întrebarea dacă utilizatorul doreşte ca
+figurile în cauză să fie unite în oricare din modurile posibile.
+Fă click pe butonul
+<emphasis>Nu</emphasis>
+pentru a proceda la o definire mai exactă a elementelor corespondente.
+</para>
+
+<para>
+Fă click pe butonul
+<emphasis>Da</emphasis>
+pentru a uni figurile în mod arbitrar. Se va afișa unul din
+modurile posibile de a uni cele
+două figuri, împreună un alt dialog, întrebând dacă utilizatorul dorește
+să păstreze rezultatul. Fă click pe butonul
+<emphasis>Da</emphasis>
+pentru a păstra rezultatul și a conclude acțiunea de unire a figurilor.
+Fă click pe butonul
+<emphasis>Nu</emphasis>
+pentru a afișa un alt mod de unire a celor două figuri.
+</para>
+
+<para>
+E de dorit ca utilizatorul să
+<link linkend="SelectElementsOneByOne">selecteze</link>
+punctele şi/sau feţele respective înainte de a uni figurile.
+Aceasta va reduce la minim necesitatea introducerii lor directe în dialog.
+E de notat că feţele pot fi selectate doar în figurile
+<link linkend="ToggleTransparency">opace</link>.
+</para>
+
+<para>
+Feţele ce urmează a fi unite trebuie să aibă aceeaşi formă, adică
+unghiuri respeciv egale şi laturi respectiv proporţionale.
+Nu e nevoie ca feţele să aibă şi aceleaşi dimensiuni. Dacă e nevoie,
+una din figuri va fi, în mod automat, scalată pentru a potrivi dimensiunile
+feţelor ce urmează a fi unite.
+</para>
+
+<para>
+Unirea e imposibilă dacă figura rezultată nu este convexă.
+</para>
+
+<para>
+Această acţiune poate fi
+<link linkend="UndoActions">anulată</link>.
+</para>
+
+<para>
+Vezi şi:
+</para>
+
+<itemizedlist mark="none">
+
+<listitem>
+<link linkend="CutFigure">Secţionarea figurii</link>
+</listitem>
+<listitem>
+<link linkend="SelectElements">Selectarea elementelor</link>
+</listitem>
+<listitem>
+<link linkend="UndoActions">Anularea acţiunilor</link>
+</listitem>
+
+</itemizedlist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+</book>

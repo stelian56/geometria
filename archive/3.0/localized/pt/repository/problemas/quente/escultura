@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema é parte do repositório do Geometria 3.0.</comments>
+</envelope>
+<text>Este cubo vai ser esculpido em um cilindro cujo raio é seis vezes que o tamanho do lado do cubo. Qual é o volume máximo do cilindro?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Cubo</name>
+<color>#ff9999</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>-1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>1.0 -1.0 -1.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-1.0 1.0 -1.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>1.0 -1.0 1.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>1.0 1.0 1.0</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-1.0 1.0 1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.33481863444368853 -0.4134665796294599 0.6580282918981488</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.8800971362925621</value>
+</answer>
+</problem>

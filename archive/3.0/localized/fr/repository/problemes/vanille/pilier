@@ -1,0 +1,66 @@
+﻿<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Ce problème fait partie du répertoire original de Geometria 3.0.</comments>
+</envelope>
+<text>Ce pilier a la forme de deux pyramides régulières assemblées à leurs bases. Sa partie inférieure va être partiellement coupée, puis le fragment restant utilisé pour soutenir le plafond d'une chambre. La hauteur de cette chambre est égale à la longueur de l'arête la plus longue du pilier. Déterminer le plan de coupe.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Pilier</name>
+<color>#ccff</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.9999999999999998 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.30901699437494723 0.9510565162951535 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.8090169943749476 0.5877852522924732 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.0 0.0 1.6329931618554518</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.8090169943749477 -0.587785252292473 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.309016994374947 -0.9510565162951536 0.0</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.0 0.0 -1.6329931618554518</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5776679660403672 -0.08700769102190069 -0.15560070468725923 0.7965662580191649</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>fixedPlane</type>
+<coords>-0.6693774736545859 0.4863312018988447 -0.281861053657224</coords>
+<coords>-0.669377473654586 0.0 -0.28186105365722414</coords>
+<coords>0.8273960600441423 0.0 -0.28186105365722414</coords>
+</answer>
+</problem>

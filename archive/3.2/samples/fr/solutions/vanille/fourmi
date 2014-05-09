@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Cette solution fait partie du répertoire original de Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Ce problème fait partie du répertoire original de Geometria.</comments>
+</envelope>
+<text>Une fourmi se déplace sur la surface de cette pyramide régulière. Elle part d&#39;un des sommets de la base et grimpe jusqu&#39;au point le plus proche de l&#39;arête suivante, puis de ce point grimpe à nouveau jusqu&#39;au point le plus proche de l&#39;arête suivante et ainsi de suite, jusqu&#39;à ce qu&#39;elle atteigne à nouveau l&#39;arête d&#39;où elle est partie. A quelle distance de la plus proche arête de la base la fourmi se trouvera-t-elle alors ?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Pyramide</name>
+<color>#9900</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.01 0.0 -0.5062278801751902</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.5100000000000001 0.8660254037844386 -0.5062278801751902</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.48999999999999977 0.8660254037844387 -0.5062278801751902</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.01000000000000005 0.0 1.126765281680262</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.99 0.0 -0.5062278801751902</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-0.49000000000000044 -0.8660254037844385 -0.5062278801751902</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.5099999999999993 -0.866025403784439 -0.5062278801751902</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5305143042165644 -0.28391464828221474 -0.38704825983025176 0.6986706592342168</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>1.0814378294330151</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramide</figureName>
+<p0Label>E</p0Label>
+<p1Label>F</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramide</figureName>
+<p0Label>H</p0Label>
+<p1Label>G</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramide</figureName>
+<p0Label>I</p0Label>
+<p1Label>G</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramide</figureName>
+<p0Label>J</p0Label>
+<p1Label>C</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramide</figureName>
+<p0Label>K</p0Label>
+<p1Label>G</p1Label>
+<p2Label>D</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramide</figureName>
+<p0Label>L</p0Label>
+<p1Label>E</p1Label>
+<p2Label>G</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Pyramide</figureName>
+<p0Label>M</p0Label>
+<p1Label>F</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Pyramide</figureName>
+<p1Label>M</p1Label>
+<p2Label>N</p2Label>
+<variableName>Distance</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>Distance</value>
+</action>
+</log>
+</solution>

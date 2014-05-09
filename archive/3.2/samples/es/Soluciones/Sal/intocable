@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Esta es la solución de un problema de Geometria que se ofrece como un ejemplo.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este es un problema de Geometria que se ofrece como ejemplo.</comments>
+</envelope>
+<text>Esta estructura tiene la forma de una pirámide regular. Una barra cilíndrica larga se pasa a través del interior de la estructura de modo que la superficie de la barra toque todas las aristas excepto AB. ¿Dónde se ubica el punto donde la barra toca a la arista DC?.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Pirámide</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 -0.5062278801751902</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.49999999999999967 0.8660254037844386 -0.5062278801751902</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5000000000000003 -0.8660254037844386 -0.5062278801751902</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 0.0 1.1267652816802618</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.47929167563788255 -0.35430682960110604 -0.46091840333735073 0.6574955403857816</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>-0.2771332833038013 -0.4800089271505632 0.221651768564948</coords>
+</answer>
+</problem>
+<log>
+<action>
+<className>GDrawMidpointAction</className>
+<figureName>Pirámide</figureName>
+<p1Label>B</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Pirámide</figureName>
+<p0Label>E</p0Label>
+<p1Label>D</p1Label>
+<p2Label>C</p2Label>
+<figure1Name>Figura1</figure1Name>
+<figure2Name>Figura2</figure2Name>
+</action>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Figura2</figureName>
+<p0Label>C</p0Label>
+<p1Label>D</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GDrawBisectorAction</className>
+<figureName>Figura2</figureName>
+<p0Label>D</p0Label>
+<p1Label>C</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GIntersectAction</className>
+<figureName>Figura2</figureName>
+<p11Label>D</p11Label>
+<p12Label>G</p12Label>
+<p21Label>C</p21Label>
+<p22Label>F</p22Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura2</figureName>
+<p0Label>H</p0Label>
+<p1Label>D</p1Label>
+<p2Label>C</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>I</value>
+<figureName>Figura2</figureName>
+</action>
+</log>
+</solution>

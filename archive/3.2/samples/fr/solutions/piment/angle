@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Cette solution fait partie du répertoire original de Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Ce problème fait partie du répertoire original de Geometria.</comments>
+</envelope>
+<text>Déterminer la mesure de l&#39;angle formé par les bases inférieure et supérieure de cette pyramide irrégulière tronquée.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Tronc</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.1562867710687599 -0.03175951985498025 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.327107164318697 1.109508299699204 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.833631922743682 0.8050155609257711 0.0</coords>
+</point>
+<point>
+<label>L</label>
+<coords>-0.29709460182184527 -0.21585186306438958 0.8573214099741123</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.7218285238686927 -0.5244391205179378 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.5080088637561915 -1.0415945613793811 0.0</coords>
+</point>
+<point>
+<label>M</label>
+<coords>-0.3209695026091842 0.3920945968857837 0.909161257240606</coords>
+</point>
+<point>
+<label>O</label>
+<coords>0.8067959697661163 -6.692539936268421E-4 0.5338293853411964</coords>
+</point>
+<point>
+<label>P</label>
+<coords>0.2152743032084155 0.6218626453934488 0.7611841101743672</coords>
+</point>
+<point>
+<label>Q</label>
+<coords>0.34549551360367503 -0.6148861208080696 0.6306329107764074</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5709758080154486 -0.3049986983105636 -0.3775619832983181 0.6621248896226513</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.30599244801374387</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Tronc</figureName>
+<fLabel1>B</fLabel1>
+<fLabel2>C</fLabel2>
+<fLabel3>M</fLabel3>
+<p0Label>P</p0Label>
+<p1Label>M</p1Label>
+<p2Label>P</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Tronc</figureName>
+<p0Label>B</p0Label>
+<p1Label>R</p1Label>
+<p2Label>P</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Tronc</figureName>
+<fLabel1>L</fLabel1>
+<fLabel2>M</fLabel2>
+<fLabel3>C</fLabel3>
+<p0Label>L</p0Label>
+<p1Label>M</p1Label>
+<p2Label>L</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Tronc</figureName>
+<p0Label>S</p0Label>
+<p1Label>L</p1Label>
+<p2Label>T</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Tronc</figureName>
+<p0Label>S</p0Label>
+<p1Label>U</p1Label>
+<p2Label>B</p2Label>
+<figure1Name>Figure1</figure1Name>
+<figure2Name>Figure2</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure1</figureName>
+<p0Label>S</p0Label>
+<p1Label>B</p1Label>
+<p2Label>V</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figure1</figureName>
+<fLabel1>V</fLabel1>
+<fLabel2>D</fLabel2>
+<fLabel3>C</fLabel3>
+<p0Label>Y</p0Label>
+<p1Label>B</p1Label>
+<p2Label>V</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Figure1</figureName>
+<p0Label>Z</p0Label>
+<p1Label>Y</p1Label>
+<p2Label>S</p2Label>
+<figure1Name>Figure3</figure1Name>
+<figure2Name>Figure4</figure2Name>
+</action>
+<action>
+<className>GMeasureAngleAction</className>
+<figureName>Figure4</figureName>
+<p0Label>Y</p0Label>
+<p1Label>Z</p1Label>
+<p2Label>S</p2Label>
+<variableName>Angle</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>Angle</value>
+</action>
+</log>
+</solution>

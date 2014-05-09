@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Rozwiązanie przykładowego zadania programu Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Przykładowe zadanie programu Geometria.</comments>
+</envelope>
+<text>Chrząszcz pełznąc wzdłuż linii prostej z pewnego punktu na krawędzi AC tego ostrosłupa do jego wierzchołka pokonał odległość dwa razy większą niż wysokość tego ostrosłupa. Odtwórz trasę chrząszcza.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Ostrosłup</name>
+<color>#cc00</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.2301875435702758 -0.415816992752015 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-1.2301875435702758 0.415816992752015 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.2206959949183201 -0.9813698464654804 0.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.6314183077106333 0.0646889245741619 0.816496580927726</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.48711728514843694 0.2042886408812613 0.1762086483682252 0.8306223052367102</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>pointSet</type>
+<coords>0.5766349657931064 -0.6705710895547854 0.0</coords>
+<coords>-0.6314183077106333 0.0646889245741619 0.816496580927726</coords>
+</answer>
+</problem>
+<log>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Ostrosłup</figureName>
+<p0Label>D</p0Label>
+<p1Label>C</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Ostrosłup</figureName>
+<fLabel1>A</fLabel1>
+<fLabel2>C</fLabel2>
+<fLabel3>B</fLabel3>
+<p0Label>E</p0Label>
+<p1Label>C</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Ostrosłup</figureName>
+<p0Label>E</p0Label>
+<p1Label>F</p1Label>
+<p2Label>D</p2Label>
+<figure1Name>Bryła1</figure1Name>
+<figure2Name>Bryła2</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Bryła2</figureName>
+<p0Label>D</p0Label>
+<p1Label>F</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Bryła2</figureName>
+<p1Label>D</p1Label>
+<p2Label>G</p2Label>
+<variableName>H</variableName>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>Ostrosłup</figureName>
+<distance>2 * H</distance>
+<p0Label>D</p0Label>
+<p1Label>A</p1Label>
+<p2Label>C</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>G,D</value>
+<figureName>Ostrosłup</figureName>
+</action>
+</log>
+</solution>

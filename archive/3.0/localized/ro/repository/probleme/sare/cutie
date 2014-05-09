@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Liliana Saidon Dir Centro Babbage Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>www.centrobbbage.com</web>
+</author>
+<comments/>
+</envelope>
+<text>Trei sferturi din capacitatea acestei cutii de forma unui octoedru regulat sunt umplute. Taie cutia la nivelul lichidului.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Cutie</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.0 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 1.0</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 -1.0 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.0 0.0 -1.0</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.41346657962945993 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition/>
+<condition>
+<type>volumeCutInRatio</type>
+<figureName>Cutie</figureName>
+<value>3.0</value>
+</condition>
+<condition/>
+</answer>
+</problem>

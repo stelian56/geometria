@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<!-- Geometria build file -->
+
+<project name="net.geocentral.geometria" default="all">
+ 
+  <property name="java_version" value="1.6"/>
+  <property name="debug" value="true"/>
+  <property name="app_url" value="http://geocentral.net/geometria"/>
+  <property name="app_name" value="Geometria"/>
+  <property name="app_version" value="3.2"/>
+  <property name="jar_name" value="geometria-${app_version}.jar"/>
+  <property name="build_dir" value="build"/>
+  <property name="conf_dir" value="conf"/>
+  <property name="dictionary_dir" value="dictionary"/>
+  <property name="package_dir" value="package"/>
+  <property name="doc_dir" value="doc"/>
+  <property name="gallery_dir" value="gallery"/>
+  <property name="images_dir" value="images"/>
+  <property name="javahelp_dir" value="javahelp"/>
+  <property name="samples_dir" value="samples"/>
+  <property name="license_dir" value="license"/>
+  <property name="scripts_dir" value="scripts"/>
+  <property name="src_dir" value="src"/>
+  <property name="source_dir" value="source"/>
+  <property name="signed_dir" value="signed"/>
+  <property name="lib.dir" value="lib"/>
+  <property name="web.test.dir" value="webtest"/>
+  <property name="web.build.dir" value="webbuild"/>
+  <property name="web.package.dir" value="webpackage"/>
+  <property name="dojo.src" value="dojo-release-1.9.1-src"/>
+
+  <target name="webclean">
+    <delete dir="${web.test.dir}"/>
+    <delete dir="${web.build.dir}"/>
+    <delete dir="${web.package.dir}"/>
+  </target>
+
+  <target name="webprepare">
+    <unzip src="${lib.dir}/zip/${dojo.src}.zip" dest="${basedir}"/>
+    <move file="${dojo.src}" tofile="${web.build.dir}"/>
+    <copy todir="${web.build.dir}">
+      <fileset dir="dojopatches" includes="**/*"/>
+    </copy>
+    <mkdir dir="${web.test.dir}"/>
+    <copy todir="${web.test.dir}">
+      <fileset dir="${web.build.dir}" includes="
+        dojo/**
+        dojox/**
+        dijit/**
+      "/>
+    </copy>
+  </target>
+
+  <target name="webtest" depends="doc">
+    <copy todir="${web.test.dir}">
+      <fileset dir="${basedir}" includes="css/**"/>
+      <fileset dir="lib/bin" includes="**"/>
+      <fileset dir="lp" includes="**"/>
+      <fileset dir="db" includes="**"/>
+    </copy>
+    <copy file="html/index_dev.html" tofile="${web.test.dir}/index.html"/>
+    <copy file="html/test_dev.html" tofile="${web.test.dir}/test.html"/>
+    <copy todir="${web.test.dir}/geometria">
+      <fileset dir="js/geometria" includes="**/*.js" excludes="**/*.profile.js"/>
+    </copy>
+    <copy todir="${web.test.dir}">
+      <fileset dir="${build_dir}" includes="${doc_dir}/**"/>
+    </copy>
+    <copy todir="${web.test.dir}">
+      <fileset dir="${basedir}" includes="
+        lib/js/**
+        images/*.png
+        images/*.gif
+        images/24x24/icons.png
+        images/24x24/iconsDisabled.png
+      "/>
+    </copy>
+    <copy todir="${web.test.dir}/lib/css">
+      <fileset dir="${web.build.dir}/release" includes="
+        dijit/themes/claro/claro.css
+        dijit/themes/claro/form/images/buttonArrows.png
+        dijit/themes/claro/form/images/checkboxRadioButtonStates.png
+        dijit/themes/claro/form/images/commonFormArrows.png
+        dijit/themes/claro/images/dialogCloseIcon.png
+        dijit/themes/claro/form/images/error.png
+        dijit/themes/claro/images/dnd.png
+        dijit/themes/claro/images/loadingAnimation.gif
+        dijit/themes/claro/images/spriteArrows.png
+        dijit/themes/claro/images/tooltip.png
+        dijit/themes/claro/images/treeExpandImages.png
+        dijit/icons/images/commonIconsObjActEnabled.png
+        dijit/icons/images/editorIconsEnabled.png
+        dojox/grid/resources/claroGrid.css
+        dojox/grid/resources/Grid.css
+        dojox/grid/resources/images/row_back.png
+        dojox/widget/ColorPicker/ColorPicker.css
+      "/>
+    </copy>
+  </target>
+    
+  <target name="webpackage" depends="doc">
+    <copy todir="${web.build.dir}">
+      <fileset dir="${basedir}/js" includes="**/*"/>
+    </copy>
+    <exec executable="cmd" dir="${web.build.dir}">
+      <arg value="/c"/>
+      <arg value="util\buildscripts\build.bat"/>
+      <arg value="-p"/>
+      <arg value="profile.js"/>
+    </exec>
+    <mkdir dir="${web.package.dir}"/>
+    <copy todir="${web.package.dir}/lib/css">
+      <fileset dir="${web.build.dir}/release" includes="
+        dijit/themes/claro/claro.css
+        dijit/themes/claro/form/images/buttonArrows.png
+        dijit/themes/claro/form/images/checkboxRadioButtonStates.png
+        dijit/themes/claro/form/images/commonFormArrows.png
+        dijit/themes/claro/images/dialogCloseIcon.png
+        dijit/themes/claro/form/images/error.png
+        dijit/themes/claro/images/dnd.png
+        dijit/themes/claro/images/loadingAnimation.gif
+        dijit/themes/claro/images/spriteArrows.png
+        dijit/themes/claro/images/tooltip.png
+        dijit/themes/claro/images/treeExpandImages.png
+        dijit/icons/images/commonIconsObjActEnabled.png
+        dijit/icons/images/editorIconsEnabled.png
+        dojox/grid/resources/claroGrid.css
+        dojox/grid/resources/Grid.css
+        dojox/grid/resources/images/row_back.png
+        dojox/widget/ColorPicker/ColorPicker.css
+      "/>
+    </copy>
+    <copy todir="${web.package.dir}">
+      <fileset dir="${web.build.dir}/release" includes="
+        dojox/widget/ColorPicker/images/pickerPointer.png
+        dojox/widget/ColorPicker/images/underlay.png
+        dojox/widget/ColorPicker/images/hueHandle.png
+        dojox/widget/ColorPicker/images/hue.png
+        dojox/widget/Standby/images/loading.gif
+      "/>
+    </copy>
+    <copy todir="${web.package.dir}">
+      <fileset dir="${web.build.dir}/release/dojo" includes="
+        nls/dojo_en-us.js
+        resources/blank.gif
+      "/>
+    </copy>
+    <copy todir="${web.package.dir}/geometria">
+      <fileset dir="${web.build.dir}/release/geometria" includes="geometria.js"/>
+    </copy>
+    <tstamp/>
+    <zip destfile="${web.package.dir}/${app_name}-${app_version}.${DSTAMP}.zip">
+      <zipfileset dir="${web.package.dir}" includes="**/*"/>
+      <zipfileset dir="html" includes="index.html test.html"/>
+      <zipfileset dir="${build_dir}" includes="${doc_dir}/**"/>
+      <zipfileset dir="lp" includes="**"/>
+      <zipfileset dir="lib/bin" includes="**"/>
+      <zipfileset dir="db" includes="**"/>
+      <zipfileset dir="${basedir}" includes="
+        lib/js/*.min.js
+        css/**
+        images/*.png
+        images/*.gif
+        images/24x24/icons.png
+        images/24x24/iconsDisabled.png
+      "/>
+      <zipfileset dir="${basedir}" includes="License.txt ReleaseNotes.txt"/>
+    </zip>
+    <delete includeemptydirs="true">
+      <fileset dir="${web.package.dir}" includes="**/*" excludes="*.zip"/>
+    </delete>
+  </target>
+  
+  <target name="weball" depends="webclean,webprepare,webpackage,webtest"/>
+      
+ <target name="all" depends="package,doc,sign"/>
+
+ <target name="clean" description="Clean up directories">
+  <delete dir="${build_dir}"/>
+  <delete dir="${package_dir}"/>
+  <delete dir="${signed_dir}"/>
+ </target>
+
+ <target name="compile" depends="clean" description="Compile the code">
+  <mkdir dir="${build_dir}"/>
+  <javac srcdir="${src_dir}" destdir="${build_dir}" debug="${debug}" target="${java_version}"
+         source="${java_version}" includeantruntime="false">   
+   <classpath>
+    <fileset dir="${lib.dir}/jar">
+     <include name="**/*.jar"/>
+    </fileset>
+   </classpath>
+  </javac>
+ </target>
+
+ <target name="help" description="Make help files">
+  <exec executable="${scripts_dir}/makehelp.bat">
+   <arg value="${doc_dir}"/>
+   <arg value="${javahelp_dir}"/>
+   <arg value="${build_dir}\${javahelp_dir}"/>
+  </exec>
+ </target>
+
+ <target name="jar" depends="compile,help" description="Create application JAR file">
+  <copy todir="${build_dir}">
+   <fileset dir="${basedir}" includes="${gallery_dir}/**"/>
+   <fileset dir="${basedir}" includes="${conf_dir}/**"/>
+   <fileset dir="${basedir}" includes="${dictionary_dir}/**"/>
+   <fileset dir="${basedir}" includes="${images_dir}/**/*.png"/>
+   <fileset dir="${basedir}" includes="log4j*.properties"/>
+  </copy>
+  <tstamp>
+   <format property="NOW" pattern="yyyy/MM/dd kk:mm Z"/>
+  </tstamp>
+  <jar jarfile="${build_dir}/${lib.dir}/${jar_name}">
+   <manifest>
+    <attribute name="Build-Date" value="${NOW}"/> 
+    <attribute name="Specification-Vendor" value="${app_url}"/>
+    <attribute name="Specification-Title" value="${app_name}"/>
+    <attribute name="Specification-Version" value="${app_version}"/>
+    <attribute name="Implementation-Version" value="${svn.Revision}"/>
+   </manifest>
+   <fileset dir="${build_dir}"/>
+  </jar>
+ </target>
+
+ <target name="package" depends="jar" description="Create downloadable package">
+  <copy todir="${build_dir}/lib">
+   <fileset dir="${lib.dir}/jar" includes="*.jar"/>
+  </copy>
+  <mkdir dir="${build_dir}/${source_dir}"/>
+  <copy todir="${build_dir}/${source_dir}">
+   <fileset dir="${basedir}" includes="${src_dir}/**"/>
+   <fileset dir="${basedir}" includes="${conf_dir}/**"/>
+   <fileset dir="${basedir}" includes="${dictionary_dir}/**"/>
+   <fileset dir="${basedir}" includes="${doc_dir}/**"/>
+   <fileset dir="${basedir}" includes="${gallery_dir}/**"/>
+   <fileset dir="${basedir}" includes="${images_dir}/**/*.png"/>
+   <fileset dir="${basedir}" includes="${javahelp_dir}/**"/>
+   <fileset dir="${basedir}" includes="${lib.dir}/jar/**"/>
+   <fileset dir="${basedir}" includes="${samples_dir}/**"/>
+   <fileset dir="${basedir}" includes="${scripts_dir}/**"/>
+   <fileset dir="${basedir}" includes="*.*"/>
+  </copy>
+  <mkdir dir="${package_dir}"/>
+  <zip destfile="${package_dir}/${app_name}-${app_version}.${DSTAMP}.zip">
+    <zipfileset dir="${basedir}" includes="${samples_dir}/**"/>
+    <zipfileset dir="${scripts_dir}" includes="**/geometria.*"/>
+    <zipfileset dir="${build_dir}" includes="${lib.dir}/**"/>
+    <zipfileset dir="${build_dir}" includes="${source_dir}/**"/>
+    <zipfileset dir="${basedir}" includes="*.txt"/>
+  </zip>
+ </target>
+
+ <target name="doc" description="Make documentation">
+  <exec executable="${scripts_dir}/makedocs.bat">
+   <arg value="${doc_dir}"/>
+   <arg value="${build_dir}\${doc_dir}"/>
+  </exec>
+ </target>
+
+ <target name="sign" description="Sign JAR files">
+  <exec executable="${scripts_dir}/sign.bat">
+   <arg value="${build_dir}\${lib.dir}"/>
+   <arg value="${signed_dir}"/>
+  </exec>
+ </target>
+ 
+</project>
+

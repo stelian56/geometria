@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<problem xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Această problemă e parte din repozitoriul Geometriei 3.0.</comments>
+</envelope>
+<text>Află un plan care conţine muchia HM a acestei prisme astfel încât secţiunea este un triunghi dreptunghic.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Prisma</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.9879642857142856 0.008678571428571261 -0.765</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.012035714285714528 -0.991321428571429 -0.7650000000000005</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.8558214285714287 0.5193928571428573 0.735</coords>
+</point>
+<point>
+<label>M</label>
+<coords>-0.829892857142857 0.5479642857142861 0.7350000000000004</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.1441785714285714 -0.480607142857143 0.7349999999999995</coords>
+</point>
+<point>
+<label>N</label>
+<coords>-0.6977500000000001 0.03724999999999987 -0.7650000000000005</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.4134665796294599 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition>
+<type>throughLine</type>
+<coords>-0.1441785714285714 -0.480607142857143 0.7349999999999995</coords>
+<coords>-0.829892857142857 0.5479642857142861 0.7350000000000004</coords>
+</condition>
+<condition/>
+<condition>
+<type>rectangularTriangle</type>
+<figureName>Prisma</figureName>
+</condition>
+</answer>
+</problem>

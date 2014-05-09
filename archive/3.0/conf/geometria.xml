@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<application xmlns="http://geocentral.net">
+
+<name>Geometria</name>
+<version>3.0</version>
+<homeUrl>http://geocentral.net/geometria</homeUrl>
+
+<font>
+ <name>Sans-serif</name>
+ <bold>true</bold>
+ <size>12</size>
+</font>
+
+</application>

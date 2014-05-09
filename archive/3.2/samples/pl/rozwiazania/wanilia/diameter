@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Rozwiązanie przykładowego zadania programu Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Przykładowe zadanie programu Geometria.</comments>
+</envelope>
+<text>Jaka może być największa średnica piłki, którą da się umieścić w tym równoległościanie?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Równoległościan</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.2291666666666665 0.22916666666666652 -0.5</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.26249999999999996 0.8624999999999999 -0.5</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.7375 -0.1374999999999999 -0.5</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.7374999999999999 0.1374999999999999 0.5</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.22916666666666646 -0.7708333333333334 -0.5</coords>
+</point>
+<point>
+<label>F</label>
+<coords>-0.22916666666666674 0.7708333333333333 0.5</coords>
+</point>
+<point>
+<label>G</label>
+<coords>-1.2291666666666665 -0.22916666666666652 0.5</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.2625000000000003 -0.8625000000000002 0.5</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>0.3829246096996404 -0.7318093289263409 -0.20895978553722777 0.5236025758253988</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>1.0000000000000002</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Równoległościan</figureName>
+<p0Label>E</p0Label>
+<p1Label>A</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Równoległościan</figureName>
+<p0Label>I</p0Label>
+<p1Label>C</p1Label>
+<p2Label>D</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Równoległościan</figureName>
+<p0Label>I</p0Label>
+<p1Label>J</p1Label>
+<p2Label>E</p2Label>
+<figure1Name>Bryła1</figure1Name>
+<figure2Name>Bryła2</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Bryła2</figureName>
+<p0Label>E</p0Label>
+<p1Label>I</p1Label>
+<p2Label>J</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Bryła2</figureName>
+<p1Label>E</p1Label>
+<p2Label>L</p2Label>
+<variableName>d</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>d</value>
+</action>
+</log>
+</solution>

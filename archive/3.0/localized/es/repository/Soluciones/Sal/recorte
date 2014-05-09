@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Esta solución es parte del almacén o repositorio de Geometria 3.0.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este problema es parte del almacén o repositorio de Geometria 3.0.</comments>
+</envelope>
+<text>El desafío es encontrar un plano que corte de la pirámide, un  volumen igual al del cubo.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Cubo</name>
+<color>#339900</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>-0.5 -0.5 -0.5</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.5 -0.5 -0.5</coords>
+</point>
+<point>
+<label>C</label>
+<coords>0.5 0.5 -0.5</coords>
+</point>
+<point>
+<label>E</label>
+<coords>-0.5 -0.5 0.5</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.5 0.5 -0.5</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.5 -0.5 0.5</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.5 0.5 0.5</coords>
+</point>
+<point>
+<label>H</label>
+<coords>-0.5 0.5 0.5</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.4134665796294599 0.6580282918981487</attitude>
+</camera>
+</figure>
+<figure>
+<name>Pirámide</name>
+<color>#ff6600</color>
+<transparent>false</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.996180339887499 0.0 -0.5062278801751902</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.30519733426244644 0.9510565162951535 -0.5062278801751902</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.8128366544874484 0.5877852522924732 -0.5062278801751902</coords>
+</point>
+<point>
+<label>F</label>
+<coords>-0.003819660112501057 0.0 1.126765281680262</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.8128366544874485 -0.587785252292473 -0.5062278801751902</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.3051973342624462 -0.9510565162951536 -0.5062278801751902</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5328608041697043 -0.3348186344436886 -0.4134665796294599 0.6580282918981487</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition/>
+<condition>
+<type>volumeCutInRatio</type>
+<figureName>Pirámide</figureName>
+<value>3.398771123309213</value>
+</condition>
+<condition/>
+</answer>
+</problem>
+<log>
+<action>
+<className>GVolumeAction</className>
+<figureName>Cubo</figureName>
+<variableName>VolumenCubo</variableName>
+</action>
+<action>
+<className>GVolumeAction</className>
+<figureName>Pirámide</figureName>
+<variableName>VolumenPirAmide</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>Relacion</variableName>
+<expression>(VolumenCubo/VolumenPirAmide)^(1/3)</expression>
+</action>
+<action>
+<className>GDivideLineAction</className>
+<figureName>Pirámide</figureName>
+<numerator>Relacion</numerator>
+<denominator>1-Relacion</denominator>
+<p1Label>F</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GDivideLineAction</className>
+<figureName>Pirámide</figureName>
+<numerator>Relacion</numerator>
+<denominator>1-Relacion</denominator>
+<p1Label>F</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GDivideLineAction</className>
+<figureName>Pirámide</figureName>
+<numerator>Relacion</numerator>
+<denominator>1-Relacion</denominator>
+<p1Label>F</p1Label>
+<p2Label>B</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>G,H,I</value>
+<figureName>Pirámide</figureName>
+</action>
+</log>
+</solution>

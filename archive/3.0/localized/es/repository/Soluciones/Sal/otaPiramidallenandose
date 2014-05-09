@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.0</version>
+<envelope>
+<author>
+<name>Liliana Saidon Dir Centro Babbage Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>www.centrobbbage.com</web>
+</author>
+<comments>Este problema puede estudiarse por separado con recursos de análisis, manteniento abierta la ventana de Geometria para ir haciendo intentos sucesivos a controlar con las herramientas de Medida, por ejemplo.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Liliana Saidon Dir Centro Babbage Argentina</name>
+<email>liliana.saidon@centrobabbage.com</email>
+<web>www.centrobbbage.com</web>
+</author>
+<comments>Este problema puede estudiarse por separado con recursos de análisis, manteniento abierta la ventana de Geometria para ir haciendo intentos sucesivos a controlar con las herramientas de Medida, por ejemplo.</comments>
+</envelope>
+<text>Se ha llenado de agua este cartón con forma de octaedro regular hasta 3/4 de su capacidad.  El desafío es cortarlo al ras del nivel del líquido.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>OctaPirámide</name>
+<color>#3300ff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>B</label>
+<coords>0.0 1.0 0.0</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-1.0 0.0 0.0</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 1.1430952132988164</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 -1.0 0.0</coords>
+</point>
+<point>
+<label>F</label>
+<coords>0.0 0.0 -1.1430952132988161</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>0.7323967140306827 -0.17825401617115227 0.1442774644160843 0.6410963829702822</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition/>
+<condition>
+<type>volumeCutInRatio</type>
+<figureName>OctaPirámide</figureName>
+<value>3.0</value>
+</condition>
+<condition/>
+</answer>
+</problem>
+<log>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>OctaPirámide</figureName>
+<p1Label>B</p1Label>
+<p2Label>F</p2Label>
+<variableName>arista</variableName>
+</action>
+<action>
+<className>GCalcEvaluateAction</className>
+<variableName>distancia_precisa</variableName>
+<expression>arista/(2^(1/3))</expression>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>OctaPirámide</figureName>
+<distance>distancia_precisa</distance>
+<p0Label>F</p0Label>
+<p1Label>B</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>OctaPirámide</figureName>
+<distance>distancia_precisa</distance>
+<p0Label>F</p0Label>
+<p1Label>F</p1Label>
+<p2Label>A</p2Label>
+</action>
+<action>
+<className>GLayDistanceAction</className>
+<figureName>OctaPirámide</figureName>
+<distance>distancia_precisa</distance>
+<p0Label>F</p0Label>
+<p1Label>C</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>OctaPirámide</figureName>
+<p0Label>G</p0Label>
+<p1Label>I</p1Label>
+<p2Label>H</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>G,I,H</value>
+<figureName>Figura2</figureName>
+</action>
+</log>
+</solution>

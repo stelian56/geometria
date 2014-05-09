@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Rozwiązanie przykładowego zadania programu Geometria.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Przykładowe zadanie programu Geometria.</comments>
+</envelope>
+<text>Ten przedmiot utworzony z dwóch prawidłowych ostrosłupów złączonych podstawami trzeba zapakować do prostopadłościennego pudełka. Jakie najmniejsze wymiary może mieć to pudełko?</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Przedmiot</name>
+<color>#ff00cc</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.9999999999999998 0.0 -0.3265986323710904</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-0.49999999999999994 0.8660254037844385 -0.3265986323710904</coords>
+</point>
+<point>
+<label>C</label>
+<coords>-0.5000000000000006 -0.8660254037844387 -0.3265986323710904</coords>
+</point>
+<point>
+<label>D</label>
+<coords>0.0 0.0 1.3063945294843615</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.0 0.0 -1.3063945294843615</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>-0.5182848694362455 -0.39956270113647263 -0.45280200527422254 0.605558243271135</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>1.3360853142453704</value>
+</answer>
+</problem>
+<log>
+<action>
+<className>GCutAction</className>
+<figureName>Przedmiot</figureName>
+<p0Label>B</p0Label>
+<p1Label>D</p1Label>
+<p2Label>E</p2Label>
+<figure1Name>Bryła1</figure1Name>
+<figure2Name>Bryła2</figure2Name>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Bryła2</figureName>
+<p0Label>B</p0Label>
+<p1Label>D</p1Label>
+<p2Label>F</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Bryła2</figureName>
+<p0Label>B</p0Label>
+<p1Label>F</p1Label>
+<p2Label>E</p2Label>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Bryła2</figureName>
+<p1Label>B</p1Label>
+<p2Label>G</p2Label>
+<variableName>H1</variableName>
+</action>
+<action>
+<className>GMeasureDistanceAction</className>
+<figureName>Bryła2</figureName>
+<p1Label>B</p1Label>
+<p2Label>H</p2Label>
+<variableName>H2</variableName>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>H2</value>
+</action>
+</log>
+</solution>

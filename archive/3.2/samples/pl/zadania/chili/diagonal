@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Przykadowe zadanie programu Geometria.</comments>
+</envelope>
+<text>Znajdź kąt nachylenia przekątnej GI do płaszczyzny GEF w widocznym ostrosłupie.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Ostrosłup</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>true</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>0.9590909090909091 0.0 0.06680426571226851</coords>
+</point>
+<point>
+<label>E</label>
+<coords>0.10909090909090911 0.0 1.4548484532894026</coords>
+</point>
+<point>
+<label>F</label>
+<coords>-0.7193181818181819 0.2500000000000001 -0.05010319928420138</coords>
+</point>
+<point>
+<label>G</label>
+<coords>0.19181818181818167 -0.8 0.013360853142453692</coords>
+</point>
+<point>
+<label>I</label>
+<coords>-0.03820554445554441 0.7184065934065934 -0.0026611589363403627</coords>
+</point>
+</points>
+<lines>
+<line>
+<labels>
+<label>I</label>
+<label>G</label>
+</labels>
+</line>
+</lines>
+</solid>
+<camera>
+<attitude>-0.4798297595615975 -0.32224010172017575 -0.44285261288914507 0.6854241620629429</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>number</type>
+<value>0.5257165960644197</value>
+</answer>
+</problem>

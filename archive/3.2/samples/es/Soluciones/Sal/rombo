@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solution xmlns="http://geocentral.net">
+<version>3.1</version>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Esta es la solución de un problema de Geometria que se ofrece como un ejemplo.</comments>
+</envelope>
+<problem>
+<envelope>
+<author>
+<name>Stelian Dumitrascu</name>
+<email>stelian@geocentral.net</email>
+<web>http://geocentral.net/geometria</web>
+</author>
+<comments>Este es un problema de Geometria que se ofrece como ejemplo.</comments>
+</envelope>
+<text>Todas las aristas de este poliedro son iguales. El desafío es indagar cómo se lo interseca con un plano que no contiene ningún vértice de modo que la sección resulte un rombo.</text>
+<notepad>
+</notepad>
+<figures>
+<figure>
+<name>Romboide</name>
+<color>#ffff</color>
+<transparent>true</transparent>
+<labelled>false</labelled>
+<solid>
+<points>
+<point>
+<label>A</label>
+<coords>-0.3333333333333332 0.9622504486493761 -0.5443310539518175</coords>
+</point>
+<point>
+<label>B</label>
+<coords>-1.3333333333333333 -0.769800358919501 -0.5443310539518175</coords>
+</point>
+<point>
+<label>C</label>
+<coords>0.6666666666666667 -0.769800358919501 -0.5443310539518175</coords>
+</point>
+<point>
+<label>D</label>
+<coords>-0.3333333333333332 -0.19245008972987532 1.0886621079036347</coords>
+</point>
+<point>
+<label>E</label>
+<coords>1.3333333333333333 0.769800358919501 0.5443310539518176</coords>
+</point>
+</points>
+<lines>
+</lines>
+</solid>
+<camera>
+<attitude>0.2451608254390562 0.5560266954685389 0.5346493834469218 0.5872652896061572</attitude>
+</camera>
+</figure>
+</figures>
+<answer>
+<type>conditionPlane</type>
+<condition>
+<type>throughNoVertex</type>
+<figureName>Romboide</figureName>
+</condition>
+<condition/>
+<condition>
+<type>rhombus</type>
+<figureName>Romboide</figureName>
+</condition>
+</answer>
+</problem>
+<log>
+<action>
+<className>GCutAction</className>
+<figureName>Romboide</figureName>
+<p0Label>E</p0Label>
+<p1Label>D</p1Label>
+<p2Label>B</p2Label>
+<figure1Name>Figura1</figure1Name>
+<figure2Name>Figura2</figure2Name>
+</action>
+<action>
+<className>GCutAction</className>
+<figureName>Figura1</figureName>
+<p0Label>C</p0Label>
+<p1Label>F</p1Label>
+<p2Label>D</p2Label>
+<figure1Name>Figura3</figure1Name>
+<figure2Name>Figura4</figure2Name>
+</action>
+<action>
+<className>GDrawMidpointAction</className>
+<figureName>Figura4</figureName>
+<p1Label>E</p1Label>
+<p2Label>D</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura4</figureName>
+<p0Label>G</p0Label>
+<p1Label>F</p1Label>
+<p2Label>D</p2Label>
+</action>
+<action>
+<className>GPerpendicularAction</className>
+<figureName>Figura4</figureName>
+<fLabel1>C</fLabel1>
+<fLabel2>F</fLabel2>
+<fLabel3>D</fLabel3>
+<p0Label>H</p0Label>
+<p1Label>F</p1Label>
+<p2Label>D</p2Label>
+</action>
+<action>
+<className>GSolutionAnswerAction</className>
+<value>I,H,G</value>
+<figureName>Figura4</figureName>
+</action>
+</log>
+</solution>
