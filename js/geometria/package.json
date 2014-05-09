@@ -1,0 +1,21 @@
+{
+	"name": "geometria",
+	"version": "4.0",
+	"directories": {
+		"lib": "."
+	},
+	"main": "main",
+	"dependencies": {
+		"dojo": "1.9.1",
+		"dijit": "1.9.1"
+	},
+	"description": "Interactive 3d geometry software",
+	"licenses": [
+        {
+            "type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	],
+	"homepage": "http://geocentral.net/geometria",
+	"dojoBuild": "geometria.profile.js"
+}

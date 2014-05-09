@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<!-- Geometria build file -->
+
+<project name="net.geocentral.geometria" default="all">
+ 
+  <property name="app.name" value="Geometria"/>
+  <property name="app.version" value="4.0"/>
+  <property name="build.dir" value="build"/>
+  <property name="scripts.dir" value="scripts"/>
+  <property name="test.dir" value="test"/>
+  <property name="package.dir" value="package"/>
+  <property name="dojo.src" value="dojo-release-1.9.1-src"/>
+
+  <target name="clean">
+    <delete dir="${test.dir}"/>
+    <delete dir="${build.dir}"/>
+    <delete dir="${package.dir}"/>
+  </target>
+
+  <target name="prepare">
+    <unzip src="lib/zip/${dojo.src}.zip" dest="${basedir}"/>
+    <move file="${dojo.src}" tofile="${build.dir}"/>
+    <copy todir="${build.dir}">
+      <fileset dir="dojopatches" includes="**/*"/>
+    </copy>
+    <mkdir dir="${test.dir}"/>
+    <copy todir="${test.dir}">
+      <fileset dir="${build.dir}" includes="
+        dojo/**
+        dojox/**
+        dijit/**
+      "/>
+    </copy>
+  </target>
+      
+  <target name="doc" description="Make documentation">
+    <exec executable="${scripts.dir}/makedocs.bat">
+      <arg value="doc"/>
+      <arg value="${build.dir}\doc"/>
+   </exec>
+  </target>
+
+  <target name="test" depends="doc">
+    <copy todir="${test.dir}">
+      <fileset dir="${basedir}" includes="css/**"/>
+      <fileset dir="lib/bin" includes="**"/>
+      <fileset dir="lp" includes="**"/>
+      <fileset dir="${basedir}" includes="sqlite/**"/>
+    </copy>
+    <copy file="html/index_dev.html" tofile="${test.dir}/index.html"/>
+    <copy file="html/test_dev.html" tofile="${test.dir}/test.html"/>
+    <copy todir="${test.dir}/geometria">
+      <fileset dir="js/geometria" includes="**/*.js" excludes="**/*.profile.js"/>
+    </copy>
+    <copy todir="${test.dir}">
+      <fileset dir="${build.dir}" includes="doc/**"/>
+    </copy>
+    <copy todir="${test.dir}">
+      <fileset dir="${basedir}" includes="
+        lib/js/**
+        images/*.png
+        images/*.gif
+        images/24x24/icons24.png
+        images/24x24/icons24Disabled.png
+      "/>
+      <fileset dir="${basedir}/js" includes="profile.js"/>
+    </copy>
+    <copy todir="${test.dir}/lib/css">
+      <fileset dir="${build.dir}/release" includes="
+        dijit/themes/claro/claro.css
+        dijit/themes/claro/form/images/buttonArrows.png
+        dijit/themes/claro/form/images/checkboxRadioButtonStates.png
+        dijit/themes/claro/form/images/commonFormArrows.png
+        dijit/themes/claro/images/dialogCloseIcon.png
+        dijit/themes/claro/form/images/error.png
+        dijit/themes/claro/images/dnd.png
+        dijit/themes/claro/images/loadingAnimation.gif
+        dijit/themes/claro/images/spriteArrows.png
+        dijit/themes/claro/images/tooltip.png
+        dijit/themes/claro/images/treeExpandImages.png
+        dijit/icons/images/commonIconsObjActEnabled.png
+        dijit/icons/images/editorIconsEnabled.png
+        dojox/grid/resources/claroGrid.css
+        dojox/grid/resources/Grid.css
+        dojox/grid/resources/images/row_back.png
+        dojox/widget/ColorPicker/ColorPicker.css
+      "/>
+    </copy>
+  </target>
+    
+  <target name="package" depends="doc">
+    <macrodef name="compress">
+      <attribute name="dbscripts.dir"/>
+      <attribute name="index.file" default="index.html"/>
+      <attribute name="binaries" default="none"/>
+      <attribute name="text.files" default="none"/>
+      <attribute name="deployment.type" default=""/>
+      <sequential>
+        <copy file="html/@{index.file}" tofile="${package.dir}/index.html" overwrite="true"/>
+        <zip destfile="${package.dir}/${app.name}-${app.version}.${DSTAMP}@{deployment.type}.zip">
+          <zipfileset dir="${package.dir}" includes="**/*" excludes="*.zip"/>
+          <zipfileset dir="${build.dir}" includes="doc/**"/>
+          <zipfileset dir="@{dbscripts.dir}" includes="**"/>
+          <zipfileset dir="lib/bin" includes="@{binaries}"/>
+          <zipfileset dir="${basedir}" includes="
+            lib/js/*.min.js
+            css/**
+            sqlite/**
+            images/*.png
+            images/*.gif
+            images/24x24/icons24.png
+            images/24x24/icons24Disabled.png
+          "/>
+          <zipfileset dir="${basedir}" includes="@{text.files}"/>
+        </zip>
+      </sequential>
+    </macrodef>
+    <copy todir="${build.dir}">
+      <fileset dir="${basedir}/js" includes="**/*"/>
+    </copy>
+    <exec executable="cmd" dir="${build.dir}">
+      <arg value="/c"/>
+      <arg value="util\buildscripts\build.bat"/>
+      <arg value="-p"/>
+      <arg value="profile.js"/>
+    </exec>
+    <mkdir dir="${package.dir}"/>
+    <copy todir="${package.dir}/lib/css">
+      <fileset dir="${build.dir}/release" includes="
+        dijit/themes/claro/claro.css
+        dijit/themes/claro/form/images/buttonArrows.png
+        dijit/themes/claro/form/images/checkboxRadioButtonStates.png
+        dijit/themes/claro/form/images/commonFormArrows.png
+        dijit/themes/claro/images/dialogCloseIcon.png
+        dijit/themes/claro/form/images/error.png
+        dijit/themes/claro/images/dnd.png
+        dijit/themes/claro/images/loadingAnimation.gif
+        dijit/themes/claro/images/spriteArrows.png
+        dijit/themes/claro/images/tooltip.png
+        dijit/themes/claro/images/treeExpandImages.png
+        dijit/themes/claro/layout/images/tabClose.png
+        dijit/themes/claro/layout/images/tabTopSelected.png
+        dijit/themes/claro/layout/images/tabTopUnselected.png
+        dijit/icons/images/commonIconsObjActEnabled.png
+        dijit/icons/images/editorIconsEnabled.png
+        dojox/grid/resources/claroGrid.css
+        dojox/grid/resources/Grid.css
+        dojox/grid/resources/images/header.png
+        dojox/grid/resources/images/row_back.png
+        dojox/widget/ColorPicker/ColorPicker.css
+      "/>
+    </copy>
+    <copy todir="${package.dir}">
+      <fileset dir="${build.dir}/release" includes="
+        dojox/widget/ColorPicker/images/pickerPointer.png
+        dojox/widget/ColorPicker/images/underlay.png
+        dojox/widget/ColorPicker/images/hueHandle.png
+        dojox/widget/ColorPicker/images/hue.png
+      "/>
+    </copy>
+    <copy todir="${package.dir}">
+    <fileset dir="${build.dir}/release/dojo" includes="
+      nls/dojo_en-us.js
+      resources/blank.gif
+    "/>
+    </copy>
+    <copy todir="${package.dir}/geometria">
+      <fileset dir="${build.dir}/release/geometria" includes="geometria.js"/>
+    </copy>
+    <copy todir="${package.dir}/src">
+      <fileset dir="${basedir}/js" includes="**/*"/>
+    </copy>
+    <tstamp/>
+    <compress dbscripts.dir="lp" binaries="**" text.files="License.txt README.txt"/>
+    <compress dbscripts.dir="php" index.file="index_server.html" deployment.type=".server"/>
+    <delete includeemptydirs="true">
+      <fileset dir="${package.dir}" includes="**/*" excludes="*.zip"/>
+    </delete>
+  </target>
+  
+  <target name="all" depends="clean,prepare,package,test"/>
+
+</project>
+

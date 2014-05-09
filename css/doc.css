@@ -1,0 +1,50 @@
+/**
+ * Copyright (C) 2000-2014 Geometria Contributors
+ * http://geocentral.net/geometria
+ * 
+ * Geometria is free software released under the MIT License
+ * http://opensource.org/licenses/MIT
+ */
+@import url("geometria.css");
+
+body {
+background-color: #ffffee;
+color: #663300;
+width: auto;
+margin-left: 1em;
+margin-right: 1em;
+}
+h2.title {
+background-color: #ffe2a0;
+border-style: solid;
+border-color: #663300;
+padding: 4px;
+border-radius: 3px;
+-moz-border-radius: 3px;
+}
+h3.title, h4.title, h5.title {
+background-color: #ffe2a0;
+border-style: solid;
+border-color: #663300;
+padding: 2px;
+border-radius: 3px;
+-moz-border-radius: 3px;
+}
+.programlisting {
+font-family: monospace;
+font-size: 1em;
+display: block;
+padding: 5px;
+border: 1px solid #bbb;
+background-color: #e0e0e0;
+color: black;
+overflow: visible;
+border-radius: 3px;
+-moz-border-radius: 3px;
+}
+a[name] {
+content: "";
+display: block;
+height: 10px;
+margin: -10px 0 0;
+}

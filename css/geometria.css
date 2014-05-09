@@ -1,0 +1,493 @@
+/**
+ * Copyright (C) 2000-2014 Geometria Contributors
+ * http://geocentral.net/geometria
+ * 
+ * Geometria is free software released under the MIT License
+ * http://opensource.org/licenses/MIT
+ */
+@import url("../lib/css/dijit/themes/claro/claro.css");
+@import url("../lib/css/dojox/grid/resources/claroGrid.css");
+@import url("../lib/css/dojox/grid/resources/Grid.css");
+@import url("../lib/css/dojox/widget/ColorPicker/ColorPicker.css");
+
+html, body {
+margin: 0;
+width: 100%;
+height: 100%;
+font-family: Arial;
+font-size: 1em;
+}
+svg {
+}
+.geometria_maincontainer {
+width: 100%;
+height: 100%;
+}
+.geometria_left {
+width: 25%;
+}
+.geometria_textarea {
+font-family: Arial;
+resize: none;
+padding: 0 !important;
+}
+.geometria_export {
+width: 400px;
+height: 400px;
+}
+.geometria_logcomments {
+width: 400px;
+height: 200px;
+}
+.geometria_problemtext {
+height: 30%;
+background-color: #f0f0f0 !important;
+}
+.geometria_problemtextarea {
+border: 0;
+margin: 0;
+}
+.geometria_calculator {
+height: 25px;
+}
+.geometria_log {
+height: 30%;
+}
+.geometria_logtop {
+border-top: 0 !important;
+}
+.geometria_logcontent {
+border-top: 1px solid #b5bcc7 !important;
+padding: 0 !important;
+}
+.geometria_loggrid {
+height: 100%;
+border: 0 !important;
+}
+.geometria_notepadgrid {
+height: 100%;
+padding: 0 !important;
+border: 0 !important;
+}
+.geometria_multiplechoicegrid {
+width: 100%;
+height: 100%;
+}
+.geometria_navigator {
+width: 20%;
+}
+.geometria_navigatortop {
+border-top: 0 !important;
+}
+.geometria_navigatorcontent {
+border-top: 1px solid #b5bcc7 !important;
+}
+.geometria_navigatorbottom {
+background-color: #ff8888;
+}
+.geometria_figures {
+height: 70%;
+}
+.geometria_figure {
+font-size: 16px;
+}
+.geometria_statusinfo {
+height: 10%;
+background-color: #eeffee;
+}
+.geometria_statuserror {
+height: 10%;
+background-color: #ffeeee;
+}
+.geometria_statuscontentinfo {
+color: black;
+}
+.geometria_statuscontenterror {
+color: red;
+}
+.geometria_statuscancel {
+padding-right: 2px !important;
+padding-bottom: 0 !important;
+padding-left: 2px !important;
+height: 24px !important;
+cursor: pointer;
+}
+.geometria_help {
+width: 30%;
+border-top: 1px solid #b5bcc7;
+}
+.geometria_figurename {
+color: #0000CC;
+font-style: italic;
+}
+.geometria_variablename {
+color: #AA00AA;
+font-style: italic;
+}
+.geometria_problemanswer {
+width: 500px;
+height: 350px;
+}
+.geometria_solutionanswer {
+width: 300px;
+height: 100px;
+}
+.geometria_answertype {
+padding-top: 20px !important;
+}
+.geometria_answervalue {
+overflow: visible !important;
+padding-top: 20px !important;
+}
+.geometria_colorpicker {
+width: 330px;
+height: 300px;
+}
+.geometria_properties {
+width: 400px;
+height: 400px;
+}
+.geometria_propertiespane {
+margin: 5px;
+background-color: #f0f0f0;
+border: 1px solid #b5bcc7;
+}
+.geometria_renamevariable {
+width: 400px;
+height: 130px;
+}
+.geometria_renamepoint {
+width: 300px;
+height: 130px;
+}
+.geometria_volume {
+width: 300px;
+height: 100px;
+}
+.geometria_totalarea {
+width: 300px;
+height: 100px;
+}
+.geometria_area {
+width: 300px;
+height: 130px;
+}
+.geometria_pointinput {
+width: 50px;
+height: 24px;
+}
+.geometria_inputcontainer {
+width: 68px;
+height: 40px;
+}
+.geometria_inputpane {
+overflow: visible !important;
+}
+.geometria_joinpoints {
+width: 268px;
+height: 120px;
+}
+.geometria_joinfigures {
+width: 320px;
+height: 180px;
+}
+.geometria_erasesegment {
+width: 268px;
+height: 100px;
+}
+.geometria_measuredistance {
+width: 268px;
+height: 130px;
+}
+.geometria_measureangle {
+width: 278px;
+height: 180px;
+}
+.geometria_intersection {
+width: 278px;
+height: 140px;
+}
+.geometria_perpendicular {
+width: 278px;
+height: 170px;
+}
+.geometria_dividesegment {
+width: 278px;
+height: 160px;
+}
+.geometria_divideangle {
+width: 278px;
+height: 180px;
+}
+.geometria_laydistance {
+width: 278px;
+height: 180px;
+}
+.geometria_layangle {
+width: 278px;
+height: 180px;
+}
+.geometria_scale {
+width: 248px;
+height: 160px;
+}
+.geometria_shear {
+width: 248px;
+height: 140px;
+}
+.geometria_cut {
+width: 248px;
+height: 140px;
+}
+.geometria_ratiodivider {
+margin-left: -4px;
+overflow: visible;
+}
+.geometria_renamefigure {
+width: 300px;
+height: 100px;
+}
+.geometria_textbox {
+width: 99% !important;
+}
+.geometria_ok {
+height: 40px;
+padding-top: 10px;
+text-align: center;
+}
+.geometria_buttonspane {
+height: 42px;
+padding-top: 10px;
+}
+.geometria_buttonpane {
+overflow: visible !important;
+height: 99% !important;
+}
+.geometria_button {
+padding: 5px;
+}
+.geometria_radiobuttonpane {
+padding: 0 !important;
+}
+.geometria_okdialog {
+width: 400px;
+height: 120px;
+padding-top: 10px;
+}
+.geometriaIconJoinPoints {
+background-image: url('../images/DrawLine.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 100px;
+}
+.geometriaIconJoinFigures {
+background-image: url('../images/Join.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 100px;
+}
+.geometriaIconEraseSegment {
+background-image: url('../images/EraseLine.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 100px;
+}
+.geometriaIconMeasureDistance {
+background-image: url('../images/MeasureDistance.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 100px;
+}
+.geometriaIconMeasureAngle {
+background-image: url('../images/MeasureAngle.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 110px;
+}
+.geometriaIconIntersection {
+background-image: url('../images/Intersect.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 110px;
+}
+.geometriaIconPerpendicular {
+background-image: url('../images/Perpendicular.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 110px;
+}
+.geometriaIconDivideSegment {
+background-image: url('../images/DivideLine.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 110px;
+}
+.geometriaIconDivideAngle {
+background-image: url('../images/DivideAngle.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 110px;
+}
+.geometriaIconLayDistance {
+background-image: url('../images/LayDistance.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 110px;
+}
+.geometriaIconLayAngle {
+background-image: url('../images/LayAngle.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 110px;
+}
+.geometriaIconScale {
+background-image: url('../images/Scale.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 80px;
+}
+.geometriaIconShear {
+background-image: url('../images/Shear.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 80px;
+}
+.geometriaIconCut {
+background-image: url('../images/Cut.png');
+background-position: center center;
+background-repeat: no-repeat;
+width: 80px;
+}
+.geometriaIconCorrect {
+background-image: url('../images/Correct.png');
+background-repeat: no-repeat;
+width: 50px;
+height: 50px !important;
+margin-left: 10px;
+}
+.geometriaIconIncorrect {
+background-image: url('../images/Incorrect.png');
+background-repeat: no-repeat;
+width: 50px;
+height: 50px !important;
+margin-left: 10px;
+}
+.geometriaIconQuestion {
+background-image: url('../images/Question.png');
+background-repeat: no-repeat;
+width: 46px;
+height: 46px !important;
+margin-left: 10px;
+}
+.geometriaIconError {
+background-image: url('../images/Error.png');
+background-repeat: no-repeat;
+width: 46px;
+height: 46px !important;
+margin-left: 10px;
+}
+.geometriaIcon24 {
+background-image: url('../images/24x24/icons24.png');
+background-repeat: no-repeat;
+width: 24px;
+height: 24px;
+}
+.geometriaNavigatorIcon {
+background-image: url('../images/24x24/icons24.png');
+background-repeat: no-repeat;
+width: 16px;
+height: 16px;
+}
+.geometriaIconDoc {
+display: inline-block;
+position: relative;
+top: 5px;
+}
+.dijitDisabled .geometriaIcon24 {
+background-image: url('../images/24x24/icons24Disabled.png');
+}
+.geometriaIcon24NewProblem { background-position: 0; }
+.geometriaIcon24Navigator { background-position: -24px; }
+.geometriaIcon24SolveProblem { background-position: -48px; }
+.geometriaIcon24SaveDocument { background-position: -72px; }
+/* obsolete icon */
+.geometriaIcon24LockProblem { background-position: -120px; }
+.geometriaIcon24Undo { background-position: -144px; }
+.geometriaIcon24Redo{ background-position: -168px; }
+.geometriaIcon24Properties { background-position: -192px; }
+.geometriaIcon24Prism { background-position: -216px; }
+.geometriaIcon24Pyramid { background-position: -240px; }
+.geometriaIcon24LogNext { background-position: -264px; }
+.geometriaIcon24LogStop { background-position: -288px; }
+.geometriaIcon24ProblemFile { background-position: -312px; }
+.geometriaIcon24LogCut { background-position: -336px; }
+.geometriaIcon24SolutionFile { background-position: -360px; }
+.geometriaIcon24FigureFile { background-position: -384px; }
+.geometriaIcon24Tetrahedron { background-position: -408px; }
+.geometriaIcon24Cube { background-position: -432px; }
+.geometriaIcon24Octahedron { background-position: -456px; }
+.geometriaIcon24Dodecahedron { background-position: -480px; }
+.geometriaIcon24Icosahedron { background-position: -504px; }
+.geometriaIcon24Open { background-position: -528px; }
+.geometriaIcon24Clone { background-position: -552px; }
+.geometriaIcon24SaveFigure { background-position: -576px; }
+.geometriaIcon24RemoveFigure { background-position: -600px; }
+.geometriaIcon24Print {background-position: -624px; }
+.geometriaIcon24Scale { background-position: -648px; }
+.geometriaIcon24Shear { background-position: -672px; }
+.geometriaIcon24Cut{ background-position: -696px; }
+.geometriaIcon24JoinFigures { background-position: -720px; }
+.geometriaIcon24MeasureDistance { background-position: -744px; }
+.geometriaIcon24MeasureAngle { background-position: -768px; }
+.geometriaIcon24Area { background-position: -792px; }
+.geometriaIcon24Volume { background-position: -816px; }
+.geometriaIcon24JoinPoints { background-position: -840px; }
+.geometriaIcon24Perpendicular { background-position: -864px; }
+.geometriaIcon24DivideSegment { background-position: -888px; }
+.geometriaIcon24DivideAngle { background-position: -912px; }
+.geometriaIcon24Intersection { background-position: -936px; }
+.geometriaIcon24LayDistance { background-position: -960px; }
+.geometriaIcon24LayAngle { background-position: -984px; }
+.geometriaIcon24Erase { background-position: -1008px; }
+.geometriaIcon24Selector { background-position: -1032px; }
+.geometriaIcon24LogRewind {background-position: -1056px; }
+.geometriaIcon24ZoomIn { background-position: -1080px; }
+.geometriaIcon24ZoomOut { background-position: -1104px; }
+.geometriaIcon24FitToView { background-position: -1128px; }
+.geometriaIcon24Wireframe { background-position: -1152px; }
+.geometriaIcon24Labels { background-position: -1176px; }
+.geometriaIcon24Color { background-position: -1200px; }
+.geometriaIcon24Help { background-position: -1224px; }
+.geometriaIcon24Logo { background-position: -1248px; }
+.geometriaIcon24PreviousTopic { background-position: -1272px; }
+.geometriaIcon24NextTopic { background-position: -1296px; }
+.geometriaIcon24Contents { background-position: -1320px; }
+/* obsolete icon */
+.geometriaIcon24Mongoose { background-position: -1368px; }
+.geometriaIcon24NewFolder { background-position: -1392px; }
+.geometriaIcon24RenameFile { background-position: -1416px; }
+.geometriaIcon24RemoveFile { background-position: -1440px; }
+
+.claro .dijitMenuBar {
+border: 0 !important;
+}
+.claro .dijitToolbar {
+border-top: 1px solid #b5bcc7;
+border-bottom: 0 !important;
+}
+.dojoxGridHeader {
+display: none;
+}
+.dojoxColorPickerOptional input {
+width: 3em;
+}
+.dojoxColorPickerHex input {
+width: 5em;	
+}
+.dijitRadio {
+height: 16px !important;
+margin-top: 10px !important;
+}
+.dijitDialogPaneContent {
+/* background-color: #f8fcff !important; */
+}
