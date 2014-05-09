@@ -1,0 +1,9 @@
+/bin
+/build
+/package
+/test
+/archive/3.2/signed
+/archive/3.2/bin
+/archive/3.2/build
+/archive/3.2/package
+/archive/3.2/keyStore
