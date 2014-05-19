@@ -167,9 +167,6 @@
     <copy todir="${package.dir}/geometria">
       <fileset dir="${build.dir}/release/geometria" includes="geometria.js"/>
     </copy>
-    <copy todir="${package.dir}/src">
-      <fileset dir="${basedir}/js" includes="**/*"/>
-    </copy>
     <tstamp/>
     <compress dbscripts.dir="lp" binaries="**" text.files="License.txt README.txt"/>
     <compress dbscripts.dir="php" index.file="index_server.html" deployment.type=".server"/>
