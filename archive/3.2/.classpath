@@ -4,6 +4,6 @@
 	<classpathentry kind="lib" path="lib/jar/jhall.jar"/>
 	<classpathentry kind="lib" path="lib/jar/log4j-1.2.14.jar"/>
 	<classpathentry kind="lib" path="lib/jar/vecmath.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JRE1.6"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
