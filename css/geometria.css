@@ -14,7 +14,7 @@ html, body {
 margin: 0;
 width: 100%;
 height: 100%;
-font-family: Arial;
+font-family: Arial,Sans-serif;
 font-size: 1em;
 }
 svg {
@@ -87,9 +87,6 @@ background-color: #ff8888;
 }
 .geometria_figures {
 height: 70%;
-}
-.geometria_figure {
-font-size: 16px;
 }
 .geometria_statusinfo {
 height: 10%;

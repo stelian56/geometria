@@ -109,6 +109,37 @@ To stop Geometria, go back to the terminal and stop the process with Ctrl + C.
 <sect2 id="Troubleshooting">
 <title>Troubleshooting</title>
 
+<sect3 id="Port">
+<title>Port</title>
+
+<para>
+By default, Geometria starts a tiny web server listening on port 8080.
+If the browser shows an error or unexpected content, there might be another process on your computer listening to port 8080. In that case, stop Geometria as shown above and try another port by
+changing the <emphasis>listening_ports</emphasis> value in the mongoose.conf file, for example:
+</para>
+
+<programlisting>
+listening_ports 8081
+</programlisting>
+
+then point your web browser to
+<emphasis>localhost:8081</emphasis>.
+
+</sect3>
+
+<sect3 id="AccessDenied">
+<title>Access Denied</title>
+
+<para>
+Despite the fact, that Geometria needs no Internet connection to run, you may get an Access Denied message if you are behing a firewall. That is because your system administrator has configured a web proxy that blocks access to port 8080 even for a web server running from your own computer. Try disabling the proxy for the duration of your working with Geometria, then enabling it again when you are done. Note that the external web links present in Geometria documentation,
+<link linkend="ProblemText">problem text</link>
+and
+<link linkend="DocumentProperties">document properties</link>
+may stop working while the proxy is disabled.
+</para>
+
+</sect3>
+
 <sect3 id="Font">
 <title>Font</title>
 
@@ -140,21 +171,6 @@ On Internet Explorer, select the desired font in the View/Text Size menu.
 </itemizedlist>
 
 </sect3> 
-
-<sect3 id="Port">
-<title>Port</title>
-
-<para>
-By default, Geometria starts a tiny web server listening on port 8080.
-If the browser shows an error or unexpected content, there might be another process on your computer listening to port 8080. In that case, stop Geometria as shown above and try another port by
-changing the <emphasis>listening_ports</emphasis> value in the mongoose.conf file, for example:
-</para>
-
-<programlisting>
-listening_ports 8081
-</programlisting>
-
-</sect3>
 
 <sect3 id="Firebug">
 <title>Firebug</title>
