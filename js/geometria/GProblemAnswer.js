@@ -526,7 +526,7 @@ define([
         });
         figurePane.addChild(new ContentPane({
             region: "left",
-            style: "width:20%;",
+            style: "width:25%;",
             content: dict.get("TargetFigure")
         }));
         var figureOptions = [];
@@ -614,7 +614,7 @@ define([
         });
         conditionPane1.addChild(new ContentPane({
             region: "left",
-            style: "width:20%",
+            style: "width:25%",
             content: dict.get("Plane")
         }));
         conditionPane1.addChild(new ContentPane({
@@ -623,7 +623,7 @@ define([
         }));
         conditionPane1.addChild(new ContentPane({
             region: "right",
-            style: "width:30%",
+            style: "width:25%",
             content: valueInputs[0]
         }));
         conditionsPane.addChild(conditionPane1);
@@ -664,7 +664,7 @@ define([
         });
         conditionPane2.addChild(new ContentPane({
             region: "left",
-            style: "width:20%",
+            style: "width:25%",
             content: dict.get("Plane")
         }));
         conditionPane2.addChild(new ContentPane({
@@ -673,7 +673,7 @@ define([
         }));
         var ratioContainer = new LayoutContainer({
             region: "right",
-            style: "width:30%;margin-right:10px;"
+            style: "width:25%;margin-right:10px;"
         });
         ratioContainer.addChild(new ContentPane({
             "class": "geometria_ratiodivider",
@@ -715,7 +715,7 @@ define([
         });
         conditionPane3.addChild(new ContentPane({
             region: "left",
-            style: "width:20%",
+            style: "width:25%",
             content: dict.get("SectionShapedAs")
         }));
         conditionPane3.addChild(new ContentPane({
@@ -724,7 +724,7 @@ define([
         }));
         conditionPane3.addChild(new ContentPane({
             region: "right",
-            style: "width:30%"
+            style: "width:25%"
         }));
         conditionsPane.addChild(conditionPane3);
         container.addChild(conditionsPane);
