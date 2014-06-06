@@ -39,20 +39,18 @@ define([
                                 action.base.execute();
                             },
                             onMouseOver: function() {
-                                if (action.tooltip) {
-                                    var tooltipLabel = action.tooltip();
-                                    if (tooltipLabel.length) {
-                                        Tooltip.show(tooltipLabel, this.domNode);
-                                    }
+                                var tooltip = action.tooltip && action.tooltip();
+                                if (tooltip) {
+                                    Tooltip.show(tooltip, this.domNode);
+                                }
+                                else {
+                                    button.set("label", action.label);
                                 }
                             },
                             onMouseLeave: function() {
                                 Tooltip.hide(this.domNode);
                             }
                         });
-                        if (!action.tooltip) {
-                            button.set("label", action.label);
-                        }
                         action.base.addStateObserver(function() {
                             button.set("disabled", !action.base.enabled);
                             if (action.base.active) {

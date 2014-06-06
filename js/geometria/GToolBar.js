@@ -69,19 +69,6 @@ define([
 
             var make = function() {
             
-                var tooltip = function(action, button) {
-                    var tooltipLabel;
-                    if (action.tooltip) {
-                        tooltipLabel = action.tooltip();
-                    }
-                    if (tooltipLabel && tooltipLabel.length) {
-                        Tooltip.show(tooltipLabel, button.domNode);
-                    }
-                    else {
-                        Tooltip.hide(button.domNode);
-                    }
-                };
-            
                 $.each(toolBarActions, function() {
                     if (this == "|") {
                         dojoToolBar.addChild(new ToolbarSeparator());
@@ -94,18 +81,20 @@ define([
                             showLabel: false,
                             onClick: function() {
                                 action.base.execute();
-                                tooltip(action, this);
                             },
                             onMouseOver: function() {
-                                tooltip(action, this);
+                                var tooltip = action.tooltip && action.tooltip();
+                                if (tooltip) {
+                                    Tooltip.show(tooltip, this.domNode);
+                                }
+                                else {
+                                    button.set("label", action.label);
+                                }
                             },
                             onMouseLeave: function() {
                                 Tooltip.hide(this.domNode);
                             }
                         });
-                        if (!action.tooltip) {
-                            button.set("label", action.label);
-                        }
                         action.base.addStateObserver(function() {
                             button.set("disabled", !action.base.enabled);
                             if (action.base.active) {
