@@ -106,7 +106,7 @@ define([
 
         _getSvgSize: function() {
             var $svg = $(this.svg);
-            return { width: $svg.attr("width"), height: $svg.attr("height") };
+            return { width: $svg.width(), height: $svg.height() };
         },
         
         _getFittingScalingFactor: function() {
@@ -125,7 +125,7 @@ define([
                 width = Math.max($svg.width(), span);
                 height = Math.max($svg.height(), span);
             }
-            else {
+            else if (factor < 1) {
                 $domNode = $(this.pane.domNode);
                 width = Math.min($svg.width(), span);
                 width = Math.max(width, $domNode.width());
@@ -133,8 +133,8 @@ define([
                 height = Math.max(height, $domNode.height());
             }
             $svg.attr({
-                width: width - 16,
-                height: height - 16
+                width: width,
+                height: height
             });
             this.draw();
         },
@@ -143,8 +143,8 @@ define([
             this.scalingFactor = this._getFittingScalingFactor();
             $domNode = $(this.pane.domNode);
             $(this.svg).attr({
-                width: $domNode.width() - 16,
-                height: $domNode.height() - 16
+                width: "99%",
+                height: "99%"
             });
             this.draw();
         },
@@ -208,8 +208,8 @@ define([
             if (!this.svg) {
                 this.svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                 $(this.svg).attr({
-                    width: size.width - 16,
-                    height: size.height - 16
+                    width: "99%",
+                    height: "99%"
                 });
                 this.pane.setContent(this.svg);
                 this.solid.initSvg(this.svg);
