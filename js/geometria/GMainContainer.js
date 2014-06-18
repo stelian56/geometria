@@ -49,6 +49,11 @@ define([
     
     exports.startUp = function(baseUrl) {
         exports.baseUrl = baseUrl;
+        var queryParams = utils.getQueryParams();
+        lang = queryParams["lang"];
+        if (lang) {
+            dict.setLanguage(lang);
+        }
         container = new BorderContainer({
             "class": "geometria_maincontainer",
             design: "headline"
@@ -149,7 +154,6 @@ define([
         };
         navigator.isReadOnly().then(function(readOnly) {
             exports.readOnly = readOnly;
-            var queryParams = utils.getQueryParams();
             var id = queryParams["id"];
             if (id) {
                 navigatorReady.then(function() {
