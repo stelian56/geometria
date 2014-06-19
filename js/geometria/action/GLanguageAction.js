@@ -39,7 +39,7 @@ define([
         execute: function(props) {
             mainContainer.onCloseDocument().then(function() {
                 dict.setLanguage(props.language);
-                location.reload();
+                window.location.search = "lang=" + props.language;
             });
         }
     };
