@@ -218,6 +218,10 @@ Geometria makes use of the following open-source projects:
 <listitem>
 <ulink url="http://www.sqlite.org">SQLite</ulink>
 </listitem>
+<listitem>
+<ulink url="http://www.docbook.org">DocBook</ulink>
+</listitem>
+
 </itemizedlist>
 
 </sect1>

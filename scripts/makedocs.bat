@@ -1,8 +1,6 @@
 @echo off & setlocal EnableDelayedExpansion
 REM Build Geometria documentation
 
-SET JHSEARCH=C:\jh2.0\javahelp\bin\jhindexer.bat
-
 SET DOC_DIR=%1%
 SET DOC_BUILD_DIR=%2%
 
