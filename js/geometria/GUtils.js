@@ -170,7 +170,12 @@ define([
         showStandby: function() {
             if (!standby) {
                 var body = window.document.body;
-                standby = new Standby({target: body, zIndex: 1000, image: "images/loading.gif"});
+                standby = new Standby({
+                    target: body,
+                    zIndex: 1000,
+                    text: dict.get("PleaseWait"),
+                    image: "images/loading.gif"
+                });
                 body.appendChild(standby.domNode);
                 standby.startup();
             }

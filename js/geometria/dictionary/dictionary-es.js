@@ -250,6 +250,7 @@ define({
 "PerpendicularInFigure": "Perpendicular a [${1}${2}] a través de ${3} en la figura <span class='geometria_figurename'>${4}</span>",
 "PerpendicularsInFigure": "Perpendiculares a [${1}${2}] a través de ${3} en la figura <span class='geometria_figurename'>${4}</span>",
 "Plane": "Plano",
+"PleaseWait": "Un momento, por favor",
 "PointAlreadyExists": "El punto ${1} ya existe en la figura <span class='geometria_figurename'>${2}</span>",
 "PointSet": "Conjunto de Puntos",
 "ProblemFileCorrupted": "El archivo de problema de Geometria <span class='geometria_figurename'>${1}</span> está dañado.",

@@ -251,6 +251,7 @@ define({
 "PerpendicularInFigure": "Perpendicular to [${1}${2}] through ${3} in figure <span class='geometria_figurename'>${4}</span>",
 "PerpendicularsInFigure": "Perpendiculars to [${1}${2}] through ${3} in figure <span class='geometria_figurename'>${4}</span>",
 "Plane": "Plane",
+"PleaseWait": "Please wait",
 "PointAlreadyExists": "Point ${1} already exists in figure <span class='geometria_figurename'>${2}</span>",
 "PointSet": "Point Set",
 "ProblemFileCorrupted": "Geometria problem file <span class='geometria_figurename'>${1}</span> is corrupted.",
