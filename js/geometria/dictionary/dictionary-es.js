@@ -186,7 +186,7 @@ define({
 "EnterNewFigureName": "Anotarle el nombre a la nueva figura",
 "EnterNewPointLabel": "Ingresar el rótulo del nuevo punto",
 "EnterNewVariableName": "Se solicita, el ingreso de un nuevo nombre de variable",
-"EnterNumberOfSides": "Se requiere el ingreso del número de lados",
+"EnterNumberOfSides": "Anotar el número de caras",
 "EnterPoint": "Ingresar un punto",
 "EnterPositiveExpression": "Ingresar una expresión positiva",
 "EnterRatio": "Ingresar razón",

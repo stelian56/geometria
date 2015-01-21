@@ -19,7 +19,7 @@ define([
         label: dict.get("action.HomePage"),
         
         execute: function() {
-            var url = utils.homeUrl + "/" + dict.language;
+            var url = utils.homeUrl;
             window.open(url, "_blank");
         }
     };

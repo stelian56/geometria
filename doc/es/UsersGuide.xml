@@ -1,21 +1,21 @@
 <?xml-stylesheet type="text/xsl" href="fo.xsl" encoding="UTF-8"?>
 
-<book id="GeometriaUsersGuide" lang="en">
+<book id="GeometriaUsersGuide" lang="es">
 
 <title>Geometria 4.0</title>
-<subtitle>User's Guide</subtitle>
+<subtitle>Guía de Uso</subtitle>
 
 <chapter id="General">
 <title>General</title>
 
 <sect1 id="QuickStart">
-<title>Quick Start</title>
+<title>Inicio Rápido</title>
 
 <sect2 id="Installation">
-<title>Installation</title>
+<title>Instalación</title>
 
 <para>
-Geometria runs in a web browser on your desktop or laptop. Supported web browsers are:
+Geometria se ejecuta en navegadores de equipos de escritorio o laptop. Los navegadores aceptables son:
 
 <itemizedlist>
 <listitem>
@@ -32,24 +32,24 @@ Internet Explorer 10+
 </para>
 
 <para>
-To install Geometria on your computer, download it from:
+Se instala Geometria en el equipo, descargándolo desde:
 <ulink url="http://geocentral.net/geometria/download">
 http://geocentral.net/geometria/download</ulink>
-and unzip the file into a folder. Open that folder.
+y decomprimiendo el archivo en un directorio que es el que luego, debe abrirse.
 </para>
 
 <sect3 id="WindowsUsers">
-<title>Windows Users</title>
+<title>Para Windows</title>
 
 <para>
-To start Geometria:
+Iniciar Geometria:
 
 <itemizedlist>
 <listitem>
-Double click on Startup.exe.
+Doble clic sobre Startup.exe.
 </listitem>
 <listitem>
-Open a web browser and point it to
+Abrir un navegador web y dirigirlo a
 <emphasis>localhost:8080</emphasis> .
 </listitem>
 </itemizedlist>
@@ -57,41 +57,41 @@ Open a web browser and point it to
 </para>
 
 <para>
-To stop Geometria, find the icon
+Salir de Geometria, ubicar el ícono
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Mongoose"/>
-on your system tray, click it and select
-<emphasis>Exit</emphasis>.
+en la bandeja del sistema, seleccionarlo con un clic
+<emphasis>Salir</emphasis>.
 </para>
 
 </sect3>
 
 <sect3 id="LinuxUsers">
-<title>Linux Users</title>
+<title>Para Linux</title>
 
 <para>
-To start Geometria:
+Iniciar Geometria:
 
 <itemizedlist>
 <listitem>
-Open a terminal.
+Abrir una terminal.
 </listitem>
 <listitem>
-Locate the startup file corresponding to your operating system (32-bit or 64-bit).
+Ubicar el archivo de inicio correspondiente al sistema operativo (32-bit o 64-bit).
 </listitem>
 <listitem>
-Make the startup file executable. For example:
+Establecer un archivo de inicio ejecutable. Por ejemplo:
 <programlisting>
 $ chmod +x Startup_Linux64
 </programlisting>
 </listitem>
 <listitem>
-Execute the startup file. For example:
+Ejecutar el archivo de inicio. Por ejemplo:
 <programlisting>
 $ ./Startup_Linux64
 </programlisting>
 </listitem>
 <listitem>
-Open a web browser and point it to
+Abrir un navegador y dirigirlo a
 <emphasis>localhost:8080</emphasis> .
 </listitem>
 </itemizedlist>
@@ -99,7 +99,7 @@ Open a web browser and point it to
 </para>
 
 <para>
-To stop Geometria, go back to the terminal and stop the process with Ctrl + C.
+Salir de Geometria, volver a la terminal y detener el proceso con Ctrl + C.
 </para>
 
 </sect3>
@@ -107,66 +107,66 @@ To stop Geometria, go back to the terminal and stop the process with Ctrl + C.
 </sect2>
 
 <sect2 id="Troubleshooting">
-<title>Troubleshooting</title>
+<title>Inconvenientes</title>
 
 <sect3 id="Port">
 <title>Port</title>
 
 <para>
-By default, Geometria starts a tiny web server listening on port 8080.
-If the browser shows an error or unexpected content, there might be another process on your computer listening to port 8080. In that case, stop Geometria as shown above and try another port by
-changing the <emphasis>listening_ports</emphasis> value in the mongoose.conf file, for example:
+Por omisión, Geometria inicia un navegador web básico dirigido al port 8080.
+Si el navegador muestra un error o contenido inesperado, podría haber otro proceso en simultáneo designado al port 8080. En tal caso, basta con detener Geometria para intentar otro port
+cambiando el valor de los ports asignados <emphasis>listening_ports</emphasis> en el archivo de configuración mongoose.conf, por ejemplo:
 </para>
 
 <programlisting>
 listening_ports 8081
 </programlisting>
 
-then point your web browser to
+puede modificarse para que el navegador apunte a
 <emphasis>localhost:8081</emphasis>.
 
 </sect3>
 
 <sect3 id="AccessDenied">
-<title>Access Denied</title>
+<title>Acceso Denegado</title>
 
 <para>
-Despite the fact, that Geometria needs no Internet connection to run, you may get an Access Denied message if you are behing a firewall. That is because your system administrator has configured a web proxy that blocks access to port 8080 even for a web server running from your own computer. Try disabling the proxy for the duration of your working with Geometria, then enabling it again when you are done. Note that the external web links present in Geometria documentation,
-<link linkend="ProblemText">problem text</link>
-and
-<link linkend="DocumentProperties">document properties</link>
-may stop working while the proxy is disabled.
+Aunque Geometria no precisa conexión a Internet para ejecutarse, en caso de estar activa una protección de tipo "firewall", puede surgir este mensaje de error. Esto se debe a que el sistema de administración se ha configurado como un "web proxy" que bloquea el acceso al port 8080 pese a que se opere desde un equipo propio. Bastará con desactivar el proxy durante el trabajo con Geometria y reponerlo al terminar. No funcionarán los enlaces externos presentes en la documentación de Geometria,
+<link linkend="ProblemText">planteos de problemas</link>
+ni
+<link linkend="DocumentProperties">las propiedades del documento</link>
+mientras estuviera desactivado el "proxy".
 </para>
 
 </sect3>
 
 <sect3 id="Font">
-<title>Font</title>
+<title>Letra</title>
 
 <para>
-Geometria employs the default sans-serif font for its user interface. The font size can
-be control through the browser's settings as follows:
+Geometria emplea, por omisión, tipografía "sans-serif" en la interfaz de uso. La medida de la letra
+puede ajustarse desde el navegador del siguiente modo:
 </para>
 
 <itemizedlist>
 <listitem>
-On Firefox, check
-<emphasis>Zoom Text Only</emphasis>
-in the View/Zoom menu. To make the font larger, press + while holding the Ctrl key down.
-To make the font smaller, press - while holding the Ctrl key down. To revert to the default
-font size, select
-<emphasis>Reset</emphasis>
-in the View/Zoom menu.
+En Firefox, basta con tildar:
+<emphasis>Solo ampliar texto</emphasis>
+en el menú Ver/Tamaño. Para agrandar la letra, basta pulsar + en simultáneo con Ctrl.
+Con - mientras se mantiene pulsado Ctrl, se reduce. Para recuperar la medida usual,
+de la letra, basta con seleccionar
+<emphasis>Inicio</emphasis>
+en el menú Ver/Tamaño.
 </listitem>
 <listitem>
-On Chrome, open the Settings, search for
-<emphasis>Font</emphasis>
-and change
-<emphasis>Font size</emphasis>
-as desired.
+En Chrome, tras abrir Configuración, basta con elegir
+<emphasis>Contenido Web</emphasis>
+y cambiar
+<emphasis>Tamaño de fuente</emphasis>
+a la deseada.
 </listitem>
 <listitem>
-On Internet Explorer, select the desired font in the View/Text Size menu.
+En Internet Explorer, basta elegir el tamaño de letra deseado en el menú Ver/Medida Texto.
 </listitem>
 </itemizedlist>
 
@@ -176,7 +176,7 @@ On Internet Explorer, select the desired font in the View/Text Size menu.
 <title>Firebug</title>
 
 <para>
-If your web browser is Firefox, make sure Firebug is turned off or, at least, its Script Panel is disabled. When the Script Panel is on, Firebug reports certain scripting errors, which are a known issue unrelated to Geometria.
+En Firefox, es preciso que Firebug esté desactivado o, al menos, lo esté su Panel "Script". Cuando su Panel está habilitado, Firebug reporta ciertos errores de "guiones" de cuestiones conocidas pero no relacionadas con Geometria.
 </para>
 
 </sect3>
@@ -186,15 +186,15 @@ If your web browser is Firefox, make sure Firebug is turned off or, at least, it
 </sect1>
 
 <sect1 id="License">
-<title>License</title>
-Geometria is free software released under the
-<ulink url="http://opensource.org/licenses/MIT">MIT License</ulink>.
+<title>Licencia</title>
+Geometria es un software libre bajo 
+<ulink url="http://opensource.org/licenses/MIT">Licencia MIT</ulink>.
 </sect1>
 
-<sect1 id="Acknowledgements">
-<title>Acknowledgements</title>
+<sect1 id="Acconocerments">
+<title>Reconocimientos</title>
 
-Geometria makes use of the following open-source projects:
+Geometria emplea los siguientes recursos de código abierto:
 
 <itemizedlist>
 <listitem>
@@ -226,183 +226,183 @@ Geometria makes use of the following open-source projects:
 </sect1>
 
 <sect1 id="Overview">
-<title>Overview</title>
+<title>Pantallazo</title>
 
 <para>
-Geometria provides a graphic interface for creating and solving problems in solid geometry.
+Geometria ofrece una interfaz gráfica para crear y resolver problemas de geometría sólida.
 </para>
 
 <sect2 id="EditorsAndSolvers">
-<title>Editors and Solvers</title>
+<title>Edición y Resolución</title>
 
 <para>
-At any given time, the Geometria user is either a problem
-<emphasis>Editor</emphasis>
-(a.k.a. Teacher) or a problem
-<emphasis>Solver</emphasis>
-(a.k.a. Student).
+Por ahora, quienes emplean Geometria se dedican a plantear desde la edición o a resolver problemas. Son, entonces la:
+<emphasis>Edición</emphasis>
+(tarea Docente) del planteo y la
+<emphasis>Resolución</emphasis>
+(Estudiante en general).
 </para>
 
 </sect2>
 
 <para>
-Both problems and solutions are called
-<emphasis>documents</emphasis>.
-Documents are saved in files. Users engage in a Geometria process as follows:
+Tanto el texto del planteo como el de resolución de problemas se denominan
+<emphasis>documentos</emphasis>.
+Los documentos se guardan en archivos. El modo de dedicarse a un problema de Geometria es el siguiente:
 </para>
 
 <itemizedlist>
 
 <listitem>
-The
-<link linkend="EditorsAndSolvers">Editor</link>
-creates a problem, provides it with an
-<link linkend="EditorsAnswer">answer</link>,
-<link linkend="SaveProblem">saves</link>
-the problem and
-<link linkend="ShareDocument">shares</link>
-it with the
-<link linkend="EditorsAndSolvers">Solver</link>.
+Al
+<link linkend="EditorsAndSolvers">Editar</link>
+se crea un problema, incluyendo una
+<link linkend="EditorsAnswer">respuesta</link>,
+<link linkend="SaveProblem">se guarda</link>
+el problema y se lo pasa a
+<link linkend="ShareDocument">compartir</link>
+con quienes lo van a
+<link linkend="EditorsAndSolvers">Resolver</link>.
 </listitem>
 
 <listitem>
-The
-<link linkend="EditorsAndSolvers">Solver</link>&#xA0;
-<link linkend="OpenProblem">opens</link>
-the problem and
-<link linkend="SolveProblem">solves</link>
-it.
+Al
+<link linkend="EditorsAndSolvers">Resolver</link>&#xA0;
+<link linkend="OpenProblem">se abre</link>
+el planteo para
+<link linkend="SolveProblem">resolver</link>
+tal problema.
 </listitem>
 
 <listitem>
-The solution consists of a number of actions. The actions are recorded in
-the solution
-<link linkend="SolutionLog">log</link>.
+La resolución comprende una serie de acciones. Las acciones integran
+la solución
+<link linkend="SolutionLog">registrada</link>.
 </listitem>
 
 <listitem>
-The
-<link linkend="EditorsAndSolvers">Solver</link>&#xA0;
-<link linkend="SolversAnswer">answers</link>
-the problem. The
-<link linkend="EditorsAndSolvers">Solver</link>'s
-answer is considered correct if it matches the
-<link linkend="EditorsAndSolvers">Editor</link>'s.
+Al
+<link linkend="EditorsAndSolvers">Resolver</link>&#xA0;
+<link linkend="SolversAnswer">se responde</link>
+el problema. La respuesta de la
+<link linkend="EditorsAndSolvers">Resolución</link>
+se considera correcta si concuerda con la incluida en la
+<link linkend="EditorsAndSolvers">Edición</link>.
 </listitem>
 
 <listitem>
-The
-<link linkend="EditorsAndSolvers">Solver</link>&#xA0;
-<link linkend="SaveSolution">saves</link>
-the solution and
-<link linkend="ShareDocument">shares</link>
-it with the
-<link linkend="EditorsAndSolvers">Editor</link>.
+Al
+<link linkend="EditorsAndSolvers">Resolver</link>&#xA0;
+<link linkend="SaveSolution">se guarda</link>
+y se
+<link linkend="ShareDocument">comparte</link>
+tal solución como parte de la
+<link linkend="EditorsAndSolvers">Edición</link>.
 </listitem>
 
 <listitem>
-The solution can be
-<link linkend="Playback">played back</link>
-by
-<link linkend="OpenSolution">opening</link>
-it and following the
-<link linkend="EditorsAndSolvers">Solver</link>'s
-actions.
+La solución se puede
+<link linkend="Playback">reproducir</link>
+al
+<link linkend="OpenSolution">abrirla</link>
+para el seguimiento de la
+<link linkend="EditorsAndSolvers">Resolución</link>
+por cada una de sus acciones..
 </listitem>
 
 </itemizedlist>
 
 <para>
-Note that Geometria does not perform any semantic analysis of the problem in order
-to determine if the
-<link linkend="EditorsAndSolvers">Editor</link>'s
-answer is actually correct. The answer may be incorrect or even make no sense at all.
-The problem may make no sense either. Thus, a problem might ask:
+Obviamente Geometria no realiza análisis semántico alguno del problema para
+determinar si la respuesta
+<link linkend="EditorsAndSolvers">editada</link>
+es efectivamente correcta. La respuesta puede ser incorrecta y hasta desatinada.
+El problema puede no tener sentido. Por ejemplo, un problema podría plantear:
 </para>
 
 <para>
 <emphasis>
-What is the highest point in Arizona?
+¿Cómo se llama el lado mayor del triángulo rectángulo?
 </emphasis>
 </para>
 
 <para>
-and be answered as:
+y la respuesta propuesta podría ser:
 </para>
 
 <para>
 <emphasis>
-Point Z in figure MyPyramid.
+El vértice Z en la figura MiCubo.
 </emphasis>
 </para>
 
 <para>
-If that is what the
-<link linkend="EditorsAndSolvers">Editor</link>
-considers a correct answer to the problem, it's fine with Geometria, although it is unlikely
-that such a problem will get much attention from
-<link linkend="EditorsAndSolvers">solvers</link>.
+Si tal disparate se hubiera planteado en la
+<link linkend="EditorsAndSolvers">Edición</link>
+como respuesta correcta al problema, Geometria la dejará registrada como tal
+La desestimarán, posiblemente, quienes se dediquen a la
+<link linkend="EditorsAndSolvers">resolución</link>.
 </para>
 
 <para>
-Every document contains the
-<link linkend="ProblemText">problem text</link>,
-<link linkend="DocumentProperties">document properties</link>,
-a number of
-<link linkend="Figures">figures</link>,
-and a number of notepad
-<link linkend="Notepad">records</link>.
-Additionaly, a solution contains the
-<link linkend="SolutionLog">solution log</link>.
+Cada documento contendrá el texto del
+<link linkend="ProblemText">planteo del problema</link>,
+<link linkend="DocumentProperties">las propiedades del documento</link>,
+una serie de
+<link linkend="figures">figuras</link>,
+y un número de anotaciones
+<link linkend="Notepad">registradas</link>.
+Además, una solución contiene el
+<link linkend="SolutionLog">registro de la solución</link>.
 </para>
 
 <para>
-Figures are limited to convex polyhedra. Figures can be
-<link linkend="Measure">measured</link>,
-<link linkend="Draw">drawn upon</link>,
-<link linkend="Transform">transformed</link>,
-<link linkend="RotateFigure">rotated</link>,
-<link linkend="ViewModes">viewed</link>
-as wireframe or labeled,
-<link linkend="PrintFigure">printed</link>.
+Las figuras se limitan a representar poliedros convexos. Las figuras pueden
+<link linkend="Measure">medirse</link>,
+<link linkend="Draw">redibujarse</link>,
+<link linkend="Transform">transformarse</link>,
+<link linkend="Rotatefigure">rotarse</link>,
+<link linkend="ViewModes">apreciarse</link>
+como estructura simple o etiquetada,
+<link linkend="Printfigure">imprimirse</link>.
 </para>
 
 <para>
-Drawings can only be made on the surface of a figure. Drawings in the figure's interior
-are possible by, first,
-<link linkend="CutFigure">cutting</link>
-the figure with a suitable plane, then drawing on a fragment's surface.
+Se pueden realizar trazados sobre la superficie de una figura. Los que se quieran realizar en el interior
+requieren, para empezar, un 
+<link linkend="Cutfigure">corte</link>
+de la figura con un plano adecuado, para poder dibujar sobre el fragmento de superficie establecido.
 </para>
 
 <para>
-Labels and
+Los rótulos y
 <link linkend="Variables">variables</link>
-provide a convenient abstraction over numeric coordinates
-and measurements.
-<link linkend="Variables">Variables</link>
-are used in
-<link linkend="Calculator">calculations</link>
-and referenced in measurements and drawings. Labels and variables are also used to
-<link linkend="Answer">answer</link>
-the problem.
+ofrecen una conveniente abstracción respecto de las coordenadas numéricas
+y medidas.
+<link linkend="Variables">Las variables</link>
+se usan en
+<link linkend="Calculator">operaciones</link>
+y en las referencias a medidas y gráficos. Los rótulos y las variables también se emplean en las
+<link linkend="Answer">respuestas</link>
+de los problemas.
 </para>
 
 <para>
-The
-<link linkend="Answer">answer</link>
-is not necessarily numeric. In fact, some of the most challenging
-problems cannot be answered with a number. The problem may ask for a certain
-point, segment, path or plane to be constructed. For example:
+Las
+<link linkend="Answer">respuestas</link>
+no son necesariamente numéricas. De hecho, algunas de los retos más desafiantes
+corresponden a problemas que no se responden con un número. Se puede inquirir sobre un
+punto, segmento, trayecto o plano a construir con cierto propósito. Por ejemplo:
 </para>
 
 <para>
 <emphasis>
-Find a plane that is parallel to the diagonal of the cube and cuts its volume in the ratio 2:3.
+Hallar un plano paralelo a la diagonal del cubo que lo secciona en dos piezas de volúmenes en razón 2:3.
 </emphasis>
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
@@ -411,10 +411,10 @@ See also:
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Calculator">Calculator</link>
+<link linkend="Calculator">Operaciones</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 
 </itemizedlist>
@@ -425,240 +425,241 @@ See also:
 <title>Variables</title>
 
 <sect2 id="CreatingAVariable">
-<title>Creating a Variable</title>
+<title>Creando una Variable</title>
 
 <para>
-A <emphasis>variable</emphasis> is created as a result of a
-<link linkend="Measure">measurement</link>
-or a
-<link linkend="Calculator">calculation</link>.
-A newly created variable has
-a name and a definition. For instance, the variable myDistance in the
-example below is defined as the distance between points
+Una <emphasis>variable</emphasis> se crea como resultado de una
+<link linkend="Measure">medición</link>
+o una
+<link linkend="Calculator">operación</link>.
+Cada variable creada presenta
+un nombre y una definición. Por ejemplo, la variable miDistancia en el
+siguiente ejemplo se define como la distancia entre los puntos
 <emphasis>P</emphasis>
-and
+y
 <emphasis>W</emphasis>
-in figure
-<emphasis>MyCube</emphasis>:
+en la figura
+a
+<emphasis>MiCubo</emphasis>:
 </para>
 
 <programlisting>
-myDistance = |PW| : MyCube
+miDistancia = |PW| : MiCubo
 </programlisting>
 
 <para>
-In another example, variable
-<emphasis>myArea</emphasis>
-is a result of a calculation upon
-previously defined variables
-<emphasis>myVolume</emphasis>
-and
-<emphasis>myDistance</emphasis>:
+En otro ejemplo, la variable
+<emphasis>miArea</emphasis>
+resulta de un cálculo entre 
+variables previamente definidas 
+<emphasis>miVolumen</emphasis>
+y
+<emphasis>miDistancia</emphasis>:
 </para>
 
 <programlisting>
-myArea = 2 * myVolume / myDistance
+miArea = 2 * miVolumen / miDistancia
 </programlisting>
 
 <para>
-Newly created variables are automatically recorded,
-along with their definitions, on the
-<link linkend="Notepad">notepad</link>.
+Ni bien se crea una nueva variable, queda automáticamente registrada,
+junto a su definición en el 
+<link linkend="Notepad">anotador</link>.
 </para>
 
 <para>
-A variable name must consist of alphanumeric characters and begin with a letter.
-Special and accented characters are not allowed. A variable name cannot
-contain spaces.
+Los nombres de variables pueden incluir caracteres alfanuméricos con una letra inicial.
+No pueden contener letras acentuadas o caracteres acentuados ni
+espacios.
 </para>
 
 <para>
-Variable names are case sensitive. Thus,
-<emphasis>myArea</emphasis>
-and
-<emphasis>MyArea</emphasis>
-will reference two distinct variables.
+Los nombres de variables distinguen mayúsculas de minúsculas. Así,
+<emphasis>miArea</emphasis>
+y
+<emphasis>MiArea</emphasis>
+refieren a dos variables diferentes.
 </para>
 
 <para>
 <emphasis>PI</emphasis>
-is reserved for the
-<ulink url="http://en.wikipedia.org/wiki/Pi">ratio of a circle's circumference
-to its diameter</ulink>
-and cannot be used for newly
-created variables. However, it can be used in
-<link linkend="Calculator">calculations</link>.
+se reserva para la relación 
+<ulink url="http://en.wikipedia.org/wiki/Pi">entre la longitud de una circunferencia
+y su diámetro</ulink>
+y no puede usarse para nominar a cualquier
+variable creada. Sin embargo, se puede usar al operar con la
+<link linkend="Calculator">como valor.</link>.
 </para>
 
 </sect2>
 
 <sect2 id="ValueOfAVariable">
-<title>Value of a Variable</title>
+<title>Valor de una Variable</title>
 
 <para>
-Each variable has a numeric value. However, in most cases, this value
-remains transparent to the user. One can create and solve
-Geometria problems without ever knowing the underlying values of the
-variables one has defined. To see the numerical value of a variable,
-type the variable in the
-<link linkend="Calculator">calculator</link>
-and press the Enter key.
-Due to roundup errors, the numeric values may slightly vary in time, as you go on
-editing or solving the problem.
+Cada variable tiene un valor numérico. Sin embargo, en muchos casos, este valor
+permanece transparente a los usuarios. Se pueden crear y resolver
+problemas de Geometria sin conocer los valores subyacentes de las
+variables que se hubieran definido. Para conocer el valor numérico de una variable,
+basta con anotar el nombre de la variable en la
+<link linkend="Calculator">calculadora</link>
+y pulsar la tecla de entrada Intro o Enter.
+Debido a errores de redondeo, los valores numéricos pueden diferir ligeramente entre el que se obtiene en
+la edición del que presenta la resolución del problema.
 </para>
 
 </sect2>
 
 <sect2 id="PinnedVariable">
-<title>Pinned Variable</title>
+<title>Variable Extraviada</title>
 
 <para>
-After certain actions, the definition of a variable may become obsolete.
-For example, if point
+Tras ciertas acciones, la definición de una variable puede resultar obsoleto.
+Por ejemplo, si el punto
 <emphasis>P</emphasis>
-or point
+o el punto
 <emphasis>W</emphasis>
-is
-<link linkend="EraseElements">erased</link>,
-the definition of the variable
-<emphasis>myDistance</emphasis>
-<link linkend="CreatingAVariable">above</link>
-will become obsolete. Same if figure
-<emphasis>MyCube</emphasis>
-is
-<link linkend="Transform">transformed</link>
-or
-<link linkend="RemoveFigure">removed</link>.
-Such a variable is called <emphasis>pinned</emphasis>.
+se
+<link linkend="EraseElements">borraran</link>,
+la definición de la variable
+<emphasis>miDistancia</emphasis>
+<link linkend="CreatingAVariable">referida</link>
+devendrá obsoleta. Ídem si la figura
+<emphasis>MiCubo</emphasis>
+se
+<link linkend="Transform">transforma</link>
+o
+<link linkend="Removefigure">borra</link>.
+Tal variable queda <emphasis>extraviada</emphasis>.
 </para>
 
 <para>
-A pinned variable has a fixed value no longer dependent upon its original definition. For example,
-<link linkend="EraseElements">erasing</link>
-point
+Una variable extraviada tiene un valor fijo ya no más dependiente de su definición original. Por ejemplo,
+<link linkend="EraseElements">borrar</link>
+el punto
 <emphasis>P</emphasis>
-in figure
-<emphasis>MyCube</emphasis>
-will pin variable
-<emphasis>myDistance</emphasis>.
-Likewise,
-<link linkend="ScaleFigure">scaling</link> 
-<emphasis>MyCube</emphasis>
-will pin variable
-<emphasis>myDistance</emphasis>.
-Its value will be unaffected by scaling.
+en la figura
+<emphasis>MiCubo</emphasis>
+"extraviará" a la variable
+<emphasis>miDistancia</emphasis>.
+De modo análogo,
+<link linkend="Scalefigure">escalar</link> 
+<emphasis>MiCubo</emphasis>
+"extraviará" a la variable
+<emphasis>miDistancia</emphasis>.
+Su valor no resultará afectado por el re-escalamiento.
 </para>
 
 <para>
-If the action that pinned a variable is
-<link linkend="Undo">undone</link>,
-the definition of the variable is restored.
+Si la acción que "extravía" una variable se
+<link linkend="Undo">deshace</link>,
+la definición de la variable se restaura.
 </para>
 
 </sect2>
 
 <sect2 id="LifetimeOfAVariable">
-<title>Lifetime of a Variable</title>
+<title>Persistencia de una Variable</title>
 
 <para>
-Once a variable is defined, it can be used in
-<link linkend="Calculator">calculations</link> and
-referenced in actions, such as
-<link linkend="Measure">measuring</link>,
-<link linkend="Draw">drawing</link>
-and
-<link linkend="Transform">transforming</link>
-figures. A variable can also be used to
-<link linkend="Answer">answer</link> a problem. A
-<link linkend="PinnedVariable">pinned</link>
-variable can still be used in calculations and references.
+Una vez que una variable se define, se puede usar en
+<link linkend="Calculator">operaciones</link> y
+referirse en acciones como las de
+<link linkend="Measure">medir</link>,
+<link linkend="Draw">trazar</link>
+y
+<link linkend="Transform">transformar</link>
+figuras. Una variable también puede usarse en la
+<link linkend="Answer">respuesta</link> de un problema. Una variable
+<link linkend="PinnedVariable">extraviada</link>
+también puede usarse en cálculos y referencias.
 </para>
 
 <para>
-A variable exists as long as it is recorded on the
-<link linkend="Notepad">notepad</link>.
-<link linkend="ClearNotepad">Clearing</link>
-the notepad will remove all variables. Use caution since this action cannot be
-<link linkend="Undo">undone</link>.
+Una variable existe en tanto se la registra en el
+<link linkend="Notepad">anotador</link>.
+<link linkend="ClearNotepad">Limpiar</link>
+el anotador eliminará todas las variables. Esta acción, irrevocable, debe usarse con cuidado; no se
+<link linkend="Undo">deshace</link>.
 </para>
 
 <para>
-When the document, such as a problem or a solution, is saved,
-all the variables recorded on the
-<link linkend="Notepad">notepad</link>
-are saved, too. 
+Cuando el documento, sea un problema o una solución, se guarda,
+se guardan todas las variables registradas en el
+<link linkend="Notepad">anotador</link>
+también quedan almacenadas. 
 </para>
 
 </sect2>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 <listitem>
-<link linkend="Calculator">Calculator</link>
+<link linkend="Calculator">Calculadora</link>
 </listitem>
 <listitem>
-<link linkend="SaveProblem">Save Problem</link>
+<link linkend="SaveProblem">Guardar Problema</link>
 </listitem>
 <listitem>
-<link linkend="SaveSolution">Save Solution</link>
+<link linkend="SaveSolution">Guardar Solución</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
 
 <sect2 id="RenameVariable">
-<title>Rename Variable</title>
+<title>Renombrar Variables</title>
 
 <para>
-To rename a variable, select
-<emphasis>Rename Variable</emphasis>
-from the
-<emphasis>Edit</emphasis>
-menu. A dialog will pop up. Select the variable you wish to rename from the drop-down list,
-enter the new name for the variable and click
+Para renombrar una variable, basta con seleccionar
+<emphasis>Renombra Variable</emphasis>
+en el menú
+<emphasis>Edita</emphasis>
+. En el cuadro de diálogo emergente, se elige la variable a renombrar de la lista desplegable,
+anotar el nuevo nombre de la variable y pulsar sobre 
 <emphasis>OK</emphasis>.
-The new name must be a
-<link linkend="CreatingAVariable">valid</link>
-variable name.
+Este nuevo nombre debe cumplir los requisitos para un
+<link linkend="CreatingAVariable">válido</link>
+nombre de variable.
 </para>
 
 <para>
-Renaming a variable will result in some of the notepad
-<link linkend="Notepad">records</link>
-being updated accordingly.
+Al renombrar una variable, en el anotador, los 
+<link linkend="Notepad">registros</link>
+implicados se actualizarán adecuadamente.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Variables cannot be renamed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Las variables no se pueden renombrar durante el
+<link linkend="Playback">desenvolvimiento</link>.
+de la resolución. Es preciso detenerlo primero. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Acciones Revertibles</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 
 </itemizedlist>
@@ -668,67 +669,67 @@ See also:
 </sect1>
 
 <sect1 id="Calculator">
-<title>Calculator</title>
+<title>Calculadora</title>
 
 <para>
-The calculator is located at the bottom of the window, just under the
-<link linkend="Notepad">notepad</link>.
+La Calculadora se encuentra en la zona inferior de la ventana, justo bajo el
+<link linkend="Notepad">anotador</link>.
 </para>
 
 <sect2 id="Expressions">
-<title>Expressions</title>
+<title>Expresiones</title>
 
 <para>
-The calculator operates in the context of the current document.
-Calculations are performed upon valid expressions. Expressions can contain
-numbers,
+La calculadora opera en el contexto del documento activo.
+Las operaciones se realizan respecto de expresiones válidas. Las expresiones pueden contener
+números,
 <link linkend="Variables">variables</link>,
-the constant
+la constante
 <emphasis>PI</emphasis>,
-operators, functions and parentheses.
+operadores, funciones y paréntesis.
 </para>
 
 <sect3 id="Assign">
-<title>Assign</title>
+<title>Asignaciones</title>
 
 <para>
-To evaluate an expression
-<emphasis>myExpression</emphasis>
-and assign the result to a new variable
-<emphasis>myVariable</emphasis>,
-type in:
+Para evaluar una expresión
+<emphasis>miExpresiOn</emphasis>
+y asignarle el resultado a una nueva variable
+<emphasis>miVariable</emphasis>,
+basta con anotar:
 </para>
 
 <programlisting>
-myVariable = myExpression
+miVariable = miExpresiOn
 </programlisting>
 
 <para>
-and press
+y pulsar la tecla de entrada Intro o
 <emphasis>Enter</emphasis>.
-The variable name must be unique in the context of the current
-document. A new record will be added to the
-<link linkend="Notepad">notepad</link>. The newly created variable can be
-used in subsequent calculations and references.
+El nombre de la variable debe ser único en cada contexto y
+documento. Se añadirá un nuevo registro al 
+<link linkend="Notepad">anotador</link>. La variable recién creada puede
+usarse en subsecuentes operaciones y referencias.
 </para>
 
 </sect3>
 
 <sect3 id="Evaluate">
-<title>Evaluate</title>
+<title>Evaluaciones</title>
 
 <para>
-To evaluate the expression without assigning it to a variable, type in:
+Para evaluar una expresión sin asignarle su valor a una variable, basta con anotar:
 
 <programlisting>
-myExpression
+miExpresiOn
 </programlisting>
 
-and press
+y pulsar la tecla de entrada Intro o
 <emphasis>Enter</emphasis>.
-The numeric value of
-<emphasis>myExpression</emphasis>
-will be displayed. No new variable will be created.
+El valor numérico de 
+<emphasis>miExpresiOn</emphasis>
+aparecerá sin que se cree una nueva variable.
 </para>
 
 </sect3>
@@ -736,32 +737,32 @@ will be displayed. No new variable will be created.
 </sect2>
 
 <sect2 id="Operators">
-<title>Operators</title>
+<title>Operadores</title>
 
 <para>
-The following operators are supported:
+Pueden emplearse los siguientes operadores:
 </para>
 
 <itemizedlist>	
 
 <listitem>
-+ (add)
++ (suma)
 </listitem>
 
 <listitem>
-- (negate, subtract)
+- (negativo, resta)
 </listitem>
 
 <listitem>
-* (multiply)
+* (producto)
 </listitem>
 
 <listitem>
-/ (divide)
+/ (división)
 </listitem>
 
 <listitem>
-^ (power operator)
+^ (operador exponencial o de potenciación )
 </listitem>
 
 </itemizedlist>
@@ -769,77 +770,77 @@ The following operators are supported:
 </sect2>
 
 <sect2 id="Functions">
-<title>Functions</title>
+<title>Funciones</title>
 
 <para>
-The following functions are supported:
+Puede operarse con las siguientes funciones:
 </para>
 
 <itemizedlist>
 
 <listitem>
-sqrt (square root)
+sqrt (raíz cuadrada)
 </listitem>
 
 <listitem>
-sin
+sin (seno)
 </listitem>
 
 <listitem>
-cos
+cos (coseno)
 </listitem>
 
 <listitem>
-tan
+tan (tangente)
 </listitem>
 
 <listitem>
-asin
+asin (arcoseno)
 </listitem>
 
 <listitem>
-acos
+acos (arcocoseno)
 </listitem>
 
 <listitem>
-atan
+atan (arcotangente)
 </listitem>
 
 </itemizedlist>
 
 <para>
-Function arguments must be taken into parentheses.
+Los argumentos de las funciones deben anotarse entre paréntesis.
 </para>
 
 </sect2>
 
 <sect2 id="Examples">
-<title>Examples</title>
+<title>Ejemplos</title>
 
 <para>
-Calculate the side of a cube whose volume is
-<emphasis>myVolume</emphasis>:
+Calcular el lado de un cubo cuyo volumen es
+<emphasis>miVolumen</emphasis>:
 </para>
 
 <programlisting>
-mySide = myVolume ^ (1/3)
+miLado = miVolumen ^ (1/3)
 </programlisting>
 
 <para>
-Calculate the side adjacent to angle
-<emphasis>myAngle</emphasis>
-in a right triangle whose hypothenuse is
-<emphasis>myHypothenuse</emphasis>:
+Calcular el lado adyacente al ángulo
+<emphasis>miAngulo</emphasis>
+en un triángulo rectángulo cuya hipotenusa es
+<emphasis>miHipotenusa</emphasis>:
 </para>
 
 <programlisting>
-mySide = myHypothenuse * cos(myAngle)
+miLado = miHipotenusa * cos(miAngulo)
 </programlisting>
 
 </sect2>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
@@ -848,7 +849,7 @@ See also:
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 
 </itemizedlist>
@@ -856,112 +857,112 @@ See also:
 </sect1>
 
 <sect1 id="Notepad">
-<title>Notepad</title>
+<title>Anotador</title>
 
 <para>
-The notepad is located under the
-<link linkend="ProblemText">problem text</link>.
+El anotador está ubicado bajo el
+<link linkend="ProblemText">texto del problema</link>.
 </para>
 
 <para>
-Each time a new
+Cada vez que una nueva
 <link linkend="CreatingAVariable">variable</link>
-is created as a result of a measurement or
-<link linkend="Assign">assigned</link>
-in a calculation, a record is added to the notepad automatically.
-Each record consists of a unique variable name and an expression.
-Measurement records also contain the name of
-the figure where the measurement has been taken. For example, the following record:
+se crea como resultado de una medición o de la
+<link linkend="Assign">asignación</link>
+en una operación, se añade un registro en el anotador automáticamente.
+Cada registro consiste de un único nombre de variable y una expresión.
+Los registros de mediciones también contienen el nombre de
+la figura desde la que se toma la medida. Por ejemplo, los siguientes registros:
 </para>
 
 <programlisting>
-myDistance = |AB| : MyCube
+miDistancia = |AB| : MiCubo
 </programlisting>
 
 <para>
-is the result of measuring the distance between
-points
+es el resultado de la medida de la distancia entre los
+puntos
 <emphasis>A</emphasis>
-and
+y
 <emphasis>B</emphasis>
-in a figure named
-<emphasis>MyCube</emphasis>.
-The distance has been assigned to variable
-<emphasis>myDistance</emphasis>.
-The record:
+en la figura llamada
+<emphasis>MiCubo</emphasis>.
+La distancia se asignó a la variable
+<emphasis>miDistancia</emphasis>.
+El registro:
 </para>
 
 <programlisting>
-myAngle = &lt;PLX : MyPyramid
+miAngulo = &lt;PLX : MiPirAmide
 </programlisting>
 
 <para>
-is a result of measuring an angle in a figure named
-<emphasis>MyPyramid</emphasis>.
-The record:
+es el resultado de medir un ángulo en una figura llamada
+<emphasis>MiPirAmide</emphasis>.
+El registro:
 </para>
 
 <programlisting>
-myVolume = volume : Figure1
+miVolumen = volumen : Figura1
 </programlisting>
 
 <para>
-is the result of computing the volume of a figure named
-<emphasis>Figure1</emphasis>.
-The following record was added as the result of an
-<link linkend="Assign">assignment</link>:
+es el resultado de calcular el volumen de una figura llamada
+<emphasis>Figura1</emphasis>.
+El siguiente registro se añadió como resultado de una 
+<link linkend="Assign">asignación</link>:
 </para>
 
 <programlisting>
-h = 2 * myVolume / myArea
+h = 2 * miVolumen / miArea
 </programlisting>
 
 <para>
-If a variable is
-<link linkend="PinnedVariable">pinned</link>,
-its definition no longer shows on the notepad. For example,
-if point
+Su una variable se
+<link linkend="PinnedVariable">extravía</link>,
+su definición ya no se muestra en el anotador. Por ejemplo,
+si el punto
 <emphasis>X</emphasis>
-is
-<link linkend="EraseElements">erased</link>,
-variable
-<emphasis>myAngle</emphasis>
-will be stripped of its definition and the second example above will read:
+se
+<link linkend="EraseElements">borra</link>,
+la variable
+<emphasis>miAngulo</emphasis>
+será desvinculada de su definición y en el segundo de los ejemplos previos se leerá como:
 </para>
 
 <programlisting>
-myAngle
+miAngulo
 </programlisting>
 
 <para>
-Notepad records are owned by the current document, whether it is
-a problem or a solution. When the document is saved,
-the notepad records will be saved with it.
+Los registros del anotador pertenecen al documento activo, sea un 
+problema o una solución. Cuando se guarda el documento, 
+los registros del anotador se guardarán también.
 </para>
 
 <para>
-When the current document is closed,
-the notepad will be cleared of records. If another document is
-opened, its notepad records will be displayed instead.
+Cuando el documento activo se cierra,
+en el anotador se limpiarán los registros. Si se abre otro documento, 
+aparecerán en su lugar, los registros del anotador que le correspondan.
 </para>
 
 <sect2 id="ClearNotepad">
-<title>Clear Notepad</title>
+<title>Limpiar Anotador</title>
 
 <para>
-To erase all records from the notepad, the
-<link linkend="EditorsAndSolvers">Editor</link>
-selects
-<emphasis>Clear Notepad</emphasis>
-from the <emphasis>Edit</emphasis> menu.
-Use caution since this action cannot be
-<link linkend="Undo">undone</link>.
+Para borrar todos los registros del anotador, durante la
+<link linkend="EditorsAndSolvers">Edición</link>
+basta con seleccionar 
+<emphasis>Limpiar Anotador</emphasis>
+en el menú <emphasis>Edita</emphasis>.
+Debe usarse con precaución esta acción irrevocable ya que no se puede
+<link linkend="Undo">deshacer</link>.
 </para>
 
 </sect2>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
@@ -970,7 +971,7 @@ See also:
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Calculator">Calculator</link>
+<link linkend="Calculator">Calculadora</link>
 </listitem>
 
 </itemizedlist>
@@ -978,55 +979,55 @@ See also:
 </sect1>
 
 <sect1 id="Undo">
-<title>Undo Actions</title>
+<title>Deshacer Acciones</title>
 
 <para>
-To undo the last action performed on the current document, select
-<emphasis>Undo</emphasis>
-from the <emphasis>Edit</emphasis>
-menu or click the
+Para deshacer la última acción realizada en el documento activo, basta con seleccionar
+<emphasis>Deshace</emphasis>
+en el menú <emphasis>Edita</emphasis>
+o pulsar el
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Undo"/>
-button on the tool bar. In a solution, the action will be also
-erased from the
-<link linkend="SolutionLog">log</link>.
-The actions are undone in the reverse order
-as they have been performed.
+botón en la barra de herramientas. En una solución, la acción también será
+eliminada del
+<link linkend="SolutionLog">registro</link>.
+Las acciones se deshacen en orden inverso
+al de su ejecución.
 </para>
 
 <para>
-To view a short description of the action that would be undone,
-pause the mouse over the 
+Para ver una breve descripción de la acción a deshacer, basta con
+detener el ratón o mouse sobre el 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Undo"/>
-button.
+botón.
 </para>
 
 <para>
-Any undone action can be
-<link linkend="Redo">redone</link>.
+Cualquier acción deshecha puede 
+<link linkend="Redo">rehacerse</link>.
 </para>
 
 <para>
-Some of the actions cannot be undone. A warning is displayed when such
-an action is about to take place.
+Algunas de las acciones son irrevocables y un mensaje alerta que no podrán deshacerse
+una vez realizadas.
 </para>
 
 <para>
-Actions cannot be undone during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Las acciones no pueden deshacerse durante la 
+<link linkend="Playback">reproducción</link> de la resolución.
+Es preciso detener la reproducción primero. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Redo">Redo Actions</link>
+<link linkend="Redo">Rehacer Acciones</link>
 </listitem>
 <listitem>
-<link linkend="SolutionLog">Solution Log</link>
+<link linkend="SolutionLog">Solución Registrada</link>
 </listitem>
 
 </itemizedlist>
@@ -1034,45 +1035,45 @@ See also:
 </sect1>
 
 <sect1 id="Redo">
-<title>Redo Actions</title>
+<title>Rehacer Acciones</title>
 
 <para>
-To redo the last
-<link linkend="Undo">undone</link>
-action on the current document, select
-<emphasis>Redo</emphasis>
-from the <emphasis>Edit</emphasis>
-menu or click the
+Se puede rehacer la última acción
+<link linkend="Undo">deshecha</link>
+en el documento activo, seleccionando
+<emphasis>Rehace</emphasis>
+en el menú <emphasis>Edita</emphasis>
+o pulsando el
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Redo"/>
-button on the tool bar. In a solution, the action will be added back to the
-<link linkend="SolutionLog">log</link>.
-The actions are redone in the reverse order as they have been undone.
+botón en la barra de herramientas. En una solución, la acción volverá a aparecer
+<link linkend="SolutionLog">registrada</link>.
+Las acciones se rehacen en orden inverso al de su ejecución.
 </para>
 
 <para>
-To view a short description of the action that would be redone,
-pause the mouse over the 
+Para ver una breve descripción de qué acción va a ser rehecha,
+basta detener el ratón o mouse sobre el correspondiente 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Redo"/>
-button.
+botón.
 </para>
 
 <para>
-Actions cannot be redone during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Las acciones no pueden ser rehechas durante la reproducción de la solución
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, debe detenerse la reproducción. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Rehacer Acciones</link>
 </listitem>
 <listitem>
-<link linkend="SolutionLog">Solution Log</link>
+<link linkend="SolutionLog">Registro de Solución</link>
 </listitem>
 
 </itemizedlist>
@@ -1080,77 +1081,77 @@ See also:
 </sect1>
 
 <sect1 id="Language">
-<title>Language</title>
+<title>Idioma</title>
 
 <para>
-To switch to a different language, select
-<emphasis>Language</emphasis>
-from the
-<emphasis>Document</emphasis>
-menu, then select the desired language.
+Para cambiar de idioma, basta con seleccionar
+<emphasis>Idioma</emphasis>
+desde el menú
+<emphasis>Documento</emphasis>
+y escoger el que se deseara.
 </para>
 
 <para>
-The language cannot be changed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+El idioma no puede cambiarse mientras la solución
+<link linkend="Playback">se reproduce</link>.
+Primero, debe detenerse su reproducción. 
 </para>
 
 </sect1>
 
 <sect1 id="Help">
-<title>Help</title>
+<title>Ayuda</title>
 
 <para>
-Many action dialogs feature a
-<emphasis>Help</emphasis>
-button. Click that button for context-sensitive help. The relevant topic
-will be displayed on the right side of the window. Click the
+Muchas acciones presentan un cuadro de características con un botón de
+<emphasis>Ayuda</emphasis>
+en el que un clic despliega una indicación contextual. El tema relevante
+aparecerá sobre el margen derecho de la ventana. Cada clic muestra
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24PreviousTopic"/>
-and
+los
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24NextTopic"/>
-buttons to navigate the previously viewed help topics. Click the
+botones previos para navegar por los temas de ayuda previos. Cada clic 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Contents"/>
-button to go to the table of contents.
+sobre el botón lleva a la tabla de contenidos.
 </para>
 
 <para>
-To hide the help pane, click the
+Para guardar el panel de ayuda, basta un clic sobre
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Help"/>
-button. To bring it back, click the button again.
+el botón y otro, lo repondrá nuevamente.
 </para>
 
 </sect1>
 
 <sect1 id="KnownLimitations">
-<title>Known Limitations</title>
+<title>Detalles sobre Limitaciones</title>
 
 <sect2 id="InordinateSizeOrShape">
-<title>Inordinate Size or Shape</title>
+<title>Medida o Forma discordantes</title>
 
 <para>
-Geometria may behave erratically if the figures contain excessively sized or oddly shaped
-elements. Here are some guidelines for keeping the figures safe:
+Geometria puede caer en representaciones erráticas si las figuras contienen demasiados elementos, medidas excesivas o formas
+irregulares. A continuación se anotan algunas indicaciones para mantener a salvo las figuras:
 </para>
 
 <itemizedlist>
 
 <listitem>
-Avoid both very large (over 100) and very small (under 0.01)
-<link linkend="ScaleFigure">scaling</link>
-factors. 
+Evitar los factores demasiado grandes (mayores de 100) o chicos (menores que 0.01)
+<link linkend="Scalefigure">scaling</link>
+al escalar figuras. 
 </listitem>
 
 <listitem>
-When creating a
-<link linkend="NewFigure">new</link>,
-prism or pyramid, keep the number of sides within reasonable limit.
-By design, Geometria cannot handle any solids but convex polyhedra. However
-prisms and pyramids with a large number of sides do look like
-cylinders and cones respectively when the
-<link linkend="Wireframe">wireframe</link>
-is off. Unfortunately, actions upon such figures may be slow and unimpressive.
-The application may become unstable and fail to respond to user actions.
+Al crear un 
+<link linkend="Newfigure">nuevo</link>,
+prisma o una nueva pirámide, limitar razonablemente el número de aristas.
+El diseño de Geometria admite exclusivamente poliedros convexos. Sin embargo,
+parecen cilindros y conos, respectivamente, los prismas y pirámides con
+gran número de caras cuando se desactiva el 
+<link linkend="Wireframe">contorno</link>.
+Lamentablemente, resultan lentas e imprecisas las acciones sobre tales figuras.
+La aplicación deviene inestable y deja de responder a posteriores acciones.
 </listitem>
 
 </itemizedlist>
@@ -1158,27 +1159,27 @@ The application may become unstable and fail to respond to user actions.
 </sect2>
 
 <sect2 id="PreviousVersionsOfGeometria">
-<title>Previous Versions of Geometria</title>
+<title>Versiones Previas de Geometria</title>
 
 <para>
-Problems, solutions and figures created with Geometria versions prior
-to 4.0 are no longer supported. If you need help, please visit the Geometria
-<ulink url="http://geocentral.net/geometria">home page</ulink>
-and email the development team.
+Los problemas, soluciones y figuras creadas con versiones de Geometria previas
+a la 4.0 ya no se respaldan. De precisar ayuda,se agradece una visita a la 
+<ulink url="http://geocentral.net/geometria">página de Geometria</ulink>
+para enviar un mensaje al equipo de desarrollo.
 </para>
 
 </sect2>
 
 <sect2 id="SolutionLanguage">
-<title>Solution Language</title>
+<title>Idioma de la Solución</title>
 
 <para>
-Solution files must be
-<link linkend="OpenSolution">opened</link>
-using the same
-<link linkend="Language">language</link>
-in which they have been
-<link linkend="SaveSolution">saved</link>.
+Los archivos de solución deben
+<link linkend="OpenSolution">abrirse</link>
+usando el mismo 
+<link linkend="Language">idioma</link>
+en que fueran
+<link linkend="SaveSolution">guardados</link>.
 </para>
 
 </sect2>
@@ -1188,88 +1189,88 @@ in which they have been
 </chapter>
 
 <chapter id="Documents">
-<title>Documents</title>
+<title>Documentos</title>
 
 <sect1 id="ProblemText">
-<title>Problem Text</title>
+<title>Texto del Problema</title>
 
 <para>
-The text of the problem is located under the tool bar, on the right side of the
-<link linkend="Navigator">Navigator</link>.
+El texto del problema aparece bajo la barra de herramientas, en el margen derecho del 
+<link linkend="Navigator">Navegador</link>.
 </para>
 
 <para>
-The
-<link linkend="EditorsAndSolvers">Editor</link>
-can edit the problem text by double-clicking the text area. The problem text supports
-<ulink url="http://www.w3schools.com/html">HTML markup</ulink>.
-Click away to preview the changes to the problem text.
+Al
+<link linkend="EditorsAndSolvers">editar</link>
+se puede modificar el planteo del problema vía doble-clic sobre el área del texto. El planteo acepta 
+<ulink url="http://www.w3schools.com/html">señalamientos HTML</ulink>.
+Un clic afuera del área del planteo permite previsualizar los cambios realizados.
 </para>
 
 </sect1>
 
 <sect1 id="DocumentProperties">
-<title>Document Properties</title>
+<title>Propiedades del Documento</title>
 
 <para>
-To view the properties of the current document, select
-<emphasis>Document Properties</emphasis>
-from the
-<emphasis>Document</emphasis>
-menu or click the
+Para ver las propiedades del documento activo, basta con seleccionar
+<emphasis>Propiedades del Documento</emphasis>
+en el menú 
+<emphasis>Documento</emphasis>
+o pulsando sobre el 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Properties"/>
-button on the tool bar. A dialog will pop up.
+botón en la barra de herramientas. Se desplegará un cuadro de diálogo.
 </para>
 
 <para>
-To edit the properties of the problem, the
-<link linkend="EditorsAndSolvers">Editor</link>
-double clicks the problem properties area. When done editing, click
+Las propiedades del problema se pueden 
+<link linkend="EditorsAndSolvers">editar</link>
+vía doble clic en el área de propiedades del problema. Al terminar se debe pulsar sobre 
 <emphasis>OK</emphasis>.
-Click
-<emphasis>Cancel</emphasis>
-to ignore the changes.
+Pulsar sobre 
+<emphasis>Cancela</emphasis>
+para desestimar las modificaciones.
 </para>
 
 <para>
-The
-<link linkend="EditorsAndSolvers">Solver</link>
-will see both the properties of the problem, at the top, and the properties of the
-solution, at the bottom. To edit the properties of the solution, the
-<link linkend="EditorsAndSolvers">Solver</link>
-double clicks the solution properties area. When done editing, click
+Durante la
+<link linkend="EditorsAndSolvers">resolución</link>
+se verán tanto las propiedades del problema, en el margen superior, como las de la 
+solución, en el inferior. Para editar las propiedades de la solución, quien
+<link linkend="EditorsAndSolvers">resuelve</link>
+debe pulsar en el área de las propiedades de la solución un doble clic. Al terminar se pulsa sobre
 <emphasis>OK</emphasis>.
-Click
-<emphasis>Cancel</emphasis>
-to ignore the changes. The
-<link linkend="EditorsAndSolvers">Solver</link>
-cannot edit the properties of the problem.
+Clic sobre
+<emphasis>Cancela</emphasis>
+lleva a desestimar los cambios. No puede, quien 
+<link linkend="EditorsAndSolvers">resuelve</link>,
+editar las propiedades del problema.
 </para>
 
 <para>
-Both the problem and the solution properties support
-<ulink url="http://www.w3schools.com/html">HTML markup</ulink>.
+Tanto las propiedades del problema como las de la solución admiten 
+<ulink url="http://www.w3schools.com/html">señalamientos HTML</ulink>.
 </para>
 
 <para>
-Changes to the document properties cannot be
-<link linkend="Undo">undone</link>.
+Los cambios en las propiedades del documento no pueden
+<link linkend="Undo">deshacerse</link>.
 </para>
 
 <para>
-Solution properties cannot be edited during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Las propiedades no pueden editarse durante la 
+<link linkend="Playback">reproducción</link>
+de la solución. Primero, se la debe detener. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -1277,64 +1278,64 @@ See also:
 </sect1>
 
 <sect1 id="Answer">
-<title>Answer</title>
+<title>Respuesta</title>
 
 <para>
-A problem is not ready to be solved until the
-<link linkend="EditorsAndSolvers">Editor</link>
-supplies it with an answer. The
-<link linkend="EditorsAndSolvers">Solver</link>'s
-answer is considered correct if it matches the
-<link linkend="EditorsAndSolvers">Editor</link>'s.
-See the
-<link linkend="Overview">Overview</link>
-for details.
+Hasta que la respuesta no se hubiera ingresado durante la 
+<link linkend="EditorsAndSolvers">edición</link>,
+el problema no está listo para la resolución La respuesta de quien 
+<link linkend="EditorsAndSolvers">resuelve</link>
+será la considerada correcta si concuerda con la anotada en la 
+<link linkend="EditorsAndSolvers">edición</link>.
+Ver también
+<link linkend="Overview">Pantallazo</link>
+para mayores detalles.
 </para>
 
 <sect2 id="EditorsAnswer">
-<title>Editor's Answer</title>
+<title>Respuesta Editada</title>
 
 <para>
-To edit the answer to the current problem, select
-<emphasis>Answer</emphasis>
-from the 
-<emphasis>Document</emphasis>
-menu.
+Basta con seleccionar
+<emphasis>Respuesta</emphasis>
+en el menú 
+<emphasis>Documento</emphasis>
+para editar la respuesta del problema activo.
 </para>
 
 <sect3 id="AnswerTypes">
-<title>Answer Types</title>
+<title>Tipos de Respuestas</title>
 
 <para>
-Select the answer type under the
-<emphasis>Type</emphasis>
-tab:
+Se selecciona el tipo de respuesta bajo la pestaña
+<emphasis>Tipo</emphasis>
+que ofrece los siguientes:
 </para>
 
 <itemizedlist>
 
 <listitem>
-Number
+Numérica
 </listitem>
 
 <listitem>
-Multiple choice
+Múltiples opciones
 </listitem>
 
 <listitem>
-Point Set
+Conjunto de Puntos
 </listitem>
 
 <listitem>
-Segment Set
+Conjunto de Segmentos
 </listitem>
 
 <listitem>
-Fixed Plane, or
+Plano Fijo, o
 </listitem>
 
 <listitem>
-Condition Plane
+Plano Condicional 
 </listitem>
 
 </itemizedlist>
@@ -1342,270 +1343,270 @@ Condition Plane
 </sect3>
 
 <sect3 id="AnswerValues">
-<title>Answer Values</title>
+<title>Valores de Respuesta</title>
 
 <para>
-Click the
-<emphasis>Value</emphasis>
-tab. Depending on the answer type, proceed as directed in the sections below.
+Acorde al tipo de respuesta, un clic sobre la pestaña
+<emphasis>Valor</emphasis>
+permitirá ingresarlo en las secciones correspondientes.
 </para>
 
 <para>
-Note that although, as a rule, the
-<link linkend="EditorsAndSolvers">Editor</link>
-enters the answer symbolically, Geometria stores answers numerically.
-This refers to both
+Aunque por regla general al
+<link linkend="EditorsAndSolvers">editarla</link>
+la respuesta se ingresa simbólicamente, Geometria almacena las respuestas numéricamente.
+Esto cuadra tanto para
 <link linkend="Variables">variables</link>
-and points. Variables are stored as numbers, points are stored as coordinates,
-that is triplets of numbers. Once entered,
-the answer will be unaffected by all subsequent actions upon figures.
-Therefore it is a good idea to (re)enter the answer as a last action
-before saving the problem and making it available to
-<link linkend="EditorsAndSolvers">solvers</link>.
+como para puntos. Las variables se almacenan como números, los puntos como coordenadas,
+que requieren un trío de números. Una vez anotada,
+la respuesta no será afectada por las acciones subsecuentes sobre las figuras.
+Por eso es conveniente (re)ingresar la respuesta después de la última acción
+antes de guardar el problema y dejarlo disponible para 
+<link linkend="EditorsAndSolvers">solucionarlo</link>.
 </para>
 
 <sect4 id="Number">
-<title>Number</title>
+<title>Número</title>
 
 <para>
-Enter a valid
-<link linkend="Expressions">expression</link>.
-Click
+Basta con ingresar una
+<link linkend="Expressions">expresión</link> válida. 
+Pulsando sobre 
 <emphasis>OK</emphasis>
-to keep the changes to the answer. Click
-<emphasis>Cancel</emphasis>
-to discard the changes.
+se conservan los cambios en la respuesta y sobre
+<emphasis>Cancela</emphasis>
+se desestiman.
 </para>
 
 </sect4>
 
 <sect4 id="PointSet">
-<title>Point Set</title>
+<title>Conjunto de Puntos</title>
 
 <para>
-The term
-<emphasis>point set</emphasis>
-refers to a single point, end points of a segment (2 points) or a path (2 or more points).
+El término
+<emphasis>conjunto de puntos</emphasis>
+refiere tanto a un único punto como al par de extremos de un segmento o a los que determinan un trayecto.
 </para>
 
 <para>
-Enter one or more labels separated by commas. To minimize the input, have the points
-<link linkend="SelectElements">selected</link>
-ahead of time in the selected figure.Click
+Basta con anotar cada uno de los rótulos separados por comas. Para facilitar el ingreso, conviene tener
+<link linkend="SelectElements">seleccionadps</link>
+los puntos previamente, sobre la figura. Pulsando sobre
 <emphasis>OK</emphasis>
-to keep the changes to the answer. Click
-<emphasis>Cancel</emphasis>
-to discard the changes.
+para conservar los cambios realizados en la respuesta. Sobre
+<emphasis>Cancela</emphasis>
+se desestiman los cambios.
 </para>
 
 </sect4>
 
 <sect4 id="SegmentSet">
-<title>Segment Set</title>
+<title>Conjunto de Segmentos</title>
 
 <para>
-The segments must satisfy a certain condition. Currently, the following conditions are supported:
+Los segmentos deben cumplir ciertas condiciones. Las siguientes son aceptables:
 </para>
 
 <itemizedlist>
 
 <listitem>
-The segments form a
-<ulink url="http://en.wikipedia.org/wiki/Hamiltonian_path">Hamiltonian cycle</ulink>.
+Los segmentos conforman un
+<ulink url="http://en.wikipedia.org/wiki/Hamiltonian_path">ciclo Hamiltoniano</ulink>.
 </listitem>
 
 </itemizedlist>
 
 <para>
-Select the target figure, then select a condition. Click
+Basta seleccionar la figura de destino y luego la condición. Con un clic sobre
 <emphasis>OK</emphasis>
-to keep the changes to the answer. Click
-<emphasis>Cancel</emphasis>
-to discard the changes.
+conserva los cambios en la respuesta y sobre
+<emphasis>Cancela</emphasis>
+los desestima.
 </para>
 
 </sect4>
 
 <sect4 id="FixedPlane">
-<title>Fixed Plane</title>
+<title>Plano Fijo</title>
 
 <para>
-Reference the plane by 3 comma-separated labels. To minimize the input,
-have some reference elements, such as 3 points, a point and a segment, two segments, or a face
-<link linkend="SelectElements">selected</link>
-ahead of time in the selected figure. Click
+El plano se indica con tres rótulos separados por comas. Para facilitar el ingreso conviene
+tener algunos elementos como 3 puntos, un punto y un segmento, dos segmentos, o una cara
+<link linkend="SelectElements">indicados</link>
+anticipadamente en la figura seleccionada. Un clic en
 <emphasis>OK</emphasis>
-to keep the changes to the answer. Click
-<emphasis>Cancel</emphasis>
-to discard the changes.
+permite conservar los cambios en la respuesta y sobre
+<emphasis>Cancela</emphasis>
+los desestima.
 </para>
 
 </sect4>
 
 <sect4 id="ConditionPlane">
-<title>Condition Plane</title>
+<title>Plano Condicional</title>
 
 <para>
-Unlike a fixed plane, which is a plane occupying a fixed position in space, a
-<emphasis>condition plane</emphasis>
-must satisfy a number of conditions. Generally, a condition plane is not unique.
+A diferencia del plano fijo que ocupa una posición establecida en el espacio, un
+<emphasis>plano condicional</emphasis>
+debe cumplir una serie de condiciones. Suele no ser único.
 </para>
 
 <para>
-First, select the target figure. Then select the conditions.
-Select a condition in at least one of the groups.Click
+En primer lugar, se debe seleccionar la figura de destino. Luego, las condiciones.
+Elegir una condición en al menos uno de los grupos. Un clic sobre
 <emphasis>OK</emphasis>
-to keep the changes to the answer. Click
-<emphasis>Cancel</emphasis>
-to discard the changes.
+permite conservar los cambios en la respuesta. Sobre
+<emphasis>Cancela</emphasis>
+los desestima.
 </para>
 
 <para>
-There are three groups of conditions.
+Hay tres tipos de condiciones.
 </para>
 
 <para>
-The
-<emphasis>first group</emphasis>
-consists of the following conditions:
-</para>
-
-<itemizedlist>
-
-<listitem>
-Plane contains a given point
-</listitem>
-
-<listitem>
-Plane contains a given line
-</listitem>
-
-<listitem>
-Plane does not contain a given point
-</listitem>
-
-<listitem>
-Plane does not contain a given line
-</listitem>
-
-<listitem>
-Plane contains no vertex of the selected figure
-</listitem>
-
-<listitem>
-Plane contains no edge of the selected figure
-</listitem>
-
-<listitem>
-Plane is parallel to a given line
-</listitem>
-
-<listitem>
-Plane is parallel to a given plane
-</listitem>
-
-<listitem>
-Plane is perpendicular to a given line
-</listitem>
-
-<listitem>
-Plane is perpendicular to a given plane
-</listitem>
-
-</itemizedlist>
-
-<para>
-Reference the given point, line or plane, as required, by
-comma-separated labels. To minimize the input, have the elements
-<link linkend="SelectElements">selected</link>
-ahead of time in the selected figure.
-</para>
-
-<para>
-The
-<emphasis>second group</emphasis>
-consists of the following conditions:
+El
+<emphasis>primer grupo</emphasis>
+consiste en las siguientes condiciones:
 </para>
 
 <itemizedlist>
 
 <listitem>
-Plane cuts the volume of the selected figure in the given ratio
+El plano contiene determinado punto
+</listitem>
+
+<listitem>
+El plano contiene determinada recta
+</listitem>
+
+<listitem>
+El plano no contiene determinado punto
+</listitem>
+
+<listitem>
+El plano no contiene determinada recta
+</listitem>
+
+<listitem>
+El plano no contiene los vértices de determinada figura
+</listitem>
+
+<listitem>
+El plano no contiene determinada arista de la figura seleccionada
+</listitem>
+
+<listitem>
+El plano es paralelo a cierta recta
+</listitem>
+
+<listitem>
+El plano es paralelo a cierto plano
+</listitem>
+
+<listitem>
+El plano es perpendicular a cierta recta
+</listitem>
+
+<listitem>
+El plano es perpendicular a cierto plano
 </listitem>
 
 </itemizedlist>
 
 <para>
-Enter valid
-<link linkend="Expressions">expressions</link>
-for the ratio's numerator and denominator.
+Cada punto, recta o plano requerido se identifican por sus rótulos 
+separados por comas. Para facilitar el ingreso conviene tener
+<link linkend="SelectElements">indicados</link>
+anticipadamente ciertos elementos de la figura seleccionada.
 </para>
 
 <para>
-The
-<emphasis>third group</emphasis>
-refers to the way the plane cuts the figure. The section may be shaped as:
+El
+<emphasis>segundo grupo</emphasis>
+comprende las siguientes condiciones:
 </para>
 
 <itemizedlist>
 
 <listitem>
-Isoscelles triangle
-</listitem>
-
-<listitem>
-Right triangle
-</listitem>
-
-<listitem>
-Equilateral (regular) triangle
-</listitem>
-
-<listitem>
-Parallelogram
-</listitem>
-
-<listitem>
-Rhombus
-</listitem>
-
-<listitem>
-Rectangle
-</listitem>
-
-<listitem>
-Square
+El plano corta el volumen de la figura seleccionada según cierta razón
 </listitem>
 
 </itemizedlist>
 
 <para>
-The changes to the answer can be
-<link linkend="Undo">undone</link>.
+Deben ingresarse
+<link linkend="Expressions">expresiones</link> válidas
+para el numerador y el denominador de una razón.
+</para>
+
+<para>
+El
+<emphasis>tercer grupo</emphasis>
+establece el modo en que el plano corta a la figura. La forma de la sección resultante puede configurar:
+</para>
+
+<itemizedlist>
+
+<listitem>
+Un triángulo isósceles
+</listitem>
+
+<listitem>
+Un triángulo rectángulo
+</listitem>
+
+<listitem>
+Un triángulo equilátero (regular)
+</listitem>
+
+<listitem>
+Paralelogramo
+</listitem>
+
+<listitem>
+Rombo
+</listitem>
+
+<listitem>
+Rectángulo
+</listitem>
+
+<listitem>
+Cuadrado
+</listitem>
+
+</itemizedlist>
+
+<para>
+Los cambios en la respuesta pueden 
+<link linkend="Undo">deshacerse</link>.
 </para>
 
 </sect4>
 
 <sect4 id="MultipleChoice">
-<title>Multiple choice</title>
+<title>Opciones Múltiples</title>
 
 <para>
-Enter an option. Click the
-<emphasis>Add</emphasis>
-button to add another option. Click on any option to highlight it. Click the
-<emphasis>Select</emphasis>
-button to select the highlighted option as the correct option.
-The correct option is displayed in bold face. Click the
-<emphasis>Remove</emphasis>
-button to remove the highlighted option.
+Se debe ingresar una opción y con un clic sobre el botón
+<emphasis>Añade</emphasis>
+se puede pasar a agregar otra. Con clic se resalta una y clic sobre el botón
+<emphasis>Selecciona</emphasis>
+la establece como correcta.
+La opción correcta aparece en negritas. Clic sobre el botón
+<emphasis>Elimina</emphasis>
+permite eliminar la opción resaltada.
 </para>
 
 <para>
-Click
+Clic sobre
 <emphasis>OK</emphasis>
-to keep the changes to the answer. Click
-<emphasis>Cancel</emphasis>
-to discard the changes.
+conserva los cambios en la respuesta y sobre
+<emphasis>Cancela</emphasis>
+los desestima.
 </para>
 
 <para>
@@ -1618,78 +1619,78 @@ to discard the changes.
 </sect2>
 
 <sect2 id="SolversAnswer">
-<title>Solver's Answer</title>
+<title>De la Solución a la Respuesta</title>
 
 <para>
-The
-<link linkend="EditorsAndSolvers">Solver</link>
-concludes the solution by providing a correct answer to the problem.
-Note, again, that the
-<link linkend="EditorsAndSolvers">Solver</link>'s
-answer is considered correct if it matches the
-<link linkend="EditorsAndSolvers">Editor</link>'s.
+Durante la
+<link linkend="EditorsAndSolvers">resolución</link>
+se llega a la respuesta correcta del problema.
+Conviene recordar que la respuesta de quien
+<link linkend="EditorsAndSolvers">resuelve</link>
+se considera correcta si concuerda con la que se hubiera
+<link linkend="EditorsAndSolvers">editado</link>.
 </para>
 
 <para>
-Select
-<emphasis>Answer</emphasis> from the
-<emphasis>Document</emphasis> menu.
-Enter a valid
-<link linkend="Expressions">expression</link>
-or comma-separated labels or make a selection, according to what the problem is asking for.
-If the problem is asking for a point, a point set, a segment set or a plane,
-have some appropriate elements, such as points, segments or a face
-<link linkend="SelectElements">selected</link>
-ahead of time in the selected figure. Click
+Basta con seleccionar 
+<emphasis>Respuesta</emphasis> del menú
+<emphasis>Documento</emphasis>.
+Se debe anotar una 
+<link linkend="Expressions">expresión</link> válida
+o la serie de rótulos separados por comas o realizar la selección, según lo que pregunta el problema.
+Si el problema pregunta por un punto, un conjunto de puntos, de segmentos o por un plano,
+conviene tener los elementos apropiados (sean puntos, segmentos o una cara) 
+<link linkend="SelectElements">seleccionados</link>
+previamente en la figura. Para terminar, dar un clic sobre
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-An evaluation of the answer (corect or incorrect) will pop up.
+Se desplegará la evaluación de la respuesta (correcta o incorrecta).
 </para>
 
 <para>
-If the answer is correct, it will conclude the
-<link linkend="SolutionLog">solution log</link>.
-No more actions will be possible unless the answer is
-<link linkend="Undo">undone</link>.
-<link linkend="SaveSolution">Save</link>
-the solution so that it can be
-<link linkend="SolutionLog">played back</link>
-later on.
+Si la respuesta fuera correcta, concluirá el
+<link linkend="SolutionLog">registro de la solución</link>.
+No se admitirán más acciones a menos que la respuesta
+<link linkend="Undo">se deshaga</link>.
+<link linkend="SaveSolution">Guardar</link>
+la solución para poder 
+<link linkend="SolutionLog">reproducirla</link>
+luego.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-The problem cannot be answered during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+El problema no puede responderse durante la 
+<link linkend="Playback">reproducción</link> de la solución.
+Primero, debe detenerse la reproducción. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Overview">Overview</link>
+<link linkend="Overview">Pantallazo</link>
 </listitem>
 <listitem>
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -1699,116 +1700,116 @@ See also:
 </sect1>
 
 <sect1 id="Navigator">
-<title>Navigator</title>
+<title>Navigador</title>
 
 <para>
-The
-<emphasis>Navigator</emphasis>
-allows you to manipulate problem, solution and figure files and organize them into folders.
-Both the files and the folders are stored on your computer in a single
+El
+<emphasis>Navegador</emphasis>
+permite maniobrar sobre los archivos del problema, la solución y la figura y organizarlos en directorios.
+Tanto los archivos como los directorios quedan guardados en el equipo local en un archivo
 <ulink url="http://www.sqlite.org">SQLite</ulink>
-file.
+único.
 </para>
 
 <para>
-The Navigator is initially displayed on the left side of the window. To hide the Navigator,
-select
-<emphasis>Toggle Navigator</emphasis>
-from the
-<emphasis>View</emphasis>
-menu or click the
+El Navegador se expone inicialmente sobre el lado izquierdo de la ventana. Para esconder el Navegador,
+se debe seleccionar
+<emphasis>Alterna Navegador</emphasis>
+desde el menú
+<emphasis>Vista</emphasis>
+o con un clic sobre el
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Navigator"/>
-icon on the tool bar. To bring the Navigator back, click the same icon again.
+ícono de la barra de herramientas. Para reponer el Navegador, basta un renovado clic sobre el mismo ícono.
 </para>
 
 <para>
-You can tell the content of a file by its icon. Problem files have the&#xA0;
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24ProblemFile"/>icon.
-Solution files have the&#xA0;
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24SolutionFile"/>icon.
-Figure files have the&#xA0;
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24FigureFile"/>icon.
+El ícono distingue el contenido del archivo. Los archivos de problema tiene el ícono&#xA0;
+<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24ProblemFile"/>.
+Los de solución tienen el ícono&#xA0;
+<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24SolutionFile"/>.
+Los de figuras tienen el ícono&#xA0;
+<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24figuraFile"/>.
 </para>
 
 <sect2 id="NewFolder">
-<title>New Folder</title>
+<title>Nueva Carpeta</title>
 
 <para>
-To create a new folder, click the
+Para crear un nuevo directorio o carpeta, basta un clic sobre el ícono
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24NewFolder"/>
-icon on the toolbar, then enter the folder name in the box at the bottom of the navigator.
-Folder names can only contain alphanumeric characters and spaces. Note that the subfolders
-and files in any given folder must have unique names.
+de la barra de herramientas para luego anotar el nombre de la carpeta en el cuadro al final del navegador.
+Los nombres de carpeta solo pueden contener caracteres alfanuméricos y espacios. Los subdirectorios
+y archivos de cualquier directorio dado debe tener un nombre exclusivo.
 </para>
 
 <para>
-The new folder will be added to the currently selected folder or,
-if no folder is selected, to the root folder.
+Cada directorio nuevo se añade al activo o, de no haber ninguno 
+seleccionado, al directorio raíz.
 </para>
 
 <para>
-New folders cannot be created during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se pueden crear directorios durante la
+<link linkend="Playback">reproducción</link>.
+de la solución. Primero, se la debe detener. 
 </para>
 
 </sect2>
 
 <sect2 id="RenameFile">
-<title>Rename File</title>
+<title>Renombrando Archivos</title>
 
 <para>
-To rename the selected file or folder, click the
+Para renombrar el archivo o directorio seleccionado, basta un clic sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24RenameFile"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-Folder and file names can only contain alphanumeric characters and spaces.
-Note that the subfoders and files in any given folder must have unique names.
+Los nombres de archivos o carpetas solo pueden contener caracteres alfanuméricos y espacios.
+Los archivos y subdirectorios de una determinada carpeta deben tener nombres exclusivos.
 </para>
 
 <para>
-Files and folders cannot be renamed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se pueden renombrar archivos o carpetas durante la
+<link linkend="Playback">reproducción</link> de la solución.
+Primero, hay que detenerla. 
 </para>
 
 </sect2>
 
 <sect2 id="MoveFile">
-<title>Move File</title>
+<title>Mover un Archivo</title>
 
 <para>
-To move a file or a folder to another folder, drag and drop it onto the desired folder.
+Para mover un archivo o carpeta a otro directorio, basta arrastrarlos y depositarlos en el destino deseado.
 </para>
 
 <para>
-Note that the subfoders and files in any given folder must have unique names.
+Los archivos y carpetas de un directorio deben tener nombres exclusivos.
 </para>
 
 <para>
-Files and folders cannot be moved during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se pueden mover archivos o carpetas durante la
+<link linkend="Playback">reproducción</link> de la solución.
+Primero, hay que detenerla. 
 </para>
 
 </sect2>
 
 <sect2 id="DeleteFile">
-<title>Delete File</title>
+<title>Borrar un Archivo</title>
 
 <para>
-To delete the selected file or folder, click the
+Para borrar un archivo o directorio seleccionados, basta un clic sobre el ícono
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24RemoveFile"/>
-icon on the tool bar. Use caution as this action cannot be
-<link linkend="Undo">undone</link>.
+en la barra de herramientas. Esta acción debe realizarse con cautela porque no se puede
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Files and folders cannot be deleted during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se pueden borrar archivos o carpetas durante la
+<link linkend="Playback">reproducción</link> de la solución.
+Primero, hay que detenerla. 
 </para>
 
 </sect2>
@@ -1816,61 +1817,61 @@ You have to stop the playback first.
 </sect1>
 
 <sect1 id="NewProblem">
-<title>New Problem</title>
+<title>Nuevo Problema</title>
 
 <para>
-The
-<link linkend="EditorsAndSolvers">Editor</link>
-creates a problem by either selecting
-<emphasis>New Problem</emphasis> from the
-<emphasis>Document</emphasis>
-menu or by clicking the
+Para crear un problema, se lo debe 
+<link linkend="EditorsAndSolvers">editar</link>
+sea seleccionando
+<emphasis>Nuevo Problema</emphasis> del menú
+<emphasis>Documento</emphasis>
+o con un clic sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24NewProblem"/>
-button on the tool bar.
+de la barra de herramientas,
 </para>
 
 <para>
-The current document, whether it is a problem or a solution, will be closed first.
-If there are unsaved modifications, a dialog will be displayed asking
-if the current document should be saved before it is closed.
+El documento activo, sea el de un problema o el de una solución, debe cerrarse primero.
+Si hubiera modificaciones sin guardar, se desplegará un cuadro de diálogo solicitando
+se indique si el documento activo debe guardarse antes de cerrarlo.
 </para>
 
 <para>
-Click <emphasis>Yes</emphasis> to save
-the current document. 
+Un clic sobre <emphasis>Sí</emphasis> guardará
+el documento activo. 
 </para>
 
 <para>
-Click <emphasis>No</emphasis> to close
-the current document without saving. Note that all unsaved modifications
-to the current document will be lost.
+Un clic sobre <emphasis>No</emphasis> cerrará
+el documento activo sin guardarlo. Las modificaciones no guardadas
+del documento activo se perderán.
 </para>
 
 <para>
-Click <emphasis>Cancel</emphasis> to dismiss the dialog
-with no action taken.
+Un clic sobre <emphasis>Cancela</emphasis> descartará el cuadro de diálogo
+sin ejecutar acción alguna.
 </para>
 
 <para>
-A new problem cannot be created during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se puede crear un nuevo problema durante
+<link linkend="Playback">reproducción</link> de la solución.
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="OpenProblem">Open Problem</link>
+<link linkend="OpenProblem">Abrir Problema</link>
 </listitem>
 <listitem>
-<link linkend="SaveProblem">Save Problem</link>
+<link linkend="SaveProblem">Guardar Problema</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -1878,56 +1879,56 @@ See also:
 </sect1>
 
 <sect1 id="OpenProblem">
-<title>Open Problem</title>
+<title>Abrir Problema</title>
 
 <para>
-To open a problem, double click it in the
-<link linkend="Navigator">Navigator</link>
-or select it and click the
+Para abrir un problema, basta un doble clic sobre el 
+<link linkend="Navigator">Navegador</link>
+o seleccionarlo y pulsar sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Open"/>
-button on the tool bar. You can tell a problem file by its icon&#xA0;
+de la barra de herramientas. Se distingue el archivo de un problema por su ícono&#xA0;
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24ProblemFile"/>.
 </para>
 
 <para>
-The current document, whether it is a problem or a solution, will be closed first.
-If there are unsaved modifications, a dialog will be displayed asking
-if the current document should be saved before it is closed.
+El documento activo, sea el de un problema o el de una solución, debe cerrarse primero.
+De haber modificaciones sin guardar, se desplegará un cuadro de diálogo consultando
+si el documento activo debe guardarse antes de cerrarlo.
 </para>
 
 <para>
-Click <emphasis>Yes</emphasis> to save
-the current document. 
+Un clic sobre <emphasis>Sí</emphasis> lleva a guardar 
+el documento activo. 
 </para>
 
 <para>
-Click <emphasis>No</emphasis> to close
-the current document without saving. Note that all unsaved modifications
-to the current document will be lost.
+Un clic sobre<emphasis>No</emphasis> lleva a cerrar
+el documento activo sin guardarlo. Todas las modificaciones no guardadas 
+del documento activo se perderán.
 </para>
 
 <para>
-Click <emphasis>Cancel</emphasis> to dismiss the dialog
-with no action taken.
+Un clic sobre <emphasis>Cancela</emphasis> descartará el cuadro de diálogo
+sin ejecutar acción alguna.
 </para>
 
 <para>
-A problem cannot be opened during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Un problema no puede abrirse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="NewProblem">New Problem</link>
+<link linkend="NewProblem">Nuevo Problema</link>
 </listitem>
 <listitem>
-<link linkend="SaveProblem">Save Problem</link>
+<link linkend="SaveProblem">Guardar Problema</link>
 </listitem>
 
 </itemizedlist>
@@ -1935,72 +1936,72 @@ See also:
 </sect1>
 
 <sect1 id="SaveProblem">
-<title>Save Problem</title>
+<title>Guardar Problema</title>
 
 <para>
-To save the changes to the current problem, the
-<link linkend="EditorsAndSolvers">Editor</link>
-either selects
-<emphasis>Save Document</emphasis> from
-the <emphasis>Document</emphasis> menu
-or clicks the
+Para guardar los cambios del problema activo, se lo debe
+<link linkend="EditorsAndSolvers">editar</link>
+sea seleccionado
+<emphasis>Guardar Documento</emphasis> del 
+menú <emphasis>Documento</emphasis> 
+o con un clic sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24SaveDocument"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-To save the problem under a different name, select
-<emphasis>Save Document As</emphasis>
-from the
-<emphasis>Document</emphasis>
-menu, then enter the file name in the box at the bottom of the navigator.
-File names can only contain alphanumeric characters and spaces. Note that the subfolders
-and files in any given folder must have unique names.
-The problem will be saved in the folder currently selected in the
-<link linkend="Navigator">Navigator</link>.
-If no folder is selected, the problem will be saved in the root folder.
+Para guardar el problema con un nombre diferente, basta seleccionar 
+<emphasis>Guardar Documento como</emphasis>
+del menú
+<emphasis>Documento</emphasis>
+y luego anotar el nombre en el cuadro inferior del navegador.
+Los nombres de archivo solo pueden contener caracteres alfanuméricos y espacios. Los subdirectorios
+y archivos de una carpeta deben tener nombres exclusivos.
+El problema se guardará en el directorio seleccionado en el 
+<link linkend="Navigator">Navegador</link>.
+De no haber directorio seleccionado, el problema se guardará en el raíz.
 </para>
 
 <para>
-If this is a final revision of the problem, the
-<link linkend="EditorsAndSolvers">Editor</link>
-may consider
-<link linkend="ClearNotepad">erasing</link>
-all working calculations and measurements from the notepad so that
-<link linkend="EditorsAndSolvers">solvers</link>
-cannot see them.
+Cuando se trate de la revisión final del problema, quien lo 
+<link linkend="EditorsAndSolvers">edite</link>
+debiera considerar
+<link linkend="ClearNotepad">borrar</link>
+todos los cálculos de trabajo y las medidas del anotador para que durante la 
+<link linkend="EditorsAndSolvers">resolución</link>
+no se vean.
 </para>
 
 <para>
-Beware, though, that the action of clearing the notepad cannot be
-<link linkend="Undo">undone</link>.
+La acción de limpiar el anotador no se puede
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-A final revision of the problem should also be provided with an
-<link linkend="EditorsAnswer">answer</link>.
+En la revisión final del problema también es preciso incluir una
+<link linkend="EditorsAnswer">pregunta</link>.
 </para>
 
 <para>
-The problem cannot be saved during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se puede guardar un problema durante la
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="NewProblem">New Problem</link>
+<link linkend="NewProblem">Nuevo Problema</link>
 </listitem>
 <listitem>
-<link linkend="OpenProblem">Open Problem</link>
+<link linkend="OpenProblem">Abrir Problema</link>
 </listitem>
 <listitem>
-<link linkend="EditorsAnswer">Answer</link>
+<link linkend="EditorsAnswer">Respuesta</link>
 </listitem>
 
 </itemizedlist>
@@ -2008,91 +2009,91 @@ See also:
 </sect1>
 
 <sect1 id="LockProblem">
-<title>Lock Problem</title>
+<title>Sellar Problema</title>
 
 <para>
-To prevent any further editing of the problem, the
-<link linkend="EditorsAndSolvers">Editor</link>
-selects
-<emphasis>Lock Problem</emphasis>
-from the
-<emphasis>Document</emphasis>
-menu or clicks the
+Para evitar cualquier edición posterior del problema, quien
+<link linkend="EditorsAndSolvers">Edita</link>
+selecciona
+<emphasis>Problema Sellado</emphasis>
+del menú
+<emphasis>Documento</emphasis>
+o con un clic sobre el botòn
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24LockProblem"/>
-button on the tool bar. When the
-<link linkend="EditorsAndSolvers">Solver</link>
-opens a locked problem file, Geometria will automatically start a new solution. The
-<link linkend="EditorsAndSolvers">Solver</link>
-will not be able to modify the problem itself.
+de la barra de herramientas. Si quien
+<link linkend="EditorsAndSolvers">Resuelve</link>
+abre un archivo de problema sellado, Geometria automàticamente iniciarà una nueva solución. Así, quien
+<link linkend="EditorsAndSolvers">resuelve</link>
+no podrà modificar el problema.
 </para>
 
 <para>
-Use caution and
-<link linkend="SaveProblem">save</link>
-an editable copy of the problem before locking it as this action cannot be
-<link linkend="Undo">undone</link>.
+Como precaución, conviene 
+<link linkend="SaveProblem">guardar</link>
+una copia editable del problema antes de sellarlo dado que esta acción no se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 </sect1>
 
 <sect1 id="SolveProblem">
-<title>Solve Problem</title>
+<title>Resolver el Problema</title>
 
 <para>
-To solve the current problem or start a new solution, if the current problem
-is already being solved, select
-<emphasis>Solve Problem</emphasis>
-from the
-<emphasis>Document</emphasis>
-menu or click the
+Para resolver el problema activo o iniciar una nueva solución, si el problema activo
+ya estuviera resuelto, basta seleccionar 
+<emphasis>Resolver el Problema</emphasis>
+del menú
+<emphasis>Documento</emphasis>
+o pulsar sobre
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24SolveProblem"/>
-on the tool bar.
+en la barra de herramientas.
 </para>
 
 <para>
-If there are unsaved modifications, a dialog will be displayed asking
-if the current problem should be saved before it is closed.
+De haber modificaciones sin guardar, se desplegará un cuadro de diálogo solicitando
+indicar si el problema activo debe guardarse antes de cerrarlo.
 </para>
 
 <para>
-Click <emphasis>Yes</emphasis> to save
-the current problem. Note that you will be solving the version of
-the problem you just saved.
+Un clic sobre<emphasis>Sí</emphasis> pasa a guardar 
+el problema activo. Se estará resolviendo la versión del 
+problema recién guardado.
 </para>
 
 <para>
-Click <emphasis>No</emphasis> to close
-the current problem without saving. Note that all unsaved modifications
-to the current problem will be lost and you will be solving
-a problem different from the one you opened in the
-<link linkend="Navigator">Navigator</link>.
+Un clic sobre<emphasis>No</emphasis> cierra
+el problema activo sin guardar. Todas las modificaciones no guardadas 
+del problema activo se perderán y se estará resolviendo
+un problema diferente del menú que el abierto con el 
+<link linkend="Navigator">Navegador</link>.
 </para>
 
 <para>
-Click <emphasis>Cancel</emphasis> to dismiss the dialog
-with no action taken.
+Un clic sobre<emphasis>Cancela</emphasis> descartará el cuadro de diálogo
+sin ejecutar acción alguna.
 </para>
 
 <para>
-A new solution to the current problem cannot be started during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Una nueva solución para el problema activo no puede iniciarse durante
+<link linkend="Playback">reproducción</link> de la solución 
+Se la debe detener primero.
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="OpenProblem">Open Problem</link>
+<link linkend="OpenProblem">Abrir Problema</link>
 </listitem>
 <listitem>
-<link linkend="OpenSolution">Open Solution</link>
+<link linkend="OpenSolution">Abrir Solución</link>
 </listitem>
 <listitem>
-<link linkend="SaveSolution">Save Solution</link>
+<link linkend="SaveSolution">Guardar Solución</link>
 </listitem>
 
 </itemizedlist>
@@ -2100,61 +2101,61 @@ See also:
 </sect1>
 
 <sect1 id="OpenSolution">
-<title>Open Solution</title>
+<title>Abrir Solución</title>
 
 <para>
-To open a solution, double click on it in the
-<link linkend="Navigator">Navigator</link>
-or select it and click the
+Para abrir una solución, basta darle un doble clic desde el
+<link linkend="Navigator">Navegador</link>
+o seleccionarla y pulsar sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Open"/>
-button on the tool bar. You can tell a solution file by its icon&#xA0;
+de la barra de herramientas. Se distingue un archivo de solución por su ícono&#xA0;
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24SolutionFile"/>.
 </para>
 
 <para>
-Once the solution is opened, it can be
-<link linkend="Playback">played back</link>.
+Una vez abierta la solución, se la puede
+<link linkend="Playback">reproducir</link>.
 </para>
 
 <para>
-The current document, whether it is a problem or a solution, will be closed first.
-If there are unsaved modifications, a dialog will be displayed asking
-if the current document should be saved before it is closed.
+El documento activo, sea el de un problema o el de una solución, debe cerrarse primero.
+De haber modificaciones sin guardar, se desplegará un cuadro de diálogo solicitando
+indicar si el documento activo debe guardarse antes de cerrarlo.
 </para>
 
 <para>
-Click <emphasis>Yes</emphasis> to save
-the current document. 
+Un clic sobre <emphasis>Sí</emphasis> pasa a guardar 
+el documento activo. 
 </para>
 
 <para>
-Click <emphasis>No</emphasis> to close
-the current document without saving. Note that all unsaved modifications
-to the current document will be lost.
+Un clic sobre <emphasis>No</emphasis> cierra
+el documento activo sin guardar. Todas las modificaciones no guardadas 
+del documento activo se perderán.
 </para>
 
 <para>
-Click <emphasis>Cancel</emphasis> to dismiss the dialog
-with no action taken.
+Un clic sobre <emphasis>Cancela</emphasis> descartará el cuadro de diálogo
+sin ejecutar acción alguna.
 </para>
 
 <para>
-A solution cannot be opened during another solution's
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Una solución no puede abrirse durante la
+<link linkend="Playback">reproducción</link> de otra solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SolveProblem">Solve Problem</link>
+<link linkend="SolveProblem">Resolver el Problema</link>
 </listitem>
 <listitem>
-<link linkend="SaveSolution">Save Solution</link>
+<link linkend="SaveSolution">Guardar Solución</link>
 </listitem>
 
 </itemizedlist>
@@ -2162,58 +2163,58 @@ See also:
 </sect1>
 
 <sect1 id="SaveSolution">
-<title>Save Solution</title>
+<title>Guardar Solución</title>
 
 <para>
-To save the changes to the current solution, the
-<link linkend="EditorsAndSolvers">Solver</link>
-either selects
-<emphasis>Save Document</emphasis> from
-the <emphasis>Document</emphasis> menu
-or clicks the
+Para guardar los cambios en la solución activa, quien
+<link linkend="EditorsAndSolvers">resuelve</link>
+debe seleccionar
+<emphasis>Guardar Documento</emphasis> desde el 
+menú <emphasis>Documento</emphasis> o
+con un clic sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24SaveDocument"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-To save the solution under a different name, select
-<emphasis>Save Document As</emphasis>
-from the
-<emphasis>Document</emphasis>
-menu, then enter the file name in the box at the bottom of the navigator.
-File names can only contain alphanumeric characters and spaces. Note that the subfolders
-and files in any given folder must have unique names.
-The solution will be saved in the folder currently selected in the
-<link linkend="Navigator">Navigator</link>.
-If no folder is selected, the solution will be saved in the root folder.
+Para guardar la solución con un nombre diferente, basta seleccionar 
+<emphasis>Guardar Documento como</emphasis>
+del menú
+<emphasis>Documento</emphasis>
+y luego anotar el nombre en el cuadro al pie del navegador.
+Los nombres de archivo solo pueden contener caracteres alfanuméricos y espacios. Los subdirectorios
+y archivos de una carpeta deben tener nombres exclusivos.
+La solución se guardará en el directorio seleccionado en el 
+<link linkend="Navigator">Navegador</link>.
+Si no hubiera directorio seleccionado, la solución se guardará en el raíz.
 </para>
 
 <para>
-If this is a final revision of the solution, do not forget to conclude it
-with a correct
-<link linkend="Answer">answer</link>.
+Si se estuviera frente a la versión final de la solución, no debe olvidarse completarla
+con una correcta
+<link linkend="Answer">respuesta</link>.
 </para>
 
 <para>
-The solution cannot be saved during its
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+La solución no puede guardarse durante su 
+<link linkend="Playback">reproducción</link>. 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SolveProblem">Solve Problem</link>
+<link linkend="SolveProblem">Resolver el Problema</link>
 </listitem>
 <listitem>
-<link linkend="OpenSolution">Open Solution</link>
+<link linkend="OpenSolution">Abrir Solución</link>
 </listitem>
 <listitem>
-<link linkend="SolversAnswer">Answer</link>
+<link linkend="SolversAnswer">Respuesta</link>
 </listitem>
 
 </itemizedlist>
@@ -2221,96 +2222,96 @@ See also:
 </sect1>
 
 <sect1 id="SolutionLog">
-<title>Solution Log</title>
+<title>Registro de Solución</title>
 
 <sect2 id="Playback">
-<title>Playback</title>
+<title>Reproducción</title>
 
 <para>
-As the
-<link linkend="EditorsAndSolvers">Solver</link>
-progresses through the solution, his actions are recorded in the solution log. A
-<link linkend="SaveSolution">saved</link>
-solution can later be opened and played back.
+Mientras que 
+<link linkend="EditorsAndSolvers">resuelve</link>
+progresa hacia la solución, sus acciones quedan almacenadas en el registro de la solución. Una solución
+<link linkend="SaveSolution">guardada</link>
+se puede, luego, abrir y reproducir.
 </para>
 
 <para>
-To start the solution playback, click the
+Para iniciar la reproducción de la solución, basta un clic sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24LogNext"/>
-button. To play back the next step, click the
+Para reproducir el paso siguiente, otro clic sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24LogNext"/>
-button again.
+lo ejecutará.
 </para>
 
 <para>
-To jump forward or backward, select an arbitrary record in the log.
+Para avanzar o retroceder, basta seleccionar uno de las etapas del registro.
 </para>
 
 <para>
-To erase all records following the selected record, click the
+Para borrar las subsiguientes a la etapa seleccionada, basta un clic sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24LogCut"/>
-button. Use caution since this action cannot be
-<link linkend="Undo">undone</link>.
+Se debe ejecutar con precaución esta acción ya que no se puede
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-To rewind the solution playback so that you can start over, click the
+Para retroceder la reproducción de la solución y reiniciarla, basta un clic sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24LogRewind"/>
-button.
+correspondiente.
 </para>
 
 <para>
-To stop the solution playback and resume solving the problem, click the
+Para detener la reproducción de la solución y seguir resolviendo el problema, basta un clic sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24LogStop"/>
-button.
+correspondiente.
 </para>
 
 </sect2>
 
 <sect2 id="SolutionComments">
-<title>Solution Comments</title>
+<title>Comentarios en la Solución</title>
 
 <para>
-To comment on a solution step, double click on the small box on the right side of
-the record. A dialog will pop up. Type in some comments and click
+Para comentar un paso de la solución, basta un doble clic sobre el casillero derecho 
+de la etapa. Se desplegará un cuadro de diálogo. Tras anotar el comentario, de debe pulsar
 <emphasis>OK</emphasis>.
-Click
-<emphasis>Cancel</emphasis>
-to discard the changes. The comments support
-<ulink url="http://www.w3schools.com/html">HTML markup</ulink>.
+Un clic sobre 
+<emphasis>Cancela</emphasis>
+desestima los cambios. Los comentarios pueden incluir
+<ulink url="http://www.w3schools.com/html">notaciones HTML</ulink>.
 </para>
 
 <para>
-A commented solution is marked with the&#xA0;
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24ProblemFile"/>icon.
-To view the comments, pause the mouse over the corresponding record.
+Una solución comentada se distingue por el ícono&#xA0;
+<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24ProblemFile"/>.
+Basta pasar el ratón o mouse sobre la etapa para ver el comentario.
 </para>
 
 <para>
-Comments cannot be edited during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Los comentarios no pueden editarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 </sect2>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Overview">Overview</link>
+<link linkend="Overview">Pantallazo</link>
 </listitem>
 <listitem>
-<link linkend="SaveSolution">Save Solution</link>
+<link linkend="SaveSolution">Guardar Solución</link>
 </listitem>
 <listitem>
-<link linkend="OpenSolution">Open Solution</link>
+<link linkend="OpenSolution">Abrir Solución</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -2318,80 +2319,80 @@ See also:
 </sect1>
 
 <sect1 id="ShareDocument">
-<title>Share Document</title>
+<title>Compartir un Documento</title>
 
 <para>
-To share a document with another user, you need to
-<link linkend="ExportDocument">export</link>
-it first. Save the exported content to a regular file on your computer.
-Share the saved file. The other user will open the file and
-<link linkend="ImportDocument">import</link>
-its content.
+Para compartir un documento con otros, se lo debe
+<link linkend="ExportDocument">exportar</link>
+primero. Debe guardarse el contenido exportado a un archivo normal localmente.
+Se comparte entonces el archivo guardado para que quien se interese lo abra y
+<link linkend="ImportDocument">lo importe</link>
+a su equipo.
 </para>
 
 <sect2 id="ExportDocument">
-<title>Export Document</title>
+<title>Exportar Documento</title>
 
 <para>
-To export the current document, select
-<emphasis>Export Document</emphasis>
-from the
-<emphasis>Document</emphasis>
-menu. The
-<ulink url="http://www.json.org">JSON</ulink>-formatted
-content of the document will pop up. Click in the text area, select all, copy, and
-paste into a text editor. Save the file in plain text format. The saved file can be
-<link linkend="ShareDocument">shared</link>
-with other users.
+Para exportar el documento activo, basta seleccionar 
+<emphasis>Exporta Documento</emphasis>
+del menú
+<emphasis>Documento</emphasis>.
+El contenido de formato
+<ulink url="http://www.json.org">JSON</ulink> del 
+documento se desplegará. Un clic sobre el área del texto, basta seleccionar todo, copiar y pegar
+en el editor de texto. Se guarda el archivo en formato de texto. El archivo guardado se puede
+<link linkend="ShareDocument">compartir</link>
+con otros.
 </para>
 
 <para>
-A solution cannot be exported during its
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Una solución no puede exportarse durante
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 </sect2>
 
 <sect2 id="ImportDocument">
-<title>Import Document</title>
+<title>Importa Documento</title>
 
 <para>
-To import the document another user has shared with you, open the file in a text editor,
-select all and copy. Select
-<emphasis>Import Document</emphasis>
-from the
-<emphasis>Document</emphasis>
-menu. Paste into the text area and click
+Para importar el documento que se hubiera compartido, basta abrir un editor de texto,
+se selecciona todo y se lo copia. Se escoge
+<emphasis>Importa Documento</emphasis>
+del menú
+<emphasis>Documento</emphasis>.
+Se pasa a pegar lo copiado en el área de texto y se da clic en
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-The current document, whether it is a problem or a solution, will be closed first.
-If there are unsaved modifications, a dialog will be displayed asking
-if the current document should be saved before it is closed.
+El documento activo, sea el de un problema o el de una solución, debe cerrarse primero.
+De haber modificaciones sin guardar, se desplegará un cuadro de diálogo solicitando
+se indique si el documento activo debe guardarse antes de cerrarlo.
 </para>
 
 <para>
-Click <emphasis>Yes</emphasis> to save
-the current document. 
+Un clic sobre<emphasis>Sí</emphasis> lleva a guardar 
+el documento activo. 
 </para>
 
 <para>
-Click <emphasis>No</emphasis> to close
-the current document without saving. Note that all unsaved modifications
-to the current document will be lost.
+Un clic sobre<emphasis>No</emphasis> lleva a cerrar
+el documento activo sin guardarlo. Todas las modificaciones no guardadas 
+del documento activo se perderán.
 </para>
 
 <para>
-Click <emphasis>Cancel</emphasis> to dismiss the dialog
-with no action taken.
+Un clic sobre<emphasis>Cancela</emphasis> descartará el cuadro de diálogo
+sin ejecutar acción alguna.
 </para>
 
 <para>
-A document cannot be imported during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Un documento no puede importarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 </sect2>
@@ -2400,281 +2401,281 @@ You have to stop the playback first.
 
 </chapter>
 
-<chapter id="Figures">
-<title>Figures</title>
+<chapter id="figures">
+<title>Figuras</title>
 
-<sect1 id="NewFigure">
-<title>New Figure</title>
+<sect1 id="Newfigure">
+<title>Nueva Figura</title>
 
 <para>
-Geometria offers a gallery of common figures, such as regular prisms, regular pyramids
-and the five platonic solids, namely, the tetrahedron, cube,
-octahedron, dodecahedron and icosahedron.
+Geometria ofrece una galería de figuras comunes. Como prismas y pirámides regulares
+y los cinco sólidos platónicos: el tetraedro, cubo,
+octaedro, dodecaedro y el icosaedro.
 </para>
 
 <para>
-Select a figure from the
-<emphasis>Figure-&gt;New Figure</emphasis>
-menu to add it to the current document.
+Para seleccionar una figura, en el menú
+<emphasis>Figura-&gt;se indicará Nueva Figura</emphasis>
+para agregarla en el documento activo.
 </para>
 
 <para>
-When selecting a prism or a pyramid, enter a number of sides between 3 and 100.
+Tras seleccionar un prisma o una pirámide, se debe anotar el número de lados entre 3 y 100.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-A new figure cannot be added during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se puede añadir una nueva figura durante la
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="OpenFigure">Open Figure</link>
+<link linkend="Openfigure">Abre Figura</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
 
 </sect1>
 
-<sect1 id="OpenFigure">
-<title>Open Figure</title>
+<sect1 id="Openfigure">
+<title>Abre Figura</title>
 
 <para>
-To open a figure file, double click it in the
-<link linkend="Navigator">Navigator</link>
-or select it and click the
+Para abrir el archivo de una figura, basta un doble clic sobre el
+<link linkend="Navigator">Navegador</link>
+o escogerlo y pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Open"/>
-button on the tool bar. You can tell a figure file by its icon&#xA0;
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24FigureFile"/>.
+de la barra de herramientas. Se distingue un archivo de figura por su ícono&#xA0;
+<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24figuraFile"/>.
 </para>
 
 <para>
-The figure will be added to the current document.
+La figura se incorporará al documento activo.
 </para>
 
 <para>
-In addition, a gallery of common
-<link linkend="NewFigure">figures</link>
-is available to choose from, including prisms, pyramids and platonic solids.
+Además, la galería de las más usuales 
+<link linkend="Newfigure">figuras</link>
+está disponible para la selección, incluyendo prismas, pirámides y sólidos platónicos.
 </para>
 
 <para>
-A new figure cannot be added during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se puede añadir una nueva figura durante la
+<link linkend="Playback">reproducción</link> de la solución. 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-A figure cannot be opened during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No puede abrirse una figura durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="NewFigure">New Figure</link>
+<link linkend="Newfigure">Nueva Figura</link>
 </listitem>
 <listitem>
-<link linkend="SaveFigure">Save Figure</link>
+<link linkend="Savefigure">Guardar Figura</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
 
 </sect1>
 
-<sect1 id="CloneFigure">
-<title>Clone Figure</title>
+<sect1 id="Clonefigure">
+<title>Reproducir Figura</title>
 
 <para>
-To clone a figure, select
-<emphasis>Clone Figure</emphasis>
-from the
-<emphasis>Figure</emphasis>
-menu or click the
+Para reproducir una figura, basta seleccionar 
+<emphasis>Reproducir Figura</emphasis>
+del menú
+<emphasis>Figura</emphasis>
+o pulsar sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Clone"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-A copy of the selected figure will be added to the current document.
+Una copia de la figura seleccionada se añadirá al documento activo.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Figures cannot be cloned during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se puede calcar una figura durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
 
 </sect1>
 
-<sect1 id="SaveFigure">
-<title>Save Figure</title>
+<sect1 id="Savefigure">
+<title>Guardar Figura</title>
 
 <para>
-To save a figure, select it in the current document, then select
-<emphasis>Save Figure</emphasis>
-from the
-<emphasis>Figure</emphasis>
-menu or click the
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24SaveFigure"/>
-button on the tool bar. Enter the file name in the box at the bottom of the navigator.
-File names can only contain alphanumeric characters and spaces. Note that the subfolders
-and files in any given folder must have unique names.
+Para guardar una figura, basta seleccionarla en el documento activo, y pasar a 
+<emphasis>Guardar Figura</emphasis>
+del menú
+<emphasis>Figura</emphasis>
+o pulsar sobre el botón 
+<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Savefigure"/>
+de la barra de herramientas. Debe anotarse el nombre del archivo en el cuadro al pie del navegador.
+Los nombres de archivo solo pueden contener caracteres alfanuméricos y espacios. Los subdirectorios
+y archivos de una carpeta deben tener nombres exclusivos.
 </para>
 
 <para>
-The figure will be saved in the folder currently selected in the
-<link linkend="Navigator">Navigator</link>.
-If no folder is selected, the figure will be saved in the root folder.
+La figura se guardará en el directorio seleccionado en el
+<link linkend="Navigator">Navegador</link>.
+Si no hubiera directorio seleccionado, la figura se guardará en el raíz.
 </para>
 
 <para>
-A figure cannot be saved during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Una figura no puede guardarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="OpenFigure">Open Figure</link>
+<link linkend="Openfigure">Abre Figura</link>
 </listitem>
 
 </itemizedlist>
 
 </sect1>
 
-<sect1 id="PrintFigure">
-<title>Print Figure</title>
+<sect1 id="Printfigure">
+<title>Imprime Figura</title>
 
 <para>
-To print a figure:
+Para imprimir una figura:
 </para>
 
 <itemizedlist>
 
 <listitem>
-Select
-<emphasis>Print Figure</emphasis>
-from the
-<emphasis>Figure</emphasis>
-menu. An HTML-formatted text will pop up.
+Se selecciona 
+<emphasis>Imprime Figura</emphasis>
+del menú
+<emphasis>Figura</emphasis>
+Se desplegará un texto de formato HTML.
 </listitem>
 
 <listitem>
-Click in the text area, select all and copy.
+Un clic sobre el área de texto permite seleccionar todo y copiarlo.
 </listitem>
 
 <listitem>
-Paste into a text editor.
+Se pega todo en un editor de texto.
 </listitem>
 
 <listitem>
-Save to a file in plain text format with extension
+Se lo guarda en un archivo de formato de texto con extensión
 <emphasis>html</emphasis>,
-for example, MyFigure.html.
+por ejemplo, MiFigura.html.
 </listitem>
 
 <listitem>
-Drag the file into your web browser.
+Se debe arrastrar el archivo al navegador.
 </listitem>
 
 <listitem>
-Scale the figure if necessary and print it.
+De ser preciso, se puede escalar la figura antes de imprimirla.
 </listitem>
 
 </itemizedlist>
 
 </sect1>
 
-<sect1 id="RenameFigure">
-<title>Rename Figure</title>
+<sect1 id="Renamefigure">
+<title>Renombra Figura</title>
 
 <para>
-To rename a figure in the current document, select it, then select
-<emphasis>Rename Figure</emphasis> from
-the <emphasis>Edit</emphasis> menu.
+Para renombrar una figura del documento activo, basta seleccionarla y escoger 
+<emphasis>Renombra Figura</emphasis> del menú
+ <emphasis>Edita</emphasis> .
 </para>
 
 <para>
-A figure name must consist of alphanumeric characters and begin with a letter.
-Special and accented characters are not allowed. A figure name cannot contain spaces.
+El nombre de una figura debe contener caracteres alfanuméricos y empezar con una letra.
+No se permiten caracteres acentuados o especiales ni espacios.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-The
-<link linkend="EditorsAndSolvers">Solver</link>
-cannot rename a figure that is part of the problem. However,
-any figures created in the process of solving the problem can be renamed.
+Quien
+<link linkend="EditorsAndSolvers">Resuelve</link>
+no puede renombrar una figura que conforme el problema. Sí se puede renombrar
+cualquier figura creada durante el proceso de resolución del problema.
 </para>
 
 <para>
-A figure cannot be renamed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Una figura no se puede renombrar durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -2682,112 +2683,111 @@ See also:
 </sect1>
 
 <sect1 id="RenamePoint">
-<title>Rename Point</title>
+<title>Renombra Punto</title>
 
 <para>
-To rename a point in a figure, the
-<link linkend="EditorsAndSolvers">Editor</link>&#xA0;
-<link linkend="SelectElements">selects</link>
-the point, right-clicks and selects
-<emphasis>Rename Point</emphasis>
-from the popup menu. Alternatively,
-<emphasis>Rename Point</emphasis>
-can be selected in the
-<emphasis>Draw</emphasis>
-menu.
+Para renombrar un punto en una figura, quien
+<link linkend="EditorsAndSolvers">Edita</link>&#xA0;
+<link linkend="SelectElements">debe seleccionar</link>
+el punto, y tras clic derecho, escoger
+<emphasis>Renombra Punto</emphasis>
+del menú emergente. La alternativa es seleccionar
+<emphasis>Renombra Punto</emphasis>
+en el menú
+<emphasis>Edita</emphasis>.
 </para>
 
 <para>
-A dialog will pop up. Make sure the correct point is selected, enter a new
-label for the point and click
+Se desplegará un cuadro de diálogo. Se debe corroborar si se seleccionó el punto correcto y
+anotar el nuevo nombre para el punto y pulsar sobre
 <emphasis>OK</emphasis>.
-A valid label consists of a capital letter, which may be followed by one or more digits.
-Point labels in a figure must be unique.
+Un rótulo válido consiste en una letra mayúsculas a la que detrás se le pueden añadir números.
+Los rótulos de los puntos en una figura deben ser exclusivos.
 </para>
 
 <para>
-Renaming a point may result in some of the notepad
-<link linkend="Notepad">records</link>
-being updated accordingly.
+Renombrar un punto desencadena cambios en el anotador y nuevos
+<link linkend="Notepad">registros</link>
+acorde a la actualización.
 </para>
 
 <para>
-The
-<link linkend="EditorsAndSolvers">Solver</link>
-cannot rename a point in any figure that is part of the problem. However, points in figures
-that have been created in the process of solving the problem can be renamed.
+Quien
+<link linkend="EditorsAndSolvers">Resuelve</link>
+no puede renombrar un punto en una figura incluida en el problema. Sin embargo, los puntos en figuras
+creadas en el proceso de resolución del problema pueden renombrarse.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Points cannot be renamed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Los puntos no pueden renombrarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Seleccionar Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 
 </itemizedlist>
 
 </sect1>
 
-<sect1 id="RemoveFigure">
-<title>Remove Figure</title>
+<sect1 id="Removefigure">
+<title>Elimina Figura</title>
 
 <para>
-To remove a figure from the current document, select
-<emphasis>Remove Figure</emphasis> from
-the <emphasis>Edit</emphasis> menu
-or click
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24RemoveFigure"/>
-button on the tool bar.
+Para borrar una figura del documento activo, basta seleccionar 
+<emphasis>Elimina Figura</emphasis> del menú 
+<emphasis>Edita</emphasis> 
+o pulsar sobre el botón 
+<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Removefigure"/>
+de la barra de herramientas.
 </para>
 
 <para>
-Removing a figure that has been
-<link linkend="Measure">measured</link>
-will result in some of the variables being
-<link linkend="PinnedVariable">pinned</link>.
+Suprimir una figura que hubiera sido
+<link linkend="Measure">medida</link>
+provocará la supresión de algunas variables que se
+<link linkend="PinnedVariable">perderán</link>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-The
-<link linkend="EditorsAndSolvers">Solver</link>
-cannot remove a figure that is part of the problem. However,
-any figures created in the process of solving the problem can be removed.
+Quien
+<link linkend="EditorsAndSolvers">Resuelve</link>
+no puede suprimirse una figura que es parte del problema. Sin embargo,
+cualquier figura creada mientras se está resolviendo el problema puede borrarse.
 </para>
 
 <para>
-A figure cannot be removed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Una figura no puede borrarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
@@ -2796,7 +2796,7 @@ See also:
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -2804,100 +2804,99 @@ See also:
 </sect1>
 
 <sect1 id="EraseElements">
-<title>Erase Elements</title>
+<title>Borra Elementos</title>
 
 <sect2 id="EraseSegment">
-<title>Erase Segment</title>
+<title>Borra Segmento</title>
 
 <para>
-To erase a segment,
-<link linkend="SelectElements">select</link>
-either the segment or the end points between which to erase, right-click and select
-<emphasis>Erase Segment</emphasis>.
-from the popup menu. Alternatively, select
-<emphasis>Erase Segment</emphasis>
-from the
-<emphasis>Edit</emphasis>
-menu. The segment cannot belong to an edge.
+Para borrar un segmento, basta
+<link linkend="SelectElements">seleccionar</link>
+sea el segmento o los vértices entre el que se va a borrar y clic derecho y optar por 
+<emphasis>Borra Segmento</emphasis>.
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Borra Segmento</emphasis>
+del menú
+<emphasis>Edita</emphasis>.
+El segmento no puede pertenecer a una arista.
 </para>
 
 <para>
-If a dialog pops up, fill in the missing point labels and click
+Si un cuadro emerge, se deben completar los rótulos de puntos faltantes y pulsar sobre
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-Erasing a segment that has been referenced in measurements
-will result in some of the variables being
-<link linkend="PinnedVariable">pinned</link>.
+Suprimir un segmento al que se le tomaran medidas
+provocará que algunas variables 
+<link linkend="PinnedVariable">se pierdan</link>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-A segment cannot be erased during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Un segmento no puede borrarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 </sect2>
 
 <sect2 id="EraseSelection">
-<title>Erase Selection</title>
+<title>Borra Selección</title>
 
 <para>
-To erase one or more elements, such as points and/or segments,
-<link linkend="SelectElements">select</link>
-them, right-click and select
-<emphasis>Erase Selection</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Erase Selection</emphasis>
-from the
-<emphasis>Edit</emphasis>
-menu or click the
+Para borrar uno o más elementos, como puntos y/o segmentos, basta
+<link linkend="SelectElements">seleccionarlos</link>, 
+clic derecho y optar por 
+<emphasis>Borra Selección</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Borra Selección</emphasis>
+del menú
+<emphasis>Edita</emphasis>
+o pulsar sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Erase"/>
-button on the tool bar.
+en la barra de herramientas.
 </para>
 
 <para>
-Vertices and segments that belong to edges will not be erased.
+Vértices y segmentos que pertenecen a aristas no se borrarán.
 </para>
 
 <para>
-To erase all points and segments in a figure (with the exception of vertices and edges),
-use the
-<link linkend="SelectAndDeselect">Select All</link>
-action first.
+Para borrar todos los puntos y segmentos en una figura (con excepción de vértices y aristas),
+se
+<link linkend="SelectAndDeselect">Selecciona Todo</link>
+en primer lugar.
 </para>
 
 <para>
-To erase only a part of a drawn segment, use the
-<link linkend="EraseSegment">Erase Segment</link>
-action.
+Para borrar solo una parte de un segmento trazado, basta optar por la acción
+<link linkend="EraseSegment">Borra Segmento</link>.
 </para>
 
 <para>
-Erasing elements that have been referenced in measurements will result in
-some of the variables being
-<link linkend="PinnedVariable">pinned</link>.
+Suprimir elementos a los que se les tomaran medidas provocará
+que algunas de las variables se
+<link linkend="PinnedVariable">pierdan</link>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-The selection cannot be erased during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No pueden borrarse elementos durante la
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
@@ -2906,10 +2905,10 @@ See also:
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -2919,88 +2918,87 @@ See also:
 </sect1>
 
 <sect1 id="View">
-<title>View</title>
+<title>Vista</title>
 
 <sect2 id="Attitude">
-<title>Attitude</title>
+<title>Comportamiento</title>
 
 <para>
-<emphasis>Geometria</emphasis> employs a fixed right-hand reference
-system. The Z axis of the reference system is parallel to the vertical edge of the screen.
-However,
-<link linkend="EditorsAndSolvers">Editors</link>
-and
-<link linkend="EditorsAndSolvers">Solvers</link>
-require no knowledge of the technical aspects of the reference system.
+<emphasis>Geometria</emphasis> emplea una referencia fija de sistema a mano 
+derecha. El eje Z del sistema de referencia es paralelo al borde vertical de la pantalla.
+Sin embargo, quien
+<link linkend="EditorsAndSolvers">Edita</link>
+y quien
+<link linkend="EditorsAndSolvers">Resuelve</link>
+no precisa conocer todos los detalles técnicos del sistema de referencia.
 </para>
 
 <para>
-At any given time, the figure has a certain
-<emphasis>attitude</emphasis>.
-The attitude can be described in terms of angles the figure forms with the reference system.
-When a
-<link linkend="NewFigure">new figure</link>
-is added to the document, it has the
-<emphasis>default</emphasis> attitude.
-The figure's attitude changes as the figure is rotated.
+En cada momento, la figura tiene una
+<emphasis>posición</emphasis>.
+La posición puede describirse acorde a los ángulos que la figura forma con el sistema de referencia.
+Cuando una
+<link linkend="Newfigure">nueva figura</link>
+se añade al documento, la posición usual
+<emphasis>por omisión</emphasis> .
+La posición de la figura cambia cuando se la rota.
 </para>
 
 <para>
-To revert a figure to the initial attitude, select
-<emphasis>Initial Attitude</emphasis>
-from the
-<emphasis>View</emphasis>
-menu or right-click and select
-<emphasis>Initial Attitude</emphasis>
-from the popup menu.
+Para reubicar una figura a la posición inicial, basta seleccionar 
+<emphasis>Comportamiento Inicial</emphasis>
+del menú
+<emphasis>Vista</emphasis>
+o vía clic derecho, optar por
+<emphasis>Comportamiento Inicial</emphasis>
+del menú emergente.
 </para>
 
 <para>
-When a figure is saved, its current attitude becomes its initial attitude.
-To revert to the attitude the figure had when it was first added to the document, before
-any subsequent rotations, select 
-<emphasis>Default Attitude</emphasis>
-from the
-<emphasis>View</emphasis>
-menu.
+Cuando una figura se guarda, su posición queda establecida como la inicial.
+Para reubicarla a la posición que tenía cuando fue añadida al documento, 
+previa a cualquier rotación subsecuente, basta seleccionar 
+<emphasis>Comportamiento por Omisión</emphasis>
+del menú
+<emphasis>Vista</emphasis>.
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="RotateFigure">Rotate Figure</link>
+<link linkend="Rotatefigure">Rota Figura</link>
 </listitem>
 
 </itemizedlist>
 
 </sect2>
 
-<sect2 id="RotateFigure">
-<title>Rotate Figure</title>
+<sect2 id="Rotatefigure">
+<title>Rota Figura</title>
 
 <para>
-Turn the selector
-<link linkend="ToggleSelector">off</link>
-and stroke a figure with the mouse to rotate the figure. The rotation speed
-and angle will depend on the stroke.
+Para rotar una figura basta seleccionarla o
+<link linkend="ToggleSelector">elegir</link>
+la que se desee con el ratón o mouse. La velocidad de rotación 
+y el ángulo dependerá de las pulsaciones.
 </para>
 
 <para>
-To pin a rotating figure, click on it.
+Para detener la rotación de la figura, basta darle un clic.
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="Attitude">Attitude</link>
+<link linkend="Attitude">Comportamiento</link>
 </listitem>
 <listitem>
 <link linkend="ToggleSelector">Selector</link>
@@ -3011,92 +3009,90 @@ See also:
 </sect2>
 
 <sect2 id="SelectElements">
-<title>Select Elements</title>
+<title>Selección de Elementos</title>
 
 <sect3 id="ToggleSelector">
-<title>Toggle Selector</title>
+<title>Alterna Selector</title>
 
 <para>
-Right-click on a figure and select
-<emphasis>Toggle Selector</emphasis>
-from the popup menu.
-Alternatively, select
-<emphasis>Toggle Selector</emphasis>
-from the
-<emphasis>View</emphasis>
-menu or click the
+Clic derecho sobre una figura y seleccionar 
+<emphasis>Alterna Selector</emphasis>
+del menú emergente, para cambiar de modo.
+La alternativa es seleccionar 
+<emphasis>Alterna Selector</emphasis>
+del menú
+<emphasis>Vista</emphasis>
+o pulsar sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Selector"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-When the selector is
-<emphasis>on</emphasis>
-(its tool bar button highlighted), elements can be selected
-by clicking on them. When the selector is
-<emphasis>off</emphasis>,
-dragging the mouse will
-<link linkend="RotateFigure">rotate</link>
-the figure.
+Cuando el selector está
+<emphasis>activo</emphasis>
+(su botón aparece resaltada en la barra de herramientas), los elementos se pueden seleccionar
+vía clic indicándolos. Cuando estuviera seleccionado, 
+<emphasis>desactivarlo</emphasis>,
+arrastrando el ratón o mouse llevará a la
+<link linkend="Rotatefigure">rotación</link>
+de la figura.
 </para>
 
 <para>
-The selector is on by default.
+El selector está activo por omisión.
 </para>
 
 </sect3>
 
 <sect3 id="SelectAndDeselect">
-<title>Select and Deselect</title>
+<title>Seleccionar y Deseleccionar</title>
 
 <para>
-Make sure the selector is
-<link linkend="ToggleSelector">on</link>.
+Hay que asegurarse que el selector esté
+<link linkend="ToggleSelector">activo</link>.
 </para>
 
 <para>
-Click an element, such as a point, a segment or a face, to select (highlight) it.
-Any number of elements can be selected. To select a face, turn the
-<link linkend="Wireframe">wireframe</link>
-off.
+Un clic sobre un elemento, como un punto, un segmento o una cara, lo selecciona (queda resaltado).
+Varios elementos se pueden seleccionar. Para elegir una cara, es preciso desactivar el
+<link linkend="Wireframe">cuadro</link>.
 </para>
 
 <para>
-To select all points and segments in a figure (with the exception of vertices and edges),
-select
-<emphasis>Select All</emphasis>
-from the
-<emphasis>Edit</emphasis>
-menu. This action offers a convenient way to
-<link linkend="EraseSelection">erase all elements</link>
-at once.
+Para seleccionar todos los puntos y segmentos en una figura (con excepción de vértices y aristas),
+se debe optar por
+<emphasis>Selecciona Todo</emphasis>
+del menú
+<emphasis>Edita</emphasis>.
+Esta acción ofrece un modo conveniente de
+<link linkend="EraseSelection">borrar todos los elementos</link>
+simultáneamente.
 </para>
 
 <para>
-To deselect a selected element, click on it again. To clear the selection completely,
-right-click and select
-<emphasis>Deselect All</emphasis>
-from the popup menu or select
-<emphasis>Deselect All</emphasis>
-from the
-<emphasis>Edit</emphasis>
-menu.
+Dándole un clic, se deselecciona un elemento activo. Para limpiar la selección completamente,
+basta un clic derecho optando por 
+<emphasis>Deselecciona Todo</emphasis>
+del menú emergente o seleccionar 
+<emphasis>Deselecciona Todo</emphasis>
+del menú
+<emphasis>Edita</emphasis>.
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="RotateFigure">Rotate Figure</link>
+<link linkend="Rotatefigure">Rota Figura</link>
 </listitem>
 <listitem>
-<link linkend="ViewModes">View Modes</link>
+<link linkend="ViewModes">Modos de Vista</link>
 </listitem>
 <listitem>
-<link linkend="EraseSelection">Erase Selection</link>
+<link linkend="EraseSelection">Borra Selección</link>
 </listitem>
 
 </itemizedlist>
@@ -3106,88 +3102,87 @@ See also:
 </sect2>
 
 <sect2 id="ViewModes">
-<title>View Modes</title>
+<title>Modos de Vista</title>
 
 <sect3 id="Wireframe">
-<title>Wireframe</title>
+<title>Cuadro</title>
 
 <para>
-By default, figures are displayed as wireframes and the
+Por omisión, las figuras se muestran como cuadros y el
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24WireFrame"/>
-button on the tool bar is highlighted. To turn the wireframe off on the selected figure,
-select
-<emphasis>Toggle Wireframe</emphasis>
-from the
-<emphasis>View</emphasis>
-menu or click the
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24WireFrame"/>
-button.
+botón de la barra de herramientas, iluminado. Para desactivar el cuadro basta indicar la figura,
+y seleccionar
+<emphasis>Alterna Cuadro</emphasis>
+del menú
+<emphasis>Vista</emphasis>
+o pulsar sobre el botón 
+<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24WireFrame"/>.
 </para>
 
 <para>
-In a wireframe, the segments and points on the visible side of the figure are solid,
-whereas the ones on the back side are dashed.
-Any point or segment can be
-<link linkend="SelectElements">selected</link>,
-whether it is visible or not. Faces can only be
-<link linkend="SelectElements">selected</link>
-when the wireframe is off.
+En un cuadro, los segmentos y puntos sobre la cara visible de la figura son plenos,
+mientras los del lado opuesto aparecen punteados.
+Cualquier punto o segmento se puede
+<link linkend="SelectElements">seleccionar</link>,
+esté visible o no. Las caras solo pueden
+<link linkend="SelectElements">seleccionarse</link>
+cuando el modo cuadro esté desactivado.
 </para>
 
 <para>
-If the wireframe is off, the segments and points on the back side of the figure
-are not shown. Only points, segments and faces on the visible side of the figure can be
-<link linkend="SelectElements">selected</link>.
+Si el cuadro está desactivado, los segmentos y puntos sobre el lado posterior de la figura
+no aparecen. Solo los puntos, segmentos y caras del lado visible de la figura puede
+<link linkend="SelectElements">seleccionarse</link>.
 </para>
 
 </sect3>
 
 <sect3 id="Color">
-<title>Set Color</title>
+<title>Fijar Color</title>
 
 <para>
-When the
-<link linkend="Wireframe">wireframe</link>
-is off, the figure is painted in a certain color. To change the color, select
-<emphasis>Set Color</emphasis>
-from the 
-<emphasis>View</emphasis>
-menu or click the
+Cuando el
+<link linkend="Wireframe">cuadro</link>
+está desactivado, la figura aparece cierto color. Para cambiar el color, basta seleccionar 
+<emphasis>Fija Color</emphasis>
+del menú 
+<emphasis>Vista</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Color"/>
-button on the tool bar. Select a color in the popup dialog and click
+de la barra de herramientas. Debe elegirse un color en el cuadro emergente y clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-The color of a figure cannot be changed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+El color de una figura no puede cambiarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 </sect3>
 
 <sect3 id="Labels">
-<title>Labels</title>
+<title>Rótulos</title>
 
 <para>
-By default, figure points are labeled. To hide the labels, select
-<emphasis>Toggle Labels</emphasis> from the
-<emphasis>View</emphasis>
-menu or click the
+Por omisión, los puntos aparecen rotulados. Para ocultar los rótulos, basta seleccionar 
+<emphasis>Alterna Rótulos</emphasis> del menú
+<emphasis>Vista</emphasis>
+o pulsar sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Labels"/>
-button on the tool bar. Labels will not show if the
-<link linkend="Wireframe">wireframe</link>
-is off.
+de la barra de herramientas. Los rótulos no aparecen si el
+<link linkend="Wireframe">cuadro</link>
+está desactivado.
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 
 </itemizedlist>
@@ -3196,43 +3191,43 @@ See also:
 
 </sect2>
 
-<sect2 id="ZoomFigure">
-<title>Zoom Figure</title>
+<sect2 id="Zoomfigure">
+<title>Amplía Figura</title>
 
 <para>
-To zoom in on a figure, select <emphasis>Zoom In</emphasis> from
-the <emphasis>View</emphasis> menu or click the
+Para ampliar una figura, basta seleccionar <emphasis>Amplía</emphasis> del
+menú <emphasis>Vista</emphasis> o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24ZoomIn"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-To zoom out, select <emphasis>Zoom Out</emphasis> from
-the <emphasis>View</emphasis> menu or click the
+Para reducir, basta seleccionar <emphasis>Reduce</emphasis> del
+menú <emphasis>Vista</emphasis> o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24ZoomOut"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-To resize a figure so it fits into the window, right-click and select
-<emphasis>Fit To View</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Fit To View</emphasis>
-from the
-<emphasis>View</emphasis>
-menu or click the
+Se reescala una figura para que se centre en la ventana, vía clic derecho y seleccionando
+<emphasis>Encuadra Ventana de Visualización</emphasis>
+del menú emergente. La alternativa es, seleccionar 
+<emphasis>Encuadra Ventana de Visualización</emphasis>
+del menú
+<emphasis>Vista</emphasis>
+o pulsar sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24FitToView"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 
 </itemizedlist>
@@ -3242,78 +3237,78 @@ See also:
 </sect1>
 
 <sect1 id="Measure">
-<title>Measure</title>
+<title>Medida</title>
 
 <sect2 id="MeasureDistance">
-<title>Measure Distance</title>
+<title>Medir Distancia</title>
 
 <para>
-To measure the distance between two points,
-<link linkend="SelectElements">select</link>
-both points or the segment that joins them, right-click and select
-<emphasis>Measure Distance</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Measure Distance</emphasis>
-from the
-<emphasis>Measure</emphasis>
-menu, or click the
+Para medir la distancia entre dos puntos,basta
+<link linkend="SelectElements">seleccionar</link>
+ambos puntos o el segmento que los, clic derecho y optar por 
+<emphasis>Mide Distancia</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Mide Distancia</emphasis>
+del menú
+<emphasis>Medida</emphasis>
+o pulsar sobre el botón
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24MeasureDistance"/>
-button on the tool bar.
+en la barra de herramientas.
 </para>
 
 <para>
-A dialog will pop up. Fill in, if necessary, the missing point labels, assign a unique
-<link linkend="Variables">variable</link>
-and click
+Se desplegará un cuadro de diálogo. Completar, de ser necesario, los rótulos de puntos faltantes, asignar a una
+<link linkend="Variables">variable</link> exclusiva
+y clic sobre
 <emphasis>OK</emphasis>.
-A record will appear on the
-<link linkend="Notepad">notepad</link>,
-for example:
+Aparecerá un registro en el 
+<link linkend="Notepad">anotador</link>,
+por ejemplo:
 </para>
 
 <programlisting>
-myDistance = |AB| : MyCube
+miDistancia = |AB| : MiCubo
 </programlisting>
 
 <para>
-where
-<emphasis>myDistance</emphasis>
-is the variable assigned to the distance between points
+donde
+<emphasis>miDistancia</emphasis>
+es la variable asignada a la distancia entre puntos
 <emphasis>A</emphasis>
-and
+y
 <emphasis>B</emphasis>
-in figure
-<emphasis>MyCube</emphasis>.
+en la figura
+<emphasis>MiCubo</emphasis>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Distances cannot be measured during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Las distancias no puede medirse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3321,78 +3316,78 @@ See also:
 </sect2>
 
 <sect2 id="MeasureAngle">
-<title>Measure Angle</title>
+<title>Mide Ángulo</title>
 
 <para>
-To measure an angle,
-<link linkend="SelectElements">select</link>
-two segments that make it, right-click and select
-<emphasis>Measure Angle</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Measure Angle</emphasis>
-from the
-<emphasis>Measure</emphasis>
-menu, or click the
+Para medir un ángulo,
+<link linkend="SelectElements">seleccionar</link>
+dos segmentos que lo limiten, clic derecho y optar por 
+<emphasis>Mide Ángulo</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Mide Ángulo</emphasis>
+del menú
+<emphasis>Medida</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24MeasureAngle"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-A dialog will pop up. Fill in, if necessary, the missing point labels, assign a unique
-<link linkend="Variables">variable</link>
-and click
+Se desplegará un cuadro de diálogo. Se deben completar, de ser necesario, los rótulos de puntos faltantes, asignarlos a cada
+<link linkend="Variables">variable</link> exclusiva
+y pulsar clic sobre
 <emphasis>OK</emphasis>.
-A record will appear on the
-<link linkend="Notepad">notepad</link>, for example:
+Aparecerá un registro en el 
+<link linkend="Notepad">anotador</link>, por ejemplo:
 </para>
 
 <programlisting>
-myAngle = &lt;ABC : MyPyramid
+miAngulo = &lt;ABC : MiPirAmide
 </programlisting>
 
 <para>
-where
-<emphasis>myAngle</emphasis>
-is the variable assigned to the angle between
+donde
+<emphasis>miAngulo</emphasis>
+es la variable asignada al ángulo entre
 <emphasis>AB</emphasis>
-and
+y
 <emphasis>AC</emphasis>
-in figure
-<emphasis>MyPyramid</emphasis>.
+en la figura
+<emphasis>MiPirAmide</emphasis>.
 </para>
 
 <para>
-All angles are expressed in radians.
+Todos los ángulos se expresan en radianes.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Angles cannot be measured during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Los ángulos no puede medirse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3400,75 +3395,75 @@ See also:
 </sect2>
 
 <sect2 id="ComputeArea">
-<title>Compute Area</title>
+<title>Cálculo de Área</title>
 
 <para>
-To compute the area of a face,
-<link linkend="SelectElements">select</link>
-some elements that identify uniquely that face, for example, two segments or three points,
-right-click and select
-<emphasis>Compute Area</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Compute Area</emphasis>
-from the
-<emphasis>Measure</emphasis>
-menu, or click the
+Para calcular el área de una cara, basta
+<link linkend="SelectElements">seleccionar</link>
+algunos elementos que la identifican y distinguen inequívocamente, por ejemplo, dos segmentos o tres puntos,
+clic derecho y optar por
+<emphasis>Cálculo de Área</emphasis>
+del menú emergente. La alternativa es, optar por 
+<emphasis>Cálculo de Área</emphasis>
+en el menú
+<emphasis>Medida</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Area"/>
-button on the tool bar.
+en la barra de herramientas.
 </para>
 
 <para>
-A dialog will pop up. Make sure the face selection is correct, assign a unique
-<link linkend="Variables">variable</link>
-and click
+Se desplegará un cuadro de diálogo. La cara seleccionada, la activa, se debe asignar a una
+<link linkend="Variables">variable</link> exclusiva
+y pulsar sobre
 <emphasis>OK</emphasis>.
-A record will appear on the
-<link linkend="Notepad">notepad</link>, for example:
+Aparecerá un registro en el
+<link linkend="Notepad">anotador</link>, por ejemplo:
 </para>
 
 <programlisting>
-myArea = area[ABC] : MyCube
+miArea = area[ABC] : MiCubo
 </programlisting>
 
 <para>
-where
-<emphasis>myArea</emphasis>
-is the variable assigned to the area of the face that contains points
+donde
+<emphasis>miArea</emphasis>
+es la variable asignada al área de la cara que contiene los puntos
 <emphasis>A</emphasis>,
 <emphasis>B</emphasis>,
 <emphasis>C</emphasis>
-in figure
-<emphasis>MyCube</emphasis>.
+en la figura
+<emphasis>MiCubo</emphasis>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <para>
-Areas cannot be computed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se puede calcular áreas durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3476,49 +3471,48 @@ You have to stop the playback first.
 </sect2>
 
 <sect2 id="ComputeTotalArea">
-<title>Compute Total Area</title>
+<title>Calcula Área Total</title>
 
 <para>
-To compute the total area of a figure's surface, select
-<emphasis>Compute Total Area</emphasis>
-from the
-<emphasis>Measure</emphasis>
-menu.
+Para calcular el área total de la superficie de una figura, basta seleccionar 
+<emphasis>Calcula Área Total</emphasis>
+del menú
+<emphasis>Medida</emphasis>.
 </para>
 
 <para>
-A dialog will pop up. Assign a unique
-<link linkend="Variables">variable</link>
-and click
+Se desplegará un cuadro de diálogo. Se debe asignar una 
+<link linkend="Variables">variable</link> exclusiva
+y pulsar sobre
 <emphasis>OK</emphasis>.
-A record will appear on the
-<link linkend="Notepad">notepad</link>, for example:
+Aparecerá un registro en el
+<link linkend="Notepad">anotador</link>, por ejemplo:
 </para>
 
 <programlisting>
-myArea = total area : MyCube
+miArea = total área : MiCubo
 </programlisting>
 
 <para>
-where
-<emphasis>myArea</emphasis>
-is the variable assigned to the total area of figure
-<emphasis>MyCube</emphasis>.
+donde
+<emphasis>miArea</emphasis>
+es la variable asignada al área total de la figura
+<emphasis>MiCubo</emphasis>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-The total area cannot be computed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+El área total no puede calcularse durante la
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
@@ -3527,10 +3521,10 @@ See also:
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3538,52 +3532,52 @@ See also:
 </sect2>
 
 <sect2 id="ComputeVolume">
-<title>Compute Volume</title>
+<title>Calcula Volumen</title>
 
 <para>
-To compute the volume of a figure, select
-<emphasis>Compute Volume</emphasis>
-from the
-<emphasis>Measure</emphasis>
-menu, or click the
+Para calcular el volumen de una figura, basta seleccionar 
+<emphasis>Calcula Volumen</emphasis>
+del menú
+<emphasis>Medida</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Volume"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-A dialog will pop up. Assign a unique
-<link linkend="Variables">variable</link>
-and click
+Se desplegará un cuadro de diálogo. Se debe asignar una
+<link linkend="Variables">variable</link> exclusiva
+y pulsar sobre
 <emphasis>OK</emphasis>.
-A record will appear on the
-<link linkend="Notepad">notepad</link>,
-for example:
+Aparecerá un registro en el
+<link linkend="Notepad">anotador</link>,
+por ejemplo:
 </para>
 
 <programlisting>
-myVolume = volume : MyCube
+miVolumen = volumen : MiCubo
 </programlisting>
 
 <para>
-where
-<emphasis>myVolume</emphasis>
-is the variable assigned to the volume of figure
-<emphasis>MyCube</emphasis>.
+donde
+<emphasis>miVolumen</emphasis>
+es la variable asignada al volumen de la figura
+<emphasis>MiCubo</emphasis>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-The volume cannot be computed during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+El volumen no puede calcularse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
@@ -3592,10 +3586,10 @@ See also:
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Notepad">Notepad</link>
+<link linkend="Notepad">Anotador</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3605,56 +3599,56 @@ See also:
 </sect1>
 
 <sect1 id="Draw">
-<title>Draw</title>
+<title>Dibuja</title>
 
 <sect2 id="JoinPoints">
-<title>Join Points</title>
+<title>Une Puntos</title>
 
 <para>
-To join two points with a segment,
-<link linkend="SelectElements">select</link>
-both points, right-click and select
-<emphasis>Join Points</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Joint Points</emphasis>
-from the
-<emphasis>Draw</emphasis>
-menu, or click the
+Para unir dos puntos con un segmento, basta con 
+<link linkend="SelectElements">seleccionar</link>
+ambos puntos, clic derecho y optar por 
+<emphasis>Une Puntos</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Une Puntos</emphasis>
+del menú
+<emphasis>Dibuja</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24JoinPoints"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-The two points must belong to the same face.
+Ambos puntos deben pertenecer a la misma cara.
 </para>
 
 <para>
-If a dialog pops up, fill in the missing point labels and click
+Si un cuadro emerge, se deben completar los rótulos de puntos faltantes y clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Points cannot be joined during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Los puntos no puede unirse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3662,59 +3656,59 @@ See also:
 </sect2>
 
 <sect2 id="DrawPerpendicular">
-<title>Draw Perpendicular</title>
+<title>Trazar Perpendicular</title>
 
 <para>
-To draw the perpendicular through a point to a segment,
-<link linkend="SelectElements">select</link>
-the point and the segment, then select
-<emphasis>Draw Perpendicular</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Draw Perpendicular</emphasis>
-from the
-<emphasis>Draw</emphasis>
-menu, or click the
+Para trazar la perpendicular a un segmento que pasa por un punto, basta
+<link linkend="SelectElements">indicar</link>
+el punto y el segmento, luego seleccionar 
+<emphasis>Trazar Perpendicular</emphasis>
+del menú emergente. La alternativa es optar por 
+<emphasis>Trazar Perpendicular</emphasis>
+del menú
+<emphasis>Dibuja</emphasis>
+o clic sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Perpendicular"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-The point and the segment must belong to the same face. The point may or may not
-belong to the segment.
+El punto y el segmento deben pertenecer a la misma cara. El punto pueden o no
+pertenecer al segmento.
 </para>
 
 <para>
-If a dialog pops up, fill in the missing point labels and click
+Si un cuadro emerge, se deben completar los rótulos de puntos faltantes y pulsar sobre
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-If both the point and the segment belong to two different faces at the same time,
-a perpendicular in each of those faces may be drawn.
+Si ambos el punto y el segmento pertenecen a dos caras diferentes simultáneamente,
+se puede trazar una perpendicular a cada una de las caras.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Perpendiculars cannot be drawn during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+No se pueden trazar perpendiculares durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3722,80 +3716,80 @@ See also:
 </sect2>
 
 <sect2 id="DivideSegment">
-<title>Divide Segment</title>
+<title>Divide Segmento</title>
 
 <para>
-To divide a segment in a given ratio,
-<link linkend="SelectElements">select</link>
-the segment or its end points, right-click and select
-<emphasis>Divide Segment</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Divide Segment</emphasis>
-from the
-<emphasis>Draw</emphasis>
-menu, or click the
+Para dividir un segmento según cierta razón, se debe
+<link linkend="SelectElements">seleccionar</link>
+el segmento o sus vértices, clic derecho y optar por 
+<emphasis>Divide Segmento</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Divide Segmento</emphasis>
+del menú
+<emphasis>Dibuja</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24DivideSegment"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-A dialog will pop up. Fill in, if necessary, the missing point labels and type in valid
-<link linkend="Expressions">expressions</link>
-for the numerator and denominator of the ratio. Click
+Se desplegará un cuadro de diálogo. Se debe completar, de ser necesario, los rótulos de puntos faltantes y anotar 
+<link linkend="Expressions">expresiones</link> válidas 
+para el numerador y denominador de la razón. Clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-The ratio is defined as AX : XB, where
+La razón se define como AX : XB, donde
 <emphasis>X</emphasis>
-is the division point,
+es el punto de división,
 <emphasis>AB</emphasis>
-the segment. For example, if the ratio is 1 : 2,
+el segmento. Por ejemplo, si la razón fuera 1 : 2,
 <emphasis>X</emphasis>
-will be twice closer to
+estaría dos veces más cerca de
 <emphasis>A</emphasis>
-than to
+que de
 <emphasis>B</emphasis>.
-If the ratio is 3 : 1,
+Si la razón fuera 3 : 1,
 <emphasis>X</emphasis>
-will be three times closer to
+estaría tres veces más cerca de
 <emphasis>B</emphasis>
-than to
+que de 
 <emphasis>A</emphasis>.
 </para>
 
 <para>
-The midpoint divides the segment in the ratio 1 : 1 and therefore can be
-drawn as shown above. However, a convenience
-<link linkend="DrawMidpoint">Draw Midpoint</link>
-action offers a shortcut.
+El punto medio divide al segmento según la razón 1 : 1 y por lo tanto se puede
+trazar como ya se expuso. Sin embargo, la acción es más conveniente
+<link linkend="DrawMidpoint">Traza Punto Medio</link>
+por ser más económíca.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-A segment cannot be divided during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Un segmento no puede dividirse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="DrawMidpoint">Draw Midpoint</link>
+<link linkend="DrawMidpoint">Traza Punto Medio</link>
 </listitem>
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3803,54 +3797,54 @@ See also:
 </sect2>
 
 <sect2 id="DrawMidpoint">
-<title>Draw Midpoint</title>
+<title>Traza Punto Medio</title>
 
 <para>
-To draw the midpoint of a segment,
-<link linkend="SelectElements">select</link>
-the segment or its end points, right-click and select
-<emphasis>Draw Midpoint</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Draw Midpoint</emphasis>
-from the
-<emphasis>Draw</emphasis>.
+Para trazar el punto medio de un segmento, basta
+<link linkend="SelectElements">seleccionar</link>
+el segmento o sus vértices, clic derecho y optar por 
+<emphasis>Traza Punto Medio</emphasis>
+del menú emergente. La alternativa es, seleccionar 
+<emphasis>Traza Punto Medio</emphasis>
+del menú
+<emphasis>Dibuja</emphasis>.
 </para>
 
 <para>
-If a dialog pops up, fill in the missing point labels and click
+Si un cuadro emerge, se deben completar los rótulos de puntos faltantes y clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-Note that drawing the midpoint is equivalent to
-<link linkend="DivideSegment">dividing</link> the segment in the ratio 1 : 1.
+Debe notarse que trazar el punto medio es equivalente a
+<link linkend="DivideSegment">dividir</link> el segmento según la razón 1 : 1.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Midpoints cannot be drawn during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Los puntos medios no pueden trazarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="DivideSegment">Divide Segment</link>
+<link linkend="DivideSegment">Divide Segmento</link>
 </listitem>
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3858,84 +3852,84 @@ See also:
 </sect2>
 
 <sect2 id="DivideAngle">
-<title>Divide Angle</title>
+<title>Divide Ángulo</title>
 
 <para>
-To divide an angle in a given ratio,
-<link linkend="SelectElements">select</link>
-two segments that make the angle, right-click and select
-<emphasis>Divide Angle</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Divide Angle</emphasis>
-from the
-<emphasis>Draw</emphasis>
-menu, or click the
+Para dividir un ángulo según determinada razón, basta
+<link linkend="SelectElements">seleccionar</link>
+dos segmentos que limiten el ángulo, clic derecho y optar por 
+<emphasis>Divide Ángulo</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Divide Ángulo</emphasis>
+del menú
+<emphasis>Dibuja</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24DivideAngle"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-The segments that make the angle must belong to the same face.
+Los segmentos que limitan el ángulo deben pertenecer a la misma cara.
 </para>
 
 <para>
-A dialog will pop up. Fill in, if necessary, the missing point labels and type in valid
-<link linkend="Expressions">expressions</link>
-for the numerator and denominator of the ratio. Click
+Se desplegará un cuadro de diálogo. Se debe completar, de ser necesario, los rótulos de puntos faltantes y anotar 
+<link linkend="Expressions">expresiones</link> válidas
+para el numerador y el denominador de la razón. Clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-The ratio is defined as &lt;AOX : &lt;XOB, where
+La razón se define como &lt;AOX : &lt;XOB, donde
 <emphasis>OX</emphasis>
-is the division segment,
+es el segmento a dividir y
 <emphasis>&lt;AOB</emphasis>
-the angle. For example, if the ratio is 1 : 2,
+el ángulo. Por ejemplo, si la razón es 1 : 2,
 <emphasis>OX</emphasis>
-will make with
+formará con
 <emphasis>OB</emphasis>
-a twice greater angle than with
+un ángulo dos veces mayor que con
 <emphasis>OA</emphasis>.
-If the ratio is 3 : 1,
+Si la razón es 3 : 1,
 <emphasis>OX</emphasis>
-will make with
+formará con
 <emphasis>OA</emphasis>
-three times greater an angle than with
+un ángulo tres veces mayor que con 
 <emphasis>OB</emphasis>.
 </para>
 
 <para>
-The bisector divides the angle in the ratio 1 : 1, therefore can be
-drawn as shown above. However, the convenience
-<link linkend="DrawBisector">Draw Bisector</link>
-action offers a shortcut.
+La bisectriz divide al ángulo según la razón 1 : 1, por lo tanto se puede
+trazar según se explicara. Sin embargo, es conveniente
+<link linkend="DrawBisector">Traza Bisectriz</link>
+por ser una acción más económica.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-An angle cannot be divided during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Un ángulo no puede dividirse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="DrawBisector">Draw Bisector</link>
+<link linkend="DrawBisector">Traza Bisectriz</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -3943,59 +3937,58 @@ See also:
 </sect2>
 
 <sect2 id="DrawBisector">
-<title>Draw Bisector</title>
+<title>Traza Bisectriz</title>
 
 <para>
-To draw the bisector of an angle,
-<link linkend="SelectElements">select</link>
-two segments that make the angle, right-click and select
-<emphasis>Draw Bisectory</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Draw Bisector</emphasis>
-from the
-<emphasis>Draw</emphasis>
-menu.
+Para trazar la bisectriz de un ángulo, basta
+<link linkend="SelectElements">seleccionar</link>
+dos segmentos que limitan el ángulo, clic derecho y basta seleccionar 
+<emphasis>Dibuja Bisectriz</emphasis>
+del menú emergente. La alternativa es, seleccionar 
+<emphasis>Traza Bisectriz</emphasis>
+del menú
+<emphasis>Dibuja</emphasis>.
 </para>
 
 <para>
-The segments that make the angle must belong to the same face.
+Los segmentos que limitan el ángulo deben pertenecer a la misma cara.
 </para>
 
 <para>
-A dialog may pop up. Fill in, if necessary, the missing point labels. Click
+Un cuadro puede desplegarse. Se deben completar, de ser necesario, los rótulos de puntos faltantes. Clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-Note that drawing the bisector is equivalent to
-<link linkend="DivideAngle">dividing</link> the angle in the ratio 1 : 1.
+Trazar la bisectriz es equivalente a
+<link linkend="DivideAngle">dividir</link> el ángulo según la razón 1 : 1.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Bisectors cannot be drawn during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Las bisectrices no puede trazarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="DivideAngle">Divide Angle</link>
+<link linkend="DivideAngle">Divide Ángulo</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -4003,54 +3996,54 @@ See also:
 </sect2>
 
 <sect2 id="DrawIntersection">
-<title>Draw Intersection</title>
+<title>Traza Intersección</title>
 
 <para>
-To draw the intersection point of two lines,
-<link linkend="SelectElements">select</link>
-two segments that belong to the lines, right-click and select
-<emphasis>Intersect Lines</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Intersect Lines</emphasis>
-from the
-<emphasis>Draw</emphasis>
-menu, or click the
+Para trazar el punto de intersección entre dos rectas, basta
+<link linkend="SelectElements">seleccionar</link>
+dos segmentos que pertenezcan a las rectas, clic derecho y optar por 
+<emphasis>Interseca Rectas</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Interseca Rectas</emphasis>
+del menú
+<emphasis>Dibuja</emphasis>
+ o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Intersection"/>
-button on the tool bar.
+en la barra de herramientas.
 </para>
 
 <para>
-Both segments, as well as the intersection point of their lines,
-must belong to the same face.
+Ambos segmentos, así como el punto de intersección de sus rectas,
+deben pertenecer a la misma cara.
 </para>
 
 <para>
-A dialog may pop up. Fill in, if necessary, the missing point labels. Click
+Un cuadro puede desplegarse. Se debe completar, de ser necesario, los rótulos de puntos faltantes. Clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Intersections cannot be drawn during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Las intersecciones no pueden trazarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -4058,60 +4051,60 @@ See also:
 </sect2>
 
 <sect2 id="LayDistance">
-<title>Lay Distance</title>
+<title>Traza Distancia</title>
 
 <para>
-To draw a point on a given segment at a given distance from another given point,
-<link linkend="SelectElements">select</link>
-both the point and the segment, right-click and select
-<emphasis>Lay Distance</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Lay Distance</emphasis>
-from the
-<emphasis>Draw</emphasis>
-menu, or click the
+Para trazar un punto sobre un segmento a cierta distancia de otro dado, basta
+<link linkend="SelectElements">seleccionar</link>
+ambos el punto y el segmento, clic derecho y basta seleccionar 
+<emphasis>Traza Distancia</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Traza Distancia</emphasis>
+del menú
+<emphasis>Dibuja</emphasis>
+ o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24LayDistance"/>
-button on the tool bar.
+en la barra de herramientas.
 </para>
 
 <para>
-The point and the segment must belong to the same face.
-The point may or may not belong to the segment.
+El punto y el segmento deben pertenecer a la misma cara.
+El punto puede o no pertenecer al segmento.
 </para>
 
 <para>
-A dialog will pop up. Fill in, if necessary, the missing point labels and type in a valid 
-<link linkend="Expressions">expression</link>
-for the distance. Click
+Se desplegará un cuadro de diálogo. Se debe completar, de ser necesario, los rótulos de puntos faltantes y anotar una 
+<link linkend="Expressions">expresión</link> válida
+para la distancia. Clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-This action may result in the construction of one or two distinct points.
+Esta acción puede resultar en la construcción de uno o dos puntos distintos.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Distances cannot be laid during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Las distancias no puede trazarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -4119,62 +4112,62 @@ See also:
 </sect2>
 
 <sect2 id="LayAngle">
-<title>Lay Angle</title>
+<title>Traza Ángulo</title>
 
 <para>
-To draw a segment from the end point of another segment so that
-the two segments make a given angle,
-<link linkend="SelectElements">select</link>
-the segment and its end point, right-click and select
-<emphasis>Lay Angle</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Lay Angle</emphasis>
-from the
-<emphasis>Draw</emphasis>
-menu, or click the
+Se debe seleccionar o trazar un segmento y el punto extremo de otro segmento 
+de modo tal que los dos segmentos delimiten un ángulo y tras
+<link linkend="SelectElements">seleccionar</link>
+el segmento y su punto extremo, clic derecho y optar por 
+<emphasis>Traza Ángulo</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Traza Ángulo</emphasis>
+del menú
+<emphasis>Dibuja</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24LayAngle"/>
-button on the tool bar.
+en la barra de herramientas.
 </para>
 
 <para>
-A dialog will pop up. Fill in, if necessary, the missing point labels and type in a valid 
-<link linkend="Expressions">expression</link>
-for the angle. Click
+Se desplegará un cuadro de diálogo. Se debe completar, de ser necesario, los rótulos de puntos faltantes y anotar una 
+<link linkend="Expressions">expresión</link> válida
+para el ángulo. Clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-The angle must be greater than 0 and less than 180 degrees and be entered
-in radians, as opposed to degrees. For example, to lay an angle of 60 degrees, enter PI/3.
+El ángulo debe ser mayor que 0 y menor que 180 grados e ingresarse
+en radianes, no en grados. Por ejemplo, para trazar un ángulo de 60 grados, se anotará PI/3.
 </para>
 
 <para>
-If the segment belongs to two different faces at the same time, this action may result in
-the angle being laid off in each of those faces.
+Si el segmento perteneciera a dos diferentes caras simultáneamente, esta acción puede resultar en
+que se traza un ángulo en cada una de las caras.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Angles cannot be laid during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Los ángulos no puede trazarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
@@ -4184,316 +4177,316 @@ See also:
 </sect1>
 
 <sect1 id="Transform">
-<title>Transform</title>
+<title>Transforma</title>
 
-<sect2 id="ScaleFigure">
-<title>Scale Figure</title>
+<sect2 id="Scalefigure">
+<title>Redimensiona Figura</title>
 
 <para>
-To scale a figure in the direction of a given segment by a given factor,
-<link linkend="SelectElements">select</link>
-the segment or its end points, right-click and select
-<emphasis>Scale Figure</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Scale Figure</emphasis>
-from the
-<emphasis>Transform</emphasis>
-menu or click the
+Para redimensionar una figura en la dirección de cierto segmento según determinado factor, basta
+<link linkend="SelectElements">seleccionar</link>
+el segmento o sus vértices, clic derecho y optar por 
+<emphasis>Redimensiona Figura</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Redimensiona Figura</emphasis>
+del menú
+<emphasis>Transforma</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Scale"/>
-button on the tool bar.
+de la barra de herramientas.
 </para>
 
 <para>
-A dialog will pop up. Fill in, if necessary, the missing point labels and type in a valid
-<link linkend="Expressions">expression</link>
-for the scaling factor. Click
+Se desplegará un cuadro de diálogo. Se deben completar, de ser necesario, los rótulos de puntos faltantes y anotar una 
+<link linkend="Expressions">expresión</link> válida
+para el factor de escala. Clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-As a result of scaling, the variables assigned to prior measurements performed upon
-the selected figure  will become
-<link linkend="PinnedVariable">pinned</link>.
+Debido al redimensionamiento, las variables asignadas a medidas previas sobre la
+figura seleccionada posiblemente se
+<link linkend="PinnedVariable">pierdan</link>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-The
-<link linkend="EditorsAndSolvers">Solver</link>
-cannot scale a figure that is part of the problem. However, the figures that have been created
-in the process of solving the problem can be scaled.
+Quien
+<link linkend="EditorsAndSolvers">resuelve</link>
+no puede escalar una figura que es parte del problema. Sin embargo, la figuras creada
+mientras se está resolviendo el problema se puede redimensionar.
 </para>
 
 <para>
-A figure cannot be scaled during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Una figura no puede redimensionarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
 
 </sect2>
 
-<sect2 id="ShearFigure">
-<title>Shear Figure</title>
+<sect2 id="Shearfigure">
+<title>Desliza Figura</title>
 
 <para>
-<ulink url="http://en.wikipedia.org/wiki/Shear_mapping">Shearing</ulink>
-refers to an
-<ulink url="http://en.wikipedia.org/wiki/Affine_transformation">affine transformation</ulink>
-where planes parallel to a fixed reference plane slide along a fixed line
-contained in the reference plane.
+<ulink url="http://en.wikipedia.org/wiki/Shear_mapping">El deslizamiento</ulink>
+implica una
+<ulink url="http://en.wikipedia.org/wiki/Affine_transformation">transformación afín</ulink>
+donde planos paralelos a uno fijo de referencia se desliza a lo largo de una recta
+que está contenida en el de referencia.
 </para>
 
 <para>
-If
+Si
 <emphasis>XY</emphasis>
-is the fixed line in the reference plane, the shearing
-transformation is uniquely identified by points
+la recta fija está en el plano de referencia, el deslizamiento
+es una transformación unicamente identificada por puntos
 <emphasis>X</emphasis>,
 <emphasis>Y</emphasis>
-and the image of any point
+y la imagen de cualquier punto
 <emphasis>Z</emphasis>
-such that
+tal que
 <emphasis>XZ</emphasis>
-is perpendicular to the reference plane.
+sea perpendicular al plano de referencia.
 </para>
 
 <para>
-To shear a figure relatively to segment
+Para deslizar una figura en relación a un segmento
 <emphasis>XY</emphasis>
-and point
+y a un punto
 <emphasis>Z</emphasis>,
-as described above,
-<link linkend="SelectElements">select</link>
-segment
+como se ha descripto, basta
+<link linkend="SelectElements">seleccionar</link>
+el segmento
 <emphasis>XY</emphasis>,
-its point
+su punto
 <emphasis>X</emphasis>
-and point
+y el punto
 <emphasis>Z</emphasis>,
- right-click and select
-<emphasis>Shear Figure</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Shear Figure</emphasis>
-from the
+clic derecho y seleccionar 
+<emphasis>Shear figura</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Shear figura</emphasis>
+del menú
 <emphasis>Transform</emphasis>
-menu or click the
+ o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Shear"/>
-button on the tool bar.
+en la barra de herramientas.
 </para>
 
 <para>
-If a dialog pops up, fill in the missing point labels and click
+Si un cuadro emerge, se deben completar los rótulos de puntos faltantes y clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-As a result of shearing, the variables assigned to prior measurements performed upon
-the selected figure  will become
-<link linkend="PinnedVariable">pinned</link>.
+Como resultado del deslizamiento, las variables asignadas a medidas previas sobre
+la figura seleccionada podrían
+<link linkend="PinnedVariable">perderse</link>.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-The
-<link linkend="EditorsAndSolvers">Solver</link>
-cannot shear a figure that is part of the problem. However, the figures that have been created
-in the process of solving the problem can be sheared.
+Quien
+<link linkend="EditorsAndSolvers">resuelve</link>
+no puede deslizar una figura que es parte del problema. Sin embargo, la figuras creadas
+mientras se está resolviendo el problema se pueden deslizar.
 </para>
 
 <para>
-A figure cannot be scaled during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Una figura no puede escalarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selección de Elementos</link>
 </listitem>
 <listitem>
 <link linkend="Variables">Variables</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
 
 </sect2>
 
-<sect2 id="CutFigure">
-<title>Cut Figure</title>
+<sect2 id="Cutfigure">
+<title>Cortar Figura</title>
 
 <para>
-To cut a figure with a plane,
-<link linkend="SelectElements">select</link>
-some elements that uniquely identify that plane, such as three points, a point and a
-segment, or two segments, right-click and select
-<emphasis>Cut Figure</emphasis>
-from the popup menu. Alternatively, select
-<emphasis>Cut Figure</emphasis>
-from the
-<emphasis>Transform</emphasis>
-menu or click the
+Para cortar una figura con un plano, basta
+<link linkend="SelectElements">seleccionar</link>
+algunos elementos que identifiquen unívocamente ese plano, como tres puntos, un punto y un
+segmento o dos segmentos, clic derecho y optar por 
+<emphasis>Corta Figura</emphasis>
+del menú emergente. La alternativa es seleccionar 
+<emphasis>Corta Figura</emphasis>
+del menú
+<emphasis>Transforma</emphasis>
+o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Cut"/>
-button on the tool bar.
+en la barra de herramientas.
 </para>
 
 <para>
-The plane must pass through the figure's interior.
+El plano debe pasar a través del interior de la figura.
 </para>
 
 <para>
-If a dialog pops up, fill in the missing point labels and click
+Si un cuadro emerge, se deben completar los rótulos de puntos faltantes y clic
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-The two resulting fragments of the figure will be displayed in separate views. The original
-figure will be kept intact in its own view.
+Ambos fragmentos resultantes de la figura se expondrá en vistas separadas. La figura 
+original permanecerá intacta en su propia vista.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-A figure cannot be cut during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Una figura no puede cortarse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="JoinFigures">Join Figures</link>
+<link linkend="Joinfigures">Unir Figuras</link>
 </listitem>
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Elegir Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
 
 </sect2>
 
-<sect2 id="JoinFigures">
-<title>Join Figures</title>
+<sect2 id="Joinfigures">
+<title>Unir Figuras</title>
 
 <para>
-To join two figures at their faces
-<emphasis>Face1</emphasis>
-and
-<emphasis>Face2</emphasis>
-respectively,
-<link linkend="SelectElements">select</link>
-some elements, such as points and segments, on
-<emphasis>Face1</emphasis>,
-then select the corresponding elements on
-<emphasis>Face2</emphasis>.
-Select
-<emphasis>Join Figures</emphasis>
-from the popup menu or click the
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24JoinFigures"/>
-button on the tool bar.
+Para unir dos figuras por sus caras:
+<emphasis>Cara1</emphasis>
+y
+<emphasis>Cara2</emphasis>
+respectivamente, basta
+<link linkend="SelectElements">escoger</link>
+algunos elementos, como puntos y segmentos, en
+<emphasis>Cara1</emphasis>,
+y los correspondientes en
+<emphasis>Cara2</emphasis>.
+Seleccionar
+<emphasis>Une Figuras</emphasis>
+del menú emergente o pulsar sobre el botón
+<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Joinfigures"/>
+de la barra de herramientas.
 </para>
 
 <para>
-A dialog will pop up. Select the names of the figures. A figure can be joined with a copy of
-itself. Therefore the same figure can be selected in both lists.
+Se desplegará un cuadro de diálogo. Se deben seleccionar los nombres de las figuras. Una figura se puede unir con una copia de
+sí misma. Así, la misma figura se puede seleccionar en ambas vistas.
 </para>
 
 <para>
-Select
-<emphasis>Join at selected elements</emphasis>
-or, if you would rather ignore the selection,
-<emphasis>Join arbitrarily</emphasis>
-and click
+Seleccionar
+<emphasis>Une y elegir los elementos</emphasis>
+o, si se ignora cuál es la mejor selección,
+<emphasis>Une arbitrariamente</emphasis>
+y pulsar
 <emphasis>OK</emphasis>.
 </para>
 
 <para>
-A new view will appear with the combined figure in it. The two
-original figures will be kept intact in their own views.
+Una nueva vista aparecerá con la figura combinada. Las dos
+figuras originales se mantendrán intactas en sus propias vistas.
 </para>
 
 <para>
-The combined solid must be convex.
-<emphasis>Face1</emphasis>
-and
-<emphasis>Face2</emphasis>
-must have the same shape, that is
-have equal angles  and proportional sides at corresponding vertices.
-<emphasis>Face1</emphasis>
-and
-<emphasis>Face2</emphasis>
-do not have to have the same size. If need be, one of the figures will be
-automatically scaled to fit the other.
+El sólido combinado debe ser convexo.
+<emphasis>Cara1</emphasis>
+y
+<emphasis>Cara2</emphasis>
+deben tener la misma forma, que es
+tener ángulos iguales y lados proporcionales a los correspondientes vértices.
+<emphasis>Cara1</emphasis>
+y
+<emphasis>Cara2</emphasis>
+no necesitan tener la misma medida. De ser preciso, una de las figuras se
+redimensionará automàticamente para ajustarse a la otra.
 </para>
 
 <para>
-This action can be
-<link linkend="Undo">undone</link>.
+Esta acción se puede 
+<link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-Figures cannot be joined during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
+Las figuras no pueden unirse durante la 
+<link linkend="Playback">reproducción</link> de la solución 
+Primero, hay que detenerla. 
 </para>
 
 <para>
-See also:
+Ver también:
 </para>
 
 <itemizedlist mark="none">
 
 <listitem>
-<link linkend="CutFigure">Cut Figure</link>
+<link linkend="Cutfigure">Corta Figura</link>
 </listitem>
 <listitem>
-<link linkend="SelectElements">Select Elements</link>
+<link linkend="SelectElements">Selecciona Elementos</link>
 </listitem>
 <listitem>
-<link linkend="Undo">Undo Actions</link>
+<link linkend="Undo">Deshacer Acciones</link>
 </listitem>
 
 </itemizedlist>
