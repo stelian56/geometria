@@ -115,7 +115,8 @@ To stop Geometria, go back to the terminal and stop the process with Ctrl + C.
 <para>
 By default, Geometria starts a tiny web server listening on port 8080.
 If the browser shows an error or unexpected content, there might be another process on your computer listening to port 8080. In that case, stop Geometria as shown above and try another port by
-changing the <emphasis>listening_ports</emphasis> value in the mongoose.conf file, for example:
+changing the <emphasis>listening_ports</emphasis> (Windows) or, respectively,
+<emphasis>listening_port</emphasis> (Linux) value in the mongoose.conf file. For example:
 </para>
 
 <programlisting>

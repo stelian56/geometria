@@ -115,7 +115,9 @@ Salir de Geometria, volver a la terminal y detener el proceso con Ctrl + C.
 <para>
 Por omisión, Geometria inicia un navegador web básico dirigido al port 8080.
 Si el navegador muestra un error o contenido inesperado, podría haber otro proceso en simultáneo designado al port 8080. En tal caso, basta con detener Geometria para intentar otro port
-cambiando el valor de los ports asignados <emphasis>listening_ports</emphasis> en el archivo de configuración mongoose.conf, por ejemplo:
+cambiando el valor de los ports asignados <emphasis>listening_ports</emphasis> (Windows)
+o <emphasis>listening_port</emphasis> (Linux) en el archivo de configuración mongoose.conf.
+Por ejemplo:
 </para>
 
 <programlisting>
