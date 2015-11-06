@@ -108,7 +108,7 @@ public class GLog implements ListSelectionListener {
 
     public void make(Element node) throws Exception {
         logger.info("");
-        ListDataListener[] listeners = model.getListeners(ListDataListener.class);
+        ListDataListener[] listeners = (ListDataListener[])model.getListeners(ListDataListener.class);
         for (ListDataListener listener : listeners) {
             model.removeListDataListener(listener);
         }

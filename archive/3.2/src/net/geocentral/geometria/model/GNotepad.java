@@ -73,7 +73,7 @@ public class GNotepad {
     public void make(Element node) throws Exception {
         logger.info("");
         ListDataListener[] listeners =
-            model.getListeners(ListDataListener.class);
+            (ListDataListener[])model.getListeners(ListDataListener.class);
         for (ListDataListener listener : listeners)
             model.removeListDataListener(listener);
         NodeList ns = node.getElementsByTagName("record");
