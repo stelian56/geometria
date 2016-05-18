@@ -3,6 +3,21 @@ http://geocentral.net/geometria
 
 RELEASE NOTES
 
+Version 4.0
+
+Changes
+
+* Runs in a web browser. No Internet connection is necessary.
+* Built-in file navigator.
+* Facile import/export of problems, solutions and figures.
+* HTML markup support for user text.
+
+Known Limitations
+
+* Not backward compatible with 3.0-3.2.
+* The application may behave erratically if the figures contain excessively
+sized or oddly shaped elements.
+
 Version 3.2
 
 Changes
