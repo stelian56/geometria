@@ -8,183 +8,71 @@
 <chapter id="General">
 <title>General</title>
 
-<sect1 id="QuickStart">
-<title>Inicio Rápido</title>
-
-<sect2 id="Installation">
-<title>Instalación</title>
-
 <para>
 Geometria se ejecuta en navegadores de equipos de escritorio o laptop. Los navegadores aceptables son:
 
 <itemizedlist>
 <listitem>
+Chrome
+</listitem>
+<listitem>
+Safari
+</listitem>
+<listitem>
+Edge
+</listitem>
+<listitem>
 Firefox
 </listitem>
-<listitem>
-Google Chrome
-</listitem>
-<listitem>
-Internet Explorer 10+
-</listitem>
 </itemizedlist>
 
 </para>
 
-<para>
-Se instala Geometria en el equipo, descargándolo desde:
-<ulink url="http://geocentral.net/geometria/download">
-http://geocentral.net/geometria/download</ulink>
-y decomprimiendo el archivo en un directorio que es el que luego, debe abrirse.
-</para>
-
-<sect3 id="WindowsUsers">
-<title>Para Windows</title>
-
-<para>
-Iniciar Geometria:
-
+<sect1 id="QuickStart">
+<title>Inicio Rápido</title>
+<sect2 id="PlayOnline">
+<title>Ejecutar en Línea</title>
+Necesitas estar conectado a Internet para cargar la página de Geometria. Sin embargo, una vez cargada la página,
+abrirás y guardarás todos los archivos localmente en tu ordenador.
 <itemizedlist>
 <listitem>
-Doble clic sobre Startup.exe.
+Dirige el navegador a <ulink url="https://geocentral.net/geometria/es">la página de inicio</ulink> de Geometria.
 </listitem>
 <listitem>
-Abrir un navegador web y dirigirlo a
-<emphasis>localhost:8080</emphasis> .
+Haz clic en <emphasis>Ejecuta</emphasis> para abrir Geometria.
 </listitem>
 </itemizedlist>
-
-</para>
-
-<para>
-Salir de Geometria, ubicar el ícono
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Mongoose"/>
-en la bandeja del sistema, seleccionarlo con un clic
-<emphasis>Salir</emphasis>.
-</para>
-
-</sect3>
-
-<sect3 id="LinuxUsers">
-<title>Para Linux</title>
-
-<para>
-Iniciar Geometria:
-
-<itemizedlist>
-<listitem>
-Abrir una terminal.
-</listitem>
-<listitem>
-Ubicar el archivo de inicio correspondiente al sistema operativo (32-bit o 64-bit).
-</listitem>
-<listitem>
-Establecer un archivo de inicio ejecutable. Por ejemplo:
-<programlisting>
-$ chmod +x Startup_Linux64
-</programlisting>
-</listitem>
-<listitem>
-Ejecutar el archivo de inicio. Por ejemplo:
-<programlisting>
-$ ./Startup_Linux64
-</programlisting>
-</listitem>
-<listitem>
-Abrir un navegador y dirigirlo a
-<emphasis>localhost:8080</emphasis> .
-</listitem>
-</itemizedlist>
-
-</para>
-
-<para>
-Salir de Geometria, volver a la terminal y detener el proceso con Ctrl + C.
-</para>
-
-</sect3>
-
 </sect2>
-
-<sect2 id="Troubleshooting">
-<title>Inconvenientes</title>
-
-<sect3 id="Port">
-<title>Port</title>
-
-<para>
-Por omisión, Geometria inicia un navegador web básico dirigido al port 8080.
-Si el navegador muestra un error o contenido inesperado, podría haber otro proceso en simultáneo designado al port 8080. En tal caso, basta con detener Geometria para intentar otro port
-cambiando el valor de los ports asignados <emphasis>listening_ports</emphasis> (Windows)
-o <emphasis>listening_port</emphasis> (Linux) en el archivo de configuración mongoose.conf.
-Por ejemplo:
-</para>
-
-<programlisting>
-listening_ports 8081
-</programlisting>
-
-puede modificarse para que el navegador apunte a
-<emphasis>localhost:8081</emphasis>.
-
-</sect3>
-
-<sect3 id="AccessDenied">
-<title>Acceso Denegado</title>
-
-<para>
-Aunque Geometria no precisa conexión a Internet para ejecutarse, en caso de estar activa una protección de tipo "firewall", puede surgir este mensaje de error. Esto se debe a que el sistema de administración se ha configurado como un "web proxy" que bloquea el acceso al port 8080 pese a que se opere desde un equipo propio. Bastará con desactivar el proxy durante el trabajo con Geometria y reponerlo al terminar. No funcionarán los enlaces externos presentes en la documentación de Geometria,
-<link linkend="ProblemText">planteos de problemas</link>
-ni
-<link linkend="DocumentProperties">las propiedades del documento</link>
-mientras estuviera desactivado el "proxy".
-</para>
-
-</sect3>
-
-<sect3 id="Font">
-<title>Letra</title>
-
-<para>
-Geometria emplea, por omisión, tipografía "sans-serif" en la interfaz de uso. La medida de la letra
-puede ajustarse desde el navegador del siguiente modo:
-</para>
-
+<sect2 id="PlayOffline">
+<title>Ejecutar sin Conexión</title>
 <itemizedlist>
 <listitem>
-En Firefox, basta con tildar:
-<emphasis>Solo ampliar texto</emphasis>
-en el menú Ver/Tamaño. Para agrandar la letra, basta pulsar + en simultáneo con Ctrl.
-Con - mientras se mantiene pulsado Ctrl, se reduce. Para recuperar la medida usual,
-de la letra, basta con seleccionar
-<emphasis>Inicio</emphasis>
-en el menú Ver/Tamaño.
+Instale <ulink url="https://nodejs.org/en/download">node.js</ulink>.
 </listitem>
 <listitem>
-En Chrome, tras abrir Configuración, basta con elegir
-<emphasis>Contenido Web</emphasis>
-y cambiar
-<emphasis>Tamaño de fuente</emphasis>
-a la deseada.
+Dirige el navegador a <ulink url="https://geocentral.net/geometria/es">la página de inicio</ulink> de Geometria.
 </listitem>
 <listitem>
-En Internet Explorer, basta elegir el tamaño de letra deseado en el menú Ver/Medida Texto.
+Has clic en <emphasis>Descarga</emphasis>.
+</listitem>
+<listitem>
+Descomprime el archivo.
+</listitem>
+<listitem>
+Abra una ventana de terminal en el directorio resultante.
+</listitem>
+<listitem>
+Ejecuta
+<programlisting>
+npx http-server
+</programlisting>
+para iniciar un servidor web local.
+</listitem>
+<listitem>
+Dirige el navegador a <emphasis>localhost:8080</emphasis> para abrir Geometria.
 </listitem>
 </itemizedlist>
-
-</sect3> 
-
-<sect3 id="Firebug">
-<title>Firebug</title>
-
-<para>
-En Firefox, es preciso que Firebug esté desactivado o, al menos, lo esté su Panel "Script". Cuando su Panel está habilitado, Firebug reporta ciertos errores de "guiones" de cuestiones conocidas pero no relacionadas con Geometria.
-</para>
-
-</sect3>
-
 </sect2>
-
 </sect1>
 
 <sect1 id="License">
@@ -193,7 +81,7 @@ Geometria es un software libre bajo
 <ulink url="http://opensource.org/licenses/MIT">Licencia MIT</ulink>.
 </sect1>
 
-<sect1 id="Acconocerments">
+<sect1 id="Acknowledgements">
 <title>Reconocimientos</title>
 
 Geometria emplea los siguientes recursos de código abierto:
@@ -210,15 +98,6 @@ Geometria emplea los siguientes recursos de código abierto:
 </listitem>
 <listitem>
 <ulink url="http://mathjs.org">mathjs</ulink>
-</listitem>
-<listitem>
-<ulink url="https://github.com/cesanta/mongoose">Mongoose</ulink>
-</listitem>
-<listitem>
-<ulink url="http://www.lua.org">Lua</ulink>
-</listitem>
-<listitem>
-<ulink url="http://www.sqlite.org">SQLite</ulink>
 </listitem>
 <listitem>
 <ulink url="http://www.docbook.org">DocBook</ulink>
@@ -676,13 +555,13 @@ Ver también:
 <para>
 La Calculadora se encuentra en la zona inferior de la ventana, justo bajo el
 <link linkend="Notepad">anotador</link>.
+La calculadora opera en el contexto del documento activo.
 </para>
 
 <sect2 id="Expressions">
 <title>Expresiones</title>
 
 <para>
-La calculadora opera en el contexto del documento activo.
 Las operaciones se realizan respecto de expresiones válidas. Las expresiones pueden contener
 números,
 <link linkend="Variables">variables</link>,
@@ -1094,6 +973,23 @@ y escoger el que se deseara.
 </para>
 
 <para>
+El documento activo, sea el de un problema o el de una solución, debe cerrarse primero.
+Si hubiera modificaciones sin guardar, se desplegará un cuadro de diálogo solicitando
+se indique si el documento activo debe guardarse antes de cerrarlo.
+</para>
+
+<para>
+Un clic sobre <emphasis>Sí</emphasis> guardará
+el documento activo. 
+</para>
+
+<para>
+Un clic sobre <emphasis>No</emphasis> cerrará
+el documento activo sin guardarlo. Las modificaciones no guardadas
+del documento activo se perderán.
+</para>
+
+<para>
 El idioma no puede cambiarse mientras la solución
 <link linkend="Playback">se reproduce</link>.
 Primero, debe detenerse su reproducción. 
@@ -1227,7 +1123,9 @@ botón en la barra de herramientas. Se desplegará un cuadro de diálogo.
 <para>
 Las propiedades del problema se pueden 
 <link linkend="EditorsAndSolvers">editar</link>
-vía doble clic en el área de propiedades del problema. Al terminar se debe pulsar sobre 
+vía doble clic en el área de propiedades del problema.
+Un clic afuera del área del planteo permite previsualizar los cambios realizados.
+Al terminar se debe pulsar sobre 
 <emphasis>OK</emphasis>.
 Pulsar sobre 
 <emphasis>Cancela</emphasis>
@@ -1240,7 +1138,9 @@ Durante la
 se verán tanto las propiedades del problema, en el margen superior, como las de la 
 solución, en el inferior. Para editar las propiedades de la solución, quien
 <link linkend="EditorsAndSolvers">resuelve</link>
-debe pulsar en el área de las propiedades de la solución un doble clic. Al terminar se pulsa sobre
+debe pulsar en el área de las propiedades de la solución un doble clic.
+Un clic afuera del área del planteo permite previsualizar los cambios realizados.
+Al terminar se pulsa sobre
 <emphasis>OK</emphasis>.
 Clic sobre
 <emphasis>Cancela</emphasis>
@@ -1303,6 +1203,11 @@ Basta con seleccionar
 en el menú 
 <emphasis>Documento</emphasis>
 para editar la respuesta del problema activo.
+</para>
+
+<para>
+Los cambios en la respuesta pueden 
+<link linkend="Undo">deshacerse</link>.
 </para>
 
 <sect3 id="AnswerTypes">
@@ -1392,7 +1297,8 @@ refiere tanto a un único punto como al par de extremos de un segmento o a los q
 </para>
 
 <para>
-Basta con anotar cada uno de los rótulos separados por comas. Para facilitar el ingreso, conviene tener
+Basta seleccionar la figura de destino y con anotar cada uno de los rótulos separados por comas.
+Para facilitar el ingreso, conviene tener
 <link linkend="SelectElements">seleccionadps</link>
 los puntos previamente, sobre la figura. Pulsando sobre
 <emphasis>OK</emphasis>
@@ -1433,6 +1339,8 @@ los desestima.
 <title>Plano Fijo</title>
 
 <para>
+
+Seleccionar la figura de destino.
 El plano se indica con tres rótulos separados por comas. Para facilitar el ingreso conviene
 tener algunos elementos como 3 puntos, un punto y un segmento, dos segmentos, o una cara
 <link linkend="SelectElements">indicados</link>
@@ -1583,8 +1491,11 @@ Cuadrado
 </itemizedlist>
 
 <para>
-Los cambios en la respuesta pueden 
-<link linkend="Undo">deshacerse</link>.
+Pulsando sobre 
+<emphasis>OK</emphasis>
+se conservan los cambios en la respuesta y sobre
+<emphasis>Cancela</emphasis>
+se desestiman.
 </para>
 
 </sect4>
@@ -1708,9 +1619,7 @@ Ver también:
 El
 <emphasis>Navegador</emphasis>
 permite maniobrar sobre los archivos del problema, la solución y la figura y organizarlos en directorios.
-Tanto los archivos como los directorios quedan guardados en el equipo local en un archivo
-<ulink url="http://www.sqlite.org">SQLite</ulink>
-único.
+Tanto los archivos como los directorios quedan guardados en el equipo local.
 </para>
 
 <para>
@@ -1872,9 +1781,6 @@ Ver también:
 <listitem>
 <link linkend="SaveProblem">Guardar Problema</link>
 </listitem>
-<listitem>
-<link linkend="Undo">Deshacer Acciones</link>
-</listitem>
 
 </itemizedlist>
 
@@ -1982,12 +1888,6 @@ La acción de limpiar el anotador no se puede
 <para>
 En la revisión final del problema también es preciso incluir una
 <link linkend="EditorsAnswer">pregunta</link>.
-</para>
-
-<para>
-No se puede guardar un problema durante la
-<link linkend="Playback">reproducción</link> de la solución 
-Primero, hay que detenerla. 
 </para>
 
 <para>
@@ -2476,18 +2376,12 @@ está disponible para la selección, incluyendo prismas, pirámides y sólidos p
 </para>
 
 <para>
-No se puede añadir una nueva figura durante la
-<link linkend="Playback">reproducción</link> de la solución. 
-Primero, hay que detenerla. 
-</para>
-
-<para>
 Esta acción se puede 
 <link linkend="Undo">deshacer</link>.
 </para>
 
 <para>
-No puede abrirse una figura durante la 
+No se puede abrirse una figura durante la 
 <link linkend="Playback">reproducción</link> de la solución 
 Primero, hay que detenerla. 
 </para>

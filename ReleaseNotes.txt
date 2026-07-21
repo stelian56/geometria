@@ -1,7 +1,15 @@
-Copyright 2000-2013 Geometria Contributors
+Copyright 2000-2026 Geometria Contributors
 http://geocentral.net/geometria
 
 RELEASE NOTES
+
+Version 4.1
+
+Changes
+
+* Backward compatible with 4.0.
+* Static web deployment. No server-side scripting.
+* Files and folders are stored on the user's computer and can be modified at will.
 
 Version 4.0
 

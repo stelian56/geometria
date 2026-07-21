@@ -8,182 +8,71 @@
 <chapter id="General">
 <title>General</title>
 
-<sect1 id="QuickStart">
-<title>Quick Start</title>
-
-<sect2 id="Installation">
-<title>Installation</title>
-
 <para>
 Geometria runs in a web browser on your desktop or laptop. Supported web browsers are:
 
 <itemizedlist>
 <listitem>
+Chrome
+</listitem>
+<listitem>
+Safari
+</listitem>
+<listitem>
+Edge
+</listitem>
+<listitem>
 Firefox
 </listitem>
-<listitem>
-Google Chrome
-</listitem>
-<listitem>
-Internet Explorer 10+
-</listitem>
 </itemizedlist>
 
 </para>
 
-<para>
-To install Geometria on your computer, download it from:
-<ulink url="http://geocentral.net/geometria/download">
-http://geocentral.net/geometria/download</ulink>
-and unzip the file into a folder. Open that folder.
-</para>
-
-<sect3 id="WindowsUsers">
-<title>Windows Users</title>
-
-<para>
-To start Geometria:
-
+<sect1 id="QuickStart">
+<title>Quick Start</title>
+<sect2 id="PlayOnline">
+<title>Play Online</title>
+You need to be connected to the Internet in order to load the Geometria page. However, once the page is loaded,
+you will be opening and saving all the files locally on your computer.
 <itemizedlist>
 <listitem>
-Double click on Startup.exe.
+Point your web browser to the Geometria <ulink url="https://geocentral.net/geometria">home page</ulink>.
 </listitem>
 <listitem>
-Open a web browser and point it to
-<emphasis>localhost:8080</emphasis> .
+Click <emphasis>Play</emphasis> to open Geometria.
 </listitem>
 </itemizedlist>
-
-</para>
-
-<para>
-To stop Geometria, find the icon
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Mongoose"/>
-on your system tray, click it and select
-<emphasis>Exit</emphasis>.
-</para>
-
-</sect3>
-
-<sect3 id="LinuxUsers">
-<title>Linux Users</title>
-
-<para>
-To start Geometria:
-
-<itemizedlist>
-<listitem>
-Open a terminal.
-</listitem>
-<listitem>
-Locate the startup file corresponding to your operating system (32-bit or 64-bit).
-</listitem>
-<listitem>
-Make the startup file executable. For example:
-<programlisting>
-$ chmod +x Startup_Linux64
-</programlisting>
-</listitem>
-<listitem>
-Execute the startup file. For example:
-<programlisting>
-$ ./Startup_Linux64
-</programlisting>
-</listitem>
-<listitem>
-Open a web browser and point it to
-<emphasis>localhost:8080</emphasis> .
-</listitem>
-</itemizedlist>
-
-</para>
-
-<para>
-To stop Geometria, go back to the terminal and stop the process with Ctrl + C.
-</para>
-
-</sect3>
-
 </sect2>
-
-<sect2 id="Troubleshooting">
-<title>Troubleshooting</title>
-
-<sect3 id="Port">
-<title>Port</title>
-
-<para>
-By default, Geometria starts a tiny web server listening on port 8080.
-If the browser shows an error or unexpected content, there might be another process on your computer listening to port 8080. In that case, stop Geometria as shown above and try another port by
-changing the <emphasis>listening_ports</emphasis> (Windows) or, respectively,
-<emphasis>listening_port</emphasis> (Linux) value in the mongoose.conf file. For example:
-</para>
-
-<programlisting>
-listening_ports 8081
-</programlisting>
-
-then point your web browser to
-<emphasis>localhost:8081</emphasis>.
-
-</sect3>
-
-<sect3 id="AccessDenied">
-<title>Access Denied</title>
-
-<para>
-Despite the fact, that Geometria needs no Internet connection to run, you may get an Access Denied message if you are behing a firewall. That is because your system administrator has configured a web proxy that blocks access to port 8080 even for a web server running from your own computer. Try disabling the proxy for the duration of your working with Geometria, then enabling it again when you are done. Note that the external web links present in Geometria documentation,
-<link linkend="ProblemText">problem text</link>
-and
-<link linkend="DocumentProperties">document properties</link>
-may stop working while the proxy is disabled.
-</para>
-
-</sect3>
-
-<sect3 id="Font">
-<title>Font</title>
-
-<para>
-Geometria employs the default sans-serif font for its user interface. The font size can
-be control through the browser's settings as follows:
-</para>
-
+<sect2 id="PlayOffline">
+<title>Play Offline</title>
 <itemizedlist>
 <listitem>
-On Firefox, check
-<emphasis>Zoom Text Only</emphasis>
-in the View/Zoom menu. To make the font larger, press + while holding the Ctrl key down.
-To make the font smaller, press - while holding the Ctrl key down. To revert to the default
-font size, select
-<emphasis>Reset</emphasis>
-in the View/Zoom menu.
+Install <ulink url="https://nodejs.org/en/download">node.js</ulink>.
 </listitem>
 <listitem>
-On Chrome, open the Settings, search for
-<emphasis>Font</emphasis>
-and change
-<emphasis>Font size</emphasis>
-as desired.
+Point your web browser to the Geometria <ulink url="https://geocentral.net/geometria">home page</ulink>.
 </listitem>
 <listitem>
-On Internet Explorer, select the desired font in the View/Text Size menu.
+Click <emphasis>Download</emphasis>.
+</listitem>
+<listitem>
+Unzip the archive.
+</listitem>
+<listitem>
+Open a terminal window in the resulting folder.
+</listitem>
+<listitem>
+Execute
+<programlisting>
+npx http-server
+</programlisting>
+to start a local web server.
+</listitem>
+<listitem>
+Point your browser to <emphasis>localhost:8080</emphasis> to open Geometria.
 </listitem>
 </itemizedlist>
-
-</sect3> 
-
-<sect3 id="Firebug">
-<title>Firebug</title>
-
-<para>
-If your web browser is Firefox, make sure Firebug is turned off or, at least, its Script Panel is disabled. When the Script Panel is on, Firebug reports certain scripting errors, which are a known issue unrelated to Geometria.
-</para>
-
-</sect3>
-
 </sect2>
-
 </sect1>
 
 <sect1 id="License">
@@ -209,15 +98,6 @@ Geometria makes use of the following open-source projects:
 </listitem>
 <listitem>
 <ulink url="http://mathjs.org">mathjs</ulink>
-</listitem>
-<listitem>
-<ulink url="https://github.com/cesanta/mongoose">Mongoose</ulink>
-</listitem>
-<listitem>
-<ulink url="http://www.lua.org">Lua</ulink>
-</listitem>
-<listitem>
-<ulink url="http://www.sqlite.org">SQLite</ulink>
 </listitem>
 <listitem>
 <ulink url="http://www.docbook.org">DocBook</ulink>
@@ -399,7 +279,7 @@ point, segment, path or plane to be constructed. For example:
 
 <para>
 <emphasis>
-Find a plane that is parallel to the diagonal of the cube and cuts its volume in the ratio 2:3.
+Find a plane that is parallel to the diagonal of the cube and cuts its volume in a 2:3 ratio.
 </emphasis>
 </para>
 
@@ -525,7 +405,7 @@ is
 the definition of the variable
 <emphasis>myDistance</emphasis>
 <link linkend="CreatingAVariable">above</link>
-will become obsolete. Same if figure
+will become obsolete. The same if figure
 <emphasis>MyCube</emphasis>
 is
 <link linkend="Transform">transformed</link>
@@ -675,13 +555,13 @@ See also:
 <para>
 The calculator is located at the bottom of the window, just under the
 <link linkend="Notepad">notepad</link>.
+The calculator operates in the context of the current document.
 </para>
 
 <sect2 id="Expressions">
 <title>Expressions</title>
 
 <para>
-The calculator operates in the context of the current document.
 Calculations are performed upon valid expressions. Expressions can contain
 numbers,
 <link linkend="Variables">variables</link>,
@@ -870,7 +750,7 @@ Each time a new
 <link linkend="CreatingAVariable">variable</link>
 is created as a result of a measurement or
 <link linkend="Assign">assigned</link>
-in a calculation, a record is added to the notepad automatically.
+in a calculation, a record is automatically added to the notepad.
 Each record consists of a unique variable name and an expression.
 Measurement records also contain the name of
 the figure where the measurement has been taken. For example, the following record:
@@ -1093,6 +973,23 @@ menu, then select the desired language.
 </para>
 
 <para>
+The current document, whether it is a problem or a solution, will be closed first.
+If there are unsaved modifications, a dialog will be displayed asking
+if the current document should be saved before it is closed.
+</para>
+
+<para>
+Click <emphasis>Yes</emphasis> to save
+the current document. 
+</para>
+
+<para>
+Click <emphasis>No</emphasis> to close
+the current document without saving. Note that all unsaved modifications
+to the current document will be lost.
+</para>
+
+<para>
 The language cannot be changed during the solution
 <link linkend="Playback">playback</link>.
 You have to stop the playback first. 
@@ -1205,7 +1102,7 @@ The
 <link linkend="EditorsAndSolvers">Editor</link>
 can edit the problem text by double-clicking the text area. The problem text supports
 <ulink url="http://www.w3schools.com/html">HTML markup</ulink>.
-Click away to preview the changes to the problem text.
+Click away to preview the changes.
 </para>
 
 </sect1>
@@ -1226,7 +1123,9 @@ button on the tool bar. A dialog will pop up.
 <para>
 To edit the properties of the problem, the
 <link linkend="EditorsAndSolvers">Editor</link>
-double clicks the problem properties area. When done editing, click
+double clicks the problem properties area.
+Click away to preview the changes.
+When done editing, click
 <emphasis>OK</emphasis>.
 Click
 <emphasis>Cancel</emphasis>
@@ -1239,7 +1138,9 @@ The
 will see both the properties of the problem, at the top, and the properties of the
 solution, at the bottom. To edit the properties of the solution, the
 <link linkend="EditorsAndSolvers">Solver</link>
-double clicks the solution properties area. When done editing, click
+double clicks the solution properties area.
+Click away to preview the changes.
+When done editing, click
 <emphasis>OK</emphasis>.
 Click
 <emphasis>Cancel</emphasis>
@@ -1302,6 +1203,11 @@ To edit the answer to the current problem, select
 from the 
 <emphasis>Document</emphasis>
 menu.
+</para>
+
+<para>
+The changes to the answer can be
+<link linkend="Undo">undone</link>.
 </para>
 
 <sect3 id="AnswerTypes">
@@ -1391,7 +1297,7 @@ refers to a single point, end points of a segment (2 points) or a path (2 or mor
 </para>
 
 <para>
-Enter one or more labels separated by commas. To minimize the input, have the points
+Select the target figure. Enter one or more labels separated by commas. To minimize the input, have the points
 <link linkend="SelectElements">selected</link>
 ahead of time in the selected figure.Click
 <emphasis>OK</emphasis>
@@ -1432,6 +1338,7 @@ to discard the changes.
 <title>Fixed Plane</title>
 
 <para>
+Select the target figure.
 Reference the plane by 3 comma-separated labels. To minimize the input,
 have some reference elements, such as 3 points, a point and a segment, two segments, or a face
 <link linkend="SelectElements">selected</link>
@@ -1582,8 +1489,11 @@ Square
 </itemizedlist>
 
 <para>
-The changes to the answer can be
-<link linkend="Undo">undone</link>.
+Click
+<emphasis>OK</emphasis>
+to keep the changes to the answer. Click
+<emphasis>Cancel</emphasis>
+to discard the changes.
 </para>
 
 </sect4>
@@ -1707,9 +1617,7 @@ See also:
 The
 <emphasis>Navigator</emphasis>
 allows you to manipulate problem, solution and figure files and organize them into folders.
-Both the files and the folders are stored on your computer in a single
-<ulink url="http://www.sqlite.org">SQLite</ulink>
-file.
+Both the files and the folders are stored on your computer.
 </para>
 
 <para>
@@ -1724,12 +1632,13 @@ icon on the tool bar. To bring the Navigator back, click the same icon again.
 </para>
 
 <para>
-You can tell the content of a file by its icon. Problem files have the&#xA0;
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24ProblemFile"/>icon.
-Solution files have the&#xA0;
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24SolutionFile"/>icon.
-Figure files have the&#xA0;
-<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24FigureFile"/>icon.
+You can tell the content of a file by its icon.
+The &#xA0;<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24ProblemFile"/>icon
+indicates a problem file.
+The &#xA0;<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24SolutionFile"/>icon
+indicates a solution file.
+The &#xA0;<phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24FigureFile"/>icon
+indicates a figure file.
 </para>
 
 <sect2 id="NewFolder">
@@ -1871,9 +1780,6 @@ See also:
 <listitem>
 <link linkend="SaveProblem">Save Problem</link>
 </listitem>
-<listitem>
-<link linkend="Undo">Undo Actions</link>
-</listitem>
 
 </itemizedlist>
 
@@ -1981,12 +1887,6 @@ Beware, though, that the action of clearing the notepad cannot be
 <para>
 A final revision of the problem should also be provided with an
 <link linkend="EditorsAnswer">answer</link>.
-</para>
-
-<para>
-The problem cannot be saved during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
 </para>
 
 <para>
@@ -2475,12 +2375,6 @@ is available to choose from, including prisms, pyramids and platonic solids.
 </para>
 
 <para>
-A new figure cannot be added during the solution
-<link linkend="Playback">playback</link>.
-You have to stop the playback first. 
-</para>
-
-<para>
 This action can be
 <link linkend="Undo">undone</link>.
 </para>
@@ -2695,7 +2589,7 @@ the point, right-clicks and selects
 from the popup menu. Alternatively,
 <emphasis>Rename Point</emphasis>
 can be selected in the
-<emphasis>Draw</emphasis>
+<emphasis>Edit</emphasis>
 menu.
 </para>
 
