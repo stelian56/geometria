@@ -1,13 +1,13 @@
 {
 	"name": "geometria",
-	"version": "4.0",
+	"version": "4.1",
 	"directories": {
 		"lib": "."
 	},
 	"main": "main",
 	"dependencies": {
-		"dojo": "1.9.1",
-		"dijit": "1.9.1"
+		"dojo": "1.17.3",
+		"dijit": "1.17.3"
 	},
 	"description": "Interactive 3d geometry software",
 	"licenses": [

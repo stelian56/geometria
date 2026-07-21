@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -63,72 +63,79 @@ define([
         loggable: true,
 
         execute: function(input, showError, textBox) {
-            var expressionOffset = 0;
-            var variableName;
-            var expression;
-            var tokens = input.split("=");
-            var pos;
-            if (tokens.length == 1) {
-                var scope = notepadContainer.getScope();
-                var value = utils.eval(input, scope);
-                if (!isNaN(value)) {
-                    textBox.set("value", value);
-                }
-                else {
-                    showError({
-                        message: dict.get("BadExpression"),
-                        bounds: { begin: 0, end: input.length }
-                    });
-                }
-            }
-            else if (this.enabled) {
-                if (tokens.length > 2) {
-                    pos = input.lastIndexOf("=");
-                    showError({
-                        message: dict.get("MisplaceEqualitySign"),
-                        bounds: {
-                            begin: pos,
-                            end: pos + 1
-                        }
-                    });
-                    return null;
-                }
-                else  {
-                    expression = tokens[1];
-                    expressionOffset = input.indexOf("=") + 1;
-                    variableName = tokens[0].trim();
-                    var props = {
-                        variableName: variableName,
-                        expression: expression
-                    };
-                    var results = {};
-                    if (validate(props, results)) {
-                        var outProps = apply(props);
-                        textBox.set("value", "");
-                        mainContainer.setDocumentModified(true);
-                        return outProps;
+            if (mainContainer.currentDocument) {
+                var expressionOffset = 0;
+                var variableName;
+                var expression;
+                var tokens = input.split("=");
+                var pos;
+                if (tokens.length == 1) {
+                    var scope = notepadContainer.getScope();
+                    var value = utils.eval(input, scope);
+                    if (!isNaN(value)) {
+                        textBox.set("value", value);
                     }
                     else {
-                        pos = input.indexOf("=");
-                        var bounds = results.type == "variable" ? { begin: 0, end: pos } :
-                            { begin: pos + 1, end: input.length };
                         showError({
-                            message: results.error,
-                            bounds: bounds
+                            message: dict.get("BadExpression"),
+                            bounds: { begin: 0, end: input.length }
                         });
                     }
                 }
-            }
-            else {
-                showError({
-                    message: dict.get("SolutionPlaybackInProgress"),
-                    bounds: {
-                        begin: 0,
-                        end: input.length
+                else if (this.enabled) {
+                    if (tokens.length > 2) {
+                        pos = input.lastIndexOf("=");
+                        showError({
+                            message: dict.get("MisplaceEqualitySign"),
+                            bounds: {
+                                begin: pos,
+                                end: pos + 1
+                            }
+                        });
+                        return null;
                     }
-                });
+                    else  {
+                        expression = tokens[1];
+                        expressionOffset = input.indexOf("=") + 1;
+                        variableName = tokens[0].trim();
+                        var props = {
+                            variableName: variableName,
+                            expression: expression
+                        };
+                        var results = {};
+                        if (validate(props, results)) {
+                            var outProps = apply(props);
+                            textBox.set("value", "");
+                            mainContainer.setDocumentModified(true);
+                            return outProps;
+                        }
+                        else {
+                            pos = input.indexOf("=");
+                            var bounds = results.type == "variable" ? { begin: 0, end: pos } :
+                                { begin: pos + 1, end: input.length };
+                            showError({
+                                message: results.error,
+                                bounds: bounds
+                            });
+                        }
+                    }
+                }
+                else {
+                    showError({
+                        message: dict.get("SolutionPlaybackInProgress"),
+                        bounds: {
+                            begin: 0,
+                            end: input.length
+                        }
+                    });
+                }
             }
             return null;
+        },
+        
+        updateState: function() {
+            this.base.active = mainContainer.currentDocument;
+            this.base.enabled = mainContainer.currentDocument;
         },
         
         undo: function(props) {

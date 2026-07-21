@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -31,7 +31,7 @@ define([
         icon: "geometriaIcon24 geometriaIcon24Open",
 
         label: dict.get("action.Open"),
-        
+
         execute: function(itemId) {
             var deferred = new Deferred();
 
@@ -59,7 +59,7 @@ define([
                 catch (err) {
                     console.error(err);
                     onError(dict.get("ProblemFileCorrupted", name));
-                    mainContainer.newProblem();
+                    mainContainer.clear();
                     return;
                 }
                 figuresContainer.documentChanged();
@@ -103,7 +103,7 @@ define([
                 catch (err) {
                     console.error(err);
                     onError(dict.get("SolutionFileCorrupted", name));
-                    mainContainer.newProblem();
+                    mainContainer.clear();
                     return;
                 }
             };
@@ -134,13 +134,8 @@ define([
             var onNavigatorSuccess = function(results) {
                 var navigatorItemId = results.id;
                 var name = navigator.itemById(navigatorItemId).name;
-                try {
-                    var json = $.parseJSON(results.content);
-                }
-                catch (err) {
-                    onError(dict.get("navigator.FileHasInvalidFormat", name));
-                    return;
-                }
+                var json = results.content;
+                var doc = mainContainer.currentDocument;
                 if (json.problem || json.solution) {
                     mainContainer.onCloseDocument().then(function() {
                         if (json.problem) {
@@ -152,7 +147,10 @@ define([
                     });
                 }
                 else if (json.solid) {
-                    if (mainContainer.currentDocument instanceof GProblem) {
+                    if (!doc) {
+                        onError(dict.get("NoCurrentDocument", name));
+                    }
+                    else if (doc instanceof GProblem) {
                         deployFigure(json, name);
                     }
                     else {
@@ -164,10 +162,10 @@ define([
                 }
             };
 
+            var doc = mainContainer.currentDocument;
             if (!itemId) {
                 itemId = navigator.getSelectedItem().id;
             }
-            var doc = mainContainer.currentDocument;
             if (doc && itemId == doc.navigatorItemId) {
                 mainContainer.onCloseDocument().then(function() {
                     mainContainer.newProblem();

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -778,10 +778,12 @@ define([
                 options: [
                     { label: dict.get("Number"), value: "Number" },
                     { label: dict.get("MultipleChoice"), value: "MultipleChoice" },
-                    { label: dict.get("PointSet"), value: "PointSet" },
+                    { label: dict.get("PointSet"), value: "PointSet",
+                        disabled: doc.figures.length < 1 },
                     { label: dict.get("SegmentSet"), value: "SegmentSet",
                         disabled: doc.figures.length < 1 },
-                    { label: dict.get("FixedPlane"), value: "FixedPlane" },
+                    { label: dict.get("FixedPlane"), value: "FixedPlane",
+                        disabled: doc.figures.length < 1 },
                     { label: dict.get("ConditionPlane"), value: "ConditionPlane",
                         disabled: doc.figures.length < 1 }
                 ],

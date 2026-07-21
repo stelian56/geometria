@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -95,25 +95,20 @@ define({
 "menu.View": "View",
 
 // Navigator
-"navigator.CannotCreateFolderDb": "Cannot create folder. The Geometria database appears to be corrupted. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotCreateFolderServer": "Cannot create folder. The Geometria server may be unavailable. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
+
+"navigator.CannotCreateFolder": "Cannot create folder. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
 "navigator.CannotCreateFolderExists": "Cannot create <span class='geometria_figurename'>${1}</span>. A folder or a file by the same name already exists.",
-"navigator.CannotDeleteFileDb": "Cannot delete file. The Geometria database appears to be corrupted. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotDeleteFileServer": "Cannot delete file. The Geometria server may be unavailable. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotDeleteFolderDb": "Cannot delete folder. The Geometria database appears to be corrupted. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotDeleteFolderServer": "Cannot delete folder. The Geometria server may be unavailable. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotDragAndDropDb": "Cannot drag-and-drop. The Geometria database may be corrupted. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotDragAndDropServer": "Cannot drag-and-drop. The Geometria server may be unavailable. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotOpenFile": "Cannot open file. The Geometria server may be unavailable. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotSaveFile": "Cannot save file. The Geometria server may be unavailable. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotRenameFileDb": "Cannot rename file. The Geometria database appears to be corrupted. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotRenameFileServer": "Cannot rename file. The Geometria server may be unavailable. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
+"navigator.CannotDeleteFile": "Cannot delete file. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
+"navigator.CannotDeleteFolder": "Cannot delete folder. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
+"navigator.CannotDragAndDrop": "Cannot drag-and-drop. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
+"navigator.CannotOpenFile": "Cannot open file. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
+"navigator.CannotSaveFile": "Cannot save file. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
+"navigator.CannotRenameFile": "Cannot rename file. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
 "navigator.CannotRenameFileExists": "Cannot rename file to <span class='geometria_figurename'>${1}</span>. A file or a folder by the same name already exists.",
-"navigator.CannotRenameFolderDb": "Cannot rename folder. The Geometria database appears to be corrupted. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
-"navigator.CannotRenameFolderServer": "Cannot rename folder. The Geometria server may be unavailable. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
+"navigator.CannotRenameFolder": "Cannot rename folder. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
 "navigator.CannotRenameFolderExists": "Cannot rename folder to <span class='geometria_figurename'>${1}</span>. A file or a folder by the same name already exists.",
 "navigator.CannotSaveFolderExists": "Cannot save as <span class='geometria_figurename'>${1}</span>. A folder by the same name exists.",
-"navigator.CannotStartNavigator": "Cannot start navigator. The Geometria server may be unavailable. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
+"navigator.CannotStartNavigator": "Cannot start navigator. <a href='http://geocentral.net/geometria' target='_blank'>Click here</a> for help.",
 "navigator.EnterFileName": "Enter file name",
 "navigator.EnterFolderName": "Enter folder name",
 "navigator.EnterNewName": "Enter new name",
@@ -242,6 +237,7 @@ define({
 "NewPrism": "New ${1}-side prism <span class='geometria_figurename'>${2}</span>",
 "NewPyramid": "New ${1}-side pyramid <span class='geometria_figurename'>${2}</span>",
 "No": "No",
+"NoCurrentDocument": "No current document. Open an existing problem or create a new one.",
 "NoSuchPointInSelectedFigure": "No such point in selected figure",
 "NotAGeometriaFile": "<span class='geometria_figurename'>${1}</span> is not a Geometria file",
 "Number": "Number",
@@ -260,7 +256,6 @@ define({
 "ProblemProperties": "Problem properties",
 "ProblemText": "Problem Text",
 "Properties": "Properties",
-"ReadOnly": "This online version of Geometria is <i>read-only</i>.<br>Download a free unrestricted version from:<br><a href='http://geocentral.net/geometria'>http://geocentral.net/geometria</a>",
 "Rectangle": "rectangle",
 "RedoAction": "Redo: ${1}",
 "Rhombus": "rhombus",

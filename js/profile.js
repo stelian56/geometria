@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -194,12 +194,7 @@ var profile = {
                 "geometria/action/GZoomOutAction",
 
                 "geometria/dictionary/dictionary-en",
-                "geometria/dictionary/dictionary-es",
-
-                "geometria/test/all",
-                "geometria/test/math",
-                "geometria/test/solid",
-                "geometria/test/utils"
+                "geometria/dictionary/dictionary-es"
             ],
             customBase: true,
             boot: true

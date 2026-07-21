@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -18,7 +18,7 @@ define([
         icon: "geometriaIcon24 geometriaIcon24RemoveFile",
 
         label: dict.get("action.Delete"),
-        
+
         execute: function() {
             var selectedItem = navigator.getSelectedItem();
             var name = selectedItem.name;
@@ -26,10 +26,7 @@ define([
                 dict.get("SureDeleteFile", name);
             var dialog = widgets.yesNoDialog(message).yes.then(function() {
                 var onSuccess = function() {
-                    var id = mainContainer.currentDocument.navigatorItemId;
-                    if (!navigator.itemById(id)) {
-                        newProblemAction.execute(true);
-                    }
+                    mainContainer.clear();
                 };
                 
                 var onError = function(message) {
@@ -41,11 +38,7 @@ define([
         },
         
         updateState: function() {
-            this.base.enabled = !mainContainer.readOnly && navigator.isSelectedItemRemovable();
-        },
-        
-        tooltip: function() {
-            return mainContainer.readOnly ? dict.get("ReadOnly") : "";
+            this.base.enabled = navigator.isSelectedItemRemovable();
         }
     };
 });

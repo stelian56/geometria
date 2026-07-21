@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -211,6 +211,11 @@ define([
             return outProps;
         },
 
+        updateState: function() {
+            this.base.enabled = figuresContainer.getSelectedFigure() &&
+                this.validateSelection() && true;
+        },
+
         validateSelection: validateSelection,
         
         undo: function(props) {
@@ -271,11 +276,6 @@ define([
         
         toLog: function(props) {
             return dict.get("EraseSelectionInFigure", props.figureName);
-        },
-
-        updateState: function() {
-            this.base.enabled = figuresContainer.getSelectedFigure() &&
-                this.validateSelection() && true;
         },
 
         toJson: function(props) {

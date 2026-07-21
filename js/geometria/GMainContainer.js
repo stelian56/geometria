@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -35,9 +35,7 @@ define([
     
     exports.currentDocument = null;
     exports.masterSolution = null;
-    exports.baseUrl = null;
-    exports.readOnly = null;
-    
+
     exports.setCurrentDocument = function(doc) {
         if (this.currentDocument) {
             $.each(this.currentDocument.figures, function() {
@@ -46,9 +44,20 @@ define([
         }
         this.currentDocument = doc;
     };
-    
-    exports.startUp = function(baseUrl) {
-        exports.baseUrl = baseUrl;
+
+    exports.clear = function() {
+        exports.setCurrentDocument(null);
+        navigator.selectItem(null);
+        actions.clearActionQueue();
+        exports.setLogVisible(false);
+        problemText.documentChanged();
+        figuresContainer.documentChanged();
+        notepadContainer.clear();
+        calculator.clear();
+        actions.updateStates();
+    }
+
+    exports.startUp = function() {
         var queryParams = utils.getQueryParams();
         lang = queryParams["lang"];
         if (lang) {
@@ -146,26 +155,17 @@ define([
         });
         container.placeAt(dojo.body(), "last");
         container.startup();
+
         window.onbeforeunload = function(event) {
-            if (!exports.readOnly && exports.currentDocument.modified) {
-                return exports.currentDocument instanceof GProblem ?
+            var doc = exports.currentDocument;
+            if (doc && doc.modified) {
+                return doc instanceof GProblem ?
                     dict.get("ProblemModifiedQuit") : dict.get("SolutionModifiedQuit");
             }
         };
-        navigator.isReadOnly().then(function(readOnly) {
-            exports.readOnly = readOnly;
-            var id = queryParams["id"];
-            if (id) {
-                navigatorReady.then(function() {
-                    var item = navigator.itemById(id);
-                    if (item && (item.type == 'p' || item.type == 's')) {
-                        navigator.selectItem(id);
-                        actions["openAction"].base.execute(id);
-                        return;
-                    }
-                });
-            }
-            actions["newProblemAction"].base.execute();
+
+        navigatorReady.then(function() {
+            exports.clear();
         });
     };
     
@@ -182,28 +182,23 @@ define([
 
     exports.onCloseDocument = function() {
         var deferred = new Deferred();
-        if (exports.readOnly) {
+        var doc = exports.currentDocument instanceof GProblem ? exports.currentDocument :
+                exports.masterSolution;
+        if (!doc || !doc.modified) {
             deferred.resolve();
         }
         else {
-            var doc = exports.currentDocument instanceof GProblem ? exports.currentDocument :
-                    exports.masterSolution;
-            if (!doc || !doc.modified) {
-                deferred.resolve();
-            }
-            else {
-                var message = doc instanceof GProblem ? dict.get("ProblemModified") :
-                    dict.get("SolutionModified");
-                var promises = widgets.yesNoCancelDialog(message);
-                promises.yes.then(function() {
-                    actions.saveDocumentAction.execute().then(function() {
-                        deferred.resolve();
-                    });
-                });
-                promises.no.then(function() {
+            var message = doc instanceof GProblem ? dict.get("ProblemModified") :
+                dict.get("SolutionModified");
+            var promises = widgets.yesNoCancelDialog(message);
+            promises.yes.then(function() {
+                actions.saveDocumentAction.execute().then(function() {
                     deferred.resolve();
                 });
-            }
+            });
+            promises.no.then(function() {
+                deferred.resolve();
+            });
         }
         return deferred.promise;
     };

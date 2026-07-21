@@ -1,10 +1,3 @@
-/**
- * Copyright (C) 2000-2014 Geometria Contributors
- * http://geocentral.net/geometria
- * 
- * Geometria is free software released under the MIT License
- * http://opensource.org/licenses/MIT
- */
 define([
     "dojo/_base/declare",
     "dojo/promise/Promise",
@@ -44,7 +37,6 @@ define([
                 }
                 actions.updateStates();
             };
-            
             var result = action.execute.apply(this, arguments);
             if (result instanceof Promise) {
                 result.then(function(props) {
@@ -62,9 +54,9 @@ define([
             }
             return this.action.playBack(props, external);
         },
-        
+
         updateState: function() {
-            this.enabled = true;
+            this.enabled = false;
             var action = this.action;
             if (action.updateState) {
                 action.updateState();
@@ -92,7 +84,7 @@ define([
                 this();
             });
         },
-   
+
         getExecuteId: function() {
             return ++executeId;
         },

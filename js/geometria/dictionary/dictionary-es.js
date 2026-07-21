@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -95,25 +95,20 @@ define({
 "menu.View": "Vista",
 
 // Navigator
-"navigator.CannotCreateFolderDb": "No es posible crear el directorio. La base de datos de Geometria parece dañada. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotCreateFolderServer": "No es posible crear el directorio. Puede que el servidor de Geometria no está disponible. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
+
+"navigator.CannotCreateFolder": "No es posible crear el directorio. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
 "navigator.CannotCreateFolderExists": "No es posible crear <span class='geometria_figurename'>${1}</span>. Ya existe un directorio o archivo con ese nombre.",
-"navigator.CannotDeleteFileDb": "No es posible borrar el archivo. La base de datos de Geometria parece estar dañada. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotDeleteFileServer": "No es posible borrar el archivo. El servidor de Geometria parece no estar disponible. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotDeleteFolderDb": "No es posible borrar el archivo. La base de datos de Geometria parece estar dañada. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotDeleteFolderServer": "No es posible borrar el directorio. El servidor de Geometria parece no estar disponible. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotDragAndDropDb": "No es posible arrastrar y reubicar. La base de datos de Geometria parece estar dañada.  <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotDragAndDropServer": "No es posible arrastrar y reubicar. El servidor de Geometria parece no estar disponible. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotOpenFile": "No es posible abrir el archivo. El servidor de Geometria parece no estar disponible. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí¿</a> se accede a la ayuda.",
-"navigator.CannotSaveFile": "No es posible guardar el archivo. El servidor de Geometria parece no estar disponible. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotRenameFileDb": "No es posible cambiarle el nombre al archivo. La base de datos de Geometria parece estar dañada. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotRenameFileServer": "No es posible cambiarle el nombre al archivo. El servidor de Geometria parece no estar disponible. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
+"navigator.CannotDeleteFile": "No es posible borrar el archivo. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
+"navigator.CannotDeleteFolder": "No es posible borrar el archivo. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
+"navigator.CannotDragAndDrop": "No es posible arrastrar y reubicar. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
+"navigator.CannotOpenFile": "No es posible abrir el archivo. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí¿</a> se accede a la ayuda.",
+"navigator.CannotSaveFile": "No es posible guardar el archivo. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
+"navigator.CannotRenameFile": "No es posible cambiarle el nombre al archivo. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
 "navigator.CannotRenameFileExists": "No es posible renombrar el archivo como <span class='geometria_figurename'>${1}</span>. Ya existe un directorio o archivo con ese nombre.",
-"navigator.CannotRenameFolderDb": "No es posible cambiarle el nombre al archivo. La base de datos de Geometria parece estar dañada. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
-"navigator.CannotRenameFolderServer": "No es posible cambiarle el nombre al archivo. El servidor de Geometria parece no estar disponible. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
+"navigator.CannotRenameFolder": "No es posible cambiarle el nombre al archivo. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
 "navigator.CannotRenameFolderExists": "No es posible renombrar el archivo como <span class='geometria_figurename'>${1}</span>. Ya existe un directorio o archivo con ese nombre.",
 "navigator.CannotSaveFolderExists": "No es posible guardar el archivo como <span class='geometria_figurename'>${1}</span>. Ya existe un directorio con ese nombre.",
-"navigator.CannotStartNavigator": "No es posible iniciar el explorador. El servidor de Geometria parece no estar disponible. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
+"navigator.CannotStartNavigator": "No es posible iniciar el explorador. <a href='http://geocentral.net/geometria' target='_blank'>Pulsando aquí</a> se accede a la ayuda.",
 "navigator.EnterFileName": "Darle nombre al archivo:",
 "navigator.EnterFolderName": "Darle nombre al directorio",
 "navigator.EnterNewName": "Ingresar el nuevo nombre",
@@ -241,6 +236,7 @@ define({
 "NewPrism": "Nuevo ${1}-prisma lateral <span class='geometria_figurename'>${2}</span>",
 "NewPyramid": "Nueva ${1}-pirámide lateral <span class='geometria_figurename'>${2}</span>",
 "No": "No",
+"NoCurrentDocument": "No hay ningún documento disponible. Abra un problema existente o cree uno nuevo.",
 "NoSuchPointInSelectedFigure": "No existe tal punto en la figura seleccionada",
 "NotAGeometriaFile": "<span class='geometria_figurename'>${1}</span> no es un archivo de Geometria",
 "Number": "Número",
@@ -259,7 +255,6 @@ define({
 "ProblemProperties": "Propiedades de problema",
 "ProblemText": "Texto de Problema",
 "Properties": "Propiedades",
-"ReadOnly": "Esta versión, en línea, de Geometria es de <i>solo lectura</i>.<br>La versión libre e irrestricta puede descargarse desde:<br><a href='http://geocentral.net/geometria'>http://geocentral.net/geometria</a>",
 "Rectangle": "rectángulo",
 "RedoAction": "Rehace: ${1}",
 "Rhombus": "rombo",

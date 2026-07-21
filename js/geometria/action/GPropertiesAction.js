@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -35,7 +35,7 @@ define([
                 value: doc.properties,
                 onBlur: function() {
                     container.removeChild(textArea);
-                    var content = utils.resolveMacros(this.get("value"));
+                    var content = this.get("value");
                     contentPane.set("content", content);
                     container.addChild(contentPane);
                 }
@@ -44,7 +44,7 @@ define([
         var contentPane = new ContentPane({
             "class": "geometria_propertiespane",
             region: "center",
-            content: utils.resolveMacros(doc.properties),
+            content: doc.properties,
             onDblClick: function() {
                 if (hint) {
                     Tooltip.hide(this.domNode);
@@ -118,6 +118,10 @@ define([
                 removeTooltipHandles(spaces);
             });
             return deferred.promise;
+        },
+        
+        updateState: function() {
+            this.base.enabled = mainContainer.currentDocument;
         }
     };
 });

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -50,10 +50,13 @@ define([
         
         documentChanged: function() {
             this.clear();
-            $.each(mainContainer.currentDocument.notepad, function() {
-                var item = { id: grid.get("rowCount"), col1: this };
-                grid.store.newItem(item);
-            });
+            var doc = mainContainer.currentDocument;
+            if (doc) {
+                $.each(doc.notepad, function() {
+                    var item = { id: grid.get("rowCount"), col1: this };
+                    grid.store.newItem(item);
+                });
+            }
         },
 
         add: function(record) {

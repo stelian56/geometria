@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -44,20 +44,6 @@ define([
     var itemNameTextBox;
     var itemNamePane;
 
-    var getUrl = function(parameters) {
-        var params = lang.mixin({
-            lang: dict.language
-        }, parameters);
-        var queryString = "";
-        $.each(params, function(key, value) {
-            if (queryString.length) {
-                queryString += "&";
-            }
-            queryString += key + "=" + value;
-        });
-        return mainContainer.baseUrl + "?" + queryString;
-    };
-
     var showItemNamePane = function(hint, invalidMessage) {
         var deferred = new Deferred();
         var hide = function() {
@@ -90,88 +76,80 @@ define([
 
     return {
 
+        expandTo: function(item) {
+            var path = [ item.id ];
+            var parent = this.itemById(item.parent);
+            while (parent) {
+                path.splice(0, 0, parent.id);
+                parent = this.itemById(parent.parent);
+            }
+            tree.set("path", path);
+        },
+
+        getSelectedItem: function() {
+            return tree && tree.selectedItem;
+        },
+
+        selectItem: function(id) {
+            if (id) {
+                var item = this.itemById(id);
+                if (item) {
+                    this.expandTo(item);
+                    tree.set("selectedItem", item);
+                }
+            }
+            else {
+                tree.set("selectedItem", null);
+            }
+        },
+
+        isSelectedItemRemovable: function() {
+            if (tree) {
+                var item = tree.selectedItem;
+                return item && item.id != root.id;
+            }
+            return false;
+        },
+
         populate: function() {
             var deferred = new Deferred();
             var storedata = [];
-            var sort = function(item1, item2) {
-                if (item1.type == item2.type) {
-                    return item1.name > item2.name;
-                }
-                return item1.type > item2.type;
-            };
-            
-            var memoryStore = new Memory({
-                data: storedata,
-                getChildren: function(parent) {
-                    var rs = this.query({ parent: parent.id }, {sort: sort});
-                    return rs;
-                }
-            });
-            store = new Observable(memoryStore);
 
-            aspect.around(store, "put", function(originalPut){
-                return function(obj, options) {
-                    var result = false;
-
-                    var onSuccess = function(webdata) {
-                        if ($.trim(webdata) != "OK") {
-                            onError();
+            var onAllJson = function(allJson) {
+                if (allJson) {
+                    var makeItem = function(itemJson, parentId) {
+                        var id = itemJson.id;
+                        if (id) {
+                            var type = itemJson.type;
+                            if (type) {
+                                var name = itemJson.name;
+                                if (name) {
+                                    var item = { id: id, parent: parentId, type: type, name: name };
+                                    storedata.push(item);
+                                    if (!parentId) {
+                                        root = item;
+                                    }
+                                    var childrenJson = itemJson.items;
+                                    if (Array.isArray(childrenJson)) {
+                                        childrenJson.forEach((childJson) => {
+                                            makeItem(childJson, id);
+                                        });
+                                    }
+                                }
+                            }
                         }
-                        else {
-                            result = true;
-                        }
-                    };
-                    
-                    var onError = function(server) {
-                        var message = server ? dict.get("navigator.CannotDragAndDropServer") :
-                            dict.get("navigator.CannotDragAndDropDb");
-                        widgets.errorDialog(message);
-                        result = false;
-                    };
+                    }
+                    makeItem(allJson);
+                }
                 
-                    if(options && options.parent){
-                        obj.parent = options.parent.id;
-                    }
-                    if (options.noDnd) {
-                        result = true;
-                    }
-                    else {
-                        var url = getUrl({command: "setparent",
-                            id: obj.id, parent_id: options.parent.id});
-                        xhr(url, {sync: true}).then(onSuccess, onError);
-                    }
-                    if (result) {
-                        return originalPut.call(store, obj, options);
-                    }
-                    else {
-                        return false;
-                    }
-                }
-            });
-            
-            var onError = function() {
-                deferred.reject(dict.get("navigator.CannotStartNavigator"));
-            };
-
-            var onSuccess = function(webdata) {
-                $.each(webdata.split("\n"), function() {
-                    if (this.length) {
-                        var tokens = this.split("|");
-                        var id = tokens[0];
-                        var parentId;
-                        if (tokens[1]) {
-                            parentId = tokens[1];
-                        }
-                        var type = tokens[2];
-                        var name = parentId ? tokens[3] : dict.get("RootFolder");
-                        var child = { id: id, parent: parentId, type: type, name: name };
-                        storedata.push(child);
-                        if (!parentId) {
-                            root = child;
-                        }
-                    }
-                });
                 if (root) {
+                    var memoryStore = new Memory({
+                        data: storedata,
+                        getChildren: function(parent) {
+                            return this.query({ parent: parent.id });
+                        }
+                    });
+                    store = new Observable(memoryStore);
                     model = new ObjectStoreModel({
                         store: store,
                         query: {"id": root.id}
@@ -192,7 +170,7 @@ define([
                             }
                         },
                         checkItemAcceptance: function(target, source, position) {
-                            if (mainContainer.readOnly || logContainer.isPlaybackActive()) {
+                            if (logContainer.isPlaybackActive()) {
                                 return false;
                             }
                             var targetItem = dijit.getEnclosingWidget(target).item;
@@ -221,6 +199,9 @@ define([
                                 }
                             });
                         },
+                        onClick: function(item, node, event) {
+                            this._onExpandoClick({ node: node });
+                        },
                         onDblClick: function() {
                             if (tree.selectedItem.type != 'd') {
                                 var action = actions["openAction"];
@@ -235,59 +216,113 @@ define([
                     });
                     tree.startup();
                     contentPane.set("content", tree);
+                    
+                    aspect.around(store, "put", function(originalPut){
+                        return function(obj, options) {
+                            var result = false;
+
+                            if(options && options.parent){
+                                obj.parent = options.parent.id;
+                            }
+                            if (options.noDnd) {
+                                result = true;
+                            }
+                            else {
+                                var allJson = utils.jsonFromStorage();
+                                var itemJson = utils.itemJsonById(allJson, obj.id);
+                                var oldParentJson = utils.parentJsonByItemId(allJson, obj.id);
+                                var newParentJson = utils.itemJsonById(allJson, options.parent.id);
+                                if (oldParentJson && newParentJson) {
+                                    var oldItems = oldParentJson.items;
+                                    var newItems = newParentJson.items;
+                                    if (oldItems && newItems) {
+                                        for (var itemIndex = 0; itemIndex < oldItems.length; itemIndex++) {
+                                            if (oldItems[itemIndex].id == obj.id) {
+                                                oldItems.splice(itemIndex, 1);
+                                                break;
+                                            }
+                                        }
+                                        newItems.push(itemJson);
+                                        utils.jsonToStorage(allJson);
+                                        return originalPut.call(store, obj, options);
+                                    }
+                                }
+                            }
+                            if (result) {
+                                return originalPut.call(store, obj, options);
+                            }
+                            else {
+                                return false;
+                            }
+                        }
+                    });
+
                     deferred.resolve();
                 }
                 else {
-                    onError();
+                    deferred.reject(dict.get("navigator.CannotStartNavigator"));
                 }
             };
-            
-            var url = getUrl({command: "getall"});
-            request(url).then(onSuccess, onError);
+           
+            var allJson = utils.jsonFromStorage();
+            if (allJson) {
+                onAllJson(allJson);
+            }
+            else {
+                var allName = utils.getAllName();
+                var url = "/json/" + allName + ".json";
+                utils.showStandby();
+                request(url).then(function(allString) {
+                    utils.hideStandby();
+                    allJson = JSON.parse(allString);
+                    utils.jsonToStorage(allJson);
+                    onAllJson(allJson);
+                });
+            }
+
             return deferred.promise;
         },
 
-        expandTo: function(item) {
-            var path = [ item.id ];
-            var parent = this.itemById(item.parent);
-            while (parent) {
-                path.splice(0, 0, parent.id);
-                parent = this.itemById(parent.parent);
-            }
-            tree.set("path", path);
-        },
-        
         newFolder: function() {
-            var navigator = this;
             var deferred = new Deferred();
+            var navigator = this;
+
+            var addFolder = function(parentId, name) {
+                var allJson = utils.jsonFromStorage();
+                var parentJson = utils.itemJsonById(allJson, parentId);
+                if (parentJson) {
+                    var maxId = utils.getMaxId(allJson, 0);
+                    var itemId = (parseInt(maxId) + 1).toString();
+                    var childrenJson = parentJson.items;
+                    if (Array.isArray(childrenJson)) {
+                        var itemJson = { id: itemId, type: 'd', name: name, items: [] };
+                        childrenJson.push(itemJson);
+                        utils.jsonToStorage(allJson);
+                        return itemId;
+                    }
+                }
+                return null;
+            }
             
             showItemNamePane(dict.get("navigator.EnterFolderName"),
                     dict.get("navigator.InvalidName")).then(function() {
                 var parent;
-                var onError = function(server) {
-                    utils.hideStandby();
-                    var message = server ? dict.get("navigator.CannotCreateFolderServer") :
-                        dict.get("navigator.CannotCreateFolderDb");
-                    deferred.reject(message);
-                };
 
-                var onSuccess = function(webdata) {
-                    utils.hideStandby();
-                    var id = $.trim(webdata);
+                var onFolderAdded = function(id) {
                     if (!isNaN(parseInt(id))) {
-                        var item = { id: id, parent: parent.id, type: 'd', name: name };
+                        var item = { id: id, parent: parent.id, type: 'd', name: name};
                         store.put(item, {
                             overwrite: true,
                             parent: parent,
                             noDnd: true
                         });
-                        navigator.expandTo(item);
                         deferred.resolve();
                     }
                     else {
-                        onError();
+                        deferred.reject(dict.get("navigator.CannotCreateFolder"));
                     }
                 };
+
                 
                 var name = $.trim(itemNameTextBox.get("value"));
                 if (tree.selectedItem) {
@@ -310,10 +345,8 @@ define([
                         }
                     });
                     if (!duplicate) {
-                        var url = getUrl({command: "add", parent_id: parent.id, type: 'd',
-                            name: name});
-                        utils.showStandby();
-                        request(url).then(onSuccess, onError);
+                        var id = addFolder(parent.id, name);
+                        onFolderAdded(id);
                     }
                     else {
                         deferred.reject(dict.get("navigator.CannotCreateFolderExists", name));
@@ -323,93 +356,74 @@ define([
             return deferred.promise;
         },
 
-        getSelectedItem: function() {
-            return tree && tree.selectedItem;
-        },
-
-        selectItem: function(id) {
-            var item = this.itemById(id);
-            if (item) {
-                this.expandTo(item);
-                tree.set("selectedItem", item);
-            }
-        },
-        
         open: function(id) {
             var deferred = new Deferred();
             var navigator = this;
             if (!id) {
                 id = navigator.getSelectedItem().id;
             }
-            var url = getUrl({command: "getcontent", table: "samples", id: id});
             var item = navigator.itemById(id);
-
-            var onSuccess = function(webdata) {
-                utils.hideStandby();
-                var results = { content: webdata, id: id };
+            var allJson = utils.jsonFromStorage();
+            var itemJson = utils.itemJsonById(allJson, id);
+            if (itemJson) {
                 tree.set("selectedItem", item);
+                var results = { content: itemJson.content, id: id };
                 deferred.resolve(results);
-            };
-
-            var onError = function() {
-                utils.hideStandby();
+            }
+            else {
                 deferred.reject(dict.get("navigator.CannotOpenFile"));
-            };
-            
-            utils.showStandby();
-            request(url).then(onSuccess, onError);
+            }
+
             return deferred.promise;
         },
 
-        save: function(entity) {
+        save: function(doc) {
+            var deferred = new Deferred();
             if (!mainContainer.isNavigatorVisible()) {
                 mainContainer.toggleNavigator();
             }
-            var deferred = new Deferred();
-
-            var onSuccess = function(webdata) {
-                utils.hideStandby();
-                var result = $.trim(webdata);
-                if (result == "OK") {
-                    deferred.resolve();
-                }
-                else {
-                    onError();
-                }
-            };
-            
-            onError = function() {
-                utils.hideStandby();
-                deferred.reject(dict.get("navigator.CannotSaveFile"));
-            };
-
-            var id = entity.navigatorItemId;
+            var id = doc.navigatorItemId;
             if (id) {
-                var json = entity.toJson();
-                var content = JSON.stringify(json);
-                var url = getUrl({command: "setcontent", id: id});
-                
-                utils.showStandby();
-                request(url, { method: "POST", data: content }).then(onSuccess, onError);
+                var allJson = utils.jsonFromStorage();
+                var itemJson = utils.itemJsonById(allJson, id);
+                itemJson.content = doc.toJson();
+                utils.jsonToStorage(allJson);
+                deferred.resolve();
                 return deferred.promise;
             }
             else {
-                return this.saveAs(entity);
+                return this.saveAs(doc);
             }
         },
 
         saveAs: function(entity) {
-            var navigator = this;
             var deferred = new Deferred();
+            var navigator = this;
             var name;
             var entityType = entity instanceof GProblem ? 'p' :
                 (entity instanceof GSolution ? 's': 'f');
-            
+
+            var addEntity = function(parentId, entityType, name, content) {
+                var allJson = utils.jsonFromStorage();
+                var parentJson = utils.itemJsonById(allJson, parentId);
+                if (parentJson) {
+                    var maxId = utils.getMaxId(allJson, 0);
+                    var itemId = (parseInt(maxId) + 1).toString();
+                    var childrenJson = parentJson.items;
+                    if (Array.isArray(childrenJson)) {
+                        var itemJson = { id: itemId, type: entityType, name: name, content: content };
+                        childrenJson.push(itemJson);
+                        utils.jsonToStorage(allJson);
+                        return itemId;
+                    }
+                }
+                return null;
+            };
+
             showItemNamePane(dict.get("navigator.EnterFileName"),
                     dict.get("navigator.InvalidName")).then(function() {
-                var onSuccess = function(webdata) {
-                    utils.hideStandby();
-                    var id = $.trim(webdata);
+
+                var onSuccess = function(id) {
                     if (!isNaN(parseInt(id))) {
                         var item = { id: id, parent: parent.id, type: entityType, name: name};
                         store.put(item, {
@@ -430,7 +444,6 @@ define([
                 };
 
                 var onError = function(err) {
-                    utils.hideStandby();
                     deferred.reject(err || dict.get("navigator.CannotSaveFile"));
                 };
 
@@ -458,11 +471,8 @@ define([
                     });
                     if (!duplicate) {
                         var json = entity.toJson();
-                        var content = JSON.stringify(json);
-                        var url = getUrl({command: "add", parent_id: parent.id, type: entityType,
-                            name: name});
-                        utils.showStandby();
-                        request(url, { method: "POST", data: content }).then(onSuccess, onError);
+                        var id = addEntity(parent.id, entityType, name, json);
+                        onSuccess(id);
                     }
                     else if (duplicate == "folder") {
                         onError(dict.get("navigator.CannotSaveFolderExists", name));
@@ -480,55 +490,45 @@ define([
             });
             return deferred.promise;
         },
-        
+
         rename: function() {
             var deferred = new Deferred();
             var item = tree.selectedItem;
             if (item) {
                 showItemNamePane(dict.get("navigator.EnterNewName"), dict.get("navigator.InvalidName")).then(function() {
-                    parent = store.query({id: item.parent})[0];
-                    var name = itemNameTextBox.get("value");
 
-                    var doRename = function() {
-                        var url = getUrl({command: "rename", id: item.id, name: name});
-
-                        var onError = function(server) {
-                            utils.hideStandby();
-                            var message;
-                            if (server) {
-                                message = item.type == 'd' ?
-                                    dict.get("navigator.CannotRenameFolderServer") :
-                                    dict.get("navigator.CannotRenameFileServer");
-                            }
-                            else {
-                                message = item.type == 'd' ?
-                                    dict.get("navigator.CannotRenameFolderDb") :
-                                    dict.get("navigator.CannotRenameFileDb");
-                            }
-                            deferred.reject(message);
-                        };
-                        
-                        var onSuccess = function(webdata) {
-                            utils.hideStandby();
-                            result = $.trim(webdata);
-                            if (result == "OK") {
-                                item.name = name;
-                                store.put(item, {
-                                    overwrite: true,
-                                    parent: parent,
-                                    noDnd: true
-                                });
-                                deferred.resolve(item);
-                            }
-                            else {
-                                onError();
-                            }
-                        };
-                        
-                        utils.showStandby();
-                        request(url).then(onSuccess, onError);
+                    var onSuccess = function() {
+                        item.name = name;
+                        store.put(item, {
+                            overwrite: true,
+                            parent: parent,
+                            noDnd: true
+                        });
+                        deferred.resolve(item);
                     };
 
+                    var onError = function() {
+                        var message = item.type == 'd' ?
+                                dict.get("navigator.CannotRenameFolder") :
+                                dict.get("navigator.CannotRenameFile");
+                        deferred.reject(message);
+                    };
+
+                    var renameItem = function(id, name) {
+                        var allJson = utils.jsonFromStorage();
+                        var itemJson = utils.itemJsonById(allJson, id);
+                        if (itemJson) {
+                            itemJson.name = name;
+                            utils.jsonToStorage(allJson);
+                            onSuccess();
+                        }
+                        else {
+                            onError();
+                        }
+                    };
+
+                    parent = store.query({id: item.parent})[0];
+                    var name = itemNameTextBox.get("value");
                     if (parent) {
                         model.getChildren(parent, function(children) {
                         var duplicate;
@@ -539,7 +539,7 @@ define([
                                 }
                             });
                             if (!duplicate) {
-                                doRename();
+                                renameItem(item.id, name);
                             }
                             else {
                                 var message = item.type == 'd' ?
@@ -550,73 +550,49 @@ define([
                         });
                     }
                     else {
-                        doRename();
+                        renameItem(item.id, name);
                     }
                 });
             }
             return deferred.promise;
         },
         
-        isSelectedItemRemovable: function() {
-            if (tree) {
-                var item = tree.selectedItem;
-                return item && item.id != root.id;
-            }
-            return false;
-        },
-        
         remove: function() {
             var deferred = new Deferred();
             var item = tree.selectedItem;
-            var url = getUrl({command: "delete", id: item.id});
-            
-            var onError = function(server) {
-                utils.hideStandby();
-                var message;
-                if (server) {
-                    message = item.type == 'd' ? dict.get("navigator.CannotDeleteFolderServer") :
-                        dict.get("navigator.CannotDeleteFileServer");
-                }
-                else {
-                    message = item.type == 'd' ? dict.get("navigator.CannotDeleteFolderDb") :
-                        dict.get("navigator.CannotDeleteFileDb");
-                }
-                deferred.reject(message);
-            };
 
-            var onSuccess = function(webdata) {
-                utils.hideStandby();
-                result = $.trim(webdata);
-                if (result == "OK") {
-                    store.remove(item.id);
-                    deferred.resolve();
+            var removeItem = function(id) {
+                var allJson = utils.jsonFromStorage();
+                var parentJson = utils.parentJsonByItemId(allJson, id);
+                if (parentJson) {
+                    var itemsJson = parentJson.items;
+                    for (var itemIndex = 0; itemIndex < itemsJson.length; itemIndex++) {
+                        if (itemsJson[itemIndex].id == id) {
+                            itemsJson.splice(itemIndex, 1);
+                            break;
+                        }
+                    }
+                    utils.jsonToStorage(allJson);
+                    return true;
                 }
-                else {
-                    onError();
-                }
+                return false;
             };
             
-            utils.showStandby();
-            request(url).then(onSuccess, onError);
+            if (removeItem(item.id)) {
+                store.remove(item.id);
+                deferred.resolve();
+            }
+            else {
+                var message = item.type == 'd' ? dict.get("navigator.CannotDeleteFolder") :
+                        dict.get("navigator.CannotDeleteFile");
+                deferred.reject(message);
+            }
+            
             return deferred.promise;
         },
 
         itemById: function(id) {
             return store.query({id: id})[0];
-        },
-        
-        isReadOnly: function() {
-            var deferred = new Deferred();
-            var navigator = this;
-            var url = getUrl({command: "isreadonly"});
-
-            var onSuccess = function(webdata) {
-                var readOnly = webdata.trim().toLowerCase() == "true";
-                deferred.resolve(readOnly);
-            };
-
-            request(url).then(onSuccess);
-            return deferred.promise;
         },
 
         startUp: function() {

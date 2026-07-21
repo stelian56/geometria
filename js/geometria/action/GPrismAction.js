@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -126,6 +126,10 @@ define([
             var outProps = apply(props);
             mainContainer.setDocumentModified(true);
             return outProps;
+        },
+        
+        updateState: function() {
+            this.base.enabled = mainContainer.currentDocument;
         },
         
         undo: function(props) {

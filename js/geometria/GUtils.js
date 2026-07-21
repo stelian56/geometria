@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -280,15 +280,6 @@ define([
             return colorCss;
         },
         
-        resolveMacros: function(text) {
-            var yearMacro = "${year}";
-            var resolvedText = text;
-            while (resolvedText.indexOf(yearMacro) > -1) {
-                resolvedText = resolvedText.replace(yearMacro, new Date().getFullYear());
-            }
-            return resolvedText;
-        },
-        
         getQueryParams: function() {
             var params = {};
             var query = window.location.search;
@@ -303,6 +294,86 @@ define([
                 });
             }
             return params;
+        },
+                
+        getAllName: function() {
+            var lang = dict.language || "en";
+            return "geometria-" + lang;
+        },
+
+        jsonFromStorage: function() {
+            var allName = this.getAllName();
+            var allString = localStorage.getItem(allName);
+            if (allString) {
+                return JSON.parse(allString);
+            }
+            return null;
+        },
+            
+        jsonToStorage: function(json) {
+            var allName = this.getAllName();
+            var allString = JSON.stringify(json);
+            localStorage.setItem(allName, allString);
+        },
+
+        getMaxId: function(json, maxId) {
+            if (typeof json == 'object' && json != null) {
+                for (var key in json) {
+                    if (key === 'id') {
+                        var id = json[key];
+                        if (parseInt(id) > parseInt(maxId)) {
+                            maxId = id;
+                        }
+                    }
+                    else {
+                        maxId = this.getMaxId(json[key], maxId);
+                    }
+                }
+            }
+            else if (Array.isArray(json)) {
+                for (var childJson of json) {
+                    maxId = this.getMaxId(childJson, maxId);
+                }
+            }
+            return maxId;
+        },
+
+        itemJsonById: function(json, targetId) {
+            if (json) {
+                if (json.id == targetId) {
+                    return json;
+                }
+                if (typeof json == 'object') {
+                    var itemsJson = json.items;
+                    if (Array.isArray(itemsJson)) {
+                        for (var itemJson of itemsJson) {
+                            var result = this.itemJsonById(itemJson, targetId);
+                            if (result) {
+                                return result;
+                            }
+                        }
+                    }
+                }
+            }
+            return null;
+        },
+
+        parentJsonByItemId: function(json, id) {
+            if (typeof json == 'object') {
+                var itemsJson = json.items;
+                if (Array.isArray(itemsJson)) {
+                    for (var itemJson of itemsJson) {
+                        if (itemJson.id == id) {
+                            return json;
+                        }
+                        var result = this.parentJsonByItemId(itemJson, id);
+                        if (result) {
+                            return result;
+                        }
+                    }
+                }
+            }
+            return null;
         }
     };
 });

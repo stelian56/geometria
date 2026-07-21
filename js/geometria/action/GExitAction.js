@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -11,8 +11,6 @@ define([
     "geometria/GMainContainer"
 ], function(Deferred, dict, mainContainer) {
 
-    var url = "http://localhost/geometria";
-
     return {
 
         label: dict.get("action.Exit"),
@@ -20,10 +18,15 @@ define([
         execute: function() {
             var deferred = new Deferred();
             mainContainer.onCloseDocument().then(function() {
-                window.document.location = url;
+                window.document.open();
+                window.document.close();
                 deferred.resolve();
             });
             return deferred.promise;
+        },
+        
+        updateState: function() {
+            this.base.enabled = true;
         }
     };
 });

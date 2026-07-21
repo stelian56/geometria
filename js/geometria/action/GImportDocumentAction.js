@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2000-2014 Geometria Contributors
+ * Copyright 2000-2026 Geometria Contributors
  * http://geocentral.net/geometria
  * 
  * Geometria is free software released under the MIT License
@@ -9,6 +9,7 @@ define([
     "dojo/Deferred",
     "dijit/layout/ContentPane",
     "dijit/layout/LayoutContainer",
+    "geometria/GNavigator",
     "geometria/GActions",
     "geometria/GCalculator",
     "geometria/GDictionary",
@@ -20,7 +21,7 @@ define([
     "geometria/GProblemText",
     "geometria/GSolution",
     "geometria/GWidgets"
-], function(Deferred, ContentPane, LayoutContainer, actions, calculator, dict,
+], function(Deferred, ContentPane, LayoutContainer, navigator, actions, calculator, dict,
             figuresContainer, logContainer, mainContainer, notepadContainer, GProblem, problemText,
             GSolution, widgets) {
 
@@ -96,7 +97,11 @@ define([
                     if (apply(content)) {
                         actions.clearActionQueue();
                         problemText.documentChanged();
-                        window.document.title = "Geometria: " + dict.get("UntitledProblem");
+                        var key = mainContainer.currentDocument instanceof GProblem ? "UntitledProblem"
+                                : "UntitledSolution";
+                        window.document.title = "Geometria: " + dict.get(key);
+                        mainContainer.setDocumentModified(true);
+                        navigator.selectItem(null);
                         deferred.resolve();
                     }
                     else {
@@ -106,6 +111,10 @@ define([
                 });
             });
             return deferred.promise;
+        },
+        
+        updateState: function() {
+            this.base.enabled = true;
         }
     };
 });
