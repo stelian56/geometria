@@ -33,7 +33,7 @@ Firefox
 <sect2 id="PlayOnline">
 <title>Play Online</title>
 You need to be connected to the Internet in order to load the Geometria page. However, once the page is loaded,
-you will be opening and saving all the files locally on your computer.
+you will be opening and saving all the files from and to your browser's cache.
 <itemizedlist>
 <listitem>
 Point your web browser to the Geometria <ulink url="https://geocentral.net/geometria">home page</ulink>.
@@ -72,6 +72,23 @@ to start a local web server.
 Point your browser to <emphasis>localhost:8080</emphasis> to open Geometria.
 </listitem>
 </itemizedlist>
+</sect2>
+<sect2 id="SaveFiles">
+<title>Save Files Indefinitely</title>
+
+<para>
+Whether you play Geometria online or offline, your file changes will be lost when your browser's cache is cleared.
+For instance, when you instruct your browser to
+<emphasis>Delete browsing data</emphasis>, the changes your made to Geometria files
+will be deleted and a fresh copy of the original sample problems and solutions will be downloaded.
+</para>
+
+<para>
+To save a file indefinitely, <link linkend="ExportDocument">export</link> it and save its content in your computer's file
+system or remotely.
+Then you can always <link linkend="ImportDocument">import</link> the saved document back and have it stored in your browser's cache.
+</para>
+
 </sect2>
 </sect1>
 
