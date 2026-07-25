@@ -33,7 +33,7 @@ Firefox
 <sect2 id="PlayOnline">
 <title>Ejecutar en Línea</title>
 Necesitas estar conectado a Internet para cargar la página de Geometria. Sin embargo, una vez cargada la página,
-abrirás y guardarás todos los archivos localmente en tu ordenador.
+abrirás y guardarás todos los archivos desde y hacia la caché de tu navegador.
 <itemizedlist>
 <listitem>
 Dirige el navegador a <ulink url="https://geocentral.net/geometria/es">la página de inicio</ulink> de Geometria.
@@ -47,19 +47,19 @@ Haz clic en <emphasis>Ejecuta</emphasis> para abrir Geometria.
 <title>Ejecutar sin Conexión</title>
 <itemizedlist>
 <listitem>
-Instale <ulink url="https://nodejs.org/en/download">node.js</ulink>.
+Instala <ulink url="https://nodejs.org/en/download">node.js</ulink>.
 </listitem>
 <listitem>
 Dirige el navegador a <ulink url="https://geocentral.net/geometria/es">la página de inicio</ulink> de Geometria.
 </listitem>
 <listitem>
-Has clic en <emphasis>Descarga</emphasis>.
+Haz clic en <emphasis>Descarga</emphasis>.
 </listitem>
 <listitem>
 Descomprime el archivo.
 </listitem>
 <listitem>
-Abra una ventana de terminal en el directorio resultante.
+Abre una ventana de terminal en el directorio resultante.
 </listitem>
 <listitem>
 Ejecuta
@@ -72,6 +72,28 @@ para iniciar un servidor web local.
 Dirige el navegador a <emphasis>localhost:8080</emphasis> para abrir Geometria.
 </listitem>
 </itemizedlist>
+</sect2>
+<sect2 id="SaveFiles">
+<title>Guardar los archivos indefinidamente</title>
+
+<para>
+Tanto si ejecutas a Geometria en línea como sin conexión, los cambios que hayas realizado en tus archivos se perderán cuando borres la caché de tu navegador.
+
+Por ejemplo, cuando le indicas a tu navegador que:
+<emphasis>Elimine los datos de navegación</emphasis>,
+los cambios que hayas realizado en los archivos de Geometria se eliminarán
+y se descargará una copia nueva de los problemas y soluciones de ejemplo originales.
+</para>
+
+<para>
+Para guardar un archivo indefinidamente,
+<link linkend="ExportDocument">expórtelo</link>
+y guarde su contenido en el sistema de archivos de su computadora o de forma remota.
+Luego siempre puedes
+<link linkend="ImportDocument">importar</link>
+el documento guardado y almacenarlo en la caché de tu navegador.
+</para>
+
 </sect2>
 </sect1>
 
@@ -117,11 +139,14 @@ Geometria ofrece una interfaz gráfica para crear y resolver problemas de geomet
 <title>Edición y Resolución</title>
 
 <para>
-Por ahora, quienes emplean Geometria se dedican a plantear desde la edición o a resolver problemas. Son, entonces la:
-<emphasis>Edición</emphasis>
-(tarea Docente) del planteo y la
-<emphasis>Resolución</emphasis>
-(Estudiante en general).
+En uno u otro momento, quien estuviera ejecutando Geometria podría dedicarse a la edición del planteo de un problema (quien
+<emphasis>Edita</emphasis>
+actúa como
+<emphasis>Docente</emphasis>)
+o a la resolución del problema (quien
+<emphasis>Resuelve</emphasis>
+actúa como
+<emphasis>Estudiante</emphasis>).
 </para>
 
 </sect2>
@@ -405,17 +430,17 @@ se
 la definición de la variable
 <emphasis>miDistancia</emphasis>
 <link linkend="CreatingAVariable">referida</link>
-devendrá obsoleta. Ídem si la figura
+devendría obsoleta. Ídem si la figura
 <emphasis>MiCubo</emphasis>
 se
-<link linkend="Transform">transforma</link>
+<link linkend="Transform">transformara</link>
 o
-<link linkend="Removefigure">borra</link>.
-Tal variable queda <emphasis>extraviada</emphasis>.
+<link linkend="Removefigure">borrara</link>.
+En ambos casos, tal variable quedaría <emphasis>extraviada</emphasis>.
 </para>
 
 <para>
-Una variable extraviada tiene un valor fijo ya no más dependiente de su definición original. Por ejemplo,
+Una variable extraviada toma un valor fijo ya no más dependiente de su definición original. Por ejemplo,
 <link linkend="EraseElements">borrar</link>
 el punto
 <emphasis>P</emphasis>
@@ -1036,8 +1061,8 @@ irregulares. A continuación se anotan algunas indicaciones para mantener a salv
 
 <listitem>
 Evitar los factores demasiado grandes (mayores de 100) o chicos (menores que 0.01)
-<link linkend="Scalefigure">scaling</link>
-al escalar figuras. 
+<link linkend="Scalefigure">al escalar</link>
+figuras. 
 </listitem>
 
 <listitem>
@@ -4111,16 +4136,17 @@ Esta acción se puede
 </para>
 
 <para>
-Quien
-<link linkend="EditorsAndSolvers">resuelve</link>
-no puede escalar una figura que es parte del problema. Sin embargo, la figuras creada
-mientras se está resolviendo el problema se puede redimensionar.
+Durante la
+<link linkend="EditorsAndSolvers">resolución</link>
+no puede escalarse una figura que es parte del problema. Sin embargo, las figuras
+que hubieran sido creadas durante el proceso de resolución del problema, se pueden
+redimensionar.
 </para>
 
 <para>
 Una figura no puede redimensionarse durante la 
 <link linkend="Playback">reproducción</link> de la solución 
-Primero, hay que detenerla. 
+Primero, hay que detenerla la reproducción de la resolución. 
 </para>
 
 <para>
