@@ -62,11 +62,10 @@ Descomprime el archivo.
 Abre una ventana de terminal en el directorio resultante.
 </listitem>
 <listitem>
-Ejecuta
+Para iniciar un servidor web local, ejecuta
 <programlisting>
 npx http-server
 </programlisting>
-para iniciar un servidor web local.
 </listitem>
 <listitem>
 Dirige el navegador a <emphasis>localhost:8080</emphasis> para abrir Geometria.
@@ -74,7 +73,7 @@ Dirige el navegador a <emphasis>localhost:8080</emphasis> para abrir Geometria.
 </itemizedlist>
 </sect2>
 <sect2 id="SaveFiles">
-<title>Guardar los archivos indefinidamente</title>
+<title>Guarda los archivos indefinidamente</title>
 
 <para>
 Tanto si ejecutas a Geometria en línea como sin conexión, los cambios que hayas realizado en tus archivos se perderán cuando borres la caché de tu navegador.
@@ -87,8 +86,8 @@ y se descargará una copia nueva de los problemas y soluciones de ejemplo origin
 
 <para>
 Para guardar un archivo indefinidamente,
-<link linkend="ExportDocument">expórtelo</link>
-y guarde su contenido en el sistema de archivos de su computadora o de forma remota.
+<link linkend="ExportDocument">expórtalo</link>
+y guarda su contenido en el sistema de archivos de tu computadora o de forma remota.
 Luego siempre puedes
 <link linkend="ImportDocument">importar</link>
 el documento guardado y almacenarlo en la caché de tu navegador.
@@ -245,7 +244,7 @@ El vértice Z en la figura MiCubo.
 <para>
 Si tal disparate se hubiera planteado en la
 <link linkend="EditorsAndSolvers">Edición</link>
-como respuesta correcta al problema, Geometria la dejará registrada como tal
+como respuesta correcta al problema, Geometria la dejará registrada como tal.
 La desestimarán, posiblemente, quienes se dediquen a la
 <link linkend="EditorsAndSolvers">resolución</link>.
 </para>
@@ -269,7 +268,7 @@ Las figuras se limitan a representar poliedros convexos. Las figuras pueden
 <link linkend="Transform">transformarse</link>,
 <link linkend="Rotatefigure">rotarse</link>,
 <link linkend="ViewModes">apreciarse</link>
-como estructura simple o etiquetada,
+como estructura simple o etiquetada y/o
 <link linkend="Printfigure">imprimirse</link>.
 </para>
 
@@ -393,8 +392,9 @@ se reserva para la relación
 <ulink url="http://en.wikipedia.org/wiki/Pi">entre la longitud de una circunferencia
 y su diámetro</ulink>
 y no puede usarse para nominar a cualquier
-variable creada. Sin embargo, se puede usar al operar con la
-<link linkend="Calculator">como valor.</link>.
+variable creada. Sin embargo, se la puede usar
+<link linkend="Calculator">como valor</link>
+al operar.
 </para>
 
 </sect2>
@@ -420,7 +420,7 @@ la edición del que presenta la resolución del problema.
 <title>Variable Extraviada</title>
 
 <para>
-Tras ciertas acciones, la definición de una variable puede resultar obsoleto.
+Tras ciertas acciones, la definición de una variable puede resultar obsoleta.
 Por ejemplo, si el punto
 <emphasis>P</emphasis>
 o el punto
@@ -493,7 +493,7 @@ el anotador eliminará todas las variables. Esta acción, irrevocable, debe usar
 Cuando el documento, sea un problema o una solución, se guarda,
 se guardan todas las variables registradas en el
 <link linkend="Notepad">anotador</link>
-también quedan almacenadas. 
+y también quedan almacenadas. 
 </para>
 
 </sect2>
@@ -529,9 +529,9 @@ Ver también:
 Para renombrar una variable, basta con seleccionar
 <emphasis>Renombra Variable</emphasis>
 en el menú
-<emphasis>Edita</emphasis>
-. En el cuadro de diálogo emergente, se elige la variable a renombrar de la lista desplegable,
-anotar el nuevo nombre de la variable y pulsar sobre 
+<emphasis>Edita</emphasis>.
+En el cuadro de diálogo emergente, se elige la variable a renombrar de la lista desplegable,
+se anota el nuevo nombre de la variable y se pulsa sobre 
 <emphasis>OK</emphasis>.
 Este nuevo nombre debe cumplir los requisitos para un
 <link linkend="CreatingAVariable">válido</link>
@@ -1050,7 +1050,7 @@ el botón y otro, lo repondrá nuevamente.
 <title>Detalles sobre Limitaciones</title>
 
 <sect2 id="InordinateSizeOrShape">
-<title>Medida o Forma discordantes</title>
+<title>Medidas o Formas discordantes</title>
 
 <para>
 Geometria puede caer en representaciones erráticas si las figuras contienen demasiados elementos, medidas excesivas o formas
@@ -1210,7 +1210,7 @@ Ver también:
 <para>
 Hasta que la respuesta no se hubiera ingresado durante la 
 <link linkend="EditorsAndSolvers">edición</link>,
-el problema no está listo para la resolución La respuesta de quien 
+el problema no estára listo para la resolución. La respuesta de quien 
 <link linkend="EditorsAndSolvers">resuelve</link>
 será la considerada correcta si concuerda con la anotada en la 
 <link linkend="EditorsAndSolvers">edición</link>.
@@ -1241,7 +1241,7 @@ Los cambios en la respuesta pueden
 <para>
 Se selecciona el tipo de respuesta bajo la pestaña
 <emphasis>Tipo</emphasis>
-que ofrece los siguientes:
+que ofrece las siguientes:
 </para>
 
 <itemizedlist>
@@ -1365,7 +1365,7 @@ los desestima.
 
 <para>
 
-Seleccionar la figura de destino.
+Debe seleccionarse la figura de destino.
 El plano se indica con tres rótulos separados por comas. Para facilitar el ingreso conviene
 tener algunos elementos como 3 puntos, un punto y un segmento, dos segmentos, o una cara
 <link linkend="SelectElements">indicados</link>
@@ -1638,7 +1638,7 @@ Ver también:
 </sect1>
 
 <sect1 id="Navigator">
-<title>Navigador</title>
+<title>Navegador</title>
 
 <para>
 El
@@ -1835,7 +1835,7 @@ el documento activo.
 </para>
 
 <para>
-Un clic sobre<emphasis>No</emphasis> lleva a cerrar
+Un clic sobre <emphasis>No</emphasis> lleva a cerrar
 el documento activo sin guardarlo. Todas las modificaciones no guardadas 
 del documento activo se perderán.
 </para>
@@ -1983,13 +1983,13 @@ indicar si el problema activo debe guardarse antes de cerrarlo.
 </para>
 
 <para>
-Un clic sobre<emphasis>Sí</emphasis> pasa a guardar 
+Un clic sobre <emphasis>Sí</emphasis> pasa a guardar 
 el problema activo. Se estará resolviendo la versión del 
 problema recién guardado.
 </para>
 
 <para>
-Un clic sobre<emphasis>No</emphasis> cierra
+Un clic sobre <emphasis>No</emphasis> cierra
 el problema activo sin guardar. Todas las modificaciones no guardadas 
 del problema activo se perderán y se estará resolviendo
 un problema diferente del menú que el abierto con el 
@@ -1997,7 +1997,7 @@ un problema diferente del menú que el abierto con el
 </para>
 
 <para>
-Un clic sobre<emphasis>Cancela</emphasis> descartará el cuadro de diálogo
+Un clic sobre <emphasis>Cancela</emphasis> descartará el cuadro de diálogo
 sin ejecutar acción alguna.
 </para>
 
@@ -2155,7 +2155,7 @@ Ver también:
 <title>Reproducción</title>
 
 <para>
-Mientras que 
+Mientras quien  
 <link linkend="EditorsAndSolvers">resuelve</link>
 progresa hacia la solución, sus acciones quedan almacenadas en el registro de la solución. Una solución
 <link linkend="SaveSolution">guardada</link>
@@ -2200,7 +2200,7 @@ correspondiente.
 
 <para>
 Para comentar un paso de la solución, basta un doble clic sobre el casillero derecho 
-de la etapa. Se desplegará un cuadro de diálogo. Tras anotar el comentario, de debe pulsar
+de la etapa. Se desplegará un cuadro de diálogo. Tras anotar el comentario, se debe pulsar
 <emphasis>OK</emphasis>.
 Un clic sobre 
 <emphasis>Cancela</emphasis>
@@ -2282,7 +2282,7 @@ Primero, hay que detenerla.
 </sect2>
 
 <sect2 id="ImportDocument">
-<title>Importa Documento</title>
+<title>Importar Documento</title>
 
 <para>
 Para importar el documento que se hubiera compartido, basta abrir un editor de texto,
@@ -2301,18 +2301,18 @@ se indique si el documento activo debe guardarse antes de cerrarlo.
 </para>
 
 <para>
-Un clic sobre<emphasis>Sí</emphasis> lleva a guardar 
+Un clic sobre <emphasis>Sí</emphasis> lleva a guardar 
 el documento activo. 
 </para>
 
 <para>
-Un clic sobre<emphasis>No</emphasis> lleva a cerrar
+Un clic sobre <emphasis>No</emphasis> lleva a cerrar
 el documento activo sin guardarlo. Todas las modificaciones no guardadas 
 del documento activo se perderán.
 </para>
-
+f
 <para>
-Un clic sobre<emphasis>Cancela</emphasis> descartará el cuadro de diálogo
+Un clic sobre <emphasis>Cancela</emphasis> descartará el cuadro de diálogo
 sin ejecutar acción alguna.
 </para>
 
@@ -2421,7 +2421,7 @@ Ver también:
 <link linkend="Newfigure">Nueva Figura</link>
 </listitem>
 <listitem>
-<link linkend="Savefigure">Guardar Figura</link>
+<link linkend="Savefigure">Guarda Figura</link>
 </listitem>
 <listitem>
 <link linkend="Undo">Deshacer Acciones</link>
@@ -2432,7 +2432,7 @@ Ver también:
 </sect1>
 
 <sect1 id="Clonefigure">
-<title>Reproducir Figura</title>
+<title>Reproduce Figura</title>
 
 <para>
 Para reproducir una figura, basta seleccionar 
@@ -2474,7 +2474,7 @@ Ver también:
 </sect1>
 
 <sect1 id="Savefigure">
-<title>Guardar Figura</title>
+<title>Guarda Figura</title>
 
 <para>
 Para guardar una figura, basta seleccionarla en el documento activo, y pasar a 
@@ -3076,7 +3076,7 @@ de la barra de herramientas. Debe elegirse un color en el cuadro emergente y cli
 
 <para>
 El color de una figura no puede cambiarse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3161,7 +3161,7 @@ Ver también:
 <title>Medida</title>
 
 <sect2 id="MeasureDistance">
-<title>Medir Distancia</title>
+<title>Mide Distancia</title>
 
 <para>
 Para medir la distancia entre dos puntos,basta
@@ -3208,8 +3208,8 @@ Esta acción se puede
 </para>
 
 <para>
-Las distancias no puede medirse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+Las distancias no pueden medirse durante la 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3287,8 +3287,8 @@ Esta acción se puede
 </para>
 
 <para>
-Los ángulos no puede medirse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+Los ángulos no pueden medirse durante la 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3367,8 +3367,8 @@ Ver también:
 </para>
 
 <para>
-No se puede calcular áreas durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+No se pueden calcular áreas durante la 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3392,7 +3392,7 @@ Primero, hay que detenerla.
 </sect2>
 
 <sect2 id="ComputeTotalArea">
-<title>Calcula Área Total</title>
+<title>Cálculo de Área Total</title>
 
 <para>
 Para calcular el área total de la superficie de una figura, basta seleccionar 
@@ -3428,7 +3428,7 @@ Esta acción se puede
 
 <para>
 El área total no puede calcularse durante la
-<link linkend="Playback">reproducción</link> de la solución 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3493,7 +3493,7 @@ Esta acción se puede
 
 <para>
 El volumen no puede calcularse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3554,8 +3554,8 @@ Esta acción se puede
 </para>
 
 <para>
-Los puntos no puede unirse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+Los puntos no pueden unirse durante la 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3577,7 +3577,7 @@ Ver también:
 </sect2>
 
 <sect2 id="DrawPerpendicular">
-<title>Trazar Perpendicular</title>
+<title>Traza Perpendicular</title>
 
 <para>
 Para trazar la perpendicular a un segmento que pasa por un punto, basta
@@ -3594,7 +3594,7 @@ de la barra de herramientas.
 </para>
 
 <para>
-El punto y el segmento deben pertenecer a la misma cara. El punto pueden o no
+El punto y el segmento deben pertenecer a la misma cara. El punto puede o no
 pertenecer al segmento.
 </para>
 
@@ -3615,7 +3615,7 @@ Esta acción se puede
 
 <para>
 No se pueden trazar perpendiculares durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3654,7 +3654,7 @@ de la barra de herramientas.
 </para>
 
 <para>
-Se desplegará un cuadro de diálogo. Se debe completar, de ser necesario, los rótulos de puntos faltantes y anotar 
+Se desplegará un cuadro de diálogo. Se deben completar, de ser necesario, los rótulos de puntos faltantes y anotar 
 <link linkend="Expressions">expresiones</link> válidas 
 para el numerador y denominador de la razón. Clic
 <emphasis>OK</emphasis>.
@@ -3794,7 +3794,7 @@ Los segmentos que limitan el ángulo deben pertenecer a la misma cara.
 </para>
 
 <para>
-Se desplegará un cuadro de diálogo. Se debe completar, de ser necesario, los rótulos de puntos faltantes y anotar 
+Se desplegará un cuadro de diálogo. Se deben completar, de ser necesario, los rótulos de puntos faltantes y anotar 
 <link linkend="Expressions">expresiones</link> válidas
 para el numerador y el denominador de la razón. Clic
 <emphasis>OK</emphasis>.
@@ -3891,8 +3891,8 @@ Esta acción se puede
 </para>
 
 <para>
-Las bisectrices no puede trazarse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+Las bisectrices no pueden trazarse durante la 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3939,7 +3939,7 @@ deben pertenecer a la misma cara.
 </para>
 
 <para>
-Un cuadro puede desplegarse. Se debe completar, de ser necesario, los rótulos de puntos faltantes. Clic
+Un cuadro puede desplegarse. Se deben completar, de ser necesario, los rótulos de puntos faltantes. Clic
 <emphasis>OK</emphasis>.
 </para>
 
@@ -3950,7 +3950,7 @@ Esta acción se puede
 
 <para>
 Las intersecciones no pueden trazarse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -3994,7 +3994,7 @@ El punto puede o no pertenecer al segmento.
 </para>
 
 <para>
-Se desplegará un cuadro de diálogo. Se debe completar, de ser necesario, los rótulos de puntos faltantes y anotar una 
+Se desplegará un cuadro de diálogo. Se deben completar, de ser necesario, los rótulos de puntos faltantes y anotar una 
 <link linkend="Expressions">expresión</link> válida
 para la distancia. Clic
 <emphasis>OK</emphasis>.
@@ -4010,8 +4010,8 @@ Esta acción se puede
 </para>
 
 <para>
-Las distancias no puede trazarse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+Las distancias no pueden trazarse durante la 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -4051,7 +4051,7 @@ en la barra de herramientas.
 </para>
 
 <para>
-Se desplegará un cuadro de diálogo. Se debe completar, de ser necesario, los rótulos de puntos faltantes y anotar una 
+Se desplegará un cuadro de diálogo. Se deben completar, de ser necesario, los rótulos de puntos faltantes y anotar una 
 <link linkend="Expressions">expresión</link> válida
 para el ángulo. Clic
 <emphasis>OK</emphasis>.
@@ -4073,8 +4073,8 @@ Esta acción se puede
 </para>
 
 <para>
-Los ángulos no puede trazarse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+Los ángulos no pueden trazarse durante la 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -4145,8 +4145,8 @@ redimensionar.
 
 <para>
 Una figura no puede redimensionarse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
-Primero, hay que detenerla la reproducción de la resolución. 
+<link linkend="Playback">reproducción</link> de la solución.
+Primero, hay que detener la reproducción de la resolución. 
 </para>
 
 <para>
@@ -4210,9 +4210,9 @@ y el punto
 clic derecho y seleccionar 
 <emphasis>Shear figura</emphasis>
 del menú emergente. La alternativa es seleccionar 
-<emphasis>Shear figura</emphasis>
+<emphasis>Desliza figura</emphasis>
 del menú
-<emphasis>Transform</emphasis>
+<emphasis>Transforma</emphasis>
  o pulsar sobre el botón 
 <phrase role="geometriaIcon24 geometriaIconDoc geometriaIcon24Shear"/>
 en la barra de herramientas.
@@ -4243,7 +4243,7 @@ mientras se está resolviendo el problema se pueden deslizar.
 
 <para>
 Una figura no puede escalarse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -4268,7 +4268,7 @@ Ver también:
 </sect2>
 
 <sect2 id="Cutfigure">
-<title>Cortar Figura</title>
+<title>Corta Figura</title>
 
 <para>
 Para cortar una figura con un plano, basta
@@ -4306,7 +4306,7 @@ Esta acción se puede
 
 <para>
 Una figura no puede cortarse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
@@ -4331,7 +4331,7 @@ Ver también:
 </sect2>
 
 <sect2 id="Joinfigures">
-<title>Unir Figuras</title>
+<title>Une Figuras</title>
 
 <para>
 Para unir dos figuras por sus caras:
@@ -4391,7 +4391,7 @@ Esta acción se puede
 
 <para>
 Las figuras no pueden unirse durante la 
-<link linkend="Playback">reproducción</link> de la solución 
+<link linkend="Playback">reproducción</link> de la solución.
 Primero, hay que detenerla. 
 </para>
 
